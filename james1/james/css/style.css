@@ -1,0 +1,53 @@
+
+.container_image{width:1200px;height:445px;margin:0 auto;position:relative; padding:40px 0;}
+.container_image .i_btn{display:block;width:40px;height:90px;position:absolute;top:225px;z-index:10;background:rgba(0, 0, 0, 0.6)!important;
+filter:Alpha(opacity=60);background:#000;}
+.container_image .prev_L{left:0;background-position:0 0;}
+.container_image .next_R{right:0;background-position:-34px 0;}
+.slide_img {width:1015px;height:445px;position:relative;z-index:1;}
+.slide_img li{width:55px;height:65px;overflow:hidden;position:absolute;top:45px;border:1px solid #b2b2b3;}
+.slide_img li a{display:block;position:relative;width:100%;height:495px;}
+.slide_img li a img{position:absolute;height:100%;}
+.slide_img li.on img{width:100%;}
+.slide_img li.left{left:0;}
+.slide_img li.right{left:1000px;}
+
+
+
+
+
+
+
+
+
+
+
+
+.container {width:1200px;margin:20px auto;}
+.hub-slider {position: relative; height: 445px; }
+.hub-slider ul{width:1200px;height:445px;}
+.yellow {width:100%;height:400px;border-radius:50px;background:yellow;position:absolute;left:0;top:0;background-size:cover;}
+.white {width:100%;height:400px;border-radius:50px;background:white;position:absolute;left:0;top:0;background-size:cover;}
+.hub-slider-controls {position: absolute;  left:500px;  bottom: 0;  z-index: 1000;  }
+.hub-slider-arrow {width:100px;border-radius:10px;height:10px;border:none; background:#fff;}
+.hub-slider-arrow_next:hover{ background:#eee;}
+.hub-slider-arrow_prev:hover{ background:#eee;}
+
+
+.time{position:absolute;top:10px;right:50px;font-size:18px;display:block;width:400px;float:right;margin-right:40px; height:50px;}
+#endtime span,#etime span{margin:0 5px;background:black;color:white;border-radius:5px;text-align:center;}
+
+.kjhyuii{ width:50px;}
+
+
+
+.l_left{ float: left;}
+.l_left,.l_right{width:500px;padding:85px 50px;}
+.l_right{float: right;}
+.l_l{float: left}
+.l_r{float: right}
+.l_r label,.l_r b,.l_l label,.l_l b{display:block;font-size: 18px;color: #f84f64;margin-bottom: 30px;}
+.l_left a,.l_right a{width:100px;line-height:30px;background:#f84f64;border-radius:30px;display: block;text-align:center;color:white;font-size: 18px;}
+.content{margin-bottom: 20px;}
+.l_r p,.l_r s,.l_l p,.l_l s{display: block;color: #909090;font-size: 14px;}
+.l_left img,.l_right img{margin-left: 20px;}

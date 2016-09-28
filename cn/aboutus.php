@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title>联系我们 - 利美钻石</title>
+	<?php
+		include_once('header.php');
+	?>
+</head>
+<body>
+	<?php
+		include_once('topbar.php');
+	?>
+		<div class="div_aboutus">
+			<div class="trans">
+				<span style="color:#4f4747;">交通指引</span>
+				
+				<span class="blank">&nbsp;</span>	<span style="color:#4f4747;">乘火车：安特卫普市中央火车站（Antwerspanen-Centraal）出站后200米，安特卫普钻交所大楼入口位于spanelikaanstraat上，如您对环境不熟悉，欢迎来电，由专人带您前往本公司。</span>
+				<span class="blank">&nbsp;</span>
+				<span style="color:#4f4747;">停车：建议您使用Vestingstraat街的两家停车场(如地图所示)</span>
+				<span class="blank">&nbsp;</span>
+				<span class="sp_waring"> 注意事项：公司位于安特卫普钻交所大楼内，请每位来访客人务必携带本人护照或者欧洲所在国身份证，以供钻交所门卫安检放行之用。向安检递交身份证时请说明希望访问Belgem公司。</span>
+				<span class="blank">&nbsp;</span>
+				<span style="color:#4f4747;">为了您的方便，请您在来访前提前电话通知我们公司。</span>
+			</div>
+			<p class="p_one">Parking De Keyser</p>
+			<p class="p_two">Parking Diamant</p>
+			<div class="div_tttel">
+				<p>无论现场咨询还是提货，Beigem钻石公司都欢迎您的亲临访问。</p>
+				<p>&nbsp;</p>
+				
+				<p>电话：+32（0）3689 7394</p>
+				<p>邮箱：info@lumiagem.com</p>
+				<p>微信：请扫描右侧二维码</p>
+				<p>新浪博客：<a href="#">点击进入</a></p>
+				<p>QQ：2839145434</p>
+				<p>Skype：Belgem.antwerp</p>
+				<p>地址：Pelikaanstraat 62,2018 Antwerp Belgium(比利时安特卫普)</p>
+			</div>
+			<div class="aboutus_weixin"></div>
+		</div>
+   </div>
+   
+</body>
+</html>

@@ -1,0 +1,20 @@
+p#navi-1{
+	position:relative;
+	text-align:center;
+	color:black;
+    font-size:32px;
+}
+#navi-1 a{
+	color:black;
+	text-decoration:none;
+	font-size:32px;
+	font-family:'Helvetica neue', sans-serif;
+	font-weight:100;
+	position:relative;
+	display:inline-block;
+	top:5px;
+}
+
+button .btnshow{
+    display: none;
+}

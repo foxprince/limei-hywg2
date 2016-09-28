@@ -1,0 +1,60 @@
+@CHARSET "UTF-8";
+.div_back{
+	width:1200px;
+	height:921px;
+	margin:0 auto;
+	background:url("../images/back.png") no-repeat center center;
+}
+.a_id{
+	font-size:22px;
+	display:block;
+	font-family:"Î¢ÈíÑÅºÚ";
+	margin-left:325px;
+	margin-top:-25px;
+}
+.div_login{
+	width:600px;
+	height:700px;
+	position:fixed;
+	overflow:hidden;
+	top:40%;
+	left:50%;
+	margin-top:-225px;
+	margin-left:-300px;
+	background:url("../images/login.png") no-repeat left top;
+}
+#error-message{
+	position:fixed;
+	overflow:hidden;
+	top:44%;
+	left:50%;
+	margin-left:-80px;
+	color:red;
+	margin-top:20px;
+}
+#txt_login{
+	width:130px;
+	height:20px;
+	color:#ccc;
+	margin-left:215px;
+	margin-top:95px;
+	border-style:none;
+	background:none;
+}
+#pwd_login{
+	width:130px;
+	height:20px;
+	margin-left:215px;
+	margin-top:15px;
+	border-style:none;
+	background:none;
+}
+#sub_login{
+	width:80px;
+	height:80px;
+	margin-left:348px;
+	margin-top:20px;
+	border-style:none;
+	background:none;
+	cursor: pointer;
+}

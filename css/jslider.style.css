@@ -1,0 +1,21 @@
+.jslider_zs_text{height: 20px; background: #F5EFE3;border:#D8B34A solid 1px;}
+.jslider_zs_search{background: url("../images/shape/search.png") 22px no-repeat #BD8164; height: 23px;  width: 60px;  text-align: center;border: 0;margin-left: -5px;}
+.jslider_zs_botton{background: #BD8164;width: 80px;text-align: center;color: white;height: 23px;border: 0;}
+
+.jslider_left,.jslider_right{
+    width: 50px;background:#F5EFE3;border: #D8B34A solid 1px;text-align: center;line-height: 20px;margin-top: 10px;
+}
+.jslider_left{float: left;}
+.jslider_right{float: right;}
+
+.kedu ul{width: 305px;height: 23px;}
+.kedu ul li{float: left;width:26px;text-align: center;margin-top: 5px;}
+
+.zi ul{height: 20px;margin-left:20px;}
+.zi ul li{float: left;width: 26px;}
+
+.duicheng ul{height: 23px;width: 305px;}
+.duicheng ul li{width: 60px;float: left;text-align: center;margin-top: 5px;}
+
+.duicheng_zi ul{height: 20px;font-size: 12px;margin-left: 10px;}
+.duicheng_zi ul li{float: left;width: 70px;}

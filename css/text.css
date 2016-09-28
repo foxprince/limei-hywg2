@@ -1,0 +1,404 @@
+@CHARSET "UTF-8";
+#c{
+	   width:1200px;
+	   margin:0px auto;
+		position:relative;
+	}
+.div_head{
+	width:1200px;
+	height:241px;
+	margin:0 auto;
+	position:relative;
+	background:url("../images/head.png") no-repeat center top;
+}
+.logo{
+	position:absolute;
+	left:30px;
+	top:70px;
+}
+.div_nav{
+	position:absolute;
+	top:90px;
+	left:360px;
+}
+.div_nav ul li{
+	float:left;
+}
+.div_nav ul li a{
+	display:block;
+	font-size:14px;
+	font-weight:600;
+	color:#4f4747;
+	width:70px;
+	text-align:center;
+}
+.div_shop{
+	width:100px;
+	position:absolute;
+	float:right;
+	top:80px;
+	right:60px;
+	
+}
+.div_shop .a_comein{
+	display:block;
+	height:40px;
+	line-height:40px;
+	float:left;
+	font-size:14px;
+	font-weight:normal;
+	color:#4f4747;
+}
+.div_car{
+	width:18px;
+	height:27px;
+	float:right;
+	background:url("../images/scar.png") no-repeat;
+	position:relative;
+}
+.div_car a{
+	position:absolute;
+	font-size:10px;
+	left:6px;
+	top:-1px;
+	color:#fff;
+}
+.div_menul{
+	width:100px;
+	position:absolute;
+	top:160px;
+	left:100px;
+	z-index:999999;
+}
+.div_menul ul li a{
+	color:#373232;
+	font-size:16px;
+	height:30px;
+	line-height:30px;
+	font-weight:bold;
+}
+.div1{
+		display: none;
+		width: 100px;
+		height: auto;
+		background-color: #fff;
+		border-radius:5px;
+		margin-top:10px;
+		margin-bottom:10px;
+		-moz-border-radius:5px; /* Old Firefox */
+		-webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+		box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+.ul_2 .li_2 .a_menu2{
+	display:block;
+	text-indent:10px;
+	font-weight:bold;
+	font-size:14px;
+}
+.div2{
+	    display: none;
+	    position:absolute;
+	    top: 0px;
+	    left: 120px;
+	    width: 80px;
+	    background-color: #FFF;
+		border-radius:5px;
+		-moz-border-radius:5px; /* Old Firefox */
+		-webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+		box-shadow: 0 6px 12px rgba(0,0,0,.175);
+		z-index:9999;
+}
+.ul_3 .li_3 .a_menu3{
+	display:block;
+	margin-left:40px;
+	color:#373232;
+	font-size:12px;
+	font-weight:bold;
+	height:18px;
+	width: 60px;
+	line-height:18px;
+	text-align:center;
+
+}
+.ul_3 .li_3 .a_menu3:hover{
+	color:#b68168;
+}
+.triangle-right {
+		display: none;
+		position: absolute;
+		top: 5px;
+		left: 103px;
+	    width: 20px;
+	    height: 20px;
+		background:url("../images/three.png") no-repeat;
+		z-index:99999;
+		
+}
+.text-title{
+	width:309px;
+	height:168px;
+	position:absolute;
+	top:130px;
+	left:480px;
+	background:url("../images/text-title.png") no-repeat;
+	z-index:9999;
+}
+.text-title span{
+	font-size:16px;
+	font-weight:normal;
+	color:#4f4747;
+	display:block;
+	position:absolute;
+	top:80px;
+	left:130px;
+}
+.text-top{
+	width:814px;
+	height:622px;
+	position:absolute;
+	top:170px;
+	left:260px;
+	background:url("../images/text-top.png") no-repeat;
+}
+.row h1,.row p{
+	padding:10px 0px;
+	width:100%;
+}
+.ring{
+	position:absolute;
+	left:700px;
+}
+.div_text{
+	width:1200px;
+	margin:0 auto;
+	position:relative;
+	z-index:9999;
+}
+.div_text .text_in{
+	width:550px;
+	color:#4f4747;
+	margin-top:60px;
+	margin-left:330px;		
+}
+.div_down{
+	width:1200px;
+	margin:0 auto;
+	position:relative;
+}
+.text-bottom{
+	width:814px;
+	height:622px;
+	position:absolute;
+	left:190px;
+	top:-440px;
+	background:url("../images/text-bottom.png") no-repeat;
+}
+.div_foot{
+	width:1200px;
+	height:390px;
+	margin:0 auto;
+	position:relative;
+	background:url("../images/foot-back.png") no-repeat center bottom;
+}
+.foot_center{
+	width:1060px;
+	height:111px;
+	position:absolute;
+	top:250px;
+	left:50px;
+}
+.foot_center p{
+	font-size:11px;
+	width:315px;
+}
+.foot_l{
+	width:330px;
+	height:100px;
+	float:left;
+}
+.foot_l .bus_car{
+	text-indent:15px;
+	background:url("../images/minicar.png") no-repeat;
+}
+.foot_c{
+	width:330px;
+	height:100px;
+	float:left;
+}
+.foot_c p{
+	width:300px;
+}
+.foot_c .waring{
+	font-weight:bold;
+	font-style:italic;
+	text-indent:15px;
+	background:url("../images/waring.png") no-repeat;
+}
+.foot_r{
+	width:280px;
+	height:100px;
+	float:left;
+}
+.wei{
+	width:111px;
+	height:111px;
+	background:url("../images/2wei.png") no-repeat;
+	float:left;
+}
+
+
+/*aboutus*/
+.div_aboutus{
+	width:1200px;
+	height:676px;
+	position:absolute;
+	top:150px;
+	background:url("../images/aboutus.png") no-repeat center center;
+}
+.trans{
+	width:285px;
+	height:230px;
+	position:absolute;
+	top:125px;
+	left:125px;
+}
+.trans span{
+	display:block;
+}
+.blank{
+	height:5px;
+}
+.sp_waring{
+	color:#c69279;
+	font-style:italic;
+}
+.p_one{
+	position:absolute;
+	top:165px;
+	left:455px;
+	color:#4f4747;
+}
+.p_two{
+	position:absolute;
+	top:262px;
+	left:490px;
+	color:#4f4747;
+}
+.div_tttel{
+	width:295px;
+	height:215px;
+	position:absolute;
+	top:75px;
+	left:755px;
+	color:#4f4747;
+}
+.div_tttel p{
+	height:21px;
+}
+.aboutus_weixin{
+	width:133px;
+	height:132px;
+	position:absolute;
+	top:100px;
+	left:1000px;
+	background:url("../images/aboutus_weixin.jpg") no-repeat center center;
+}
+
+/*media*/
+.div_media{
+	width:800px;
+	height:960px;
+	margin-top:-70px;
+	margin-left:240px;
+}
+.media_ul .media_li{
+	float:left;
+}
+.media_ul .media_li a{
+	display:block;
+	width:160px;
+	height:160px;
+	color:#595252;
+}
+.a_one{
+	background:url("../images/a_one.jpg") no-repeat;
+}
+.a_four{
+	background:url("../images/a_four.jpg") no-repeat;
+}
+.a_five{
+	background:url("../images/a_five.jpg") no-repeat;
+}
+.a_six{
+	background:url("../images/a_six.jpg") no-repeat;
+}
+.a_seven{
+	background:url("../images/a_seven.jpg") no-repeat;
+}
+.a_eig{
+	background:url("../images/a_eig.jpg") no-repeat;
+}
+.a_nine{
+	background:url("../images/a_nine.jpg") no-repeat;
+}
+.a_ten{
+	background:url("../images/a_ten.jpg") no-repeat;
+}
+.media_ul .media_li a span{
+	display:block;
+	margin:0 auto;
+	overflow:hidden;
+}
+.sp_long{
+	width:140px; 
+	height:100px;
+	padding-top:30px;
+	padding-bottom:30px;
+	
+}
+.sp_short{
+	width:140px;
+	height:30px;
+	text-align:center;
+	padding-top:65px;
+	padding-bottom:65px;
+}
+/*luozuan*/
+.div_zuan{
+	width:225px;
+	height:170px;
+	margin:0 auto;
+	margin-top:-100px;
+}
+.div_zselect{
+	height:25px;
+	width:930px;
+	margin:0 auto;
+	border-bottom:solid pink 2px;
+	margin-bottom:20px;
+}
+.p_zl{
+	width:150px;
+	float:left;
+}
+.p_zr{
+	width:150px;
+	float:right;
+}
+.tb_zuan{
+	width:950px; 
+}
+.tb_zuan tr{
+	height:45px;
+}
+.tb_zuan th{
+	font-weight:bold;
+}
+.btn_in{
+	display:block;
+	width:50px;
+	height:22px;
+	line-height:22px;
+	background:#bd8165;
+	color:#fff;
+}
