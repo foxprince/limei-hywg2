@@ -6,10 +6,10 @@ function dbConnect_dia($usertype='write', $connectionType = 'pdo') {
   $db = 'sihui_belgem';
   if ($usertype  == 'read') {
 	$user = 'sihui_liu';
-	$pwd = 'lumia112233';
+	$pwd = 'p@ss0Day!';
   } elseif ($usertype == 'write') {
 	$user = 'sihui_liu';
-	$pwd = 'lumia112233';
+	$pwd = 'p@ss0Day!';
   } else {
 	exit('Unrecognized connection type');
   }
