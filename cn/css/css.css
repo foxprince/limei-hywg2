@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;font-family:"微软雅黑";}
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
@@ -56,15 +56,17 @@ header{width:1200px; height:140px; float:left; min-width:1200px;}
 .d-cen dl dd a:hover{color:#e49193;}
 .d-bot{width:490px; height:43px; float:left; text-align:center; margin-top:40px;}
 
-
+.hide{opacity:0;}
 .xilie{width:1200px; height:580px; float:left; }
 .x-top{width:1200px; height:81px; float:left; text-align:center;}
 .x-cen{width:1200px; height:30px; float:left; background:url(../images/xian.png) repeat-x; margin-top:20px;}
 .x-cenk{width:420px; height:30px; margin:0 auto;}
 .x-cenk ul{width:420px; height:30px;}
-.x-cenk ul li a{float:left;width:50px; height:24px; display:block; background:url(../images/yuan.png) no-repeat;color:#FFF; padding-top:6px; letter-spacing:1.5px; font-weight:bold; padding-left:33px; margin-left:11px; margin-right:11px;}
-.x-cenk ul li a:hover{background:url(../images/hg.png) no-repeat; color:#666;}
-.x-bot{width:1200px; height:400px; float:left; text-align:center; margin-top:32px;}
+.x-cenk ul li{cursor:pointer;float:left;width:50px; height:24px; display:block; background:url(../images/hg.png) no-repeat;color:#666; padding-top:6px; letter-spacing:1.5px; font-weight:bold; padding-left:33px; margin-left:11px; margin-right:11px;}
+.x-cenk ul li.on{background:url(../images/yuan.png) no-repeat; color:#fff;}
+.x-bot{width:1200px; height:400px; float:left; text-align:center; margin-top:32px;overflow:hidden;position:relative;}
+.x-bot img{position:absolute;left:0px;top:0px; -webkit-transition: all 1.25s;transition: all 1.25s;opacity:0;}
+.x-bot img.on{opacity:1;}
 
 .kongbai{width:1200px; height:212px; float:left; min-width:1200px;}
 
