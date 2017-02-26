@@ -138,9 +138,9 @@
                                 </div>
                                 <div style="width: 20px; height: 10px; float: left;">
                                 </div>
-                                <input type="text" id="weight_from" value="25">
+                                <input type="text" id="weight_from" value="0">
                                 -
-                                <input type="text" id="weight_to" value="35">
+                                <input type="text" id="weight_to" value="5">
                                 <button type="button" id="btn_weight" data-vivaldi-spatnav-clickable="1">更新结果</button>
 
                                 <script type="text/javascript" charset="utf-8">
@@ -174,9 +174,9 @@
                                 </div>
                                 <div style="width: 20px; height: 10px; float: left;">
                                 </div>
-                                <input type="text" id="price_from" value="35">
+                                <input type="text" id="price_from" value="100">
                                 -
-                                <input type="text" id="price_to" value="60">
+                                <input type="text" id="price_to" value="10000">
 
                                 <button type="button" id="btn_price" data-vivaldi-spatnav-clickable="1">更新结果</button>
 
@@ -184,7 +184,7 @@
                                     jQuery(function () {
                                         jQuery('.doller').jRange({
                                             from: 0,
-                                            to: 50,
+                                            to: 9999999,
                                             step: 1,
                                             format: '%s',
                                             width: 250,
