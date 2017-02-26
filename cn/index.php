@@ -192,13 +192,13 @@ Antwerp Cut 安特卫普切工，又被称为行业标准钻石切割。安特�
   <div class="new">
     <div class="newk">
       <div class="newkk">
-        <div class="n-pp"><a href=""><img src="images/ppgs.png"></a></div>
-        <div class="n-pp1"><a href=""><img src="images/zszs.png"></a></div>
+        <div class="n-pp"><a href="about.php"><img src="images/ppgs.png"></a></div>
+        <div class="n-pp1"><a href="guide.php"><img src="images/zszs.png"></a></div>
         <div class="n-new">
           <div class="n-title"><a href="">最新动态</a></div>
           <div class="n-con">
             <?php 
-            $sql='SELECT * FROM usefulinfo WHERE category = "publicmedia" ORDER BY id DESC LIMIT 0,5';
+            $sql='SELECT * FROM usefulinfo  ORDER BY id DESC LIMIT 0,5';
 			$stmt=$conn->query($sql);
             ?>
             <ul>
