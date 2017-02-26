@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -10,7 +10,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <script src="../js/jquery-1.11.2.min.js"></script>
 </head>
-
+<?php
+if(!isset($conn)){
+	require_once('connection.php');
+	$conn=dbConnect('write','pdo');
+	$conn->query("SET NAMES 'utf8'");
+}
+?>
 <body>
 <div class="zhuti">
   <header>
@@ -191,12 +197,16 @@ Antwerp Cut 安特卫普切工，又被称为行业标准钻石切割。安特�
         <div class="n-new">
           <div class="n-title"><a href="">最新动态</a></div>
           <div class="n-con">
+            <?php 
+            $sql='SELECT * FROM usefulinfo WHERE category = "publicmedia" ORDER BY id DESC LIMIT '.$startnumber.',25';
+			$stmt=$conn->query($sql);
+            ?>
             <ul>
-              <li><a href="">新闻内容新闻内容</a></li>
-              <li><a href="">新闻内容新闻内容新闻内容</a></li>
-              <li><a href="">新闻内容新闻内容</a></li>
-              <li><a href="">新闻内容新闻内容</a></li>
-              <li><a href="">新闻内容新闻内容新闻内容新闻内容新闻内容新闻内...</a></li>
+              <?php foreach($stmt as $row){?>
+              <li>
+              <a href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>"> <span class="sp_short"><?php echo $row['title_ch']; ?></span></a>
+              </li>
+              <?php }?>
             </ul>
           </div>
         </div>
