@@ -134,7 +134,7 @@
                                 carat</span>
                             <div id="filter_line_weight">
                                 <div class="layout-slider" style="width: 260px; float: left;">
-                                    <input class="zuanZhong" type="hidden" value="25,35" />
+                                    <input class="zuanZhong" type="hidden" value="0,5" />
                                 </div>
                                 <div style="width: 20px; height: 10px; float: left;">
                                 </div>
@@ -170,7 +170,7 @@
                                 price($)</span>
                             <div id="filter_line_price">
                                 <div class="layout-slider" style="width: 260px; float: left;">
-                                    <input class="doller" type="slider" name="doller" value="1,10" />
+                                    <input class="doller" type="slider" name="doller" value="100,10000" />
                                 </div>
                                 <div style="width: 20px; height: 10px; float: left;">
                                 </div>
