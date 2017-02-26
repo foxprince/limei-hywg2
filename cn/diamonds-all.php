@@ -147,8 +147,8 @@
                                     jQuery(function () {
                                         jQuery('.zuanZhong').jRange({
                                             from: 0,
-                                            to: 50,
-                                            step: 1,
+                                            to: 5,
+                                            step: 0.1,
                                             format: '%s',
                                             width: 250,
                                             showLabels: true,
@@ -170,7 +170,7 @@
                                 price($)</span>
                             <div id="filter_line_price">
                                 <div class="layout-slider" style="width: 260px; float: left;">
-                                    <input class="doller" type="slider" name="doller" value="100,10000" />
+                                    <input class="doller" type="slider" name="doller" value="100,5000" />
                                 </div>
                                 <div style="width: 20px; height: 10px; float: left;">
                                 </div>
@@ -184,7 +184,7 @@
                                     jQuery(function () {
                                         jQuery('.doller').jRange({
                                             from: 0,
-                                            to: 9999999,
+                                            to: 9999,
                                             step: 1,
                                             format: '%s',
                                             width: 250,
