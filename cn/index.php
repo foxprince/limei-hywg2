@@ -198,7 +198,7 @@ Antwerp Cut 安特卫普切工，又被称为行业标准钻石切割。安特�
           <div class="n-title"><a href="">最新动态</a></div>
           <div class="n-con">
             <?php 
-            $sql='SELECT * FROM usefulinfo WHERE category = "publicmedia" ORDER BY id DESC LIMIT '.$startnumber.',25';
+            $sql='SELECT * FROM usefulinfo WHERE category = "publicmedia" ORDER BY id DESC LIMIT 0,5';
 			$stmt=$conn->query($sql);
             ?>
             <ul>
