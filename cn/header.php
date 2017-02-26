@@ -1,6 +1,4 @@
 ﻿<?php
-session_start();
-$_SESSION['lang']='cn';
 if(!isset($conn)){
 require_once('connection.php');
 $conn=dbConnect('write','pdo');
