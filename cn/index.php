@@ -21,7 +21,7 @@ if(!isset($conn)){
 <div class="zhuti">
   <header>
     <div class="top">
-      <div class="t_left"><div class="caidan"><div class="caidanl"><img src="images/caidan.gif"></div><div class="caidanr"><a href="javascript:;">菜单</a></div></div></div>
+      <div class="t_left"><div class="caidan"><div class="caidanl"><a href="javascript:;"><img src="images/caidan.gif"></a></div><div class="caidanr"><a href="javascript:;">菜单</a></div></div></div>
       <div class="t_cen"><img src="images/logo.png"></div>
       <div class="t_right">
         <div class="gouwu"><div class="gouwul"><a href="">加入LUMIA</a></div><div class="gouwur"><a href=""><img src="images/gwc.gif"></a></div></div>
@@ -218,12 +218,12 @@ Antwerp Cut 安特卫普切工，又被称为行业标准钻石切割。安特�
   <footer>
     <div class="f-top">
       <div class="f-au">
-        <dl><dt><a href=""><img src="images/footico.png"></a></dt><dd><a href="">权威认证</a></dd></dl>
-        <dl><dt><a href=""><img src="images/footico2.png"></a></dt><dd><a href="">权威认证</a></dd></dl>
-        <dl><dt><a href=""><img src="images/footico4.png"></a></dt><dd><a href="">终生保养</a></dd></dl>
-        <dl><dt><a href=""><img src="images/footico3.png"></a></dt><dd><a href="">以小换大</a></dd></dl>
-        <dl><dt><a href=""><img src="images/footico5.png"></a></dt><dd><a href="">直邮中国</a></dd></dl>
-        <dl><dt><a href=""><img src="images/footico6.png"></a></dt><dd><a href="">全程保险</a></dd></dl>
+        <dl><dt><img src="images/footico.png" ></dt><dd>权威认证</dd></dl>
+        <dl><dt><img src="images/footico2.png"></dt><dd>权威认证</dd></dl>
+        <dl><dt><img src="images/footico4.png"></dt><dd>终生保养</dd></dl>
+        <dl><dt><img src="images/footico3.png"></dt><dd>以小换大</dd></dl>
+        <dl><dt><img src="images/footico5.png"></dt><dd>直邮中国</dd></dl>
+        <dl><dt><img src="images/footico6.png"></dt><dd>全程保险</dd></dl>
       </div>
     </div>
     <div class="f-bot">
@@ -241,7 +241,7 @@ Antwerp Cut 安特卫普切工，又被称为行业标准钻石切割。安特�
 </div>
 <script>
     $(function () {
-        $(".caidanr a").click(function () {
+        $(".caidanr a,.caidanl a").click(function () {
             if ($(".xlcd").is(":hidden")) {
                 $(".xlcd").show();
             } else {

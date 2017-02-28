@@ -20,7 +20,7 @@ table{border-collapse:collapse;border-spacing:0;}
 .left {float:left;}
 .right {float:right;}
 
-.zhuti{width:1200px; height:4674px; background:url(../images/bg.png) no-repeat; margin:0 auto;}
+.zhuti{width:1200px; height:4674px; background:url(../images/bg.png) repeat; margin:0 auto;}
 header{width:1200px; height:140px; float:left; min-width:1200px;}
 .top{width:1138px; height:140px; margin:0 auto;}
 .t_left{width:70px; height:140px; float:left;}
