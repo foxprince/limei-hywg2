@@ -33,7 +33,7 @@ header{width:1200px; height:140px; float:left; min-width:1200px;}
 .gouwul{width:95px; height:25px; float:left; font-size:15PX;}
 .gouwur{width:15px; height:12px; float:left; padding-top:2PX;}
 
-.datu{width:1200px; height:651px; background:url(../images/pic.gif) no-repeat; float:left; margin-top:20px;}
+.datu{width:1200px; height:651px; background:url(../images/pic.gif) no-repeat; float:left; margin-top:20px;margin-bottom:20px;}
 .xlcd{width:120px; height:155px; float:left; background:url(../images/xlcd.png) no-repeat; font-size:14px; margin-left:16px;}
 .xlcd ul li{float:left; display:block; height:16px; width:90px; padding-left:30px; padding-top:6px;}
 .xlcd ul li a{color:#000;}
@@ -45,7 +45,7 @@ header{width:1200px; height:140px; float:left; min-width:1200px;}
 .pic_k ul li{float:left; display:block; width:247px; height:134px; margin-left:15px; margin-right:15px; box-shadow:0 5px 10px 3px #eeeeee;}
 
 
-.dingzhi{width:1200px; height:555px; background:url(../images/dzleft.png) no-repeat,url(../images/dzright.png) 767px 0 no-repeat; float:left; margin-top:60px; }
+.dingzhi{width:1200px; height:555px; background:url(../images/dzall.png) repeat-x; float:left; margin-top:60px; }
 .dz_k{width:490px; height:305px; margin:0 auto; margin-top:110px;}
 .d-top{width:490px; height:35px; float:left; text-align:center;}
 .d-cen{width:490px; height:130px; float:left; margin-top:55px;}
