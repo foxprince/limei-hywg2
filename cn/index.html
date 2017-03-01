@@ -40,9 +40,9 @@
   <div class="pic">
     <div class="pic_k">
       <ul>
-        <li><a href="diamonds.php"><img src="images/pic1.png"></a></li>
-        <li><a href="diamonds.php"><img src="images/pic12.png"></a></li>
-        <li><a href="diamonds.php"><img src="images/pic1.png"></a></li>
+        <li><a href="javascript:;" bgurl="images/top1.jpg"><img src="images/top1s.jpg"></a></li>
+        <li><a href="javascript:;" bgurl="images/top2.jpg"><img src="images/top2s.jpg"></a></li>
+        <li><a href="javascript:;" bgurl="images/top3.jpg"><img src="images/top3s.jpg"></a></li>
       </ul>
     </div>
   </div>
@@ -240,14 +240,15 @@ Antwerp Cut 安特卫普切工，又被称为行业标准钻石切割。安特�
         })
         $(".xilie .x-cenk li").click(function () {
             $(this).addClass("on").siblings().removeClass("on");
-
             $(".xilie .x-bot img").removeClass("on");
             $(".xilie .x-bot a").eq($(this).index()).find("img").addClass("on");
         })
-
+		$(".pic .pic_k li a").click(function () {
+			var bkgUrl=$(this).attr("bgurl");
+            $(".datu").css("background-image","url("+bkgUrl+")");
+        })
         $(".tuijian .x-cenk li").click(function () {
             $(this).addClass("on").siblings().removeClass("on");
-
             $(".tuijian .t-bot").hide()
             $(".tuijian .t-bot").eq($(this).index()).show();
         })

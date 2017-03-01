@@ -2,7 +2,7 @@
 /* CSS Document */
 html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;font-family:"微软雅黑";}
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
-html,body{color:#333;font-size:12px;}
+html,body{color:#333;font-size:12px;background:url(../images/bg.png) repeat; }
 
 em{font-style:normal;}
 h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;display:inline;}
@@ -45,7 +45,7 @@ header{width:1200px; height:140px; float:left; min-width:1200px;}
 .pic_k ul li{float:left; display:block; width:247px; height:134px; margin-left:15px; margin-right:15px; box-shadow:0 5px 10px 3px #eeeeee;}
 
 
-.dingzhi{width:1200px; height:555px; background:url(../images/annipic.png) no-repeat; float:left; margin-top:60px; }
+.dingzhi{width:1200px; height:555px; background:url(../images/dzleft.png) no-repeat,url(../images/dzright.png) 767px 0 no-repeat; float:left; margin-top:60px; }
 .dz_k{width:490px; height:305px; margin:0 auto; margin-top:110px;}
 .d-top{width:490px; height:35px; float:left; text-align:center;}
 .d-cen{width:490px; height:130px; float:left; margin-top:55px;}
