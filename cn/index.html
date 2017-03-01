@@ -238,6 +238,13 @@ Antwerp Cut 安特卫普切工，又被称为行业标准钻石切割。安特�
                 $(".xlcd").hide();
             }
         })
+        $(".xlcd").hover(function () {
+            if ($(".xlcd").is(":hidden")) {
+                $(".xlcd").show();
+            } else {
+                $(".xlcd").hide();
+            }
+        })
         $(".xilie .x-cenk li").click(function () {
             $(this).addClass("on").siblings().removeClass("on");
             $(".xilie .x-bot img").removeClass("on");
