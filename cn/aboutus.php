@@ -7,6 +7,7 @@
 	?>
 </head>
 <body>
+<div class="zhuti">
 	<?php
 		include_once('topbar.php');
 	?>
@@ -39,6 +40,6 @@
 			<div class="aboutus_weixin"></div>
 		</div>
    </div>
-   
+</div>
 </body>
 </html>
