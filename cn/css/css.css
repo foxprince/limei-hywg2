@@ -27,18 +27,17 @@ header{width:1200px; height:140px; float:left; min-width:1200px;}
 .caidan{width:64px; height:25px; float:left; margin-top:118px; }
 .caidanl{width:20px; height:16px; float:left; padding-top:4px;}
 .caidanr{width:44px; height:20px; float:right; font-size:15px; text-align:center;}
-.t_cen{width:152px; height:59px; float:left; margin-left:422px; padding-top:81px;}
+.t_cen{height:59px; padding-top:81px;text-align:center;}
 .t_right{width:110px; height:140px; float:right;}
 .gouwu{width:110px; height:25px; float:left; margin-top:118px;}
 .gouwul{width:95px; height:25px; float:left; font-size:15PX;}
 .gouwur{width:15px; height:12px; float:left; padding-top:2PX;}
 
-.datu{width:1200px; height:651px; background:url(../images/pic.gif) no-repeat; float:left; margin-top:20px;margin-bottom:20px;}
-.xlcd{width:120px; height:155px; float:left; background:url(../images/xlcd.png) no-repeat; font-size:14px; margin-left:16px;}
-.xlcd ul li{float:left; display:block; height:16px; width:90px; padding-left:30px; padding-top:6px;}
-.xlcd ul li a{color:#000;}
-.xlcd ul li a:hover{color:#8c6359;}
-.xlcd ul li a.on{color:#8c6359;}
+.datu{width:1200px; height:651px; background:url(../images/pic.gif) no-repeat; float:left; margin-bottom:20px;}
+.xlcd{ float:left; font-size:14px;text-align:center;width:100%;margin:20px 0;}
+.xlcd a{color:#000;margin:0 10px;}
+.xlcd a:hover{color:#8c6359;}
+.xlcd a.on{color:#8c6359;}
 
 .pic{width:1200px; height:134px; float:left; min-width:1200px;}
 .pic_k{width:840px; margin:0 auto; height:134px;}
