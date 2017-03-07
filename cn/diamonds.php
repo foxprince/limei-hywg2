@@ -22,6 +22,7 @@
 <link rel="stylesheet" type="text/css" href="../css/public.css">
 <link rel="stylesheet" type="text/css" href="../css/text.css">
 <link rel="stylesheet" type="text/css" href="../css/jquery.range.css">
+<link rel="stylesheet"  href="css/css.css">
 <script type="text/javascript" src="../js/jquery.min.js"></script>
 <script type="text/javascript" src="../js/text.js"></script>
 <script type="text/javascript" src="../js/jquery.dependClass.js"></script>
