@@ -173,7 +173,6 @@ ol li{
 <?php
 	include_once('topbar.php');
 ?>
-<div id="c">
 <?php
 include_once("menu.php");
 ?>
@@ -226,21 +225,11 @@ switch($p){
 	default:
 	$the_page='steps.php';
 }
-
-
 include_once("$the_page");
 ?>
-
-
-    <div class="div_down"  style="margin-left:68px;">
-		<div class="text-bottom"></div>
-   	</div>
-
-
 
 	<?php
 		include_once('footer.php');
 	?>
- </div> 
 </body>
 </html>
