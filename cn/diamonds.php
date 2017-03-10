@@ -754,10 +754,12 @@ switch($p){
     break;
 }
 ?>
-	<div>
+	<div  class="container-fluid maxcontainer" style="width:870px;margin:0 auto;margin-top:-50px;">
+		<div class="row bodycontent-1">
     <?php
     include_once($the_page);
     ?>
+    </div>
     </div>
 
 
