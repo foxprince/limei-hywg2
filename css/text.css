@@ -306,10 +306,7 @@
 
 /*media*/
 .div_media{
-	width:800px;
 	height:960px;
-	margin-top:-70px;
-	margin-left:240px;
 }
 .media_ul .media_li{
 	float:left;
