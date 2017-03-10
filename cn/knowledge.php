@@ -42,14 +42,13 @@ $stmt=$conn->query($sql);
 <?php
 foreach($stmt as $row){
 ?>
-<li class="newspiece">
-<a class="imglinker" href="guide.php?p=article&ref=knowledge&id=<?php echo $row['id']; ?>">
-<img class="article_img" src="<?php echo $row['main_image_ch']; ?>" />
-</a>
-<a class="txtlinker" href="guide.php?p=article&ref=knowledge&id=<?php echo $row['id']; ?>">
-<?php echo $row['title_ch']; ?>
-</a>
-</li>
+
+<li class="media_li">
+			<a href="guide.php?p=article&ref=knowledge&id=<?php echo $row['id']; ?>">
+			<img style="width:160px;height:160px;" src="<?php echo $row['main_image_ch']; ?>"/> 
+			<span class="sp_short"><?php echo $row['title_ch']; ?></span>
+			</a>
+			</li>
 <?php
 }
 ?>

@@ -1,9 +1,13 @@
 <?php
 include_once("menu.php");
 ?>
-
+<div class="text-title"><span>媒体报道</span></div>
+    <div class="text-top">
+      <img class="ring" src="../images/ring.png">
+    </div>
+   </div>
 <div class="div_text">
-<div class="div_text">
+<div class="text_in">
 <?php 
 $sql_count='SELECT COUNT(*) AS num_articles FROM usefulinfo WHERE category = "publicmedia"';
 foreach($conn->query($sql_count) as $number){
