@@ -8,6 +8,9 @@ include_once("menu.php");
    </div>
 <div class="div_text">
 <div class="text_in">
+<div  class="container-fluid">
+	<div class="row ">
+		<div class="col-xs-12 col-sm-12 col-md-9">
 <?php 
 $sql_count='SELECT COUNT(*) AS num_articles FROM usefulinfo WHERE category = "publicmedia"';
 foreach($conn->query($sql_count) as $number){
@@ -70,6 +73,8 @@ $stmt=$conn->query($sql);
 
 	</div>
    </div>
+   </div>
+   </div></div></div>
 <script type="text/javascript">
 $('document').ready(function(){
 	$('ul.inner_sub_navi').slideDown('slow');
