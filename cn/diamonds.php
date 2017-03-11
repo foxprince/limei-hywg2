@@ -717,10 +717,15 @@ function closeWechatbox(){
 <?php
 		include_once('topbar.php');
 	?>
-	<div class="div_zuan">
-		<img src="../images/luozuan.png"/>
+	<div class="text-title"><span>挑选裸钻</span></div>
+	    <div class="text-top">
+	      <img class="ring" src="../images/luozuan.png">
+	    </div>
 	</div>
-
+	<div class="div_text">
+	    <div class="text_in"> 
+			<div  class="container-fluid">
+				<div class="row ">
 <?php
 if (isset($_GET['p'])) {
     $p=$_GET['p'];
@@ -754,14 +759,10 @@ switch($p){
     break;
 }
 ?>
-	<div  class="container-fluid maxcontainer" style="width:870px;margin:0 auto;margin-top:-50px;">
-		<div class="row bodycontent-1">
     <?php
     include_once($the_page);
     ?>
-    </div>
-    </div>
-
+</div></div></div></div>
 
 <?php
 		include_once('footer.php');

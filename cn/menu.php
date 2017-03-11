@@ -90,7 +90,7 @@
                 <a href="guide.php?p=choose-diamond&c=carat" class="a_menu2" <?php if((isset($_GET['c']) && $_GET['c']=='carat') || !isset($_GET)){ echo 'style="color:#b68168;"';} ?> >何谓克拉</a>
               </li>
               <li class="li_2" style="position: relative;">
-                <a href="guide.php?p=choose-diamond&c=color" class="a_menu2" <?php if(isset($_GET['c']) && $_GET['c']=='color'){ echo 'style="color:#b68168;"';} ?>>何谓色级</a></h2></li>
+                <a href="guide.php?p=choose-diamond&c=color" class="a_menu2" <?php if(isset($_GET['c']) && $_GET['c']=='color'){ echo 'style="color:#b68168;"';} ?>>何谓色级</a>
               </li>
               <li class="li_2" style="position: relative;">
                 <a href="guide.php?p=choose-diamond&c=clarity" class="a_menu2" <?php if(isset($_GET['c']) && $_GET['c']=='clarity'){ echo 'style="color:#b68168;"';} ?>>何谓净度</a>
