@@ -717,13 +717,8 @@ function closeWechatbox(){
 <?php
 		include_once('topbar.php');
 	?>
-	<div class="text-title"><span>挑选裸钻</span></div>
-	    <div class="text-top">
-	      <img class="ring" src="../images/luozuan.png">
-	    </div>
-	</div>
-	<div class="div_text">
-	    <div class="text_in"> 
+	<div>
+	    <div> 
 			<div  class="container-fluid">
 				<div class="row ">
 <?php
