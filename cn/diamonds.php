@@ -713,14 +713,10 @@ function closeWechatbox(){
 <body>
 
 
-
+<div class="zhuti">
 <?php
 		include_once('topbar.php');
 	?>
-	<div>
-	    <div> 
-			<div  class="container-fluid">
-				<div class="row ">
 <?php
 if (isset($_GET['p'])) {
     $p=$_GET['p'];
@@ -757,7 +753,6 @@ switch($p){
     <?php
     include_once($the_page);
     ?>
-</div></div></div></div>
 
 <?php
 		include_once('footer.php');
