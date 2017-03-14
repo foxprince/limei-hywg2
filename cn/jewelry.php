@@ -9,20 +9,6 @@ $crr_page='jewelry';
 		include_once('header.php');
 	?>
 
-	<script>
-		$(function() {
-			$(".panel").css({"height":$(window).height()});
-			$.scrollify({
-				section:".panel",
-				before:function(e){},
-				after:function(e){}
-			});
-			$(".scroll").click(function(e) {
-				e.preventDefault();
-				$.scrollify("move",$(this).attr("href"));
-			});
-		});
-	</script>
 <style type="text/css">
 #jewelrybtn{
 	border-bottom-style: solid;
