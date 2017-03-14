@@ -7,7 +7,6 @@
 	?>
 </head>
 <body>
-	<div class="zhuti">
 	<?php
 		include_once('topbar.php');
 	?>
@@ -47,7 +46,6 @@
 				include_once("$the_page");
 				?>
 			
-	</div>
    	<?php
 		include_once('footer.php');
 	?>
