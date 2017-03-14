@@ -54,7 +54,6 @@
 		<div class="text-top">
 			<img class="ring" src="../images/ring.png">
 		</div>
-   </div>
 <div class="div_text">
 		<div class="text_in"> 
 <div  class="container-fluid">
@@ -82,7 +81,6 @@
 		</div>
 
 	</div>
-</div>
 </div>
 </div>
 <div class="div_down">

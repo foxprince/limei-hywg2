@@ -6,16 +6,11 @@ include_once("menu.php");
 		<div class="text-top">
 			<img class="ring" src="../images/ring.png">
 		</div>
-   </div>
 
 <div class="div_text">
-		<div class="text_in"> 
+<div class="text_in"> 
 <div  class="container-fluid">
 <div class="row ">
-
-
-<div class=" col-xs-12 col-sm-12 col-md-9">
-
 <div class=" col-xs-12 col-sm-12 col-md-9">
 <p style="font-size: 12pt;margin-top:300px;"><br /><span >利美钻石是比利时Belgem钻石公司旗下的零售品牌，公司设在举世闻名的钻石之都安特卫普。Belgem是安特卫普四大钻交所里唯一一家由中国人注册的公司，2011年由北京人褚潇创建。</span></p>
 <p>&nbsp;</p>
@@ -76,7 +71,6 @@ include_once("menu.php");
 <p><br /><span style="font-size: 12pt;">安特卫普的钻石企业共有约1800家。利美所属的Belgem钻石公司，是安特卫普钻交所成员中唯一一家由中国人创立的钻石公司。</span></p>
 <p><br /><span style="font-size: 12pt;">为什么向钻交所会员公司购买钻石？安特卫普钻交所采用会员制度，从最开始申请加入钻交所到每年度的持续申核，钻交所对每一名会员的交易信誉和质量都做了极高要求，一旦出现问题将终身被行业除名。在钻石行业，正因为相关专业知识复杂，涉及金额又极高，钻交所内部才会建立极其严谨的规章制度，以保障交易安全。</span></p>
 <p><br /><span style="font-size: 12pt;">做为世界上80-90%钻石的来源地，安特卫普钻交所是您理想的选购平台，而利美钻石做为华人的购钻渠道，将竭诚为您的选择提供最专业的服务。 <br /></span></p>
-</div>
 </div>
 </div>
 </div>

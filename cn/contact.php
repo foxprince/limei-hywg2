@@ -21,7 +21,6 @@
 
 <div class="div">
 <div class="col-xs-12 col-sm-12 col-md-9">
-<div class="col-xs-12 col-sm-12 col-md-9">
 <?php
 if(isset($_POST['thetxt']) && isset($_POST['email'])){
 	
@@ -140,7 +139,6 @@ if(isset($message)){
 
 </form>
 
-</div>
 </div>
 </div>
 
