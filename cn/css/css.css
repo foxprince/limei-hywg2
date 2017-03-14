@@ -2,7 +2,7 @@
 /* CSS Document */
 html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;font-family:"微软雅黑";}
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
-html,body{color:#333;font-size:12px;background:url(../images/bg.png) repeat; }
+html,body{color:#333;font-size:12px;background:url(../images/bg.png) repeat; text-align:center;}
 
 em{font-style:normal;}
 h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;display:inline;}
@@ -21,7 +21,7 @@ table{border-collapse:collapse;border-spacing:0;}
 .right {float:right;}
 
 .zhuti{width:1200px; margin:0 auto;}
-header{width:1200px; height:140px; float:left; min-width:1200px;}
+header{width:100%; height:140px; float:left; min-width:1200px;}
 .top{width:1138px; height:140px; margin:0 auto;}
 .t_left{width:70px; height:140px; float:left;}
 .caidan{width:64px; height:25px; float:left; margin-top:118px; }
