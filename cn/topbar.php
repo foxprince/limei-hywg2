@@ -9,5 +9,5 @@
   </header>
   
   <div class="xlcd" id="xlcd" >
-  	<a href="/cn" class="on">首页</a><a href="about.php">品牌文化</a><a href="jewelry.php">首饰</a><a href="diamonds.php">裸钻</a><a href="contact.php">留言</a><a href="aboutus.php">联系我们</a><a href="aboutus.php">加入LUMIA</a><a href="aboutus.php"><img src="images/gwc.gif"></a>
+  	<a href="index.php" class="on">首页</a><a href="about.php">品牌文化</a><a href="jewelry.php">首饰</a><a href="diamonds.php">裸钻</a><a href="contact.php">留言</a><a href="aboutus.php">联系我们</a><a href="aboutus.php">加入LUMIA</a><a href="aboutus.php"><img src="images/gwc.gif"></a>
   </div>

@@ -21,3 +21,19 @@
 			<div class="wei"></div>
 		</div>
    </div>
+   <script>
+	$(function () {
+	    setNavigation();//set menu active
+	});
+	function setNavigation() {
+	    var path = window.location.href;
+	    path = path.replace(/\/$/, "");
+	    path = decodeURIComponent(path);
+	    $(".xlcd>a").each(function () {
+	        var navi = $(this).attr('href');
+	        if (path.indexOf(navi)!=-1) {
+	            $(this).addClass('on');
+	        }
+	    });
+	}
+    </script>

@@ -66,16 +66,15 @@
 .div_menul{
 	width:100px;
 	position:absolute;
-	top:160px;
+	top:174px;
 	left:100px;
 	z-index:999999;
 }
 .div_menul ul li a{
 	color:#373232;
-	font-size:16px;
+	font-size:15px;
 	height:30px;
 	line-height:30px;
-	font-weight:bold;
 }
 .div1{
 		display: none;
@@ -138,7 +137,7 @@
 	width:309px;
 	height:168px;
 	position:absolute;
-	top:180px;
+	top:190px;
 	left:480px;
 	background:url("../images/text-title.png") no-repeat;
 	z-index:9999;
