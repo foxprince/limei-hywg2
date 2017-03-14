@@ -50,7 +50,6 @@ div#tableheader, div#diamondsdata{
 #filter_box{
 	margin-bottom:5px;
 	padding-bottom:25px;
-	position:relative;
 	z-index:5;
 	margin-top:0;
 
