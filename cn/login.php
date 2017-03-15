@@ -83,7 +83,6 @@ $(function(){
 			</form>
 			<img style="margin-left:220px;" src="../images/weixin.png"/>
 		</div>
-		
    </div>
 <script type="text/javascript">
 	function checkForm(){
