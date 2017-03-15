@@ -15,7 +15,7 @@ exit();
 <head>
 	<title>用户登录 - 利美钻石</title>
 	<?php
-		include_once('script.php');
+		include_once('header.php');
 	?>
 <?php
 if(isset($_SESSION['useraccount'])){
@@ -59,7 +59,11 @@ $(function(){
 </script>
 
 <body>
-	
+	<?php
+		include_once('topbar.php');
+	?>
+<div class="div">
+<div class="col-xs-12 col-sm-12 col-md-9">
 	<div class="div_back">
 		<div class="div_login">
 			<img style="margin-top:70px;margin-left:240px;" src="../images/loginlogo.png">
@@ -97,10 +101,8 @@ $(function(){
 		}
 	}
 </script>
-
-
-
-
+</div>
+</div>
 </div>
 </body>
 
