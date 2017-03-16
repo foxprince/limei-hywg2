@@ -269,22 +269,9 @@ if($user_diamond_grading_lab=='HRD'){
 
 </div>
 </div>
-
-
-
-
-
-
-<div class="row">
-<div class="col-xs-12 col-sm-12 col-md-12">
 		<?php
 		include_once('footer.php');
 		?>
-</div>
-</div>
-
-
-
 
 </div>
 </body>

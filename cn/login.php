@@ -45,10 +45,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 	}
 }
 ?>
-
-
 </head>
-
 <script type="text/javascript">
 $(function(){
     //改变div的高度
@@ -66,7 +63,6 @@ $(function(){
 <div class="col-xs-12 col-sm-12 col-md-9">
 	<div class="div_back">
 		<div class="div_login">
-			<img style="margin-top:70px;margin-left:240px;" src="../images/loginlogo.png">
 			<?php
 			if(isset($errormessage)){
 			?>
@@ -78,7 +74,7 @@ $(function(){
 				<input type="hidden" name="useraccount" value="login" />
 				<input id="txt_login" name="username" type="text" placeholder="用户名"/>
 				<input id="pwd_login" name="password" type="password" placeholder="密码"/>
-				<input id="sub_login" type="submit" name="submitthelogininfo" value="" id="submitthelogininfobtn"/>
+				<input id="sub_login" type="submit" name="submitthelogininfo" value="登录" id="submitthelogininfobtn"/>
 			</form>
 			<img style="margin-left:220px;" src="../images/weixin.png"/>
 		</div>
@@ -102,5 +98,8 @@ $(function(){
 </div>
 </div>
 </div>
+<?php
+		include_once('footer.php');
+	?>
 </body>
 
