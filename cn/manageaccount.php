@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<?php
-		include_once('script.php');
+		include_once('header.php');
 	?>
 <?php
 session_start();
@@ -142,24 +142,20 @@ p.feedbackmessage, p.errormessage{
 
 
 <body>
+<?php
+	include_once('topbar.php');
+?>
 
 <!--div  home-visual-box-->
 <div  class="container-fluidX container maxcontainer">
-<div class="row">
-<div class="col-xs-12 col-sm-12 col-md-12">
-<?php
-					include_once('topbar.php');
-				?>
-</div>
-</div>
 
 
 <!--div  bodycontent----------------------------------------------------------------------------------------->
 
 
 
-<div id="bodycontent">
-<div id="loginbox">
+<div class="bodycontent">
+<div class="loginbox">
 
 <?php
 if(isset($errormessage)){
@@ -217,13 +213,9 @@ if(isset($feedbackmessage)){
 
 <br style="clear:both;">
 
-<div class="row">
-<div class="col-xs-12 col-sm-12 col-md-12">
 <?php
 		include_once('footer.php');
 		?>
-</div>
-</div>
 
 
 

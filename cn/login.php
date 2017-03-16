@@ -46,14 +46,6 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 }
 ?>
 </head>
-<script type="text/javascript">
-$(function(){
-    //改变div的高度
-    $(".div_back").height($(window).height());
-    //改变div的宽度
-    $(".div_back").width($(window).width());
-});
-</script>
 
 <body>
 	<?php

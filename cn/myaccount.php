@@ -125,8 +125,8 @@ p.feedbackmessage, p.errormessage{
 
 
 
-<div id="bodycontent">
-<div id="loginbox">
+<div class="bodycontent">
+<div class="loginbox">
 
 <?php
 if(isset($errormessage)){
