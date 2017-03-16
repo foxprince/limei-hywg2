@@ -1,3 +1,6 @@
+	<div class="div_down">
+		<div class="text-bottom"></div>
+   	</div>
 	<div class="div_foot">
 		<div class="foot_center">
 			<div class="foot_l">

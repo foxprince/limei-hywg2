@@ -1,6 +1,3 @@
-<?php
-include_once("menu.php");
-?>
 <div class="div_down">
 <div class="text-title"><span>媒体报道</span></div>
     <div class="text-top">
@@ -76,6 +73,7 @@ $stmt=$conn->query($sql);
    </div>
    </div>
    </div></div></div>
+
 <script type="text/javascript">
 $('document').ready(function(){
 	$('ul.inner_sub_navi').slideDown('slow');

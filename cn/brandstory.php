@@ -83,6 +83,3 @@ $('document').ready(function(){
 	'border-width':'2px'});
 });
 </script>
-<div class="div_down">
-		<div class="text-bottom"></div>
-   	</div>
