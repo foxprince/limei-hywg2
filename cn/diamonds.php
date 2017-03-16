@@ -62,7 +62,7 @@ div#filter_box_inner{
 	border-color:#FFF;
 	border-radius:8px;
 	overflow:hidden;
-	width:920px;
+	width:930px;
 	margin:0px auto;
 	border-bottom:1px solid #ddd;
 }

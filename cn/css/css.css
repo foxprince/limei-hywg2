@@ -34,7 +34,7 @@ header{width:100%; height:140px; float:left; min-width:1200px;}
 .gouwur{width:15px; height:12px; float:left; padding-top:2PX;}
 
 .datu{width:1200px; height:651px; background:url(../images/top1.jpg) no-repeat; float:left; margin-bottom:20px;}
-.xlcd{ float:left; font-size:14px;text-align:center;width:100%;margin:20px 0;min-width:1200px;}
+.xlcd{ float:left; font-size:14px;text-align:center;width:100%;margin:20px 0;min-width:1200px;z-index:99999;}
 .xlcd a{color:#000;margin:0 10px;}
 .xlcd a:hover{color:#8c6359;}
 .xlcd a.on{color:#8c6359;}

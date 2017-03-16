@@ -138,9 +138,10 @@
 	height:168px;
 	position:absolute;
 	top:190px;
-	left:480px;
+	left:460px;
 	background:url("../images/text-title.png") no-repeat;
 	z-index:9999;
+	margin-top:-230px;
 }
 .text-title span{
 	font-size:16px;
@@ -156,9 +157,19 @@
 	height:622px;
 	position:absolute;
 	top:220px;
-	left:260px;
+	left:190px;
 	background:url("../images/text-top.png") no-repeat;
+	margin-top:-230px;
 }
+.text-bottom{
+	width:814px;
+	height:622px;
+	position:absolute;
+	left:190px;
+	top:-440px;
+	background:url("../images/text-bottom.png") no-repeat;
+}
+
 .row h1,.row p{
 	padding:10px 0px;
 	width:100%;
@@ -176,21 +187,13 @@
 .div_text .text_in{
 	width:550px;
 	color:#4f4747;
-	margin-top:300px;
+	margin-top:-230px;
 	margin-left:330px;		
 }
 .div_down{
 	width:1200px;
 	margin:0 auto;
 	position:relative;
-}
-.text-bottom{
-	width:814px;
-	height:622px;
-	position:absolute;
-	left:190px;
-	top:-440px;
-	background:url("../images/text-bottom.png") no-repeat;
 }
 .div_foot{
 	width:1200px;
