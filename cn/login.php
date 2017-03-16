@@ -67,7 +67,6 @@ $(function(){
 	<div class="div_back">
 		<div class="div_login">
 			<img style="margin-top:70px;margin-left:240px;" src="../images/loginlogo.png">
-			<a class="a_id">ID</a>
 			<?php
 			if(isset($errormessage)){
 			?>
