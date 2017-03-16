@@ -1,6 +1,7 @@
 <?php
 include_once("menu.php");
 ?>
+<div class="div_down">
 <div class="text-title"><span>媒体报道</span></div>
     <div class="text-top">
       <img class="ring" src="../images/ring.png">

@@ -1,8 +1,10 @@
+<div class="div_down">
 <div class="text-title"><span>利美优势</span></div>
 	<div class="text-top">
 		<img class="ring" src="../images/ring.png">
 	</div>
 </div>
+
 <div class="div_text">
 	<div class="text_in"> 
 		<div class="container-fluid">
