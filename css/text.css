@@ -180,14 +180,14 @@
 }
 .div_text{
 	width:1200px;
-	margin:0 auto;
+	margin-left:110px;
 	position:relative;
 	z-index:9999;
 }
 .div_text .text_in{
 	width:550px;
 	color:#4f4747;
-	margin-top:-230px;
+	margin-top:-210px;
 	margin-left:330px;		
 }
 .div_down{
