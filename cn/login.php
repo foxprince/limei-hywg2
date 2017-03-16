@@ -76,7 +76,7 @@ $(function(){
 				<input id="pwd_login" name="password" type="password" placeholder="密码"/>
 				<input id="sub_login" type="submit" name="submitthelogininfo" value="登录" id="submitthelogininfobtn"/>
 			</form>
-			<img style="margin-left:220px;" src="../images/weixin.png"/>
+			<img  src="../images/weixin.png"/>
 		</div>
    </div>
 <script type="text/javascript">
