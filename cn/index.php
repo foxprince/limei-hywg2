@@ -19,7 +19,7 @@ if(!isset($conn)){
 ?>
 <body>
 <div class="zhuti">
-  <?php
+<?php
 	include_once('topbar.php');
 ?>
   
@@ -197,10 +197,32 @@ Antwerp Cut 安特卫普切工，又被称为行业标准钻石切割。安特�
       </div>
     </div>
   </div>
+  
+  
+  <footer>
+    <div class="f-top">
+      <div class="f-au">
+        <dl><dt><img src="images/footico.png" ></dt><dd>权威认证</dd></dl>
+        <dl><dt><img src="images/footico2.png"></dt><dd>权威认证</dd></dl>
+        <dl><dt><img src="images/footico4.png"></dt><dd>终生保养</dd></dl>
+        <dl><dt><img src="images/footico3.png"></dt><dd>以小换大</dd></dl>
+        <dl><dt><img src="images/footico5.png"></dt><dd>直邮中国</dd></dl>
+        <dl><dt><img src="images/footico6.png"></dt><dd>全程保险</dd></dl>
+      </div>
+    </div>
+    <div class="f-bot">
+      <div class="foot">
+        <div class="f-left">
+          <div class="fo-left"><img src="images/footword.png"></div>
+          <div class="fo-cen"><img src="images/footword2.png"></div>
+          <div class="fo-right"><img src="images/footword3.png"></div>
+        </div>
+        <div class="f-right"><img src="images/footerwe.png"></div>
+      </div>
+    </div>
+  </footer>  
+  
 </div>
-<?php
-include_once('footer.php');
-?>
 <script>
     $(function () {
         $(".caidanr a,.caidanl a").click(function () {
