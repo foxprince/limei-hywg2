@@ -18,7 +18,7 @@
 				<p>QQ：2839145434</p>
 				<p>Skype：Belgem.antwerp</p>
 			</div>
-			<div class="wei"></div>
+			<div class="f-right"><img src="images/footerwe.png"></div>
 		</div>
    </div>
    <script>
