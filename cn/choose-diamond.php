@@ -1,11 +1,12 @@
 
     
-<div class="div_down">
+	<div class="div_down">
     <div class="text-title"><span>如何挑选钻石</span></div>
     <div class="text-top">
       <img class="ring" src="../images/ring.png">
     </div>
    </div>
+   
    <div class="div_text">
     <div class="text_in"> 
 
@@ -235,6 +236,7 @@ HRD和CIBJO(国际金银珠宝联盟)的联合委员会中的代表们建立的�
 
 
 
+</div>
 </div>
 </div>
 </div>
