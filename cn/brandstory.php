@@ -12,7 +12,7 @@ include_once("menu.php");
 <div  class="container-fluid">
 <div class="row ">
 <div class=" col-xs-12 col-sm-12 col-md-9">
-<p style="font-size: 12pt;margin-top:300px;"><br /><span >利美钻石是比利时Belgem钻石公司旗下的零售品牌，公司设在举世闻名的钻石之都安特卫普。Belgem是安特卫普四大钻交所里唯一一家由中国人注册的公司，2011年由北京人褚潇创建。</span></p>
+<p style="font-size: 12pt;"><br /><span >利美钻石是比利时Belgem钻石公司旗下的零售品牌，公司设在举世闻名的钻石之都安特卫普。Belgem是安特卫普四大钻交所里唯一一家由中国人注册的公司，2011年由北京人褚潇创建。</span></p>
 <p>&nbsp;</p>
 <div id="antwerp"><span style="font-size: 18pt; font-weight: bold;">世界钻石之都&mdash;&mdash;比利时安特卫普</span></div>
 <p><span style="font-size: 12pt;"><span style="font-size: 12pt;"><img class="contentpic" style="margin: 0 15px 15px 0; float: left;" src="../images/sitepictures/limei20140512_011025.jpg" alt="" width="350" /></span></span></p>
