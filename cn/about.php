@@ -36,10 +36,6 @@
 					$the_page='publicmedia.php';
 					break;
 					
-					case 'article':
-					$the_page='article.php';
-					break;
-					
 					default:
 					$the_page='brandstory.php';
 				}
