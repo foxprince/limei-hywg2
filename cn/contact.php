@@ -19,13 +19,13 @@
 		include_once('topbar.php');
 	?>
 <div class="div_down">
-    <div class="text-title"><span>留言</span></div>
-    <div class="text-top">
+    <div class="text-title" style="margin-top: -15px;"><span>留言</span></div>
+    <div class="text-top" style="margin-top: -15px;">
       <img class="ring" src="../images/ring.png">
     </div>
 </div>
-<div class="div_text">
-<div class="text_in"> 
+<div class="div_text" >
+<div class="text_in" style="margin-top: 350px;"> 
 <div  class="container-fluid">
 <div class="row ">
 <div class=" col-xs-12 col-sm-12 col-md-9">
