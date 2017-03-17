@@ -40,22 +40,23 @@ if(isset($_POST['thetxt']) && isset($_POST['email'])){
 	 $input_question=$_POST['thetxt'];
 	 $input_price=$_POST['price'];
 	
-	require_once('recaptchalib.php');
-	$privatekey = "6LcO9u0SAAAAAGMQoM3deCE6Pw9eZ8oFOeZAZYVc";
-	$resp = recaptcha_check_answer ($privatekey,
-									$_SERVER["REMOTE_ADDR"],
-									$_POST["recaptcha_challenge_field"],
-									$_POST["recaptcha_response_field"]);
+	//require_once('recaptchalib.php');
+	//$privatekey = "6LcO9u0SAAAAAGMQoM3deCE6Pw9eZ8oFOeZAZYVc";
+// 	$resp = recaptcha_check_answer ($privatekey,
+// 									$_SERVER["REMOTE_ADDR"],
+// 									$_POST["recaptcha_challenge_field"],
+// 									$_POST["recaptcha_response_field"]);
 
-	if (!$resp->is_valid) {
+	//if (!$resp->is_valid) {
 	// What happens when the CAPTCHA was entered incorrectly
 	/*
 	die ("The reCAPTCHA wasn't entered correctly. Go back and try it again." .
 		 "(reCAPTCHA said: " . $resp->error . ")");
 		 */
-		 $message="验证码输入错误，请重试";
+		 //$message="验证码输入错误，请重试";
 		 
-	}else if(!filter_var($input_email, FILTER_VALIDATE_EMAIL)){
+	//}else 
+	if(!filter_var($input_email, FILTER_VALIDATE_EMAIL)){
 		$message="电子邮件地址无效，请核实";
 	}else if($input_question==''){
 		$message="您发送的消息不能为空";
@@ -136,9 +137,9 @@ if(isset($message)){
 
 
 <?php
-  require_once('recaptchalib.php');
-  $publickey = "6LcO9u0SAAAAANawStaX2pepCvdjPzfACk8Pizeo"; // you got this from the signup page
-  echo recaptcha_get_html($publickey);
+  //require_once('recaptchalib.php');
+  //$publickey = "6LcO9u0SAAAAANawStaX2pepCvdjPzfACk8Pizeo"; // you got this from the signup page
+  //echo recaptcha_get_html($publickey);
 ?>
 
 <br />
