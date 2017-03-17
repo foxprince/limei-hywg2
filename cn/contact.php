@@ -18,7 +18,12 @@
 	<?php
 		include_once('topbar.php');
 	?>
-
+<div class="div_down">
+    <div class="text-title"><span>留言</span></div>
+    <div class="text-top">
+      <img class="ring" src="../images/ring.png">
+    </div>
+</div>
 <div class="div">
 <div class="col-xs-12 col-sm-12 col-md-9">
 <?php
