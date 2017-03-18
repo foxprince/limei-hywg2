@@ -180,7 +180,7 @@
 }
 .div_text{
 	width:1200px;
-	margin-left:110px;
+	margin:0 auto;
 	position:relative;
 	z-index:9999;
 }
