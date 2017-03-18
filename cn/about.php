@@ -41,7 +41,10 @@
 				}
 				include_once("$the_page");
 				?>
-			
+	<div class="div_down">
+		<div class="text-bottom"></div>
+   	</div>
+		
    	<?php
 		include_once('footer.php');
 	?>
