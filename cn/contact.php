@@ -24,7 +24,7 @@
       <img class="ring" src="../images/ring.png">
     </div>
 </div>
-<div class="div_text" >
+<div class="div_text" style="text-align: center;">
 <div class="text_in" style="margin-top: 350px;"> 
 <div  class="container-fluid">
 <div class="row ">
