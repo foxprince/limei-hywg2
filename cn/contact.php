@@ -158,7 +158,9 @@ $('document').ready(function(){
 });
 </script>
 
-
+<div class="div_down">
+		<div class="text-bottom"></div>
+   	</div>
 <?php
 		include_once('footer.php');
 	?>
