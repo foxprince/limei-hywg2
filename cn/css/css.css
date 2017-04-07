@@ -19,9 +19,10 @@ table{border-collapse:collapse;border-spacing:0;}
 .clear {/* zoom:1;*/clear:both;/*border:1px solid #F00;*/ }
 .left {float:left;}
 .right {float:right;}
+.tc{text-align: center;}
 
 .zhuti{width:1200px; margin:0 auto;}
-header{width:100%; height:140px; float:left; min-width:1200px;}
+header{width:100%; height:180px; float:left; min-width:1200px; background: url(../images/top-bg.png) no-repeat; background-size: cover; }
 .top{width:1138px; height:140px; margin:0 auto;}
 .t_left{width:70px; height:140px; float:left;}
 .caidan{width:64px; height:25px; float:left; margin-top:118px; }
@@ -33,16 +34,16 @@ header{width:100%; height:140px; float:left; min-width:1200px;}
 .gouwul{width:95px; height:25px; float:left; font-size:15PX;}
 .gouwur{width:15px; height:12px; float:left; padding-top:2PX;}
 
-.datu{width:1200px; height:651px; background:url(../images/top1.jpg) no-repeat; float:left; margin-bottom:20px;}
+.datu{width:1200px; height:651px; background:url(../images/top1.jpg) no-repeat; background-size: contain; float:left; margin-bottom:20px;}
 .xlcd{ float:left; font-size:14px;text-align:center;width:100%;margin:20px 0;min-width:1200px;z-index:99999;}
 .xlcd a{color:#000;margin:0 10px;}
 .xlcd a:hover{color:#8c6359;}
 .xlcd a.on{color:#8c6359;}
 
-.pic{width:1200px; height:134px; float:left; min-width:1200px;}
+.pic{width:1200px; height:134px; float:left; min-width:1200px; margin-bottom: 120px;}
 .pic_k{width:840px; margin:0 auto; height:134px;}
 .pic_k ul li{float:left; display:block; width:247px; height:134px; margin-left:15px; margin-right:15px; box-shadow:0 5px 10px 3px #eeeeee;}
-
+.pic_k img{width: 100%; height: 100%;}
 
 .dingzhi{width:1200px; height:555px; background:url(../images/dzall.png) repeat-x; float:left; margin-top:60px; }
 .dz_k{width:490px; height:305px; margin:0 auto; margin-top:110px;}
@@ -56,7 +57,7 @@ header{width:100%; height:140px; float:left; min-width:1200px;}
 .d-bot{width:490px; height:43px; float:left; text-align:center; margin-top:40px;}
 
 .hide{opacity:0;}
-.xilie{width:1200px; height:580px; float:left; }
+.xilie{width:1200px; /*height:580px;*/ float:left; }
 .x-top{width:1200px; height:81px; float:left; text-align:center;}
 .x-cen{width:1200px; height:30px; float:left; background:url(../images/xian.png) repeat-x; margin-top:20px;}
 .x-cenk{width:420px; height:30px; margin:0 auto;}
@@ -71,11 +72,11 @@ header{width:100%; height:140px; float:left; min-width:1200px;}
 
 section{width:1200px; height:640px; float:left;}
 .about-k{width:1122px; height:640px; margin:0 auto;}
-.about-title{width:1050px; height:96px; float:left; padding-left:72px;}
+/*.about-title{width:1050px; height:96px; float:left; padding-left:72px;}*/
 .about-bot{width:1122px; height:530px; float:left;}
-.about-left{width:275px; height:530px; float:left;}
-.about-right{width:818px; height:530px; float:right; background:url(../images/jeihzi.png) no-repeat;}
-.about{width:476px; float:left; height:490px; color:#494345; font-size:12px; line-height:18px; padding-top:40px;}
+.about-right{width:570px; height:530px;float:right; }
+.about-left{width:540px; height:530px; float:left; /*background:url(../images/jeihzi.png) no-repeat;*/}
+.about{/*width:476px;*/ float:left; height:490px; color:#494345; font-size:12px; line-height:18px;/* padding-top:40px;*/}
 .wz{font-size:16px; line-height:1.2;}
 
 .div_back{text-align:center;width:100%;margin: 0 auto;}
@@ -83,7 +84,7 @@ section{width:1200px; height:640px; float:left;}
 
 
 .tuijian{width:1200px; height:835px; float:left; margin-top:110px; }
-.t-top{width:1200px; height:81px; float:left; text-align:center; margin-bottom:25px;}
+.t-top{width:1200px; float:left; text-align:center; margin-bottom:10px; font-size: 30px;}
 .t-bot{width:1200px; height:608px; float:left; margin-top:70px;}
 .t-left{width:792px; height:608px; float:left; background:url(../images/tuijian.png) no-repeat;}
 .t-nr{width:650px; height:410px; float:right;}
@@ -110,13 +111,41 @@ section{width:1200px; height:640px; float:left;}
 footer{width:1200px; height:221px; float:left; background:url(../images/footbj.png) repeat-x; }
 .f-top{width:1200px; height:75px; float:left;}
 .f-au{width:874px; height:75px; margin:0 auto;}
-.f-au dl{width:57px; height:75px; float:left; margin-left:44px; margin-right:44px;}
+.f-au dl{width:57px; height:75px; float:left; margin-left:33px; margin-right:33px;}
+.f-au dl a{display: inline-block; cursor: pointer;}
 .f-au dl dt{width:57px; height:57px; float:left;}
 .f-au dl dd{width:57px; height:28px; float:left; text-align:center; font-size:14px;}
 .f-bot{width:1200px; height:106px; float:left; margin-top:22px;}
-.foot{width:950px; height:106px; margin:0 auto;}
-.f-left{width:822px; height:106px; float:left;}
-.fo-left{width:265px; height:70px; float:left; margin-top:15px; line-height:14px;}
+.foot{width:870px; height:106px; margin:0 auto;}
+.f-left{height:106px; float:left;}
+.fo-left{width:330px; height:70px; float:left; margin-top:15px; line-height:14px;}
 .fo-cen{width:275px; height:70px; float:left; margin-top:15px; margin-left:50px;}
 .fo-right{width:205px; height:70px; margin-top:15px; float:right;}
 .f-right{width:108px; height:106px; float:right; box-shadow:0px 0px 15px 5px #d3d3d3;}
+
+
+
+
+
+/*新增*/
+/*导航*/
+.nav{margin-bottom: 40px;}
+.nav-box{text-align: center;}
+.nav-box ul{display: inline-block;}
+.nav-box ul li{cursor: pointer; float: left;}
+.nav-box ul li a{cursor: pointer; float: left; padding:0 20px; height: 30px; line-height: 30px; color: #666; border:1px solid #ddd; border-radius: 50px; margin:0 10px; font-size: 16px;}
+.nav-box span{width: 8px; height: 8px; display: inline-block; border-radius: 50%; background-color: #ccc; margin-right: 12px; margin-bottom: 2px;}
+.nav-box ul li img{width: 15px; height: 12px; display: inline-block;}
+
+.nav-box ul li a.on{color:#fff; background-color: #f9b5b2; border-color:#f9b5b2;}
+.nav-box ul li a.on span{background-color: #fff;}
+.nav-box ul li a:hover{color:#fff; background-color: #f9b5b2; border-color:#f9b5b2;}
+.nav-box ul li a:hover span{background-color: #fff;}
+
+/*定制*/
+.dz{position: relative; margin-bottom: 60px;}
+.dz a{position: absolute; right:148px; top: 217px; padding:0 20px; width: 80px; display: block; height: 30px; line-height: 30px; color: #666; border:1px solid #ddd; border-radius: 50px; background-color: #fff; font-size: 14px;}
+.dz a span{width: 8px; height: 8px; display: inline-block; border-radius: 50%; background-color: #ccc; margin-right: 12px; margin-bottom: 2px;}
+.dz a:hover{color:#f9b5b2;}
+.dz a:hover span{background-color:#f9b5b2;}
+
