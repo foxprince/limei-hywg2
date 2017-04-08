@@ -2,7 +2,7 @@
 /* CSS Document */
 html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;font-family:"微软雅黑";}
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
-html,body{color:#333;font-size:12px;background:url(../images/bg.png) repeat;}
+html,body{color:#333;font-size:12px;}
 
 em{font-style:normal;}
 h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;display:inline;}
@@ -71,12 +71,12 @@ header{width:100%; height:180px; float:left; min-width:1200px; background: url(.
 .kongbai{width:1200px; height:212px; float:left; min-width:1200px;}
 
 section{width:1200px; height:640px; float:left;}
-.about-k{width:1122px; height:640px; margin:0 auto;}
+.about-k{width:1200px; height:640px; margin:0 auto;}
 /*.about-title{width:1050px; height:96px; float:left; padding-left:72px;}*/
-.about-bot{width:1122px; height:530px; float:left;}
-.about-right{width:570px; height:530px;float:right; }
+.about-bot{height:530px;}
+.about-right{width:580px; height:530px;float:right; }
 .about-left{width:540px; height:530px; float:left; /*background:url(../images/jeihzi.png) no-repeat;*/}
-.about{/*width:476px;*/ float:left; height:490px; color:#494345; font-size:12px; line-height:18px;/* padding-top:40px;*/}
+.about{/*width:476px;*/ float:left; height:490px; color:#494345; font-size:12px; line-height:18px;/* padding-top:40px;*/background: url(../images/about-bg.png) no-repeat 0 80px; background-size: contain;}
 .wz{font-size:16px; line-height:1.2;}
 
 .div_back{text-align:center;width:100%;margin: 0 auto;}
@@ -86,14 +86,15 @@ section{width:1200px; height:640px; float:left;}
 .tuijian{width:1200px; height:835px; float:left; margin-top:110px; }
 .t-top{width:1200px; float:left; text-align:center; margin-bottom:10px; font-size: 30px;}
 .t-bot{width:1200px; height:608px; float:left; margin-top:70px;}
-.t-left{width:792px; height:608px; float:left; background:url(../images/tuijian.png) no-repeat;}
-.t-nr{width:650px; height:410px; float:right;}
-.t-nl{width:260px; height:410px; float:left; }
-.t-nll{width:260px; height:260px; float:left;box-shadow:0px 0px 10px 3px #f2f2f2;}
-.t-nr1{width:372px; height:410px; float:right; box-shadow:0 0px 10px 3px #f2f2f2;}
-.t-right{width:408px; height:607px; float:right;}
-.t-rnr{width:260px; height:460px; float:left; margin-left:15px;}
-.t-rpic{width:260px; height:230px; float:left;}
+.t-bot a{box-shadow: 0 0 #333;}
+.t-left{float: left; margin-right: 2px; margin-left: 30px;}
+.t-center{float: left; width:388px;}
+.t-center a{float: left;}
+.t-center img{display: block;}
+.t-right{float: left; margin-top:294px;}
+.t-right a{float: left;}
+.t-right img{display: block;}
+
 
 
 .new{width:1200px; height:353px; float:left; margin-top:180px; }
@@ -108,33 +109,34 @@ section{width:1200px; height:640px; float:left;}
 .n-con ul li a{float:left; display:block; color:#999; width:342px; height:29px; }
 .n-con ul li a:hover{color:#e49193;} 
 
-footer{width:1200px; height:221px; float:left; background:url(../images/footbj.png) repeat-x; }
-.f-top{width:1200px; height:75px; float:left;}
+footer{ height:221px; background:url(../images/footbj.png) repeat-x; }
+.f-top{width:1200px; height:75px; margin:0 auto;}
 .f-au{width:874px; height:75px; margin:0 auto;}
 .f-au dl{width:57px; height:75px; float:left; margin-left:33px; margin-right:33px;}
 .f-au dl a{display: inline-block; cursor: pointer;}
 .f-au dl dt{width:57px; height:57px; float:left;}
 .f-au dl dd{width:57px; height:28px; float:left; text-align:center; font-size:14px;}
-.f-bot{width:1200px; height:106px; float:left; margin-top:22px;}
+.f-bot{width:1200px; height:106px; margin:0 auto; margin-top:22px;}
 .foot{width:870px; height:106px; margin:0 auto;}
 .f-left{height:106px; float:left;}
 .fo-left{width:330px; height:70px; float:left; margin-top:15px; line-height:14px;}
 .fo-cen{width:275px; height:70px; float:left; margin-top:15px; margin-left:50px;}
 .fo-right{width:205px; height:70px; margin-top:15px; float:right;}
 .f-right{width:108px; height:106px; float:right; box-shadow:0px 0px 15px 5px #d3d3d3;}
-
+.foot a{color:#999;}
+.foot a:hover{color:#f9b5b2;}
 
 
 
 
 /*新增*/
 /*导航*/
-.nav{margin-bottom: 40px;}
+.nav{margin-bottom: 40px;width: 1200px; height: 30px; float: left; background: url(../images/xian.png) repeat-x;}
 .nav-box{text-align: center;}
 .nav-box ul{display: inline-block;}
 .nav-box ul li{cursor: pointer; float: left;}
-.nav-box ul li a{cursor: pointer; float: left; padding:0 20px; height: 30px; line-height: 30px; color: #666; border:1px solid #ddd; border-radius: 50px; margin:0 10px; font-size: 16px;}
-.nav-box span{width: 8px; height: 8px; display: inline-block; border-radius: 50%; background-color: #ccc; margin-right: 12px; margin-bottom: 2px;}
+.nav-box ul li a{cursor: pointer; float: left; padding:0 20px; height: 30px; line-height: 30px; color: #666; border:1px solid #ddd; border-radius: 50px; margin:0 10px; font-size: 14px; background-color: #fff;}
+.nav-box span{width: 8px; height: 8px; display: inline-block; border-radius: 50%; background-color: #ccc; margin-right: 8px; margin-bottom: 2px;}
 .nav-box ul li img{width: 15px; height: 12px; display: inline-block;}
 
 .nav-box ul li a.on{color:#fff; background-color: #f9b5b2; border-color:#f9b5b2;}
