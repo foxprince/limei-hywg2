@@ -88,10 +88,10 @@ section{width:1200px; height:640px; float:left;}
 .t-bot{width:1200px; height:608px; float:left; margin-top:70px;}
 .t-bot a{box-shadow: 0 0 #333;}
 .t-left{float: left; margin-right: 2px; margin-left: 30px;}
-.t-center{float: left; width:388px;}
+.t-center{float: left; width:386px;}
 .t-center a{float: left;}
 .t-center img{display: block;}
-.t-right{float: left; margin-top:294px;}
+.t-right{float: left; margin-top:294px; margin-left: -1px;}
 .t-right a{float: left;}
 .t-right img{display: block;}
 
