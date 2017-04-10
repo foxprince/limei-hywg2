@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>LUMIA</title>
-<?php include_once('topbar.php');?>
+<?php include_once('header.php');?>
 </head>
 <body>
 <div class="zhuti clear">
