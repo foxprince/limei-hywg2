@@ -1,23 +1,30 @@
-	<header>
+  <header>
     <div class="top">
-      <!--<div class="t_left"><div class="caidan"><div class="caidanl"><a href="javascript:;"><img src="images/caidan.gif"></a></div><div class="caidanr"><a href="javascript:;">菜单</a></div></div></div>-->
       <div class="t_cen"><img src="images/logo.png"></div>
-      <!--<div class="t_right">
-        <div class="gouwu"><div class="gouwul"><a href="">加入LUMIA</a></div><div class="gouwur"><a href=""><img src="images/gwc.gif"></a></div></div>
-      </div>-->
     </div>
   </header>
-  
-  <div class="xlcd" id="xlcd" >
-  	<a href="index.php" >首页</a><a href="about.php">品牌文化</a><a href="jewelry.php">首饰</a><a href="diamonds.php">裸钻</a><a href="contact.php">留言</a><a href="aboutus.php">联系我们</a>
-  	<?php if(!isset($_SESSION['useraccount'])){?>
-    	<a href="login.php">用户登录</a>
-    <?php }else{
+
+  <div class="nav">
+    <div class="nav-box">
+      <ul class="clear">
+        <li><a href="index.php" class="on"><span></span>首页</a></li>
+        <li><a href="about.php"><span></span>品牌文化</a></li>
+        <li><a href="jewelry.php"><span></span>首饰</a></li>
+        <li><a href="diamonds.php"><span></span>裸钻</a></li>
+        <li><a href=""><span></span>社区</a></li>
+        <li><a href="aboutus.php"><span></span>联系我们</a></li>
+        <li>
+        <?php if(!isset($_SESSION['useraccount'])){?>
+    	<a href="login.php"><span></span>加入LUMIA</a>
+    	<?php }else{
     	$sql_ordernum='SELECT COUNT(*) AS myordernum FROM viewing_record WHERE viewer = "'.$_SESSION['useraccount'].'"';
 		foreach($conn->query($sql_ordernum) as $r_o_n){
 			$myordernum=$r_o_n['myordernum'];
 		}?>
-        <a href="myaccount.php">我的钻戒(<?php echo $myordernum; ?>)</a>
-    <?php }?>
-  	<a href="aboutus.php"><img src="images/gwc.gif"></a>
+        <a href="myaccount.php"><span></span>我的钻戒(<?php echo $myordernum; ?>)</a>
+    	<?php }?>
+        <li><a href=""><span></span><img src="images/gwc.gif"></a></li>
+      </ul>
+    </div>
   </div>
+  
