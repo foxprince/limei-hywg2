@@ -38,7 +38,7 @@
 	    var path = window.location.href;
 	    path = path.replace(/\/$/, "");
 	    path = decodeURIComponent(path);
-	    $(".nav-box>a").each(function () {
+	    $(".nav-box a").each(function () {
 	        var navi = $(this).attr('href');
 	        if (path.indexOf(navi)!=-1) {
 	            $(this).addClass('on');

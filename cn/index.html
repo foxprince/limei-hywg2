@@ -25,7 +25,7 @@
   <div class="nav">
     <div class="nav-box">
       <ul class="clear">
-        <li><a href="" class="on"><span></span>首页</a></li>
+        <li><a href="index.html"><span></span>首页</a></li>
         <li><a href=""><span></span>品牌文化</a></li>
         <li><a href=""><span></span>首饰</a></li>
         <li><a href=""><span></span>裸钻</a></li>
@@ -242,6 +242,20 @@
   </div>
 </footer>  
 <script>
+$(function () {
+    setNavigation();//set menu active
+});
+function setNavigation() {
+    var path = window.location.href;
+    path = path.replace(/\/$/, "");
+    path = decodeURIComponent(path);alert(path);
+    $(".nav-box a").each(function () {
+        var navi = $(this).attr('href');
+        if (path.indexOf(navi)!=-1) {
+            $(this).addClass('on');
+        }
+    });
+}
     $(function(){
         $(".caidanr a,.caidanl a").click(function () {
             if ($(".xlcd").is(":hidden")) {

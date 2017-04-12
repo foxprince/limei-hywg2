@@ -7,7 +7,7 @@
   <div class="nav">
     <div class="nav-box">
       <ul class="clear">
-        <li><a href="index.php" class="on"><span></span>首页</a></li>
+        <li><a href="index.php" ><span></span>首页</a></li>
         <li><a href="about.php"><span></span>品牌文化</a></li>
         <li><a href="jewelry.php"><span></span>首饰</a></li>
         <li><a href="diamonds.php"><span></span>裸钻</a></li>
