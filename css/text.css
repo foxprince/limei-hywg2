@@ -253,7 +253,7 @@
 .div_aboutus{
 	width:1200px;
 	height:876px;
-	position:absolute;
+	position:relative;
 	top:200px;
 	background:url("../images/aboutus.png") no-repeat center center;
 }
