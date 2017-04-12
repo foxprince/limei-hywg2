@@ -166,7 +166,7 @@ switch ($sorting){
 
 
 
-require_once('connection-dia-data.php');
+require_once('connection.php');
 $conn=dbConnect_dia('write','pdo');
 $conn->query("SET NAMES 'utf8'");
 
