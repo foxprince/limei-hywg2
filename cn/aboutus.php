@@ -40,6 +40,6 @@
 			<div class="aboutus_weixin"></div>
 		</div>
    </div>
-</div>
+<?php include_once('footer.php');?>
 </body>
 </html>
