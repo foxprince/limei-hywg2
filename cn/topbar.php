@@ -11,7 +11,7 @@
         <li><a href="about.php"><span></span>品牌文化</a></li>
         <li><a href="jewelry.php"><span></span>首饰</a></li>
         <li><a href="diamonds.php"><span></span>裸钻</a></li>
-        <li><a href=""><span></span>社区</a></li>
+        <li><a href="#community.php"><span></span>社区</a></li>
         <li><a href="aboutus.php"><span></span>联系我们</a></li>
         <li>
         <?php if(!isset($_SESSION['useraccount'])){?>
