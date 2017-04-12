@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>LUMIA</title>
+<title>比利时钻石,安特卫普钻石 - 利美钻石</title>
 <?php include_once('header.php');?>
 </head>
 <body>
@@ -158,23 +158,17 @@
         <div class="n-new">
           <div class="n-title"><a href="">最新动态</a></div>
           <div class="n-con">
-                        <ul>
-                            <li>
-              <a href="about.php?p=article&ref=publicmedia&id=271"> <span class="sp_short">一克拉钻石等级</span></a>
+            <?php 
+            $sql='SELECT * FROM usefulinfo  ORDER BY id DESC LIMIT 0,5';
+			$stmt=$conn->query($sql);
+            ?>
+            <ul>
+              <?php foreach($stmt as $row){?>
+              <li>
+              <a href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>"> <span class="sp_short"><?php echo $row['title_ch']; ?></span></a>
               </li>
-                            <li>
-              <a href="about.php?p=article&ref=publicmedia&id=270"> <span class="sp_short">钻戒1克拉网上购买 克拉钻石网</span></a>
-              </li>
-                            <li>
-              <a href="about.php?p=article&ref=publicmedia&id=269"> <span class="sp_short">钻石d0103ct等于多少克拉</span></a>
-              </li>
-                            <li>
-              <a href="about.php?p=article&ref=publicmedia&id=268"> <span class="sp_short">男士钻戒一克拉</span></a>
-              </li>
-                            <li>
-              <a href="about.php?p=article&ref=publicmedia&id=267"> <span class="sp_short">一克拉钻戒戒托什么材质好</span></a>
-              </li>
-                          </ul>
+              <?php }?>
+            </ul>
           </div>
         </div>
       </div>
@@ -182,23 +176,11 @@
   </div>
 </div>
 </div>
-<footer>
-  <div class="f-top">
-    <div class="f-au">
-      <dl><a href="/"><dt><img src="images/footico.png" ></dt><dd>权威认证</dd></a></dl>
-      <dl><a href="/"><dt><img src="images/footico2.png"></dt><dd>权威认证</dd></a></dl>
-      <dl><a href="/"><dt><img src="images/footico3.png"></dt><dd>权威认证</dd></a></dl>
-      <dl><a href="/"><dt><img src="images/footico4.png"></dt><dd>终生保养</dd></a></dl>
-      <dl><a href="/"><dt><img src="images/footico5.png"></dt><dd>交通指示</dd></a></dl>
-      <dl><a href="/"><dt><img src="images/footico6.png"></dt><dd>直邮中国</dd></a></dl>
-      <dl><a href="/"><dt><img src="images/footico7.png"></dt><dd>预约购买</dd></a></dl>
-    </div>
-  </div>
+  
   <?php
 	include_once('footer.php');
   ?>
   
-</footer>  
 <script>
     $(function(){
         $(".caidanr a,.caidanl a").click(function () {

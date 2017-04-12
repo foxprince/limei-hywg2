@@ -1,3 +1,15 @@
+<footer>
+  <div class="f-top">
+    <div class="f-au">
+      <dl><a href="/"><dt><img src="images/footico.png" ></dt><dd>权威认证</dd></a></dl>
+      <dl><a href="/"><dt><img src="images/footico2.png"></dt><dd>权威认证</dd></a></dl>
+      <dl><a href="/"><dt><img src="images/footico3.png"></dt><dd>权威认证</dd></a></dl>
+      <dl><a href="/"><dt><img src="images/footico4.png"></dt><dd>终生保养</dd></a></dl>
+      <dl><a href="/"><dt><img src="images/footico5.png"></dt><dd>交通指示</dd></a></dl>
+      <dl><a href="/"><dt><img src="images/footico6.png"></dt><dd>直邮中国</dd></a></dl>
+      <dl><a href="/"><dt><img src="images/footico7.png"></dt><dd>预约购买</dd></a></dl>
+    </div>
+  </div>
   <div class="f-bot">
     <div class="foot">
       <div class="f-left">
@@ -17,6 +29,7 @@
       <div class="f-right"><img src="images/footerwe.png"></div>
     </div>
   </div>
+</footer>
    <script>
 	$(function () {
 	    setNavigation();//set menu active

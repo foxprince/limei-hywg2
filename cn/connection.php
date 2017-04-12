@@ -3,12 +3,12 @@
 
 function dbConnect($usertype='write', $connectionType = 'pdo') {
   $host = 'localhost';
-  $db = 'sihui_limei';
+  $db = 'limei';
   if ($usertype  == 'read') {
-	$user = 'sihui_liu';
+	$user = 'lmhuser';
 	$pwd = 'p@ss0Day!';
   } elseif ($usertype == 'write') {
-	$user = 'sihui_liu';
+	$user = 'lmhuser';
 	$pwd = 'p@ss0Day!';
   } else {
 	exit('Unrecognized connection type');
