@@ -42,6 +42,7 @@
 	        var navi = $(this).attr('href');
 	        if (path.indexOf(navi)!=-1) {
 	            $(this).addClass('on');
+	            break;
 	        }
 	    });
 	}
