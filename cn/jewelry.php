@@ -1,174 +1,1 @@
-<?php
-$crr_page='jewelry';
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<title>精品首饰 - 利美钻石</title>
-	<?php
-		include_once('header.php');
-	?>
-
-<style type="text/css">
-#jewelrybtn{
-	border-bottom-style: solid;
-    border-width: 2px;
-}
-div.r_box{
-	background-color: #CCCCCC;
-    display: inline-block;
-    height: 165px;
-    list-style: none outside none;
-    margin: 2px;
-    padding: 0;
-    position: relative;
-    width: 165px;
-}
-a.j_linker{
-	height: 165px;
-    left: 0;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    width: 165px;
-}
-.j_linker img{
-	width:100%;
-}
-a.j_linker_txt{
-	  background-color: rgba(255, 255, 255, 0.95);
-    bottom: 0;
-    color: #000000;
-    font-size: 12px;
-    left: 0;
-    padding: 5px;
-    position: absolute;
-    text-decoration: none;
-    width: 165px;
-		text-align:center;
-}
-
-
-
-h3.blocktitle{
-	text-align:left;
-}
-
-div#thumbsbox{
-	position:relative;
-	float:left;
-	width:350px;
-}
-div#txtvideobox{
-	position:relative;
-	float:left;
-	margin:5px 0 0 3px;
-	width:350px;
-}
-a.thumb{
-	display:inline-block;
-	width: 98px;
-	height:98px;
-	overflow:hidden;
-	padding:0;
-	margin:3px;
-	border-width:3px;
-	border-color:#FFF;
-	border-style:solid;
-	background-color:#999;
-}
-a.thumb img{
-	width:100%;
-}
-span.thumbholder{
-	display:inline-block;
-	width:165px;
-	height:165px;
-	padding:0;
-	margin:0;
-	background-position:center center;
-	background-size:auto 165px;
-	background-repeat:no-repeat;
-}
-label{
-	display:inline-block;
-	width:108px;
-}
-#contactform input{
-	width:208px;
-}
-#contactform #cformsendbtn{
-	font-size:14px; 
-	font-weight:bold; 
-	padding:8px 25px; 
-	background-color:#C30;
-	color:#FFF; 
-	border-width:1px;
-	width:auto;
-	margin-bottom:55px; 
-}
-p.pq{
-	margin:5px 0;
-}
-h4#feedbackmessage{
-	color:#CC6699;
-	font-size:20px;
-}
-#contactinfo{
-	margin-bottom:20px;
-	border-bottom-style:dotted;
-	border-width:1px;
-	border-color:#CC6699;
-	padding-bottom:20px;
-}
-</style>
-</head>
-<body>
-<?php
-		include_once('topbar.php');
-	?>
-	<div  class="container-fluid maxcontainer" style="width:870px;margin:0 auto;margin-top:-50px;">
-		<div class="row bodycontent-1">
-			<?php
-			if(isset($_GET['p'])){
-				$p=$_GET['p'];
-			}else{
-				$p='';
-			}
-			switch($p){
-				case 'all':
-				$the_page='jewelry-all.php';
-				break;
-
-				
-				case 'steps':
-				$the_page='steps.php';
-				break;
-				
-				case 'contact':
-				$the_page='contact.php';
-				break;
-				
-				case 'buyeasy':
-				$the_page='buyeasy.php';
-				break;
-				
-				case 'detail':
-				$the_page='jewelry-detail.php';
-				break;
-				
-				default:
-				$the_page='jewelry-all.php';
-			}
-			include_once("$the_page");
-			?>
-		</div>
-		<!--*************************************************************************-->
-		<!--****************************************************************************-->
-		
-	</div>
-	<?php
-		include_once('footer.php');
-		?>
-</body>
-</html>
+<!DOCTYPE html><html><head>    <title>首饰 - 利美钻石</title>	<?php include_once('header.php');?>    <script type="text/javascript" src="js/jquery.range.js"></script></head><body><div class="zhuti clear">  <?php include_once('topbar.php'); ?>  <!-- 内容主题 -->  <div class="contain">    <div class="pro-t clear">      <ul class="pro-t-l fl">        <li><a href="jewelry.php?category=ring">钻戒</a></li>        <li><a href="jewelry.php?category=necklace">项链</a></li>        <li><a href="jewelry.php?category=earring">耳环</a></li>      </ul>      <div class="price-box fl">        <span>预算区间</span>          <div id="filter_line_price" style="float: left">              <div class="layout-slider" style="width: 540px; float: left;">                  <input class="doller" type="slider" name="doller" value="100,5000" />              </div>              <input type="hidden" id="price_from" value="100">              <input type="hidden" id="price_to" value="10000">              <script type="text/javascript" charset="utf-8">                  jQuery(function () {                      jQuery('.doller').jRange({                          from: 0,                          to: 20000,                          step: 1,                          format: '%s',                          width: 540,                          showLabels: true,                          isRange: true,                          fromEvt: '#price_from',                          toEvt: '#price_to'                      });                  })              </script>          </div>      </div>        <div class="filter_line_inner" style="width:900px;">        </div>      <div class="rmb fr">单位：         <select>          <option>人民币</option>          <option>美元</option>          <option>欧元</option>        </select>      </div>    </div>    <div class="pro-box">      <ul class="clear">        <?php		$sql='SELECT * FROM jewelry WHERE category = '.$_GET['category'].'  ORDER BY id';		foreach($conn->query($sql) as $row) {		?>		<li><a href="jewelryDetail.php?id=<?php echo $row['id']; ?>"><img src="/images/sitepictures/thumbs/<?php echo $row['image1']; ?>" alt="<?php echo $row['name_ch']; ?>" /><?php echo $row['name_ch']; ?></a></li>		<?php }?>      </ul>    </div>  </div><!-- 内容主题 结束 --></div></body><?php include_once('footer.php');?></html>

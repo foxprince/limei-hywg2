@@ -2,10 +2,10 @@
 /* CSS Document */
 html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;font-family:"微软雅黑";}
 article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}
-html,body{color:#333;font-size:12px;}
+html,body{color:#333; font-size:12px;}
 
 em{font-style:normal;}
-h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;display:inline;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
 address,cite,dfn,em,var{font-style:normal;}
 ul,ol,li,dl,dd,dt{list-style:none;}
 a{text-decoration:none; color:#000;}
@@ -20,9 +20,14 @@ table{border-collapse:collapse;border-spacing:0;}
 .left {float:left;}
 .right {float:right;}
 .tc{text-align: center;}
+.tl{text-align: left!important;}
+.tr{text-align: right!important;}
+.fl{float: left;}
+.fr{float: right;}
+.w1000{width: 1000px; margin:0 auto;}
 
 .zhuti{width:1200px; margin:0 auto;}
-header{width:100%; height:180px; float:left; min-width:1200px; background: url(../images/top-bg.png) no-repeat; background-size: cover; }
+header{width:100%; height:180px; min-width:1200px; background: url(../images/top-bg.png) no-repeat; background-size: cover; }
 .top{width:1138px; height:140px; margin:0 auto;}
 .t_left{width:70px; height:140px; float:left;}
 .caidan{width:64px; height:25px; float:left; margin-top:118px; }
@@ -109,7 +114,7 @@ section{width:1200px; height:640px; float:left;}
 .n-con ul li a{float:left; display:block; color:#999; width:342px; height:29px; }
 .n-con ul li a:hover{color:#e49193;} 
 
-footer{ height:221px; background:url(../images/footbj.png) repeat-x; }
+footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top: 30px;}
 .f-top{width:1200px; height:75px; margin:0 auto;}
 .f-au{width:874px; height:75px; margin:0 auto;}
 .f-au dl{width:57px; height:75px; float:left; margin-left:33px; margin-right:33px;}
@@ -131,7 +136,7 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; }
 
 /*新增*/
 /*导航*/
-.nav{margin-bottom: 40px;width: 1200px; height: 30px; float: left; background: url(../images/xian.png) repeat-x;}
+.nav{margin-bottom: 40px;width: 1200px; height: 30px; background: url(../images/xian.png) repeat-x;}
 .nav-box{text-align: center;}
 .nav-box ul{display: inline-block;}
 .nav-box ul li{cursor: pointer; float: left;}
@@ -150,4 +155,89 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; }
 .dz a span{width: 8px; height: 8px; display: inline-block; border-radius: 50%; background-color: #ccc; margin-right: 12px; margin-bottom: 2px;}
 .dz a:hover{color:#f9b5b2;}
 .dz a:hover span{background-color:#f9b5b2;}
+
+/*二级页面样式*/
+.contain{}
+.side-bar{margin-right: 100px;}
+.side-bar ul{}
+.side-bar li{margin:10px 0;}
+.side-bar a{font-size: 18px; color:#666; line-height: 24px;}
+.side-bar a:hover{color:#f9b5b2;}
+.side-bar a.on{color:#f9b5b2;}
+.con-r{overflow: hidden;}
+.con-r ul{}
+.con-r li{width: 200px; height: 200px; float: left;}
+.con-r li a{display: table; height: 100%; width: 100%; text-align: center; vertical-align: middle; background-size: cover;}
+.con-r li .about-txt{display: table-cell; vertical-align: middle;}
+.con-r li p{font-size: 14px; color:#666; margin-left: 10px; margin-right: 10px; margin-top: 10px;}
+.con-r li p:first-child{margin-top:0;}
+.con-r li a:hover p{ color:#666;}
+.about-bg01{background: url(../images/about-bg01.jpg) no-repeat;}
+.about-bg02{background: url(../images/about-bg02.jpg) no-repeat;}
+.about-bg03{background: url(../images/about-bg03.jpg) no-repeat;}
+.about-bg04{background: url(../images/about-bg04.jpg) no-repeat;}
+.about-bg05{background: url(../images/about-bg05.jpg) no-repeat;}
+.about-bg06{background: url(../images/about-bg06.jpg) no-repeat;}
+.about-bg07{background: url(../images/about-bg07.jpg) no-repeat;}
+.about-bg08{background: url(../images/about-bg08.jpg) no-repeat;}
+.about-bg09{background: url(../images/about-bg09.jpg) no-repeat;}
+.about-bg03{background: url(../images/about-bg03.jpg) no-repeat;}
+.about-bg03{background: url(../images/about-bg03.jpg) no-repeat;}
+.about-bg03{background: url(../images/about-bg03.jpg) no-repeat;}
+
+/*产品页面*/
+.pro-box{width: 1000px; margin:0 auto;}
+.pro-box ul{}
+.pro-box li{float: left; border:1px solid #ddd; border-radius: 4px; margin:4px; width: 240px; overflow: hidden;}
+.pro-box li:hover{ box-shadow: 0 0 6px #f9b5b2;}
+.pro-box a{display: block; text-align: center;}
+.pro-box img{width: 240px; height: 236px; overflow: hidden;}
+.pro-box h3{font-size: 14px;}
+.page{overflow: hidden; margin-top: 10px;}
+.page a{display: inline-block; width: 18px; height: 18px; text-align: center; line-height: 18px; background-color: #eaeaea;}
+
+.pro-t{width: 1000px; margin:0 auto; margin-bottom: 40px; margin-top: 80px;}
+.pro-t-l li{display: inline-block; padding:0 10px;}
+.pro-t-l a.on{color:#f9b5b2;}
+.price-box{margin-left: 66px;}
+.price-box span{float: left; margin-right: 16px;}
+.price-box i{font-style: normal;}
+.price-bar{display: inline-block; width: 300px; background: #b17a61; height: 10px; border-radius: 5px; position: relative;}
+.price-bar .price-bg{background-color: #fff; width: 20px; height: 8px; border-radius: 5px; margin-top: 1px;}
+.price-bar .price-block{position: absolute; left: 0;}
+.price-bar .price-block-l{}
+.price-bar .price-block-r{}
+
+.detail{position: relative;}
+.detail-r{position: absolute; top:100px; right: 0; width: 360px;}
+.detail-r h1{font-size: 28px;}
+.detail-r p{margin:20px 0; font-size: 14px; color: #333；}
+.detail-r span{width: 76px; display: inline-block;}
+.detail-r select{width: 240px; background-color: #f7f1e5; border-color:#c89600; border-radius: 6px;}
+.detail-s{margin:6px 0;}
+
+.detail-buy{margin-top: 100px;}
+.detail-buy p{display: inline-block; font-size: 20px;}
+.detail-buy i{font-style: normal; color: #f9b5b2; font-size: 20px;}
+.detail-buy .btn{background-color:#bd8167; padding:7px 28px; border:1px solid #8b553e; color: #fff; border-radius: 6px; margin-left: 10px;}
+
+.share{width: 800px; height: 100px; padding-left: 200px;}
+.share li{float: left; margin-right: 6px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
