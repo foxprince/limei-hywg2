@@ -7,10 +7,11 @@
 	?>
 </head>
 <body>
-<div class="zhuti">
+<div class="zhuti clear">
 	<?php
 		include_once('topbar.php');
 	?>
+	<div class="contain">
 		<div class="div_aboutus">
 			<div class="trans">
 				<span style="color:#4f4747;">交通指引</span>
@@ -39,7 +40,8 @@
 			</div>
 			<div class="aboutus_weixin"></div>
 		</div>
-   </div>
+	</div>
+</div>
 <?php include_once('footer.php');?>
 </body>
 </html>

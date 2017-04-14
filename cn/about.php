@@ -7,6 +7,7 @@
 	?>
 </head>
 <body>
+<div class="zhuti clear">
 	<?php
 		include_once('topbar.php');
 	?>
@@ -14,7 +15,7 @@
 	<?php
 	include_once("menu.php");
 	?>
-	<div class="con-r">
+		<div class="con-r">
 		<?php
 				if(isset($_GET['p'])){
 					$p=$_GET['p'];
@@ -43,9 +44,10 @@
 				}
 				include_once("$the_page");
 				?>
+		</div>
 	</div>
-	</div>
-   	<?php include_once('footer.php');?>
+</div> 
+<?php include_once('footer.php');?>
    
 </body>
 </html>
