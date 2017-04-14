@@ -1,6 +1,6 @@
 ﻿
-<div class="div_menul">
-			<ul class="ul_1">
+		<div class="side-bar fl">
+			<ul>
 				<li class="li_1">
 					<a href="#" class="a_menu1">品牌故事</a>
 					<div class="div1" <?php if(strstr($_SERVER['REQUEST_URI'],'about.php?p=brandstory#antwerp')||strstr($_SERVER['REQUEST_URI'],'about.php?p=brandstory#chineseantwerp')||strstr($_SERVER['REQUEST_URI'],'about.php?p=brandstory#chaunsstory')){ echo 'style="display:block;"';} ?> >
@@ -14,10 +14,8 @@
 							<li class="li_2" style="position: relative;">
 								<a href="about.php?p=brandstory#chaunsstory" onclick="document.getElementById('chaunsstory').scrollIntoView(true);return false;"class="a_menu2">利美故事</a>
 							</li>
-							
 						</ul>
 					</div>
-					
 				</li>
 				<li class="li_1">
 					<a href="about.php?p=whylumia" class="a_menu1" <?php if(strstr($_SERVER['REQUEST_URI'],'about.php?p=whylumia')){ echo 'style="color:#b68168;"';} ?> >利美优势</a>
@@ -76,9 +74,7 @@
 										</li>
 									</ul>
 								</div>
-
 							</li>
-
 				<li class="li_1">
           <a href="#" class="a_menu1" <?php if(strstr($_SERVER['REQUEST_URI'],'guide.php?p=choose-diamond')||strstr($_SERVER['REQUEST_URI'],'guide.php?p=knowledge')){ echo 'style="color:#b68168;"';} ?>>钻石知识</a>
           <div class="div1" <?php if(strstr($_SERVER['REQUEST_URI'],'guide.php?p=knowledge')||strstr($_SERVER['REQUEST_URI'],'guide.php?p=choose-diamond&c=carat')||strstr($_SERVER['REQUEST_URI'],'guide.php?p=choose-diamond&c=color')||strstr($_SERVER['REQUEST_URI'],'guide.php?p=choose-diamond&c=clarity')||strstr($_SERVER['REQUEST_URI'],'guide.php?p=choose-diamond&c=certificate')||strstr($_SERVER['REQUEST_URI'],'guide.php?p=choose-diamond&c=cut')||strstr($_SERVER['REQUEST_URI'],'guide.php?p=choose-diamond&c=fluorescence')){ echo 'style="display:block;"';} ?>>

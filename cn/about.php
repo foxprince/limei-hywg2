@@ -10,9 +10,11 @@
 	<?php
 		include_once('topbar.php');
 	?>
+	<div class="contain clear">
 	<?php
 	include_once("menu.php");
 	?>
+	<div class="con-r">
 		<?php
 				if(isset($_GET['p'])){
 					$p=$_GET['p'];
@@ -41,13 +43,9 @@
 				}
 				include_once("$the_page");
 				?>
-	<div class="div_down">
-		<div class="text-bottom"></div>
-   	</div>
-		
-   	<?php
-		include_once('footer.php');
-	?>
+	</div>
+	</div>
+   	<?php include_once('footer.php');?>
    
 </body>
 </html>
