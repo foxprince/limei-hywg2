@@ -21,8 +21,8 @@ $stmt=$conn->query($sql);
 			<?php
 			foreach($stmt as $row){
 			?>
-			<li class="about-bg0<?php echo rand(1, 4);?>">
-			<a href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
+			<li>
+			<a class="about-bg0<?php echo rand(1, 4);?>" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
 			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
 			</a>
 			</li>
