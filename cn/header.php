@@ -13,8 +13,8 @@ if(!isset($conn)){
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta http-equiv="Expires" content="0"
-<link rel="stylesheet" type="text/css" href="../css/public.css">
-<link rel="stylesheet" type="text/css" href="../css/text.css">
+<link rel="stylesheet" type="text/css" href="./css/public.css">
+<link rel="stylesheet" type="text/css" href="./css/text.css">
 <link rel="stylesheet" type="text/css" href="./css/css.css">
-<script type="text/javascript" src="../js/jquery.1.11.3.min.js"></script>
-<script type="text/javascript" src="../js/text.js"></script>
+<script type="text/javascript" src="./js/jquery.1.11.3.min.js"></script>
+<script type="text/javascript" src="./js/text.js"></script>
