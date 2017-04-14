@@ -12,7 +12,7 @@ if(!isset($conn)){
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Cache-Control" content="no-cache">
-<meta http-equiv="Expires" content="0"
+<meta http-equiv="Expires" content="0">
 <link rel="stylesheet" type="text/css" href="./css/public.css">
 <link rel="stylesheet" type="text/css" href="./css/text.css">
 <link rel="stylesheet" type="text/css" href="./css/css.css">
