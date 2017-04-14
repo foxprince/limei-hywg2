@@ -1,20 +1,9 @@
-<div class="div_down">
-<div class="text-title"><span>媒体报道</span></div>
-    <div class="text-top">
-      <img class="ring" src="../images/ring.png">
-    </div>
-   </div>
-<div class="div_text">
-<div class="text_in">
-<div  class="container-fluid">
-	<div class="row ">
-		<div class="col-xs-12 col-sm-12 col-md-9">
+<ul class="clear">
 <?php 
 $sql_count='SELECT COUNT(*) AS num_articles FROM usefulinfo WHERE category = "publicmedia"';
 foreach($conn->query($sql_count) as $number){
 	$articleCount=$number['num_articles'];
 }
-
 $totalpages=ceil($articleCount/25);
 
 if(isset($_GET['n'])){
@@ -25,16 +14,11 @@ if(isset($_GET['n'])){
 }else{
 	$crr_page=1;
 }
-
 $startnumber=($crr_page-1)*25;
-
-
 $sql='SELECT * FROM usefulinfo WHERE category = "publicmedia" ORDER BY id DESC LIMIT '.$startnumber.',25';
 $stmt=$conn->query($sql);
 ?>
 	
-	<div class="div_media">
-		<ul class="media_ul">
 			<?php
 			foreach($stmt as $row){
 			?>
@@ -69,15 +53,3 @@ $stmt=$conn->query($sql);
 			</li>
 		</ul>
 
-	</div>
-   </div>
-   </div>
-   </div></div></div>
-
-<script type="text/javascript">
-$('document').ready(function(){
-	$('ul.inner_sub_navi').slideDown('slow');
-	$('a#brandstorybtn').css({'border-bottom-style':'solid',
-	'border-width':'2px'});
-});
-</script>
