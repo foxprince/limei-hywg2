@@ -5,7 +5,6 @@ foreach($conn->query($sql_count) as $number){
 	$articleCount=$number['num_articles'];
 }
 $totalpages=ceil($articleCount/25);
-
 if(isset($_GET['n'])){
 	$crr_page=$_GET['n'];
 	if($crr_page>$totalpages){
@@ -22,8 +21,10 @@ $stmt=$conn->query($sql);
 			<?php
 			foreach($stmt as $row){
 			?>
-			<li class="media_li">
-			<a href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>"><img style="width:160px;height:160px;" src="<?php echo $row['main_image_ch']; ?>"/> <span class="sp_short"><?php echo $row['title_ch']; ?></span></a>
+			<li class="about-bg0<?php echo rand(1, 4);?>">
+			<a href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
+			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
+			</a>
 			</li>
 			<?php
 			}
@@ -32,11 +33,9 @@ $stmt=$conn->query($sql);
 			<li class="pagesbtn">
 			<?php
 			if(isset($totalpages) && $totalpages>1){
-				
 				for($i=1; $i<=$totalpages; $i++){
 				?>
 				<a class="articlepagelinker" href="guide.php?p=publicmedia&n=<?php echo $i; ?>">
-			    
 				<?php 
 				if($crr_page==$i){
 					echo '<span style="font-weight:bold; font-size:16px;">'.$i.'</span>'; 
@@ -47,7 +46,6 @@ $stmt=$conn->query($sql);
 			    </a>
 				<?php
 				}
-				
 			}
 			?>
 			</li>
