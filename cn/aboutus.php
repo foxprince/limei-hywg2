@@ -15,7 +15,6 @@
 		<div class="div_aboutus">
 			<div class="trans">
 				<span style="color:#4f4747;">交通指引</span>
-				
 				<span class="blank">&nbsp;</span>	<span style="color:#4f4747;">乘火车：安特卫普市中央火车站（Antwerspanen-Centraal）出站后200米，安特卫普钻交所大楼入口位于spanelikaanstraat上，如您对环境不熟悉，欢迎来电，由专人带您前往本公司。</span>
 				<span class="blank">&nbsp;</span>
 				<span style="color:#4f4747;">停车：建议您使用Vestingstraat街的两家停车场(如地图所示)</span>
