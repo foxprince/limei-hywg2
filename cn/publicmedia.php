@@ -16,18 +16,32 @@ if(isset($_GET['n'])){
 $startnumber=($crr_page-1)*25;
 $sql='SELECT * FROM usefulinfo WHERE category = "publicmedia" ORDER BY id DESC LIMIT '.$startnumber.',25';
 $stmt=$conn->query($sql);
+$rulesCount=$stmt->rowCount();
+$n = floor($rulesCount/4);
 ?>
-	
 			<?php
-			foreach($stmt as $row){
-			?>
+			for($i=0;$i<n;$i++){
+				$j=rand(1,5)-1;
+				if($i==$j){
+					?>
+								<li>
+								<a class="about-bg1<?php echo $j;?>" href="javascript:">
+								<div class="about-txt"></div>
+								</a>
+								</li>
+								<?php
+								}else{ $row=$stmt->fetch();?>
 			<li>
 			<a class="about-bg0<?php echo rand(1, 4);?>" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
 			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
 			</a>
 			</li>
-			<?php
+				<?php }
 			}
+			foreach($stmt as $row){
+			}
+			while(i<=$rulesCount){
+				$row=$stmt->fetch();}
 			?>
 			<!-- 分页 -->
 			<li class="pagesbtn">
