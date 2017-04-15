@@ -32,9 +32,6 @@
 				<p>电话：+32（0）3689 7394</p>
 				<p>邮箱：info@lumiagem.com</p>
 				<p>微信：请扫描右侧二维码</p>
-				<p>新浪博客：<a href="#">点击进入</a></p>
-				<p>QQ：2839145434</p>
-				<p>Skype：Belgem.antwerp</p>
 				<p>地址：Pelikaanstraat 62,2018 Antwerp Belgium(比利时安特卫普)</p>
 			</div>
 			<div class="aboutus_weixin"></div>

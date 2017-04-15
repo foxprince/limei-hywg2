@@ -20,23 +20,24 @@ $rulesCount=$stmt->rowCount();
 $n = floor($rulesCount/4);
 ?>
 			<?php
-			for($i=0;$i<n;$i++){
-				$j=rand(1,5)-1;
-				if($i==$j){
+			for($i=0;$i<$n;$i++){
+				$j=rand(1,5);
+				for($k=1;$k<6;$k++){
+				if($k==$j){
 					?>
-								<li>
-								<a class="about-bg1<?php echo $j;?>" href="javascript:">
-								<div class="about-txt"></div>
-								</a>
-								</li>
-								<?php
-								}else{ $row=$stmt->fetch();?>
+			<li>
+			<a class="about-bg1<?php echo $j;?>" href="javascript:">
+			<div class="about-txt"></div>
+			</a>
+			</li>
+			<?php
+			}else{ $row=$stmt->fetch();?>
 			<li>
 			<a class="about-bg0<?php echo rand(1, 4);?>" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
 			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
 			</a>
 			</li>
-				<?php }
+				<?php }}
 			}
 // 			foreach($stmt as $row){
 // 			}

@@ -4,6 +4,7 @@ if(!isset($conn)){
 	$conn=dbConnect('write','pdo');
 	$conn->query("SET NAMES 'utf8'");
 }
+require_once('log.php');
 ?>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8" />
