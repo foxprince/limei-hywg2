@@ -39,6 +39,41 @@
 					$the_page='publicmedia.php';
 					break;
 					
+					case 'steps':
+						$the_page='steps.php';
+						break;
+					
+					case 'choose-diamond':
+						$the_page='choose-diamond.php';
+						break;
+					
+					case 'choose-jewelry':
+						$the_page='choose-jewelry.php';
+						break;
+					
+					case 'makeorder':
+						$the_page='makeorder.php';
+						break;
+					
+					case 'buyeasy':
+						$the_page='buyeasy.php';
+						break;
+					
+					case 'service':
+						$the_page='service.php';
+						break;
+					
+					case 'knowledge':
+						$the_page='knowledge.php';
+						break;
+					
+					case 'industry':
+						$the_page='industry.php';
+						break;
+					
+					case 'article':
+						$the_page='article.php';
+						break;
 					default:
 					$the_page='brandstory.php';
 				}

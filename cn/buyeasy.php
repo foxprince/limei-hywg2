@@ -1,12 +1,10 @@
-<div class="div_down">
-<div class="text-title"><span>轻松定制</span></div>
-    <div class="text-top">
-      <img class="ring" src="../images/ring.png">
-    </div>
-</div>
-   <div class="div_text">
-    <div class="text_in"> 
-<div  class="container-fluid">
+<!-- <div class="div_down"> -->
+<!-- <div class="text-title"><span>轻松定制</span></div> -->
+<!--     <div class="text-top"> -->
+<!--       <img class="ring" src="../images/ring.png"> -->
+<!--     </div> -->
+<!-- </div> -->
+<div  class="container-fluid" style="width:70%;">
 	<div class="row ">
 		<div class="col-xs-12 col-sm-12 col-md-9">
 			<img style="float:right; width:128px; margin: 20px 0 12px 22px;" src="../images/sitepictures/limei20140512_050456.jpg" />
@@ -23,20 +21,7 @@
 					<img src="../images/mail.gif" />
 				</a> 
 
-<!--
-<a class="contacticon" href="">
-<img src="../images/skype.gif" />
-</a> 
--->
 </div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<script type="text/javascript">
-	$('document').ready(function(){
-		$('a#buyeasybtn').css({'border-bottom-style':'solid',
-			'border-width':'2px'});
-	});
-</script>

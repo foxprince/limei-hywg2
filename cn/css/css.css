@@ -181,7 +181,8 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .about-bg13{background: url(../images/about-bg13.jpg) no-repeat;}
 .about-bg14{background: url(../images/about-bg14.jpg) no-repeat;}
 .about-bg15{background: url(../images/about-bg15.jpg) no-repeat;}
-
+.field-item li{width: 100%; height: 100%;padding:8px 0; float: left;}
+.container-fluid h1{font-size:18px;}
 /*产品页面*/
 .pro-box{width: 1000px; margin:0 auto;}
 .pro-box ul{}
