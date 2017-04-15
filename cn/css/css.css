@@ -176,11 +176,14 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .about-bg02{background: url(../images/about-bg02.jpg) no-repeat;}
 .about-bg03{background: url(../images/about-bg03.jpg) no-repeat;}
 .about-bg04{background: url(../images/about-bg04.jpg) no-repeat;}
-.about-bg11{background: url(../images/about-bg11.jpg) no-repeat;}
-.about-bg12{background: url(../images/about-bg12.jpg) no-repeat;}
-.about-bg13{background: url(../images/about-bg13.jpg) no-repeat;}
-.about-bg14{background: url(../images/about-bg14.jpg) no-repeat;}
-.about-bg15{background: url(../images/about-bg15.jpg) no-repeat;}
+.about-bg05{background: url(../images/about-bg05.jpg) no-repeat;}
+.about-bg06{background: url(../images/about-bg06.jpg) no-repeat;}
+.about-bg07{background: url(../images/about-bg07.jpg) no-repeat;}
+.about-bg08{background: url(../images/about-bg08.jpg) no-repeat;}
+.about-bg09{background: url(../images/about-bg09.jpg) no-repeat;}
+.about-bg03{background: url(../images/about-bg03.jpg) no-repeat;}
+.about-bg03{background: url(../images/about-bg03.jpg) no-repeat;}
+.about-bg03{background: url(../images/about-bg03.jpg) no-repeat;}
 
 /*产品页面*/
 .pro-box{width: 1000px; margin:0 auto;}
@@ -209,8 +212,8 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .detail-r{position: absolute; top:100px; right: 0; width: 360px;}
 .detail-r h1{font-size: 28px;}
 .detail-r p{margin:20px 0; font-size: 14px; color: #333；}
-.detail-r span{width: 76px; display: inline-block;}
-.detail-r select{width: 240px; background-color: #f7f1e5; border-color:#c89600; border-radius: 6px;}
+.detail-r span{width: 76px; display: inline-block; font-size: 14px;}
+.detail-r select{width: 240px; height: 32px; background-color: #f7f1e5; border-color:#c89600; border-radius: 4px; font-size: 14px;}
 .detail-s{margin:6px 0;}
 
 .detail-buy{margin-top: 100px;}

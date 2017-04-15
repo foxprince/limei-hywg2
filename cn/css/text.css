@@ -252,8 +252,9 @@
 /*aboutus*/
 .div_aboutus{
 	width:1200px;
-	height:676px;
+	height:876px;
 	position:relative;
+	top:200px;
 	background:url("../images/aboutus.png") no-repeat center center;
 }
 .trans{
