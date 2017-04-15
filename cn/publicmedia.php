@@ -38,10 +38,10 @@ $n = floor($rulesCount/4);
 			</li>
 				<?php }
 			}
-			foreach($stmt as $row){
-			}
-			while(i<=$rulesCount){
-				$row=$stmt->fetch();}
+// 			foreach($stmt as $row){
+// 			}
+// 			while(i<=$rulesCount){
+// 				$row=$stmt->fetch();}
 			?>
 			<!-- 分页 -->
 			<li class="pagesbtn">
