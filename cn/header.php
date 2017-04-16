@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 if(!isset($conn)){
 	require_once('connection.php');
 	$conn=dbConnect('write','pdo');

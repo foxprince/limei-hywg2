@@ -135,6 +135,8 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 
 
 /*新增*/
+
+
 /*导航*/
 .nav{margin-bottom: 40px;width: 1200px; height: 30px; background: url(../images/xian.png) repeat-x;}
 .nav-box{text-align: center;}
@@ -157,7 +159,7 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .dz a:hover span{background-color:#f9b5b2;}
 
 /*二级页面样式*/
-.contain{}
+.contain{min-height:250px;}
 .side-bar{margin-right: 100px;}
 .side-bar ul{}
 .side-bar li{margin:10px 0;}
