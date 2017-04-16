@@ -34,8 +34,12 @@
 	$(function () {
 	    setNavigation();//set menu active
 //  	    $("#gwc").hover(function(){
-//  	    	$(this).find('img').attr("src","images/gwc-se.png");
+//  	    	$(this).find('img').attr("width","30px");
+//  	    	$(this).find('img').attr("height","24px");
+//  	    	$(this).find('img').attr("src","images/gwc-w.gif");
 //  	    },function(){
+//  	    	$(this).find('img').attr("width","100%");
+//  	    	$(this).find('img').attr("height","100%");
 //  	    	$(this).find('img').attr("src","images/gwc.gif");
 //  	    });
 	});

@@ -167,7 +167,7 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .side-bar a.on{color:#f9b5b2;}
 .con-r{overflow: hidden;}
 .con-r ul{}
-.con-r li{width: 200px; height: 200px; float: left;}
+.con-r li{width: 180px; height: 180px; float: left;}
 .con-r li a{display: table; height: 100%; width: 100%; text-align: center; vertical-align: middle; background-size: cover;}
 .con-r li .about-txt{display: table-cell; vertical-align: middle;}
 .con-r li p{font-size: 14px; color:#666; margin-left: 10px; margin-right: 10px; margin-top: 10px;}
