@@ -4,17 +4,9 @@
 <!--       <img class="ring" src="../images/ring.png"> -->
 <!--     </div> -->
 <!-- </div> -->
-   <div class="div_text">
-    <div class="text_in"> 
-
-
-<div  class="container-fluid">
 <div class="row ">
-
-
 <div class="col-xs-12 col-sm-12 col-md-9">
 <ul>
-
 <li class="box" >
 <a href="diamonds.php">
 <img style="border:none; width:133px; border-radius:8px;" alt="选择裸钻" src="../images/site_elements/shopping_guide1.png" />
@@ -24,7 +16,6 @@
 <li><a href="diamonds.php">记录钻石代号</a></li>
 </ul>
 </li>
-
 <li class="box" >
 <a href="jewelry.php"><img style="border:none; width:133px; border-radius:8px;" alt="定制嵌饰" src="../images/site_elements/shopping_guide2.png" /></a>
 <ul>
@@ -34,8 +25,6 @@
 <li>选择刻字</li>
 </ul>
 </li>
-
-
 <li class="box">
 <a href="contact.php"><img style="border:none; width:133px; border-radius:8px;" alt="联系客服" src="../images/site_elements/shopping_guide3.png" /></a>
 <ul>
@@ -43,15 +32,8 @@
 <li><a href="contact.php">确认下单</a></li>
 </ul>
 </li>
-
-
-
 </ul>
 <br style="clear:both;" />
-</div>
-
-</div>
-</div>
 </div>
 </div>
 

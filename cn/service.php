@@ -1,16 +1,9 @@
-	<div class="div_down">
-	<div class="text-title"><span>售后服务</span></div>
-    <div class="text-top">
-      <img class="ring" src="../images/ring.png">
-    </div>
-   </div>
-   <div class="div_text">
-    <div class="text_in"> 
-
-
-
-
-<div  class="container-fluid">
+<!-- 	<div class="div_down"> -->
+<!-- 	<div class="text-title"><span>售后服务</span></div> -->
+<!--     <div class="text-top"> -->
+<!--       <img class="ring" src="../images/ring.png"> -->
+<!--     </div> -->
+<!--    </div> -->
 <div class="row ">
 
 
@@ -235,13 +228,4 @@ if(isset($_GET['c']) && $_GET['c']=='polishing'){
 
 
 </div>
-</div>
-</div>
-</div>
 
-<script type="text/javascript">
-$('document').ready(function(){
-	$('a#servicebtn').css({'border-bottom-style':'solid',
-	'border-width':'2px'});
-});
-</script>
