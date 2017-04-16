@@ -1,13 +1,13 @@
 .box{width:620px;margin:20px auto}
 .left-pro{ width: 572px;/* border: 1px solid #ccc; */text-align: left; float: left; background-color: #FFF; margin-top: 40px; padding-top: 20px; padding-right: 10px; padding-bottom: 20px; padding-left: 10px; }
-.left-pro .t1{width:120px;float:left}
-.left-pro .t2{width:352px;text-indent:0;float:left;padding-left:10px}
+.left-pro .t1{width:150px;float:left}
+.left-pro .t2{width:400px;text-indent:0;float:left;padding-left:10px}
 .left-pro .t2 img{text-indent:0;}
-#showArea img{cursor:pointer;display:block;margin-bottom:5px;width:108px;height:108px;padding:1px;border:1px solid #ccc;float:left}
+#showArea img{cursor:pointer;display:block;margin-bottom:5px;width:136px;height:136px;padding:1px;border:1px solid #ccc;float:left}
 #main_img{cursor:pointer;display:block}
-#gotop{cursor:pointer;display:block;margin-left:9px;height: 7px;}
-#gobottom{cursor:pointer;display:block;margin-left:9px;height: 7px;}
-#showArea{height:379px;margin:4px;overflow:hidden}
+#gotop{cursor:pointer;display:block;margin-left:18px;height: 8px;}
+#gobottom{cursor:pointer;display:block;margin-left:18px;height: 8px;}
+#showArea{height:434px;margin:2px 4px;overflow:hidden}
 
 
 /* CSS class for zoomed area */
@@ -18,7 +18,7 @@
 .MagicZoomPup{border:1px solid #aaa;background:#fff;cursor:hand;left:0}
 .MagicZoomLoading{text-align:center;background:#fff;color:#444;opacity:0.8;padding:3px 3px 3px 3px !important;display:none}
 .MagicZoomLoading img{padding-top:3px !important}
-.MagicThumb{/*cursor:url(cursor/zoomin.cur), pointer;*/outline:none}
+.MagicThumb{/*cursor:url(cursor/zoomin.cur), pointer;*/outline:none; border:1px solid #ccc; width: 440px!important; height: 440px;}
 .MagicThumb-zoomed{cursor:default}
 .MagicThumb span{display:none}
 .MagicThumb-image{border:1px solid #ccc;outline:none}

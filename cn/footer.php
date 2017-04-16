@@ -33,11 +33,11 @@
    <script>
 	$(function () {
 	    setNavigation();//set menu active
-	    $("#gwc").hover(function(){
-	    	$(this).find('img').attr("src","images/gwc-se.png");
-	    },function(){
-	    	$(this).find('img').attr("src","images/gwc.gif");
-	    });
+//  	    $("#gwc").hover(function(){
+//  	    	$(this).find('img').attr("src","images/gwc-se.png");
+//  	    },function(){
+//  	    	$(this).find('img').attr("src","images/gwc.gif");
+//  	    });
 	});
 	function setNavigation() {
 	    var path = window.location.href;

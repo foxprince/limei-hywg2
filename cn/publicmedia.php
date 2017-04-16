@@ -33,7 +33,7 @@ $n = floor($rulesCount/4);
 			<?php
 			}else{ $row=$stmt->fetch();?>
 			<li>
-			<a class="about-bg0<?php echo rand(1, 4);?>" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
+			<a class="about-bg<?php echo rand(1, 4);?>" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
 			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
 			</a>
 			</li>
