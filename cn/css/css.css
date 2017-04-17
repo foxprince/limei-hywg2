@@ -159,7 +159,7 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 
 /*二级页面样式*/
 .contain{min-width: 740px;min-height:368px;}
-.side-bar{margin-right: 65px;margin-left: 65px;}
+.side-bar{margin-right: 65px;margin-left: 85px;}
 .side-bar ul{}
 .side-bar li{margin:10px 0;}
 .side-bar a{font-size: 14px; color:#666; line-height: 24px;}

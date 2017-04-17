@@ -33,15 +33,15 @@
    <script>
 	$(function () {
 	    setNavigation();//set menu active
-//  	    $("#gwc").hover(function(){
-//  	    	$(this).find('img').attr("width","30px");
-//  	    	$(this).find('img').attr("height","24px");
-//  	    	$(this).find('img').attr("src","images/gwc-w.gif");
-//  	    },function(){
-//  	   		$(this).find('img').attr("width","30px");
-// 	    	$(this).find('img').attr("height","24px");
-// 	    	$(this).find('img').attr("src","images/gwc.gif");
-//  	    });
+ 	    $("#gwc").hover(function(){
+ 	    	$("#gwcLogo").attr("width","15px");
+ 	   		$("#gwcLogo").attr("height","12px");
+ 	    	$("#gwcLogo").attr("src","images/gwc-w.gif");
+ 	    },function(){
+ 	    	$("#gwcLogo").removeAttr("width");
+ 	    	$("#gwcLogo").removeAttr("height");
+	    	$("#gwcLogo").attr("src","images/gwc.gif");
+ 	    });
 	});
 	function setNavigation() {
 	    var path = window.location.href;
