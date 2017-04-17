@@ -45,7 +45,7 @@ $n = floor($rulesCount/4);
           <?php $row=$stmt->fetch();?>
           <a class="about-bg<?php echo rand(1, 4);?>" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
 			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
-		  </a>>
+		  </a>
         </li>
 
         <li>
