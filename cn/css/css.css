@@ -158,11 +158,11 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .dz a:hover span{background-color:#f9b5b2;}
 
 /*二级页面样式*/
-.contain{min-width: 740px;}
+.contain{min-width: 740px;min-height:368px;}
 .side-bar{margin-right: 65px;margin-left: 65px;}
 .side-bar ul{}
 .side-bar li{margin:10px 0;}
-.side-bar a{font-size: 18px; color:#666; line-height: 24px;}
+.side-bar a{font-size: 14px; color:#666; line-height: 24px;}
 .side-bar a:hover{color:#f9b5b2;}
 .side-bar a.on{color:#f9b5b2;}
 .con-r{overflow: hidden;}
@@ -190,6 +190,7 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .about-bg2{background: url(../images/about-bg2.jpg) no-repeat;}
 .about-bg3{background: url(../images/about-bg3.jpg) no-repeat;}
 .about-bg4{background: url(../images/about-bg4.jpg) no-repeat;}
+.about-bg10{background-color: white;}
 .about-bg11{background: url(../images/about-bg11.jpg) no-repeat;}
 .about-bg12{background: url(../images/about-bg12.jpg) no-repeat;}
 .about-bg13{background: url(../images/about-bg13.jpg) no-repeat;}

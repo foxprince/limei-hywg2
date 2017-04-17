@@ -21,8 +21,8 @@ $n = floor($rulesCount/4);
 ?>
 			<?php
 			for($i=0;$i<$n;$i++){
-				$j=rand(1,5);
-				for($k=1;$k<6;$k++){
+				$j=rand(0,5);
+				for($k=0;$k<5;$k++){
 				if($k==$j){
 					?>
 			<li>

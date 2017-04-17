@@ -38,9 +38,9 @@
 //  	    	$(this).find('img').attr("height","24px");
 //  	    	$(this).find('img').attr("src","images/gwc-w.gif");
 //  	    },function(){
-//  	    	$(this).find('img').attr("width","100%");
-//  	    	$(this).find('img').attr("height","100%");
-//  	    	$(this).find('img').attr("src","images/gwc.gif");
+//  	   		$(this).find('img').attr("width","30px");
+// 	    	$(this).find('img').attr("height","24px");
+// 	    	$(this).find('img').attr("src","images/gwc.gif");
 //  	    });
 	});
 	function setNavigation() {
