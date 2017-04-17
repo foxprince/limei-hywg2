@@ -169,7 +169,7 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .con-r ul{}
 .con-r li{width: 180px; height: 180px; float: left;}
 .con-r li a{display: table; height: 100%; width: 100%; text-align: center; vertical-align: middle; background-size: cover;}
-.con-r li .about-txt{display: table-cell; vertical-align: middle;}
+.con-r li .about-txt{display: table-cell; vertical-align: middle;padding-left:15px;padding-right:15px;}
 .con-r li p{font-size: 14px; color:#666; margin-left: 10px; margin-right: 10px; margin-top: 10px;}
 .con-r li p:first-child{margin-top:0;}
 .con-r li a:hover p{ color:#666;}
