@@ -34,6 +34,7 @@
 	$(function () {
 	    setNavigation();//set menu active
  	    $("#gwc").hover(function(){
+ 	   		$("#gwcLogo").addClass("my_gwx");
  	    	$("#gwcLogo").attr("src","images/gwc-w.gif");
  	    },function(){
 	    	$("#gwcLogo").attr("src","images/gwc.gif");
