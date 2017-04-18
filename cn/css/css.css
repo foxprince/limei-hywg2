@@ -231,12 +231,12 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .detail-r select{width: 240px; height: 32px; background-color: #f7f1e5; border-color:#c89600; border-radius: 4px; font-size: 14px;}
 .detail-s{margin:6px 0;}
 
-.detail-buy{margin-top: 100px;}
+.detail-buy{margin-top:58px;}
 .detail-buy p{display: inline-block; font-size: 20px;}
 .detail-buy i{font-style: normal; color: #f9b5b2; font-size: 20px;}
 .detail-buy .btn{background-color:#bd8167; padding:7px 28px; border:1px solid #8b553e; color: #fff; border-radius: 6px; margin-left: 10px;}
 
-.share{width: 800px; height: 100px; padding-left: 200px;}
+.share{margin-top: 42px;width: 800px; height: 100px; padding-left: 200px;}
 .share li{float: left; margin-right: 6px;}
 
 

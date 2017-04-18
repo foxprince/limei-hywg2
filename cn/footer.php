@@ -34,10 +34,11 @@
 	$(function () {
 	    setNavigation();//set menu active
  	    $("#gwc").hover(function(){
+			if(!$(this).hasClass("my_gwx")) {
  	   		$("#gwcLogo").addClass("my_gwx");
- 	    	$("#gwcLogo").attr("src","images/gwcWhite.gif");
+ 	    	$("#gwcLogo").attr("src","images/gwcWhite.gif");}
  	    },function(){
-	    	$("#gwcLogo").attr("src","images/gwc.gif");
+ 	    	$("#gwcLogo").attr("src","images/gwc.gif");
  	    });
 	});
 	function setNavigation() {
