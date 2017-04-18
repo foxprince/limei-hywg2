@@ -34,12 +34,8 @@
 	$(function () {
 	    setNavigation();//set menu active
  	    $("#gwc").hover(function(){
- 	    	$("#gwcLogo").attr("width","15px");
- 	   		$("#gwcLogo").attr("height","12px");
  	    	$("#gwcLogo").attr("src","images/gwc-w.gif");
  	    },function(){
- 	    	$("#gwcLogo").removeAttr("width");
- 	    	$("#gwcLogo").removeAttr("height");
 	    	$("#gwcLogo").attr("src","images/gwc.gif");
  	    });
 	});

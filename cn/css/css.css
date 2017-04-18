@@ -148,7 +148,8 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .nav-box ul li a.on span{background-color: #fff;}
 .nav-box ul li a:hover{color:#fff; background-color: #f9b5b2; border-color:#f9b5b2;}
 .nav-box ul li a:hover span{background-color: #fff;}
-.nav-box ul li a.on i{background: url(../images/gwc-w.gif) no-repeat;}
+/* .nav-box ul li a.on i{background: url(../images/gwc-w.gif) no-repeat;}
+.my_gwc{float: right;position: relative;top:-3px;left: -8px;} */
 
 /*定制*/
 .dz{position: relative; margin-bottom: 60px;}
