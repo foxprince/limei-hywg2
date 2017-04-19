@@ -1,13 +1,13 @@
 <footer>
   <div class="f-top">
     <div class="f-au">
-      <dl><a href="/"><dt><img src="images/footico.png" ></dt><dd>权威认证</dd></a></dl>
-      <dl><a href="/"><dt><img src="images/footico2.png"></dt><dd>权威认证</dd></a></dl>
-      <dl><a href="/"><dt><img src="images/footico3.png"></dt><dd>权威认证</dd></a></dl>
-      <dl><a href="/"><dt><img src="images/footico4.png"></dt><dd>终生保养</dd></a></dl>
-      <dl><a href="/"><dt><img src="images/footico5.png"></dt><dd>交通指示</dd></a></dl>
-      <dl><a href="/"><dt><img src="images/footico6.png"></dt><dd>直邮中国</dd></a></dl>
-      <dl><a href="/"><dt><img src="images/footico7.png"></dt><dd>预约购买</dd></a></dl>
+      <dl><a href="intro.php?c=gia"><dt><img src="images/footico.png" ></dt><dd>权威认证</dd></a></dl>
+      <dl><a href="intro.php?c=hrd"><dt><img src="images/footico2.png"></dt><dd>权威认证</dd></a></dl>
+      <dl><a href="intro.php?c=igi"><dt><img src="images/footico3.png"></dt><dd>权威认证</dd></a></dl>
+      <dl><a href="intro.php?c=maintain"><dt><img src="images/footico4.png"></dt><dd>终生保养</dd></a></dl>
+      <dl><a href="intro.php?c=route"><dt><img src="images/footico5.png"></dt><dd>交通指示</dd></a></dl>
+      <dl><a href="intro.php?c=tochina"><dt><img src="images/footico6.png"></dt><dd>直邮中国</dd></a></dl>
+      <dl><a href="intro.php?c=order"><dt><img src="images/footico7.png"></dt><dd>预约购买</dd></a></dl>
     </div>
   </div>
   <div class="f-bot">
@@ -33,13 +33,15 @@
    <script>
 	$(function () {
 	    setNavigation();//set menu active
+		if($("#gwc").hasClass("on")){
+			$("#gwcLogo").attr("src","images/gwcWhite.gif");}
+		else {
  	    $("#gwc").hover(function(){
-			if(!$(this).hasClass("my_gwx")) {
- 	   		$("#gwcLogo").addClass("my_gwx");
- 	    	$("#gwcLogo").attr("src","images/gwcWhite.gif");}
+ 	   		$("#gwcLogo").toggleClass("my_gwx");
+ 	    	$("#gwcLogo").attr("src","images/gwcWhite.gif");
  	    },function(){
- 	    	$("#gwcLogo").attr("src","images/gwc.gif");
- 	    });
+ 	 	    	$("#gwcLogo").attr("src","images/gwc.gif");
+ 	    });}
 	});
 	function setNavigation() {
 	    var path = window.location.href;

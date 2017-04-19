@@ -23,7 +23,7 @@
 		}?>
         <a href="myaccount.php"><span></span>我的钻戒(<?php echo $myordernum; ?>)</a>
     	<?php }?>
-        <li id="gwc"><a class="gwcLink" href="#shopcart.php"><span></span>
+        <li><a id="gwc" href="#shopcart.php"><span></span>
         <img id="gwcLogo" src="images/gwc.gif" >
         </a></li>
       </ul>

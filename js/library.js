@@ -281,7 +281,7 @@ function AC_GetArgs(args, ext, srcParamName, classid, mimeType){
 	}
 
 /* End of autoTab.js */
-ï»?// ----------------------------------------------
+// ----------------------------------------------
 // File:		BrowserUtils.js
 // Author:		Nathan Derksen
 // Description:	Class to provide access to some basic browser utilities 
@@ -400,7 +400,7 @@ function MM_openBrWindow(theURL, winName, features) { //v2.0
 }
 
 /* End of BrowserUtils.js */
-ï»?// CategoryBarRenderer.js, for drawing out category browse refinement menus
+// CategoryBarRenderer.js, for drawing out category browse refinement menus
 
 function CategoryBarRenderer()
 {
@@ -550,7 +550,7 @@ function checkMessageLimitOnly(obj,id){
 }
 
 /* End of character_count.js */
-ï»?// CookieManager.js, for managing browser cookies
+// CookieManager.js, for managing browser cookies
 
 function CookieManager() {
 }
@@ -1219,7 +1219,7 @@ function dom_getElementByID(id)
 }
 
 /* End of DOMValidation.js */
-ï»?// GridRenderer.js class, for drawing out grids of product and marketing tiles
+// GridRenderer.js class, for drawing out grids of product and marketing tiles
 
 function GridRenderer()
 {
@@ -1227,7 +1227,7 @@ function GridRenderer()
 }
 
 /* End of GridRenderer.js */
-ï»?// ----------------------------------------------
+// ----------------------------------------------
 // File:		HistoryManager.js
 // Author:		Nathan Derksen
 // Description:	Singleton class used to keep track of what a person has been doing on the page
@@ -1646,7 +1646,7 @@ function HistoryManager_setFlashHistory(historyState)
 }
 
 /* End of HistoryManager.js */
-ï»?// InlineShoppingBagManager.js, for managing global inline shopping bag and saved items components
+// InlineShoppingBagManager.js, for managing global inline shopping bag and saved items components
 
 var hoverOnEvent;
 var hoverOffEvent;
@@ -2267,7 +2267,7 @@ function moveSavedItemToShoppingBag(elem) {
 			InlineShoppingBagManager.getInstance().updateSavedItemsLabel();	
 			decreaseInlineQty(data.d.Header.TotalCount);
 			//Tracking
-			var argItem = ";" + decodeURI($(elem).attr("data-itemDesc")).replace(/<[^<>]+>|##/g," ").replace(/[,:'"-]/g,"").replace("â„?","(TM)").replace("Â®","(R)") + "-";
+			var argItem = ";" + decodeURI($(elem).attr("data-itemDesc")).replace(/<[^<>]+>|##/g," ").replace(/[,:'"-]/g,"").replace("ï¿½?","(TM)").replace("Â®","(R)") + "-";
 			if ($(elem).attr("data-groupSku") != "") {
 				argItem += $(elem).attr("data-selectedSku") + ":" + $(elem).attr("data-groupSku");
 			} else {
@@ -2360,7 +2360,7 @@ function getInlineShoppingBag(fromGlobalNav) {
 				var numItems = data.d.Header.TotalBagCount;
 				if (numItems > 0) {
 					$(data.d.ResponseObject.Items).each(function(index) {
-						argItems += ";" + this.Desc.replace(/<[^<>]+>|##/g," ").replace(/[,:'"-]/g,"").replace("â„?","(TM)").replace("Â®","(R)") + "-" + this.Sku + ";" + this.Qty;
+						argItems += ";" + this.Desc.replace(/<[^<>]+>|##/g," ").replace(/[,:'"-]/g,"").replace("ï¿½?","(TM)").replace("Â®","(R)") + "-" + this.Sku + ";" + this.Qty;
 						if (index != numItems - 1) {
 							argItems += ",";
 						}
@@ -2557,12 +2557,12 @@ InlineShoppingBagManager.prototype.addToShoppingBag = function (primarySku, skuQ
 						var argItem = ";";
 						if (productData.IsGroup != null && productData.IsGroup.toLowerCase() == "true" && groupData != null) {
 							if (groupData.GroupTypeID == "2" && groupData.SKUList != null && groupData.SKUList.length > 0) {
-								argItem += groupData.Name.replace(/<[^<>]+>|##/g," ").replace(/[,:'"-]/g,"").replace("â„?","(TM)").replace("Â®","(R)")+"-"+selectedSku+":"+groupData.DefaultSku;
+								argItem += groupData.Name.replace(/<[^<>]+>|##/g," ").replace(/[,:'"-]/g,"").replace("ï¿½?","(TM)").replace("Â®","(R)")+"-"+selectedSku+":"+groupData.DefaultSku;
 							} else {
-								argItem += description.replace(/<[^<>]+>|##/g," ").replace(/[,:'"-]/g,"").replace("â„?","(TM)").replace("Â®","(R)")+"-"+selectedSku;
+								argItem += description.replace(/<[^<>]+>|##/g," ").replace(/[,:'"-]/g,"").replace("ï¿½?","(TM)").replace("Â®","(R)")+"-"+selectedSku;
 							}
 						} else {
-							argItem += description.replace(/<[^<>]+>|##/g," ").replace(/[,:'"-]/g,"").replace("â„?","(TM)").replace("Â®","(R)")+"-"+primarySku;
+							argItem += description.replace(/<[^<>]+>|##/g," ").replace(/[,:'"-]/g,"").replace("ï¿½?","(TM)").replace("Â®","(R)")+"-"+primarySku;
 						}
 						if (pageId == "categoryBrowsePage") {
 							if (typeof source != "undefined" && source == "digitalCatalogList") {
@@ -3966,7 +3966,7 @@ FlashAPI.getHandle = function(movieName)
 };
 
 /* End of flashAPI.js */
-ï»?// GlobalMenuManager.js, for managing top nav overlay component
+// GlobalMenuManager.js, for managing top nav overlay component
 
 var hoverOnEvent;
 var hoverOffEvent;
@@ -4846,7 +4846,7 @@ function loadNextPage(page) {
 }
 
 /* End of GlobalMenuManager.js */
-ï»?// MarketingTileLayoutManager.js
+// MarketingTileLayoutManager.js
 function MarketingTileLayoutManager()
 {
 	this.pInstance = null;
@@ -4877,7 +4877,7 @@ MarketingTileLayoutManager.prototype.draw = function (tileDataArray)
 }
 
 /* End of MarketingTileLayoutManager.js */
-ï»?// ----------------------------------------------
+// ----------------------------------------------
 // File:		MassFadeEffect.js
 // Author:		Nathan Derksen
 // Description:	Manages image fade transitions amongst a number of images
@@ -5044,7 +5044,7 @@ function revealImage(id)
 massFadeInstance = new MassFadeEffect();
 
 /* End of MassFadeEffect.js */
-ï»?// OverlayManager.js, for creating and managing UI overlays
+// OverlayManager.js, for creating and managing UI overlays
 // Currently, it assumes that the modal content exists in the page DOM
 
 function OverlayManager() {
@@ -7980,7 +7980,7 @@ function TrackEmailSignUp(isCreateAccount, signUpDate) {
     }
 }
 /* End of SiteTracking.js */
-ï»?// SearchManager.js, for managing global site search functionality
+// SearchManager.js, for managing global site search functionality
 
 function SearchManager()
 {
@@ -8477,7 +8477,7 @@ SearchManager.prototype.populateAdvancedSearchData = function (categories) {
 }
 
 /* End of SearchManager.js */
-ï»?// ----------------------------------------------
+// ----------------------------------------------
 // File:		StateModel.js
 // Author:		Nathan Derksen
 // Description:	Singleton class used to keep track of application data and state.
@@ -8898,7 +8898,7 @@ $(document).ready(function() {
 });
 
 /* End of TelephoneMaskManager.js */
-ï»?// URLFactory.js
+// URLFactory.js
 
 function StateSnapshotVO()
 {
@@ -9413,7 +9413,7 @@ URLFactory.hasSubDomain = function (url) {
 };
 
    /* End of URLFactory.js */
-ï»?// VideoPlayer.js
+// VideoPlayer.js
 
 function VideoPlayer(elementId) {
 	this.elementId = elementId;
@@ -10134,7 +10134,7 @@ ValidationManager.clearServerSideError = function(id) {
 }
 
 /* End Validation Manager */
-ï»?/* ValidationHelper.js */
+/* ValidationHelper.js */
 
 function ValidationHelper() {
 }

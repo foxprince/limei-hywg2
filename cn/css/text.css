@@ -164,9 +164,8 @@
 .text-bottom{
 	width:814px;
 	height:622px;
-	position:absolute;
+	position:relative;
 	left:190px;
-	top:-350px;
 	background:url("../images/text-bottom.png") no-repeat;
 }
 
@@ -184,7 +183,7 @@
 	position:relative;
 	z-index:9999;
 }
-.div_text .text_in{
+.text_in{
 	width:550px;
 	color:#4f4747;
 	margin-top:120px;
