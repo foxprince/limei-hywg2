@@ -47,10 +47,12 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 </head>
 
 <body>
+<div class="zhuti clear">
 	<?php
 		include_once('topbar.php');
 	?>
-<div class="div">
+<div class="contain clear">
+
 <div class="col-xs-12 col-sm-12 col-md-9">
 	<div class="div_back">
 		<div class="div_login">
@@ -86,6 +88,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 		}
 	}
 </script>
+</div>
 </div>
 </div>
 <?php
