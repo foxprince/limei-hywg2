@@ -34,6 +34,7 @@ header{width:100%; height:180px; min-width:1200px; background: url(../images/top
 .caidanl{width:20px; height:16px; float:left; padding-top:4px;}
 .caidanr{width:44px; height:20px; float:right; font-size:15px; text-align:center;}
 .t_cen{height:59px; padding-top:81px;text-align:center;}
+
 .t_right{width:110px; height:140px; float:right;}
 .gouwu{width:110px; height:25px; float:left; margin-top:118px;}
 .gouwul{width:95px; height:25px; float:left; font-size:15PX;}
@@ -84,8 +85,23 @@ section{width:1200px; height:640px; float:left;}
 .about{/*width:476px;*/ float:left; height:490px; color:#494345; font-size:12px; line-height:18px;/* padding-top:40px;*/background: url(../images/about-bg.png) no-repeat 0 80px; background-size: contain;}
 .wz{font-size:16px; line-height:1.2;}
 
+/*登陆部分样式*/
 .div_back{text-align:center;width:100%;margin: 0 auto;}
-.bodycontent{text-align:center;width:100%;margin: 0 auto;}
+.rpic{width:100%;text-align:right;margin: 0 auto;height: 50px;}
+.logo_login{width:100%;text-align:center;margin: 53px auto;}
+.login_div{width:381px;height: 373px;text-align:right;margin-top:-65px;margin-left:450px;background:url(../images/login_bg.png) no-repeat;}
+.login_username{margin-left:-10px;border:0px solid #000;color: #4f4747;padding-top: 105px;}
+.login_username input{width: 295px;border:0;outline: none;background:transparent;}
+.login_username input:focus{border:0;}
+.login_line{margin-left:30px;border:0px solid #000;text-align: left;}
+.login_password{border:0px solid #00f;margin-top: 0px;margin-left:-10px;}
+.login_password input{width: 295px;border:0;outline: none;background:transparent;}
+.login_password input:focus{border:0;}
+.login_btn{border:0px solid#00f;margin-top: 50px;margin-right:130px;font-size: 14px;color: #4f4747;cursor: pointer;}
+.login_btn input{border:0;outline: none;background:transparent;}
+.erweima{width:100%;text-align:center;margin: 0 auto;border:0px solid #0ff;height: 50px;}
+.erweima p{font-size:14px}
+.bodycontent{text-align:right;width:100%;margin: 0 auto;}
 
 
 .tuijian{width:1200px; height:835px; float:left; margin-top:110px; }

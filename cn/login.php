@@ -54,7 +54,46 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 <div class="contain clear">
 
 <div class="col-xs-12 col-sm-12 col-md-9">
-	<div class="div_back">
+					<div class="div_back">
+                         <!--<div class="rpic">
+                             <img src="./images/rpic.png">
+                        </div> -->
+                        <div class="logo_login">
+                            <img src="./images/logo_login.png">
+                        </div>
+                        <?php
+						if(isset($errormessage)){
+						?>
+						<p id="error-message"><?php echo $errormessage; ?></p>
+						<?php }?>
+                        <div class="login_div">
+                            <form action="" id="loginform" method="post" onsubmit="return checkForm()">
+                            <div class="login_username">
+                                <span>用户名：</span>
+                                <input type="text" id="txt_login" name="username">
+                            </div>
+                            <div class="login_line">
+                                <img src="./images/line.png">
+                            </div>
+                            <div class="login_password">
+                                <span>密码：</span>
+                                <input type="password" id="pwd_login" name="password" >
+                            </div>
+                            <div class="login_line">
+                                <img src="./images/line.png">
+                            </div>
+                            <div class="login_btn">
+                            <a class="button" href="javascript:">登陆</a>
+                            </div>
+                            </form>
+                        </div>
+                        <div class="erweima">
+                                <img src="./images/erweima.png">
+                                <p>扫描关注利美公众号</p>
+                                <p>立即获得您的用户名和密码</p>
+                        </div>
+                    </div>
+<!--  	<div class="div_back">
 		<div class="div_login">
 			<?php
 			if(isset($errormessage)){
@@ -63,15 +102,18 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 			<?php
 			}
 			?>
+			<div class="t_login"><img src="./images/loginlogo.png"/></div>
+			<div class="t_loginbg"></div>
 			<form action="" method="post" onsubmit="return checkForm()" id="loginform">
-				<input type="hidden" name="useraccount" value="login" />
-				<input id="txt_login" name="username" type="text" placeholder="用户名"/>
-				<input id="pwd_login" name="password" type="password" placeholder="密码"/>
-				<input id="sub_login" type="submit" name="submitthelogininfo" value="登录" id="submitthelogininfobtn"/>
-			</form>
-			<img  src="../images/weixin.png"/>
+ 				<input type="hidden" name="useraccount" value="login" /> 
+ 				<input id="txt_login" name="username" type="text" placeholder="用户名"/> 
+ 				<input id="pwd_login" name="password" type="password" placeholder="密码"/> 
+ 				<input id="sub_login" type="submit" name="submitthelogininfo" value="登录" id="submitthelogininfobtn"/> 
+ 			</form> 
+ 			<img  src="./images/weixin.png"/> 
 		</div>
    </div>
+-->
 <script type="text/javascript">
 	function checkForm(){
 		if($("#txt_login").val()==""){
