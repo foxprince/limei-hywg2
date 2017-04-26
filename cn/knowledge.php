@@ -1,18 +1,16 @@
-
     
-<!-- <div class="div_down"> -->
-<!--     <div class="text-title"><span>钻石知识</span></div> -->
-<!--     <div class="text-top"> -->
-<!--       <img class="ring" src="../images/ring.png"> -->
-<!--     </div> -->
-<!-- </div> -->
+<div class="div_down">
+    <div class="text-title"><span>钻石知识</span></div>
+    <div class="text-top">
+      <img class="ring" src="../images/ring.png">
+    </div>
+</div>
    <div class="div_text">
     <div class="text_in"> 
 
 
 <div  class="container-fluid">
 <div class="row ">
-
 
 <div class="col-xs-12 col-sm-12 col-md-9">
 <?php 
@@ -45,7 +43,7 @@ foreach($stmt as $row){
 ?>
 
 <li class="media_li">
-			<a href="guide.php?p=article&ref=knowledge&id=<?php echo $row['id']; ?>">
+			<a href="about.php?p=article&ref=knowledge&id=<?php echo $row['id']; ?>">
 			<img style="width:160px;height:160px;" src="<?php echo $row['main_image_ch']; ?>"/> 
 			<span class="sp_short"><?php echo $row['title_ch']; ?></span>
 			</a>
@@ -60,7 +58,7 @@ if(isset($totalpages) && $totalpages>1){
 	
 	for($i=1; $i<=$totalpages; $i++){
 	?>
-	<a class="articlepagelinker" href="guide.php?p=knowledge&n=<?php echo $i; ?>">
+	<a class="articlepagelinker" href="about.php?p=knowledge&n=<?php echo $i; ?>">
 	<?php 
 	if($crr_page==$i){
 		echo '<span style="font-weight:bold; font-size:16px;">'.$i.'</span>'; 
@@ -81,9 +79,6 @@ if(isset($totalpages) && $totalpages>1){
 </div>
 </div>
 </div>
-<script type="text/javascript">
-$('document').ready(function(){
-	$('a#knowledgebtn').css({'border-bottom-style':'solid',
-	'border-width':'2px'});
-});
-</script>
+<div class="div_down">
+		<div class="text-bottom"></div>
+   	</div>
