@@ -255,6 +255,30 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .share{margin-top: 42px;width: 800px; height: 100px; padding-left: 200px;}
 .share li{float: left; margin-right: 6px;}
 
+/*预约登陆弹出层*/
+.layout{margin: auto;width:800px;min-height:600px;background-color: #fff;border: 1px solid #eceaea; }
+.l-close{text-align: right;margin: 13px 13px -1px;}
+.l-top{margin: auto;width: 61px;height: 18px;}
+.l-middle{margin: 28px 0px 10px 35px;border:0px solid #00f;height: 340px;clear: both;}
+
+.l-middle .pro_pics{margin-right:35px;margin-bottom:30px;float:left;height:122px;}
+.l-middle .pro_pics .pic_00{position: relative;}
+.l-middle .pro_pics .quxiao{position:absolute;right:10px;top:6px;text-align: right;padding-top: -15px;}
+
+.l-middle .pro_pics .pic_00 img{border:1px solid #e2e2e2;clear:both;margin-bottom:13px;}
+.l-middle .pro_pics .quxiao img{border: 0px;}
+.l-middle .pro_pics .add_pic{margin-top:20px;width:97px;height:92px;text-align:center;background: url(../images/add.png) no-repeat;}
+.l-middle .pro_pics .add_pic .fonts{padding-top:50px;height: 20px;color: #9c9c9c;font-size:14px;font-weight: bold;}
+.l-middle .pro_pics .detail{width: 124px;height: auto;color:#9c9c9c;font-size: 14px;}
+.l-input{width: 100%;height: 18px;height: 80px;}
+.l-input div{width: 100%;}
+.l-input label{color:#7e7979;font-size: 14px;font-weight: bold;}
+.l-input .linputs{text-align:right;width:45%;margin-right:32px;float: left;}
+.l-input .rinputs{width:45%;margin-right:32px;float: left;}
+.l-input input{width: 202px;height: 16px;border: 1px solid #c18971;}
+.l-input select{width:48px;border: 1px solid #c18971;}
+.l-bottom{margin:auto;width: 100%;text-align: center;}
+.l-bottom #sub_btn{background: url(../images/yuyue_confirm.png) no-repeat;height: 35px;width: 95px;border: 0px;}
 
 
 

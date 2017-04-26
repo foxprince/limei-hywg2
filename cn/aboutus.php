@@ -27,12 +27,13 @@
 			<p class="p_two">Parking Diamant</p>
 			<div class="div_tttel">
 				<p>无论现场咨询还是提货，Beigem钻石公司都欢迎您的亲临访问。</p>
+				<div style="width: 162px;">
 				<p>&nbsp;</p>
-				
 				<p>电话：+32（0）3689 7394</p>
 				<p>邮箱：info@lumiagem.com</p>
 				<p>微信：请扫描右侧二维码</p>
 				<p>地址：Pelikaanstraat 62,2018 Antwerp Belgium(比利时安特卫普)</p>
+				</div>
 			</div>
 			<div class="aboutus_weixin"></div>
 		</div>

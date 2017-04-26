@@ -1,9 +1,11 @@
-<!-- <div class="div_down"> -->
-<!-- <div class="text-title"><span>购买流程</span></div> -->
-<!-- 	<div class="text-top"> -->
-<!-- 		<img class="ring" src="../images/ring.png"> -->
-<!-- 	</div> -->
-<!-- </div> -->
+<div class="div_down">
+<div class="text-title"><span>购买流程</span></div>
+	<div class="text-top">
+		<img class="ring" src="../images/ring.png">
+	</div>
+</div>
+<div class="div_text">
+		<div class="text_in"> 
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-9">
 					<p>通过浏览本网站，您可以了解利美钻石的最新库存，包括裸钻现货以及可供选择的首饰样式进行搭配。不论您希望根据自己的喜好订购镶嵌好钻石的首饰，还是选购裸钻，都可以根据网站信息来下单。</p>
@@ -12,3 +14,7 @@
 					<p>清晰的解释、贴心的建议和优惠的价格是利美对您的承诺。</p>
 				</div>
 			</div>
+</div></div>
+	<div class="div_down">
+		<div class="text-bottom"></div>
+   	</div>
