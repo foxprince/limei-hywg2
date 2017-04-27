@@ -33,12 +33,12 @@ include_once 'topbar.php';
 ?>
             <div class="contain clear">
                 <div class="div_down" >
-                    <div class="text-title">
+                    <div class="text-title" style="left:34%;">
                         <span>
                             <?php echo $title; ?>
                         </span>
                     </div>
-                    <div class="text-top" >
+                    <div class="text-top" style="left:14%;">
                         <img class="ring" src="../images/ring.png"></img>
                     </div>
                     <div class="row">
@@ -54,7 +54,7 @@ if (isset($_GET['c']) && $_GET['c'] == 'order') {
                     </div>
                 </div>
             	<div class="div_down">
-		<div class="text-bottom"></div>
+		<div class="text-bottom" style="left:14%;"></div>
    	</div>
                 </div>
             </div>
