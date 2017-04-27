@@ -32,13 +32,13 @@ if (isset($_GET['c'])) {
 include_once 'topbar.php';
 ?>
             <div class="contain clear">
-                <div class="div_down">
+                <div class="div_down" >
                     <div class="text-title">
                         <span>
                             <?php echo $title; ?>
                         </span>
                     </div>
-                    <div class="text-top">
+                    <div class="text-top" >
                         <img class="ring" src="../images/ring.png"></img>
                     </div>
                     <div class="row">
@@ -53,9 +53,10 @@ if (isset($_GET['c']) && $_GET['c'] == 'order') {
 ?>
                     </div>
                 </div>
-            	<div class="text-bottom"></div>
+            	<div class="div_down">
+		<div class="text-bottom"></div>
+   	</div>
                 </div>
-                
             </div>
         </div>
         <?php include_once 'footer.php';?>
