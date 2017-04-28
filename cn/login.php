@@ -17,13 +17,18 @@ exit();
 		include_once('header.php');
 	?>
 <?php
+if($_REQUEST['action']) {
+	$action = $_REQUEST['action'];
+	if($action=='logout') {
+		$_SESSION['useraccount']=null;
+	}
+}
 if(isset($_SESSION['useraccount'])){
 	gheader('myaccount.php');
 }
-
 if(isset($_POST['username']) && isset($_POST['password'])){
-	$username=$_POST['username'];
-	$password=$_POST['password'];
+	$username=addslashes($_POST['username']);
+	$password=addslashes($_POST['password']);
 	
 	require_once('connection.php');
 	$conn=dbConnect('write','pdo');
@@ -83,7 +88,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
                                 <img src="./images/line.png">
                             </div>
                             <div class="login_btn">
-                            <a class="button" href="javascript:">登陆</a>
+                            <a class="button" href="javascript:void(0)" onclick="$('#loginform').submit()">登陆</a>
                             </div>
                             </form>
                         </div>

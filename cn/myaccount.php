@@ -11,9 +11,8 @@ if(!isset($_SESSION['useraccount'])){
  	gheader('login.php');
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
 	<title>利美钻石 - 我的钻戒历史纪录</title>
 	<?php
@@ -36,10 +35,10 @@ if(isset($_POST['usernamenew']) && isset($_POST['passwordold']) && isset($_POST[
 	
 	//exit('post');
 	
-	$usernamenew=$_POST['usernamenew'];
-	$passwordold=$_POST['passwordold'];
-	$passwordnew=$_POST['passwordnew'];
-	$passwordnewrepeat=$_POST['passwordnewrepeat'];
+	$usernamenew=addslashes($_POST['usernamenew']);
+	$passwordold=addslashes($_POST['passwordold']);
+	$passwordnew=addslashes($_POST['passwordnew']);
+	$passwordnewrepeat=addslashes($_POST['passwordnewrepeat']);
 	
 	if($passwordnewrepeat!=$passwordnew){
 		$errormessage='两次输入的新密码不一致，请重新输入';
@@ -113,20 +112,22 @@ p.feedbackmessage, p.errormessage{
 
 
 <body>
-<?php
-					include_once('topbar.php');
-				?>
-<!--div  home-visual-box-->
-<div  class="container-fluidX container maxcontainer">
-
-
-
-<!--div  bodycontent----------------------------------------------------------------------------------------->
-
-
-
-<div class="bodycontent">
-<div class="loginbox">
+<div class="zhuti clear">
+	<?php
+		include_once('topbar.php');
+	?>
+<div class="contain clear">
+				<div class="div_down" >
+                    <div class="text-title" style="left:34%;">
+                        <span>
+                            我的账户
+                        </span>
+                    </div>
+                    <div class="text-top" style="left:14%;">
+                        <img class="ring" src="../images/ring.png"></img>
+                    </div>
+                </div>
+                <div class="div_text">
 
 <?php
 if(isset($errormessage)){
@@ -144,8 +145,9 @@ if(isset($feedbackmessage)){
 }
 ?>
 
-<h3>我的钻戒历史纪录  <a style="font-size:14px; display:inline-block; margin-left:25px; padding: 5px 12px; background-color:#eee; position:relative; top:-3px;" href="manageaccount.php">修改用户名密码</a></h3>
+<a style="font-size:14px; display:inline-block; margin-left:25px; padding: 5px 12px; background-color:#eee; position:relative; top:-3px;" href="manageaccount.php">修改用户名密码</a>
 
+<a class="btn" style="font-size:14px; display:inline-block; margin-left:25px; padding: 5px 12px; background-color:#eee; position:relative; top:-3px;" href="login.php?action=logout">退出登录</a>
 
 <?php
 $userhistory='SELECT * FROM viewing_record WHERE viewer = "'.$userid.'" ORDER BY id DESC';
@@ -263,15 +265,15 @@ if($user_diamond_grading_lab=='HRD'){
    echo '您尚未选购任何钻石';
 }
 ?>
-
-
-
-
+	</div>
+	<div class="div_down">
+		<div class="text-bottom" style="left:14%;"></div>
+   	</div>
 </div>
 </div>
+
 		<?php
 		include_once('footer.php');
 		?>
 
-</div>
 </body>

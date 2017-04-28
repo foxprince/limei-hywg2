@@ -53,10 +53,10 @@ if (isset($_GET['c']) && $_GET['c'] == 'order') {
 ?>
                     </div>
                 </div>
-            	<div class="div_down">
+              </div>
+    <div class="div_down">
 		<div class="text-bottom" style="left:14%;"></div>
    	</div>
-                </div>
             </div>
         </div>
         <?php include_once 'footer.php';?>
