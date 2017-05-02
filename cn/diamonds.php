@@ -1,28 +1,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="renderer" content="webkit|ie-comp|ie-stand">
-	<link rel="stylesheet" href="../css/jslider.css" type="text/css">
-	<link rel="stylesheet" href="../css/jslider.blue.css" type="text/css">
-	<link rel="stylesheet" href="../css/jslider.plastic.css" type="text/css">
-	<link rel="stylesheet" href="../css/jslider.round.css" type="text/css">
-	<link rel="stylesheet" href="../css/jslider.style.css" type="text/css">
-	<link rel="stylesheet" href="../css/jslider.round.plastic.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+	<link rel="stylesheet" href="../css/jslider.css" type="text/css"/>
+	<link rel="stylesheet" href="../css/jslider.blue.css" type="text/css"/>
+	<link rel="stylesheet" href="../css/jslider.plastic.css" type="text/css"/>
+	<link rel="stylesheet" href="../css/jslider.round.css" type="text/css"/>
+	<link rel="stylesheet" href="../css/jslider.style.css" type="text/css"/>
+	<link rel="stylesheet" href="../css/jslider.round.plastic.css" type="text/css"/>
 	<!--[if IE 6]>
-	<link rel="stylesheet" href="css/jslider.ie6.css" type="text/css" media="screen">
-	<link rel="stylesheet" href="css/jslider.blue.ie6.css" type="text/css" media="screen">
-	<link rel="stylesheet" href="css/jslider.plastic.ie6.css" type="text/css" media="screen">
-	<link rel="stylesheet" href="css/jslider.round.ie6.css" type="text/css" media="screen">
-	<link rel="stylesheet" href="css/jslider.round.plastic.ie6.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="css/jslider.ie6.css" type="text/css" media="screen"/>
+	<link rel="stylesheet" href="css/jslider.blue.ie6.css" type="text/css" media="screen"/>
+	<link rel="stylesheet" href="css/jslider.plastic.ie6.css" type="text/css" media="screen"/>
+	<link rel="stylesheet" href="css/jslider.round.ie6.css" type="text/css" media="screen"/>
+	<link rel="stylesheet" href="css/jslider.round.plastic.ie6.css" type="text/css" media="screen"/>
 	<![endif]-->
 
 
 
-<link rel="stylesheet" type="text/css" href="../css/public.css">
-<link rel="stylesheet" type="text/css" href="../css/text.css">
-<link rel="stylesheet" type="text/css" href="../css/jquery.range.css">
-<link rel="stylesheet"  href="css/css.css">
+<link rel="stylesheet" type="text/css" href="../css/public.css"/>
+<link rel="stylesheet" type="text/css" href="../css/text.css"/>
+<link rel="stylesheet" type="text/css" href="../css/jquery.range.css"/>
+<link rel="stylesheet"  href="css/css.css"/>
 <script type="text/javascript" src="../js/jquery.min.js"></script>
 <script type="text/javascript" src="../js/text.js"></script>
 <script type="text/javascript" src="../js/jquery.dependClass.js"></script>
