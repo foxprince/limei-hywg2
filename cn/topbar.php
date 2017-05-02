@@ -10,7 +10,7 @@
         <li><a href="index.php" ><span></span>首页</a></li>
         <li><a href="about.php"><span></span>品牌文化</a></li>
         <li><a href="jewelry.php"><span></span>首饰</a></li>
-        <li><a href="diamonds.html"><span></span>裸钻</a></li>
+        <li><a href="dia.php"><span></span>裸钻</a></li>
         <li><a href="#community.php"><span></span>社区</a></li>
         <li><a href="aboutus.php"><span></span>联系我们</a></li>
         <li>
