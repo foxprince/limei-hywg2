@@ -10,6 +10,7 @@ var $shapeEM = false;
 var $shapeRAD = false;
 var $shapeCU = false;
 var $shape = '';
+var $currency = '';
 var $color = '';
 var $clarity = '';
 var $cut = '';
@@ -210,6 +211,10 @@ function filter_certi(thelab) {
 	}
 	update();
 }
+function filter_currency(currency) {
+	$currency = currency;
+	update();
+}
 function sorting_weight() {
 	$sorting = 'weight';
 	if ($sorting_weight_direction == 'ASC') {
@@ -286,6 +291,7 @@ function update() {
 		weight_to : $weight_to,
 		price_from : $price_from,
 		price_to : $price_to,
+		currency : $currency,
 		featured : $featured,
 		sorting : $sorting,
 		sorting_direction : $sorting_direction,

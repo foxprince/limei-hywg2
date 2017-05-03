@@ -110,7 +110,27 @@ if($_POST['price_to']==''){
 }else{
 	$query_price_to=$_POST['price_to'];
 }
+require_once('connection.php');
+$conn=dbConnect('write','pdo');
+$conn->query("SET NAMES 'utf8'");
 
+$sql_currency='SELECT * FROM convert_currency';
+foreach($conn->query($sql_currency) as $row_currency){
+	$USD_EUR=$row_currency['USD_EUR'];
+	$USD_GBP=$row_currency['USD_GBP'];
+	$USD_CNY=$row_currency['USD_CNY'];
+}
+
+if($_POST['currency']!=''){
+	if($_POST['currency']=='EUR') {
+		$query_price_from = $query_price_from/$USD_EUR;
+		$query_price_to = $query_price_to/$USD_EUR;
+	}
+	else if($_POST['currency']=='CNY') {
+		$query_price_from = $query_price_from/$USD_CNY;
+		$query_price_to = $query_price_to/$USD_CNY;
+	}
+}
 $featured=$_POST['featured'];
 if($featured=='YES'){
 	$featured=' AND featured = "YES" ';
@@ -164,16 +184,6 @@ switch ($sorting){
 
 
 
-require_once('connection.php');
-$conn=dbConnect('write','pdo');
-$conn->query("SET NAMES 'utf8'");
-
-$sql_currency='SELECT * FROM convert_currency';
-foreach($conn->query($sql_currency) as $row_currency){
-	$USD_EUR=$row_currency['USD_EUR'];
-	$USD_GBP=$row_currency['USD_GBP'];
-	$USD_CNY=$row_currency['USD_CNY'];
-}
 
 $sql_count='SELECT COUNT(*) AS num FROM diamonds WHERE'.$query_shape.$query_color.$query_clarity.$query_cut.$query_polish.$query_sym.$query_fluo.$query_certi.$and.'(carat >= '.$query_weight_from.' AND carat <= '.$query_weight_to.') AND (price BETWEEN '.$query_price_from.' AND '.$query_price_to.') AND status = "AVAILABLE" '.$featured;
 logger($sql_count);
