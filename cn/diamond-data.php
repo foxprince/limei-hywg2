@@ -124,7 +124,7 @@ if(isset($_POST['crr_page'])){
 	$crr_page=1;
 }
 
-$startfrom=($crr_page-1)*35;
+$startfrom=($crr_page-1)*20;
 
 
 
@@ -182,7 +182,7 @@ foreach($conn->query($sql_count) as $num){
 }
 /**/
 
-$sql='SELECT * FROM diamonds WHERE'.$query_shape.$query_color.$query_clarity.$query_cut.$query_polish.$query_sym.$query_fluo.$query_certi.$and.'(carat >= '.$query_weight_from.' AND carat <= '.$query_weight_to.') AND (price BETWEEN '.$query_price_from.' AND '.$query_price_to.') AND status = "AVAILABLE" '.$featured.' '.$query_sorting.' LIMIT '.$startfrom.', 35';
+$sql='SELECT * FROM diamonds WHERE'.$query_shape.$query_color.$query_clarity.$query_cut.$query_polish.$query_sym.$query_fluo.$query_certi.$and.'(carat >= '.$query_weight_from.' AND carat <= '.$query_weight_to.') AND (price BETWEEN '.$query_price_from.' AND '.$query_price_to.') AND status = "AVAILABLE" '.$featured.' '.$query_sorting.' LIMIT '.$startfrom.', 20';
 
 //exit($sql);
 

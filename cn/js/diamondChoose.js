@@ -318,7 +318,6 @@ function searchbynumbers() {
 		$('div#loading_indi').fadeOut('fast');
 		$('div#diamondsdata').html(data);
 		var howmanyrecords = $("div#howmanyrecords").html();
-		;
 		$('span#resulthowmany').html(howmanyrecords);
 		diamondlistpagenavi(howmanyrecords);
 		addlisteners();
@@ -333,16 +332,18 @@ var crrlistnavipage = 0;
 var $intotalhowmanyrecords = 0;
 function diamondlistpagenavi(howmanyrecords) {
 	$intotalhowmanyrecords = howmanyrecords;
-	$('span#diapagenavi').empty();
+	$('div#diapagenavi').empty();
 	var totalrecords = parseFloat(howmanyrecords);
-	var totalpages = Math.ceil(totalrecords / 35);
+	var totalpages = Math.ceil(totalrecords / 20);
+	$('div#diapagenavi').append('<span>第</span>');
 	for (var i = crrlistnavipage * 10 + 1; i <= totalpages; i++) {
-		if (i <= crrlistnavipage * 35 + 10) {
+		if (i <= crrlistnavipage * 20 + 10) {
 			if (i == $crr_page) {
-				$('span#diapagenavi').append('<span class="dia-page-btn" id="crr_page">' + i + '</span>');
+				$('div#diapagenavi').append('<span class="dia-page-btn" id="crr_page">' + i + '</span>');
 			} else {
-				$('span#diapagenavi').append('<span class="dia-page-btn" onclick="choosethispage(' + i + ')">' + i + '</span>');
+				$('div#diapagenavi').append('<a href="javascript:void(0);" class="dia-page-btn" onclick="choosethispage(' + i + ')">' + i + '</a>');
 			}
 		}
 	}
+	$('div#diapagenavi').append('<span>页</span>');
 }
