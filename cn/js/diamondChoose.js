@@ -1,3 +1,4 @@
+var $change = false;
 var $featured = 'NO';
 var $shapeBR = false;
 var $shapePS = false;
@@ -270,7 +271,7 @@ function sorting_price() {
 	update();
 }
 function update() {
-	nowworkingonfilter = true;
+	//if($change){
 	$('div#loading_indi').fadeIn('fast');
 	$.post("diamond-data.php", {
 		shape : $shape,
@@ -300,7 +301,7 @@ function update() {
 		diamondlistpagenavi(howmanyrecords);
 		//addlisteners();
 		$('button#btn_weight').removeClass('weight-btn-active');
-	});
+	});//}
 }
 function searchbynumbers() {
 	$('div#loading_indi').fadeIn('fast');
