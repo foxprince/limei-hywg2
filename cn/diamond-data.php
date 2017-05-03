@@ -278,10 +278,10 @@ foreach($stmt as $row){
                         </span>
                         <span class="valuetxt value_color"> <?php echo $row['color']; ?> </span>
                         <span class="valuetxt value_clarity"><?php echo $row['clarity']; ?></span>
-                        <span class="valuetxt value_certificate"><?php echo $row['grading_lab']; ?></span>
                         <span class="valuetxt value_cut"><?php echo ($row['cut_grade']===NULL?"-":$row['cut_grade']); ?></span>
                         <span class="valuetxt value_polish"><?php echo $row['polish']; ?></span>
                         <span class="valuetxt value_symmetry"><?php echo $row['symmetry']; ?></span>
+                        <span class="valuetxt value_certificate"><?php echo $row['grading_lab']; ?></span>
                         <span class="valuetxt value_priceeuro"><?php echo $euro_price ?></span>
                         <span class="detail-btn">详情</span>
                     </div><!-- end generalinfobox -->
