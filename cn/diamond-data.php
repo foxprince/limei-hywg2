@@ -283,9 +283,9 @@ foreach($stmt as $row){
                         <span class="valuetxt value_symmetry"><?php echo $row['symmetry']; ?></span>
                         <span class="valuetxt value_certificate"><?php echo $row['grading_lab']; ?></span>
                         <span class="valuetxt value_priceeuro"><?php echo $euro_price ?></span>
-                        <span class="detail-btn">详情</span>
+                        <span class="detail-btn" onclick="showDetail('<?php echo $row['id']; ?>')">详情</span>
                     </div><!-- end generalinfobox -->
-                    <div id="d_1" class="details">
+                    <div id="detail-<?php echo $row['id']; ?>" class="details">
                         <p class="details_txt">
                             <span>荧光强度:<?php echo $row["fluorescence_intensity"];?></span>
                             <span> 所在地: <?php echo $row['country']; ?></span>

@@ -328,6 +328,9 @@ function choosethispage(page) {
 	$crr_page = page;
 	update();
 }
+function showDetail(id) {
+	$('#detail-'+id).slideToggle();
+}
 var crrlistnavipage = 0;
 var $intotalhowmanyrecords = 0;
 function diamondlistpagenavi(howmanyrecords) {
