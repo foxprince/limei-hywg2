@@ -304,7 +304,9 @@ function update() {
 		$('div#diamondsdata').html(data);
 		var howmanyrecords = $("div#howmanyrecords").html();
 		$('span#resulthowmany').html(howmanyrecords);
-		diamondlistpagenavi(howmanyrecords);
+		var pageNavi = $("div#diapagenavi").html();
+		$('#diapagenaviResult').html(pageNavi);
+		//diamondlistpagenavi(howmanyrecords);
 		//addlisteners();
 		$('button#btn_weight').removeClass('weight-btn-active');
 	});//}

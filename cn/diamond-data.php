@@ -138,24 +138,16 @@ if($featured=='YES'){
 	$featured='';
 }
 
+$pagesize = 10;
 if(isset($_POST['crr_page'])){
 	$crr_page=$_POST['crr_page'];
 }else{
 	$crr_page=1;
 }
-
-$startfrom=($crr_page-1)*20;
-
-
-
-
+$startfrom=($crr_page-1)*$pagesize;
 $sorting_direction=$_POST['sorting_direction'];
-
 $sorting=$_POST['sorting'];
-
-
 switch ($sorting){
-
 	case "weight":
 	$query_sorting =' ORDER BY carat '.$sorting_direction;
 	break;
@@ -179,20 +171,24 @@ switch ($sorting){
 	default:
 	$query_sorting =' ORDER BY stock_ref '.$sorting_direction;
 	break;
-
 }
-
-
-
-
 $sql_count='SELECT COUNT(*) AS num FROM diamonds WHERE'.$query_shape.$query_color.$query_clarity.$query_cut.$query_polish.$query_sym.$query_fluo.$query_certi.$and.'(carat >= '.$query_weight_from.' AND carat <= '.$query_weight_to.') AND (price BETWEEN '.$query_price_from.' AND '.$query_price_to.') AND status = "AVAILABLE" '.$featured;
 logger($sql_count);
 foreach($conn->query($sql_count) as $num){
 	$result_number=$num['num'];
 }
+$tpages = intval ( $result_number / $pagesize );
+if (! $result_number % $pagesize)
+	$tpages ++;
+$adjacents = intval ( $_GET ['adjacents'] );
+if ($page <= 0)
+	$page = 1;
+if ($adjacents <= 0)
+	$adjacents = 5;
+
 /**/
 
-$sql='SELECT * FROM diamonds WHERE'.$query_shape.$query_color.$query_clarity.$query_cut.$query_polish.$query_sym.$query_fluo.$query_certi.$and.'(carat >= '.$query_weight_from.' AND carat <= '.$query_weight_to.') AND (price BETWEEN '.$query_price_from.' AND '.$query_price_to.') AND status = "AVAILABLE" '.$featured.' '.$query_sorting.' LIMIT '.$startfrom.', 20';
+$sql='SELECT * FROM diamonds WHERE'.$query_shape.$query_color.$query_clarity.$query_cut.$query_polish.$query_sym.$query_fluo.$query_certi.$and.'(carat >= '.$query_weight_from.' AND carat <= '.$query_weight_to.') AND (price BETWEEN '.$query_price_from.' AND '.$query_price_to.') AND status = "AVAILABLE" '.$featured.' '.$query_sorting.' LIMIT '.$startfrom.', '.$pagesize;
 
 //exit($sql);
 
@@ -273,6 +269,18 @@ foreach($stmt as $row){
 	$euro_price=round($price*$USD_EUR).'欧元';
 	$yuan_price=round($price*$USD_CNY).'元人民币';
 	$dollar_price=round($price).'美元';
+	$singlePrice = $dollar_price;
+	$morePrice = $yuan_price.' <br/>'.$euro_price;
+	if($_POST['currency']!=''){
+		if($_POST['currency']=='EUR') {
+			$singlePrice = $euro_price;
+			$morePrice = $yuan_price.' <br/>'.$dollar_price;
+		}
+		else if($_POST['currency']=='CNY') {
+			$singlePrice = $yuan_price;
+			$morePrice = $euro_price.' <br/>'.$dollar_price;
+		}
+	}
 	if(trim($row["grading_lab"])=='HRD')
 		$certi_linker="http://www.hrdantwerplink.be/index.php?record_number="+ $row['certificate_number']+"&weight="+$row['carat']+"&L=";
 	else if(trim($row["grading_lab"])=='GIA')
@@ -292,7 +300,7 @@ foreach($stmt as $row){
                         <span class="valuetxt value_polish"><?php echo $row['polish']; ?></span>
                         <span class="valuetxt value_symmetry"><?php echo $row['symmetry']; ?></span>
                         <span class="valuetxt value_certificate"><?php echo $row['grading_lab']; ?></span>
-                        <span class="valuetxt value_priceeuro"><?php echo $euro_price ?></span>
+                        <span class="valuetxt value_priceeuro"><?php echo $singlePrice ?></span>
                         <span class="detail-btn" onclick="showDetail('<?php echo $row['id']; ?>')">详情</span>
                     </div><!-- end generalinfobox -->
                     <div id="detail-<?php echo $row['id']; ?>" class="details">
@@ -301,7 +309,7 @@ foreach($stmt as $row){
                             <span> 所在地: <?php echo $row['country']; ?></span>
                             <span>证书编号: <?php echo $row['certificate_number']; ?> &nbsp; &nbsp;<a class="certi_linker" target="_blank" href="<?php echo $certi_linker; ?>">查看证书</a></span>
                             <span>库存编号 <?php echo $row['stock_ref']; ?></span>
-                            <span class="price"><?php echo $yuan_price; ?>人民币  <br><?php echo $dollar_price; ?>美元</span>
+                            <span class="price"><?php echo $morePrice ?></span>
                             <span class="btnforprice" onclick="opentheappointmentbox('<?php echo $row['id']; ?>')">预约看钻</span>
                         </p>
                     </div><!-- end details -->
@@ -319,7 +327,13 @@ foreach($stmt as $row){
 			</div>
 
 <div id="howmanyrecords" style="display:none;"><?php echo $result_number; ?></div>
-
+<div id="diapagenavi" style="display:none;">
+<?php
+echo "共"  . $tpages . "页。";
+include ("pagination2.php");
+echo paginate_two ( $reload, $page, $tpages, $adjacents );
+?>
+</div>
 <div style="display:none;">
 	<div id="diamond-data-price-qrcode">
 		<div style="text-align:center;padding: 10px;">请加我们客服咨询价格</div>
