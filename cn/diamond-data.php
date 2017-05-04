@@ -245,11 +245,11 @@ foreach($stmt as $row){
 			$pic_where="11.gif";
 			$shape_TXT='椭圆形';
 			break;
-		case "PR":
+		case "PS":
 			$pic_where="03.gif";
 			$shape_TXT='公主方';
 			break;
-		case "PS":
+		case "PR":
 			$pic_where="02.gif";
 			$shape_TXT='梨形';
 			break;
@@ -331,7 +331,7 @@ foreach($stmt as $row){
 <?php
 echo "共"  . $tpages . "页。";
 include ("pagination2.php");
-echo paginate_two ( $reload, $page, $tpages, $adjacents );
+echo paginate_two ( $reload, $crr_page, $tpages, $adjacents );
 ?>
 </div>
 <div style="display:none;">

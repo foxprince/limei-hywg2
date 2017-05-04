@@ -40,74 +40,74 @@ function filter_shape(theshape) {
 	if ($theshape == 'BR') {
 		if ($shapeBR) {
 			$shapeBR = false;
-			$('#filter_shapeBR').removeClass('btn-active');
+			$('#filter_shapeBR').removeClass('on');
 		} else {
 			$shapeBR = true;
-			$('#filter_shapeBR').addClass('btn-active');
+			$('#filter_shapeBR').addClass('on');
 		}
 	} else if ($theshape == 'PS') {
 		if ($shapePS) {
 			$shapePS = false;
-			$('#filter_shapePS').removeClass('btn-active');
+			$('#filter_shapePS').removeClass('on');
 		} else {
 			$shapePS = true;
-			$('#filter_shapePS').addClass('btn-active');
+			$('#filter_shapePS').addClass('on');
 		}
 	} else if ($theshape == 'PR') {
 		if ($shapePR) {
 			$shapePR = false;
-			$('#filter_shapePR').removeClass('btn-active');
+			$('#filter_shapePR').removeClass('on');
 		} else {
 			$shapePR = true;
-			$('#filter_shapePR').addClass('btn-active');
+			$('#filter_shapePR').addClass('on');
 		}
 	} else if ($theshape == 'HS') {
 		if ($shapeHS) {
 			$shapeHS = false;
-			$('#filter_shapeHS').removeClass('btn-active');
+			$('#filter_shapeHS').removeClass('on');
 		} else {
 			$shapeHS = true;
-			$('#filter_shapeHS').addClass('btn-active');
+			$('#filter_shapeHS').addClass('on');
 		}
 	} else if ($theshape == 'MQ') {
 		if ($shapeMQ) {
 			$shapeMQ = false;
-			$('#filter_shapeMQ').removeClass('btn-active');
+			$('#filter_shapeMQ').removeClass('on');
 		} else {
 			$shapeMQ = true;
-			$('#filter_shapeMQ').addClass('btn-active');
+			$('#filter_shapeMQ').addClass('on');
 		}
 	} else if ($theshape == 'OV') {
 		if ($shapeOV) {
 			$shapeOV = false;
-			$('#filter_shapeOV').removeClass('btn-active');
+			$('#filter_shapeOV').removeClass('on');
 		} else {
 			$shapeOV = true;
-			$('#filter_shapeOV').addClass('btn-active');
+			$('#filter_shapeOV').addClass('on');
 		}
 	} else if ($theshape == 'EM') {
 		if ($shapeEM) {
 			$shapeEM = false;
-			$('#filter_shapeEM').removeClass('btn-active');
+			$('#filter_shapeEM').removeClass('on');
 		} else {
 			$shapeEM = true;
-			$('#filter_shapeEM').addClass('btn-active');
+			$('#filter_shapeEM').addClass('on');
 		}
 	} else if ($theshape == 'RAD') {
 		if ($shapeRAD) {
 			$shapeRAD = false;
-			$('#filter_shapeRAD').removeClass('btn-active');
+			$('#filter_shapeRAD').removeClass('on');
 		} else {
 			$shapeRAD = true;
-			$('#filter_shapeRAD').addClass('btn-active');
+			$('#filter_shapeRAD').addClass('on');
 		}
 	} else if ($theshape == 'CU') {
 		if ($shapeCU) {
 			$shapeCU = false;
-			$('#filter_shapeCU').removeClass('btn-active');
+			$('#filter_shapeCU').removeClass('on');
 		} else {
 			$shapeCU = true;
-			$('#filter_shapeCU').addClass('btn-active');
+			$('#filter_shapeCU').addClass('on');
 		}
 	}
 	if ($shapeBR) {
