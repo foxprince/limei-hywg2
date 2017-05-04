@@ -173,18 +173,13 @@ switch ($sorting){
 	break;
 }
 $sql_count='SELECT COUNT(*) AS num FROM diamonds WHERE'.$query_shape.$query_color.$query_clarity.$query_cut.$query_polish.$query_sym.$query_fluo.$query_certi.$and.'(carat >= '.$query_weight_from.' AND carat <= '.$query_weight_to.') AND (price BETWEEN '.$query_price_from.' AND '.$query_price_to.') AND status = "AVAILABLE" '.$featured;
-logger($sql_count);
 foreach($conn->query($sql_count) as $num){
 	$result_number=$num['num'];
 }
-$tpages = intval ( $result_number / $pagesize );
-if (! $result_number % $pagesize)
-	$tpages ++;
-$adjacents = intval ( $_GET ['adjacents'] );
+$tpages = ceil ( $result_number / $pagesize );
+$adjacents = 10;
 if ($page <= 0)
 	$page = 1;
-if ($adjacents <= 0)
-	$adjacents = 5;
 
 /**/
 
@@ -329,9 +324,8 @@ foreach($stmt as $row){
 <div id="howmanyrecords" style="display:none;"><?php echo $result_number; ?></div>
 <div id="diapagenavi" style="display:none;">
 <?php
-echo "共"  . $tpages . "页。";
 include ("pagination2.php");
-echo paginate_two ( $reload, $crr_page, $tpages, $adjacents );
+echo paginate_two ( $crr_page, $tpages, $adjacents );
 ?>
 </div>
 <div style="display:none;">

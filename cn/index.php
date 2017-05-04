@@ -41,10 +41,10 @@
       </div>
     </div>
       <div class="x-bot">
-          <a href="jewelry.php"><img src="images/ccs.png" class="on"></a>
-          <a href="jewelry.php"><img src="images/ccs.png"></a>
-          <a href="jewelry.php"><img src="images/ccs.png"></a>
-          <a href="jewelry.php"><img src="images/ccs.png"></a>
+          <a href="jewelry.php?from=index&category=recommend"><img src="images/ccs.png" class="on"></a>
+          <a href="jewelry.php?from=index&category=weddingRing"><img src="images/ccs.png"></a>
+          <a href="jewelry.php?from=index&category=idoRing"><img src="images/ccs.png"></a>
+          <a href="jewelry.php?from=index&category=ornament"><img src="images/ccs.png"></a>
       </div>
   </div>
   

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,13 +55,13 @@
       .layout-slider{width: 318px;}
       .slider-container .back-bar .pointer-label{border:1px solid #d1a82d; background: #f5eee2;}
       /*.theme-green .back-bar{background: #edcec9;}*/
-      .c1 .back-bar{background: #f0d0cb;}
-      .c2 .back-bar{background: #ebe9d3;}
-      .c3 .back-bar{background: #d7e2cf;}
-      .c4 .back-bar{background: #b2ddd9;}
-      .c5 .back-bar{background: #d5e9ef;}
-      .c6 .back-bar{background: #d7d6e6;}
-      .c7 .back-bar{background: #dfcedf;}
+      .c1 .noUi-connect{background: #f0d0cb;}
+      .c2 .noUi-connect{background: #ebe9d3;}
+      .c3 .noUi-connect{background: #d7e2cf;}
+      .c4 .noUi-connect{background: #b2ddd9;}
+      .c5 .noUi-connect{background: #d5e9ef;}
+      .c6 .noUi-connect{background: #d7d6e6;}
+      .c7 .noUi-connect{background: #dfcedf;}
       /*.dia-list-02 ul{margin-top: 8px;}*/
       .dia-list-02 li{float: left; border-right: 1px solid #666; height: 6px; padding-top: 4px; text-align: center;}
       .dia-list-02 li:first-child{width: 1px;}
@@ -106,8 +105,12 @@
 
       #priceFrom,#priceTo,#caratFrom,#caratTo{width: 60px; height: 24px; padding:0 2px; text-align: center; margin-top: 10px;}
       .noUi-target{margin-bottom: 6px;}
-      .noUi-horizontal{height: 14px; border-radius: 2px;}
-      .noUi-horizontal .noUi-handle{top: -9px;}
+      .noUi-horizontal{height: 8px; border-radius: 2px;}
+      .noUi-horizontal .noUi-handle{top: -10px;}
+      .noUi-connect{box-shadow: none;}
+      .noUi-horizontal .noUi-handle{width: 24px; height: 24px; border-radius: 50%; box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #EBEBEB, 0 3px 6px -3px #666;}
+      .noUi-handle:after{display: none;}
+      .noUi-handle:before{width: 10px; height: 10px; background: #ccc; border-radius: 50%; left:6px; background: #d2d2d2;}
     </style>
 </head>
 <body>
@@ -141,57 +144,61 @@
     <div style="text-align:center; height:110px;"><img src="images/dia-tit-bg.png" alt=""></div>
     <div>
     <!-- 第一排 -->
+    <!-- 第一排 -->
     <div class="pro-t clear">
       <div class="fl">
         <span>形状</span>
         <ul class="fileber_shape">
-          <li><span class="fs_01"></span></li>
-          <li class="on"><span class="fs_02"></span></li>
-          <li><span class="fs_03"></span></li>
-          <li><span class="fs_04"></span></li>
-          <li><span class="fs_05"></span></li>
-          <li><span class="fs_06"></span></li>
-          <li><span class="fs_07"></span></li>
-          <li><span class="fs_08"></span></li>
-          <li><span class="fs_09"></span></li>
+          <li id="filter_shapeBR"  onclick="filter_shape('BR')" ><span class="fs_01"></span></li>
+          <li id="filter_shapePR"  onclick="filter_shape('PR')" ><span class="fs_02"></span></li>
+          <li id="filter_shapePS"  onclick="filter_shape('PS')" ><span class="fs_03"></span></li>
+          <li id="filter_shapeHS"  onclick="filter_shape('HS')" ><span class="fs_04"></span></li>
+          <li id="filter_shapeMQ"  onclick="filter_shape('MQ')" ><span class="fs_05"></span></li>
+          <li id="filter_shapeOV"  onclick="filter_shape('OV')" ><span class="fs_06"></span></li>
+          <li id="filter_shapeRAD" onclick="filter_shape('RAD')"><span  class="fs_08"></span></li>
+          <li id="filter_shapeEM"  onclick="filter_shape('EM')" ><span class="fs_07"></span></li>
+          <li id="filter_shapeCU"  onclick="filter_shape('CU')" ><span class="fs_09"></span></li>
         </ul>
       </div>
       <div class="fl dia-list-01 c1" style="margin-left:20px; width:318px;">
         <span>钻重 CT</span>
         <div id="filter_line_price">
           <div class="layout-slider">
-              <div id="caratRange"></div><input type="text" id="caratFrom" class="fl"><input type="text" id="caratTo" class="fr">
+              <div id="caratRange"></div><input type="text" id="caratFrom" value="1"><input type="text" id="caratTo" value="5 ">
               <script>
-				var caratSlider = document.getElementById('caratRange');
-				noUiSlider.create(caratSlider, {
-					connect: true,
-					behaviour: 'tap',
-					start: [ 1, 5 ],
-					range: {
-						'min': [ 0],
-						'30%': [  1 ],
-						'70%': [  5 ],
-						'max': [ 20 ]
-					}
-				});
-				var fromNumber = document.getElementById('caratFrom');
-				var toNumber = document.getElementById('caratTo');
-				caratSlider.noUiSlider.on('update', function( values, handle ) {
-					var value = values[handle];
-					if ( handle ) 
-						toNumber.value = value;
-					else	
-						fromNumber.value = value;
-				});
-				fromNumber.addEventListener('change', function(){
-					caratSlider.noUiSlider.set([this.value, null]);
-				});
-				toNumber.addEventListener('change', function(){
-					caratSlider.noUiSlider.set([null,this.value]);
-				});
-			</script>
+        var caratSlider = document.getElementById('caratRange');
+        noUiSlider.create(caratSlider, {
+          connect: true,
+          behaviour: 'tap',
+          start: [ 1, 5 ],
+          range: {
+            'min': [ 0],
+            '30%': [  1 ],
+            '70%': [  5 ],
+            'max': [ 20 ]
+          }
+        });
+        var caratFrom = document.getElementById('caratFrom');
+        var caratTo = document.getElementById('caratTo');
+        caratSlider.noUiSlider.on('change', function( values, handle ) {
+          var value = values[handle];
+          if ( handle ) 
+            caratTo.value = value;
+          else  
+            caratFrom.value = value;
+          $weight_from = caratFrom.value;
+          $weight_to = caratTo.value;
+          update();
+        });
+        caratFrom.addEventListener('change', function(){
+          caratSlider.noUiSlider.set([this.value, null]);
+        });
+        caratTo.addEventListener('change', function(){
+          caratSlider.noUiSlider.set([null,this.value]);
+        });
+      </script>
           </div>
-			
+      
         </div>
       </div>
       <div class="fl dia-list-02 c2" style="margin-left:20px; width:318px;">
@@ -200,30 +207,32 @@
           <div id="colorRange"></div>
           <span id="colorFrom">E</span> - <span id="colorTo">I</span>
           <script>
-			var colorSlider = document.getElementById('colorRange');
-			var colorFrom = document.getElementById('colorFrom');
-			var colorTo = document.getElementById('colorTo');
-			noUiSlider.create(colorSlider, {
-				connect: true,
-				behaviour: 'tap',
-				start: [ 1, 5 ],
-				format: wNumb({
-					decimals: 0
-				}),
-				range: {
-					'min': [ 0 ],
-					'max': [ 9 ]
-				}
-			});
-			var colorRange = [
-				'D','E','F','G','H','I','J','K','L','M'
-			];
-			colorSlider.noUiSlider.on('update', function ( values, handle ) {
-				if ( handle ) 
-					colorTo.innerHTML = colorRange[values[handle]];
-				else	
-					colorFrom.innerHTML = colorRange[values[handle]];
-			});
+      var colorSlider = document.getElementById('colorRange');
+      var colorFrom = document.getElementById('colorFrom');
+      var colorTo = document.getElementById('colorTo');
+      noUiSlider.create(colorSlider, {
+        connect: true,
+        tooltips: true,
+        behaviour: 'tap',
+        start: [ 1, 5 ],
+        format: wNumb({
+          decimals: 0
+        }),
+        range: {
+          'min': [ 0 ],
+          'max': [ 9 ]
+        }
+      });
+      var colorRange = [
+        'D','E','F','G','H','I','J','K','L','M'
+      ];
+      colorSlider.noUiSlider.on('change', function ( values, handle ) {
+        if ( handle ) 
+          colorTo.innerHTML = colorRange[values[handle]];
+        else  
+          colorFrom.innerHTML = colorRange[values[handle]];
+        filter_color();
+      });
           </script>
         </div>
         <ul class="clear w11"><li></li><li>D</li><li>E</li><li>F</li><li>G</li><li>H</li><li>I</li><li>J</li><li>K</li><li>L</li><li>M</li></ul>
@@ -236,30 +245,31 @@
         <div id="filter_line_price">
           <div id="clarityRange"></div><span id="clarityFrom">E</span> - <span id="clarityTo">I</span>
           <script>
-          	var claritySlider = document.getElementById('clarityRange');
-			var clarityFrom = document.getElementById('clarityFrom');
-			var clarityTo = document.getElementById('clarityTo');
-			noUiSlider.create(claritySlider, {
-				connect: true,
-				behaviour: 'tap',
-				start: [ 1, 5 ],
-				format: wNumb({
-					decimals: 0
-				}),
-				range: {
-					'min': [ 0 ],
-					'max': [ 8 ]
-				}
-			});
-			var clarityRange = [
-				'F','WS1','WS2','VS1','VS2','SI1','SI2','SI3','I1'
-			];
-			claritySlider.noUiSlider.on('update', function ( values, handle ) {
-				if ( handle ) 
-					clarityTo.innerHTML = clarityRange[values[handle]];
-				else	
-					clarityFrom.innerHTML = clarityRange[values[handle]];
-			});
+            var claritySlider = document.getElementById('clarityRange');
+      var clarityFrom = document.getElementById('clarityFrom');
+      var clarityTo = document.getElementById('clarityTo');
+      noUiSlider.create(claritySlider, {
+        connect: true,
+        behaviour: 'tap',
+        start: [ 1, 5 ],
+        format: wNumb({
+          decimals: 0
+        }),
+        range: {
+          'min': [ 0 ],
+          'max': [ 8 ]
+        }
+      });
+      var clarityRange = [
+        'F','WS1','WS2','VS1','VS2','SI1','SI2','SI3','I1'
+      ];
+      claritySlider.noUiSlider.on('change', function ( values, handle ) {
+        if ( handle ) 
+          clarityTo.innerHTML = clarityRange[values[handle]];
+        else  
+          clarityFrom.innerHTML = clarityRange[values[handle]];
+        filter_clarity();
+      });
           </script>
         </div>
         <ul class="clear w10"><li></li><li>F</li><li>WS1</li><li>WS2</li><li>VS1</li><li>VS2</li><li>SI1</li><li>SI2</li><li>SI3</li><li>I1</li></ul>
@@ -269,30 +279,31 @@
         <div id="filter_line_price">
           <div id="polishRange"></div><span id="polishFrom">VG</span> - <span id="polishTo">F</span>
           <script>
-          	var polishSlider = document.getElementById('polishRange');
-			var polishFrom = document.getElementById('polishFrom');
-			var polishTo = document.getElementById('polishTo');
-			noUiSlider.create(polishSlider, {
-				connect: true,
-				behaviour: 'tap',
-				start: [ 1, 3 ],
-				format: wNumb({
-					decimals: 0
-				}),
-				range: {
-					'min': [ 0 ],
-					'max': [ 3 ]
-				}
-			});
-			var polishRange = [
-				'E','VG','G','F'
-			];
-			polishSlider.noUiSlider.on('update', function ( values, handle ) {
-				if ( handle ) 
-					polishTo.innerHTML = polishRange[values[handle]];
-				else	
-					polishFrom.innerHTML = polishRange[values[handle]];
-			});
+            var polishSlider = document.getElementById('polishRange');
+      var polishFrom = document.getElementById('polishFrom');
+      var polishTo = document.getElementById('polishTo');
+      noUiSlider.create(polishSlider, {
+        connect: true,
+        behaviour: 'tap',
+        start: [ 1, 3 ],
+        format: wNumb({
+          decimals: 0
+        }),
+        range: {
+          'min': [ 0 ],
+          'max': [ 3 ]
+        }
+      });
+      var polishRange = [
+        'E','VG','G','F'
+      ];
+      polishSlider.noUiSlider.on('change', function ( values, handle ) {
+        if ( handle ) 
+          polishTo.innerHTML = polishRange[values[handle]];
+        else  
+          polishFrom.innerHTML = polishRange[values[handle]];
+        filter_polish();
+      });
           </script>
         </div>
         <ul class="clear w5"><li></li><li>Excellent</li><li>Very Good</li><li>Good</li><li>Fair</li></ul>
@@ -302,30 +313,31 @@
         <div id="filter_line_price">
           <div id="cutRange"></div><span id="cutFrom">VG</span> - <span id="cutTo">F</span>
           <script>
-          	var cutSlider = document.getElementById('cutRange');
-			var cutFrom = document.getElementById('cutFrom');
-			var cutTo = document.getElementById('cutTo');
-			noUiSlider.create(cutSlider, {
-				connect: true,
-				behaviour: 'tap',
-				start: [ 1, 3 ],
-				format: wNumb({
-					decimals: 0
-				}),
-				range: {
-					'min': [ 0 ],
-					'max': [ 3 ]
-				}
-			});
-			var cutRange = [
-				'E','VG','G','F'
-			];
-			cutSlider.noUiSlider.on('update', function ( values, handle ) {
-				if ( handle ) 
-					cutTo.innerHTML = cutRange[values[handle]];
-				else	
-					cutFrom.innerHTML = cutRange[values[handle]];
-			});
+            var cutSlider = document.getElementById('cutRange');
+      var cutFrom = document.getElementById('cutFrom');
+      var cutTo = document.getElementById('cutTo');
+      noUiSlider.create(cutSlider, {
+        connect: true,
+        behaviour: 'tap',
+        start: [ 1, 3 ],
+        format: wNumb({
+          decimals: 0
+        }),
+        range: {
+          'min': [ 0 ],
+          'max': [ 3 ]
+        }
+      });
+      var cutRange = [
+        'E','VG','G','F'
+      ];
+      cutSlider.noUiSlider.on('change', function ( values, handle ) {
+        if ( handle ) 
+          cutTo.innerHTML = cutRange[values[handle]];
+        else  
+          cutFrom.innerHTML = cutRange[values[handle]];
+        filter_cut();
+      });
           </script>
         </div>
         <ul class="clear w5"><li></li><li>Excellent</li><li>Very Good</li><li>Good</li><li>Fair</li></ul>
@@ -338,30 +350,31 @@
         <div id="filter_line_price">
           <div id="symRange"></div><span id="symFrom">VG</span> - <span id="symTo">F</span>
           <script>
-          	var symSlider = document.getElementById('symRange');
-			var symFrom = document.getElementById('symFrom');
-			var symTo = document.getElementById('symTo');
-			noUiSlider.create(symSlider, {
-				connect: true,
-				behaviour: 'tap',
-				start: [ 1, 3 ],
-				format: wNumb({
-					decimals: 0
-				}),
-				range: {
-					'min': [ 0 ],
-					'max': [ 3 ]
-				}
-			});
-			var symRange = [
-				'E','VG','G','F'
-			];
-			symSlider.noUiSlider.on('update', function ( values, handle ) {
-				if ( handle ) 
-					symTo.innerHTML = symRange[values[handle]];
-				else	
-					symFrom.innerHTML = symRange[values[handle]];
-			});
+            var symSlider = document.getElementById('symRange');
+      var symFrom = document.getElementById('symFrom');
+      var symTo = document.getElementById('symTo');
+      noUiSlider.create(symSlider, {
+        connect: true,
+        behaviour: 'tap',
+        start: [ 1, 3 ],
+        format: wNumb({
+          decimals: 0
+        }),
+        range: {
+          'min': [ 0 ],
+          'max': [ 3 ]
+        }
+      });
+      var symRange = [
+        'E','VG','G','F'
+      ];
+      symSlider.noUiSlider.on('change', function ( values, handle ) {
+        if ( handle ) 
+          symTo.innerHTML = symRange[values[handle]];
+        else  
+          symFrom.innerHTML = symRange[values[handle]];
+        filter_sym();
+      });
           </script>
         </div>
         <ul class="clear w5"><li></li><li>Excellent</li><li>Very Good</li><li>Good</li><li>Fair</li></ul>
@@ -372,50 +385,53 @@
         <div class="sewv">
           <div class="sewvtop"><span>单位</span><em><img src="images/selebom.png"></em></div>
                <ul class="sewvbm">
-                <li>人民币</li>
-                <li>美元</li>
-                <li>欧元</li>
+                <li onclick="filter_currency('USD')">美元</li>
+                <li onclick="filter_currency('CNY')">人民币</li>
+                <li onclick="filter_currency('EUR')">欧元</li>
                </ul>      
         </div>
         <div id="filter_line_price" style="margin-top:10px;">
-          <div id="priceRange"></div><input type="text" id="priceFrom" class="fl"><input type="text" id="priceTo" class="fr">
+          <div id="priceRange"></div><input type="text" id="priceFrom" value="1000"><input type="text" id="priceTo" value="10000">
               <script>
-				var priceSlider = document.getElementById('priceRange');
-				noUiSlider.create(priceSlider, {
-					connect: true,
-					behaviour: 'tap',
-					start: [ 1000, 10000 ],
-					range: {
-						'min': [ 100],
-						'10%': [  1000 ],
-						'70%': [  10000 ],
-						'max': [ 5000000 ]
-					}
-				});
-				var fromNumber = document.getElementById('priceFrom');
-				var toNumber = document.getElementById('priceTo');
-				priceSlider.noUiSlider.on('update', function( values, handle ) {
-					var value = values[handle];
-					if ( handle ) 
-						toNumber.value = value;
-					else	
-						fromNumber.value = value;
-				});
-				fromNumber.addEventListener('change', function(){
-					priceSlider.noUiSlider.set([this.value, null]);
-				});
-				toNumber.addEventListener('change', function(){
-					priceSlider.noUiSlider.set([null,this.value]);
-				});
-			</script>
+        var priceSlider = document.getElementById('priceRange');
+        noUiSlider.create(priceSlider, {
+          connect: true,
+          behaviour: 'tap',
+          start: [ 1000, 10000 ],
+          range: {
+            'min': [ 100],
+            '10%': [  1000 ],
+            '70%': [  10000 ],
+            'max': [ 5000000 ]
+          }
+        });
+        var fromNumber = document.getElementById('priceFrom');
+        var toNumber = document.getElementById('priceTo');
+        priceSlider.noUiSlider.on('change', function( values, handle ) {
+          var value = values[handle];
+          if ( handle ) 
+            toNumber.value = value;
+          else  
+            fromNumber.value = value;
+          $price_from= fromNumber.value;
+          $price_to = toNumber.value;
+          update();
+        });
+        fromNumber.addEventListener('change', function(){
+          priceSlider.noUiSlider.set([this.value, null]);
+        });
+        toNumber.addEventListener('change', function(){
+          priceSlider.noUiSlider.set([null,this.value]);
+        });
+      </script>
         </div>
       </div>
       <div class="fl" style="margin-left:22px; width:330px;">
         <form action="" class="dia-checkbox"> 
           权威证书:
-          <label><input name="" type="checkbox" value="" />GIA</label> 
-          <label><input name="" type="checkbox" value="" />IGA</label> 
-          <label><input name="" type="checkbox" value="" />HRD</label> 
+          <label><input id="filter_certiIGI" name="certi" type="checkbox" onclick="filter_certi('GIA')" value="GIA" />GIA</label> 
+          <label><input id="filter_certiHRD" name="certi" type="checkbox" onclick="filter_certi('IGI')" value="IGI" />IGI</label> 
+          <label><input id="filter_certiGIA" name="certi" type="checkbox" onclick="filter_certi('HRD')" value="HRD" />HRD</label> 
         </form> 
         <form method="get" id="searchform" action="">
             <fieldset class="search clear">
@@ -424,8 +440,6 @@
             </fieldset>
             <button class="reset btn">重置</button>
         </form>
-        <style>
-        </style>
       </div>
     </div><!-- 第3排 -->
     </div>
