@@ -80,18 +80,16 @@
     <div class="x-cen">
       <div class="x-cenk">
         <ul>
-          <li class="on">裸钻</li>
-          <li>戒指</li>
-          <li>吊坠</li>
-          <li>耳饰</li>
+          <li src="images/dia-left.png" class="on">裸钻</li>
+          <li src="images/ring-left.png">戒指</li>
+          <li src="images/pendant-left.png">吊坠</li>
+          <li src="images/eardrop-left.png">耳饰</li>
         </ul>
       </div>
     </div>
       <div class="t-bot clear">
         <div class="t-left">
-          <a href="/">
-            <img src="images/t-left.png" alt="">
-          </a>
+            <img id="recommendImg" src="images/dia-left.png" alt="">
         </div>
         <div class="t-center">
           <a href="" style=""><img src="images/t-center-01.jpg" alt=""></a>
@@ -102,51 +100,7 @@
           <a href=""><img src="images/t-right.jpg" alt=""></a>
         </div>
       </div>
-      <div class="t-bot" style="display:none;">
-        <div class="t-left">
-          <a href="/">
-            <img src="images/t-left.png" alt="">
-          </a>
-        </div>
-        <div class="t-center">
-          <a href="" style=""><img src="images/t-center-01.jpg" alt=""></a>
-          <a href="" style="margin-top:-1px;"><img src="images/t-center-02.jpg" alt=""></a>
-          <a href="" style="margin-top:-1px; margin-left:-1px;"><img src="images/t-center-03.jpg" alt=""></a>
-        </div>
-        <div class="t-right">
-          <a href=""><img src="images/t-right.jpg" alt=""></a>
-        </div>
-      </div>
-      <div class="t-bot" style="display:none;">
-        <div class="t-left">
-          <a href="/">
-            <img src="images/t-left.png" alt="">
-          </a>
-        </div>
-        <div class="t-center">
-          <a href="" style=""><img src="images/t-center-01.jpg" alt=""></a>
-          <a href="" style="margin-top:-1px;"><img src="images/t-center-02.jpg" alt=""></a>
-          <a href="" style="margin-top:-1px; margin-left:-1px;"><img src="images/t-center-03.jpg" alt=""></a>
-        </div>
-        <div class="t-right">
-          <a href=""><img src="images/t-right.jpg" alt=""></a>
-        </div>
-      </div>
-      <div class="t-bot" style="display:none;">
-        <div class="t-left">
-          <a href="/">
-            <img src="images/t-left.png" alt="">
-          </a>
-        </div>
-        <div class="t-center">
-          <a href="" style=""><img src="images/t-center-01.jpg" alt=""></a>
-          <a href="" style="margin-top:-1px;"><img src="images/t-center-02.jpg" alt=""></a>
-          <a href="" style="margin-top:-1px; margin-left:-1px;"><img src="images/t-center-03.jpg" alt=""></a>
-        </div>
-        <div class="t-right">
-          <a href=""><img src="images/t-right.jpg" alt=""></a>
-        </div>
-      </div>
+      
 </div>
   
   
@@ -175,9 +129,7 @@
     </div>
   </div>
 </div>
-</div>
 <?php include_once('footer.php');?>
-  
 <script>
     $(function(){
         $(".caidanr a,.caidanl a").click(function () {
@@ -198,9 +150,7 @@
         })
       $(".tuijian .x-cenk li").click(function () {
             $(this).addClass("on").siblings().removeClass("on");
-
-            $(".tuijian .t-bot").hide()
-            $(".tuijian .t-bot").eq($(this).index()).show();
+            $('#recommendImg').fadeOut('slow').attr("src",$(this).attr("src")).fadeIn('slow');
         })
     })
 </script>
