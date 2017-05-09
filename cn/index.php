@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>比利时钻石,安特卫普钻石 - 利美钻石</title>
 <?php include_once('header.php');?>
+<title>比利时钻石,安特卫普钻石 - 利美钻石</title>
 </head>
 <body>
 <div class="zhuti clear">

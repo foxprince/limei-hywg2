@@ -14,7 +14,9 @@
         <li><a href="#community.php"><span></span>社区</a></li>
         <li><a href="aboutus.php"><span></span>联系我们</a></li>
         <li>
-        <?php if(!isset($_SESSION['useraccount'])){?>
+        <?php
+        logger("user:".$_SESSION['useraccount']);
+        if(!isset($_SESSION['useraccount'])){?>
     	<a href="login.php"><span></span>加入LUMIA</a>
     	<?php }else{
     	$sql_ordernum='SELECT COUNT(*) AS myordernum FROM viewing_record WHERE viewer = "'.$_SESSION['useraccount'].'"';

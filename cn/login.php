@@ -9,13 +9,9 @@ exit();
 }  
 
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
+<?php include_once('header.php');?>
 	<title>用户登录 - 利美钻石</title>
-	<?php
-		include_once('header.php');
-	?>
+	
 <?php
 if($_REQUEST['action']) {
 	$action = $_REQUEST['action'];
@@ -44,6 +40,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 		}
 		$_SESSION['useraccount']=$userid;
 		gheader('myaccount.php');
+		return;
 	}else{
 		$errormessage='用户名或密码不正确，请重试';
 	}
@@ -60,9 +57,6 @@ if(isset($_POST['username']) && isset($_POST['password'])){
 
 <div class="col-xs-12 col-sm-12 col-md-9">
 					<div class="div_back">
-                         <!--<div class="rpic">
-                             <img src="./images/rpic.png">
-                        </div> -->
                         <div class="logo_login">
                             <img src="./images/logo_login.png">
                         </div>
@@ -88,37 +82,22 @@ if(isset($_POST['username']) && isset($_POST['password'])){
                                 <img src="./images/line.png">
                             </div>
                             <div class="login_btn">
-                            <a class="button" href="javascript:void(0)" onclick="$('#loginform').submit()">登陆</a>
+                            <a class="button" href="javascript:void(0)" onclick="$('#loginform').submit()">登录</a>
                             </div>
+                            <a class="btn" href="javascript:void(0);" id="forgetusernameandpasswordbox" onClick="$('#getpassback').fadeToggle();">忘记了?</a>
+<div id="getpassback" style="display:none;">
+如果您已经关注了利美钻石的微信官方服务号，请打开我们的微信服务号，在下面的小菜单中选择 ‘欢迎预约’&rarr;‘登录网站’，您即会收到用来登录网站的用户名和密码
+</div>
                             </form>
                         </div>
+                        
                         <div class="erweima">
                                 <img src="./images/erweima.png">
                                 <p>扫描关注利美公众号</p>
                                 <p>立即获得您的用户名和密码</p>
                         </div>
+                        
                     </div>
-<!--  	<div class="div_back">
-		<div class="div_login">
-			<?php
-			if(isset($errormessage)){
-			?>
-			<p id="error-message"><?php echo $errormessage; ?></p>
-			<?php
-			}
-			?>
-			<div class="t_login"><img src="./images/loginlogo.png"/></div>
-			<div class="t_loginbg"></div>
-			<form action="" method="post" onsubmit="return checkForm()" id="loginform">
- 				<input type="hidden" name="useraccount" value="login" /> 
- 				<input id="txt_login" name="username" type="text" placeholder="用户名"/> 
- 				<input id="pwd_login" name="password" type="password" placeholder="密码"/> 
- 				<input id="sub_login" type="submit" name="submitthelogininfo" value="登录" id="submitthelogininfobtn"/> 
- 			</form> 
- 			<img  src="./images/weixin.png"/> 
-		</div>
-   </div>
--->
 <script type="text/javascript">
 	function checkForm(){
 		if($("#txt_login").val()==""){

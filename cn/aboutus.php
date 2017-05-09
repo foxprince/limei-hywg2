@@ -1,10 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
+<?php include_once('header.php');?>
 	<title>联系我们 - 利美钻石</title>
-	<?php
-		include_once('header.php');
-	?>
 </head>
 <body>
 <div class="zhuti clear">

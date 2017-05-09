@@ -11,13 +11,11 @@ if(!isset($_SESSION['useraccount'])){
  	gheader('login.php');
 }
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-	<title>利美钻石 - 我的钻戒历史纪录</title>
-	<?php
+<?php
 		include_once('header.php');
 	?>
+	<title>利美钻石 - 我的钻戒历史纪录</title>
+	
 <?php
 
 $userid=$_SESSION['useraccount'];
@@ -154,25 +152,14 @@ $userhistory='SELECT * FROM viewing_record WHERE viewer = "'.$userid.'" ORDER BY
 $stmt_history=$conn->query($userhistory);
 $historyfound=$stmt_history->rowCount();
 if($historyfound){
-	
-	include_once('connection-dia-data.php');
-	$conn_dia=dbConnect_dia('write','pdo');
-	$conn_dia->query("SET NAMES 'utf8'");
-	
-	
-	
-	
 	foreach($stmt_history as $row_history){
 		$user_diamond = $row_history['diamond'];
-		
 		$user_jewellery_price = $row_history['jewellery_price'];
 		$user_jewellery_id = $row_history['jewellery_id'];
 		$user_view_time = $row_history['view_time'];
 		$totalprice=$row_history['totalprice_in_currency'];
-		
 		$sql_dia='SELECT * FROM diamonds WHERE id = '.$user_diamond;
-		
-		foreach($conn_dia->query($sql_dia) as $r_d){
+		foreach($conn->query($sql_dia) as $r_d){
 			$user_diamond_shape = $r_d['shape'];
 			$user_diamond_color = $r_d['color'];
 			$user_diamond_clarity = $r_d['clarity'];

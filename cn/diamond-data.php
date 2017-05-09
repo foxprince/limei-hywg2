@@ -1,5 +1,5 @@
 <?php
-include_once 'log.php';
+session_start();
 if(!isset($_POST['shape'])){
 	exit('no data posted - shape');
 }
@@ -110,6 +110,7 @@ if($_POST['price_to']==''){
 }else{
 	$query_price_to=$_POST['price_to'];
 }
+require_once('log.php');
 require_once('connection.php');
 $conn=dbConnect('write','pdo');
 $conn->query("SET NAMES 'utf8'");
@@ -148,7 +149,7 @@ $startfrom=($crr_page-1)*$pagesize;
 $sorting_direction=$_POST['sorting_direction'];
 $sorting=$_POST['sorting'];
 switch ($sorting){
-	case "weight":
+	case "carat":
 	$query_sorting =' ORDER BY carat '.$sorting_direction;
 	break;
 
@@ -157,19 +158,24 @@ switch ($sorting){
 	break;
 
 	case "clarity":
-	$query_sorting =' ORDER BY clarity_number '.$sorting_direction;
+	$query_sorting =' ORDER BY clarity '.$sorting_direction;
 	break;
 
 	case "cut":
-	$query_sorting =' ORDER BY cut_number '.$sorting_direction;
+	$query_sorting =' ORDER BY cut_grade '.$sorting_direction;
 	break;
 
-	case "price":
-	$query_sorting =' ORDER BY price '.$sorting_direction;
+	case "polish":
+	$query_sorting =' ORDER BY polish '.$sorting_direction;
 	break;
-
+	case "symmetry":
+		$query_sorting =' ORDER BY symmetry '.$sorting_direction;
+		break;
+	case "grading_lab":
+		$query_sorting =' ORDER BY grading_lab '.$sorting_direction;
+		break;
 	default:
-	$query_sorting =' ORDER BY stock_ref '.$sorting_direction;
+	$query_sorting =' ORDER BY price '.$sorting_direction;
 	break;
 }
 $sql_count='SELECT COUNT(*) AS num FROM diamonds WHERE'.$query_shape.$query_color.$query_clarity.$query_cut.$query_polish.$query_sym.$query_fluo.$query_certi.$and.'(carat >= '.$query_weight_from.' AND carat <= '.$query_weight_to.') AND (price BETWEEN '.$query_price_from.' AND '.$query_price_to.') AND status = "AVAILABLE" '.$featured;
@@ -184,7 +190,7 @@ if ($page <= 0)
 /**/
 
 $sql='SELECT * FROM diamonds WHERE'.$query_shape.$query_color.$query_clarity.$query_cut.$query_polish.$query_sym.$query_fluo.$query_certi.$and.'(carat >= '.$query_weight_from.' AND carat <= '.$query_weight_to.') AND (price BETWEEN '.$query_price_from.' AND '.$query_price_to.') AND status = "AVAILABLE" '.$featured.' '.$query_sorting.' LIMIT '.$startfrom.', '.$pagesize;
-
+logger($sql);
 //exit($sql);
 
 $stmt=$conn->query($sql);
@@ -192,20 +198,7 @@ $error=$conn->errorInfo();
 if(isset($error[2])) exit($error[2]);
 ?>
 
-<div id="dia-data-box">
-                <div class="dia-piece-box" style="background:none; padding:12px 5px;">
-                    <div class="1 generalinfobox" style="text-align:left;">
-                        <span style="border:none; width:98px;" class="valuetxt value_carat">钻重</span>
-                        <span style="border:none; width:98px;" class="valuetxt value_carat">形状</span>
-                        <span style="border:none; width:98px;" class="valuetxt value_color">颜色</span>
-                        <span style="border:none; width:98px;" class="valuetxt value_clarity">净度</span>
-                        <span style="border:none; width:98px;" class="valuetxt value_cut">切工</span>
-                        <span style="border:none; width:98px;" class="valuetxt value_polish">抛光</span>
-                        <span style="border:none; width:98px;" class="valuetxt value_symmetry">对称性</span>
-                        <span style="border:none" class="valuetxt value_certificate">证书</span>
-                        <span style="border:none" class="valuetxt value_priceeuro">价格</span>
-                    </div><!-- end generalinfobox -->
-                </div>
+
 <?php
 $r=0;
 foreach($stmt as $row){
@@ -305,7 +298,11 @@ foreach($stmt as $row){
                             <span>证书编号: <?php echo $row['certificate_number']; ?> &nbsp; &nbsp;<a class="certi_linker" target="_blank" href="<?php echo $certi_linker; ?>">查看证书</a></span>
                             <span>库存编号 <?php echo $row['stock_ref']; ?></span>
                             <span class="price"><?php echo $morePrice ?></span>
-                            <span class="btnforprice" onclick="opentheappointmentbox('<?php echo $row['id']; ?>')">预约看钻</span>
+                            <?php if(!isset($_SESSION['useraccount'])){?>
+                            <span class="btnforprice" onclick="if(window.confirm('请登录后继续操作')){window.location.href='login.php';}">预约看钻</span>
+                            <?php }else{?>
+                            <span class="btnforprice" onclick="popup('<?php echo $row['id']; ?>')">预约看钻</span>
+                            <?php }?>
                         </p>
                     </div><!-- end details -->
 					<?php
@@ -319,7 +316,6 @@ foreach($stmt as $row){
 				<?php
 				}
 				?>
-			</div>
 
 <div id="howmanyrecords" style="display:none;"><?php echo $result_number; ?></div>
 <div id="diapagenavi" style="display:none;">
