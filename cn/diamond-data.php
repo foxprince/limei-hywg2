@@ -208,46 +208,37 @@ foreach($stmt as $row){
 			$pic_where="01.gif";
 			$shape_TXT='圆形';
 			break;
-		case "CU":
-			$pic_where="12.gif";
-			$shape_TXT='枕形';
-			break;
-		case "EM":
-			$pic_where="10.gif";
-			$shape_TXT='祖母绿';
-			break;
-	
-		case "AS":
-			$pic_where="10.gif";
-			$shape_TXT='祖母绿';
-			break;
-		case "HS":
-			$pic_where="08.gif";
-			$shape_TXT='心形';
-			break;
-		case "MQ":
-			$pic_where="05.gif";
-			$shape_TXT='橄榄形';
-			break;
-		case "OV":
-			$pic_where="11.gif";
-			$shape_TXT='椭圆形';
+		case "PR":
+			$pic_where="02.gif";
+			$shape_TXT='水滴形';
 			break;
 		case "PS":
 			$pic_where="03.gif";
 			$shape_TXT='公主方';
 			break;
-		case "PR":
-			$pic_where="02.gif";
-			$shape_TXT='梨形';
+		case "HS":
+			$pic_where="04.gif";
+			$shape_TXT='心形';
+			break;
+		case "MQ":
+			$pic_where="05.gif";
+			$shape_TXT='马眼形';
+			break;
+		case "OV":
+			$pic_where="06.gif";
+			$shape_TXT='椭圆形';
+			break;
+		case "EM":
+			$pic_where="07.gif";
+			$shape_TXT='祖母绿形';
 			break;
 		case "RAD":
-			$pic_where="06.gif";
-			$shape_TXT='雷蒂恩';
+			$pic_where="08.gif";
+			$shape_TXT='雷电形';
 			break;
-		case "TRI":
-			$pic_where="04.gif";
-			$shape_TXT='三角形';
+		case "CU":
+			$pic_where="09.gif";
+			$shape_TXT='垫形';
 			break;
 		default:
 			$pic_where="01.gif";
@@ -278,17 +269,17 @@ foreach($stmt as $row){
 	?>
 				<div class="dia-piece-box">
                     <div class="1 generalinfobox">
-                        <span class="valuetxt value_carat"><?php echo number_format($row['carat'],2);?></span>
+                        <span class="valuetxt" id="<?php echo $row['id'];?>_carat"><?php echo number_format($row['carat'],2);?></span>
                         <span class="shapedesc-box">
-                          <img class="shapeicon" src="../images/site_elements/icons/<?php echo $pic_where; ?>" alt="<?php echo $shape_TXT; ?>"/>
+                          <img class="shapeicon" id="<?php echo $row['id'];?>_shapeicon" src="../images/site_elements/icons/<?php echo $pic_where; ?>" alt="<?php echo $shape_TXT; ?>"/>
                         </span>
-                        <span class="valuetxt value_color"> <?php echo $row['color']; ?> </span>
-                        <span class="valuetxt value_clarity"><?php echo $row['clarity']; ?></span>
-                        <span class="valuetxt value_cut"><?php echo ($row['cut_grade']===NULL?"-":$row['cut_grade']); ?></span>
-                        <span class="valuetxt value_polish"><?php echo $row['polish']; ?></span>
-                        <span class="valuetxt value_symmetry"><?php echo $row['symmetry']; ?></span>
-                        <span class="valuetxt value_certificate"><?php echo $row['grading_lab']; ?></span>
-                        <span class="valuetxt value_priceeuro"><?php echo $singlePrice ?></span>
+                        <span class="valuetxt" id="<?php echo $row['id'];?>_color"> <?php echo $row['color']; ?> </span>
+                        <span class="valuetxt" id="<?php echo $row['id'];?>_clarity"><?php echo $row['clarity']; ?></span>
+                        <span class="valuetxt" id="<?php echo $row['id'];?>_cut"><?php echo ($row['cut_grade']===NULL?"-":$row['cut_grade']); ?></span>
+                        <span class="valuetxt" id="<?php echo $row['id'];?>_polish"><?php echo $row['polish']; ?></span>
+                        <span class="valuetxt" id="<?php echo $row['id'];?>_symmetry"><?php echo $row['symmetry']; ?></span>
+                        <span class="valuetxt" id="<?php echo $row['id'];?>_grading_lab"><?php echo $row['grading_lab']; ?></span>
+                        <span class="valuetxt" id="<?php echo $row['id'];?>_price"><?php echo $singlePrice ?></span>
                         <span class="detail-btn" onclick="showDetail('<?php echo $row['id']; ?>')">详情</span>
                     </div><!-- end generalinfobox -->
                     <div id="detail-<?php echo $row['id']; ?>" class="details">
@@ -296,7 +287,7 @@ foreach($stmt as $row){
                             <span>荧光强度:<?php echo $row["fluorescence_intensity"];?></span>
                             <span> 所在地: <?php echo $row['country']; ?></span>
                             <span>证书编号: <?php echo $row['certificate_number']; ?> &nbsp; &nbsp;<a class="certi_linker" target="_blank" href="<?php echo $certi_linker; ?>">查看证书</a></span>
-                            <span>库存编号 <?php echo $row['stock_ref']; ?></span>
+                            <span id="<?php echo $row['id'];?>_stock_ref">编号: <?php echo $row['stock_ref']; ?></span>
                             <span class="price"><?php echo $morePrice ?></span>
                             <?php if(!isset($_SESSION['useraccount'])){?>
                             <span class="btnforprice" onclick="if(window.confirm('请登录后继续操作')){window.location.href='login.php';}">预约看钻</span>
