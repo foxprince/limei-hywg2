@@ -17,12 +17,7 @@ if(!isset($_SESSION['useraccount'])){
 	<title>利美钻石 - 我的钻戒历史纪录</title>
 	
 <?php
-
 $userid=$_SESSION['useraccount'];
-require_once('connection.php');
-$conn=dbConnect('write','pdo');
-$conn->query("SET NAMES 'utf8'");
-
 $user_info='SELECT * FROM clients_list WHERE id = "'.$userid.'"';
 foreach($conn->query($user_info) as $r_u){
 	$website_username=$r_u['website_username'];

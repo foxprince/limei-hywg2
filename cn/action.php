@@ -48,6 +48,15 @@ if($_REQUEST['action']) {
 			$name=$_POST['name'];
 			$email=$_POST['email'];
 			$tel=$_POST['tel'];
+			$userSql = "update clients_list set name=:name,email=:email,tel=:tel where id=:id";
+			$stmt=$conn->prepare($userSql);
+			$stmt->execute(array(
+					'name'=> $name,
+					'email'=> $email,
+					'tel'=> $tel,
+					'id'=> $userid
+			));
+			$OK=$stmt->rowCount();
 			$viewTime=$_POST['viewTime'];
 				if($jewId!=0){
 					$sql_ring='SELECT name_ch, image1 FROM jewelry WHERE id='.$jewId;
@@ -61,7 +70,6 @@ if($_REQUEST['action']) {
 				}
 			
 				$sql_dia='SELECT * FROM diamonds WHERE id = '.$diaId;
-				logger($sql_dia);
 				$stmt_dia=$conn->query($sql_dia);
 				$dia_found=$stmt_dia->rowCount();
 				if($dia_found){
