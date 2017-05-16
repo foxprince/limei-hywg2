@@ -10,6 +10,30 @@ $userid = $_SESSION ['useraccount'];
 if($_REQUEST['action']) {
 	$action = $_REQUEST['action'];
 	switch($action) {
+		case "recommendDia":
+			$userhistory='SELECT * from diamonds  where visiable=1 limit 0,2';
+			$stmt_history=$conn->query($userhistory);
+			$historyfound=$stmt_history->rowCount();
+			$itemList=array();
+			if($historyfound){
+				foreach($stmt_history as $row_history){
+					$itemList[]=$row_history;
+				}
+			}
+			echo json_encode($itemList);
+			break;
+		case "recommendJew":
+			$userhistory='SELECT * from jewelry where category="'.$_REQUEST['jewType'].'"  limit 0,2';
+			$stmt_history=$conn->query($userhistory);
+			$historyfound=$stmt_history->rowCount();
+			$itemList=array();
+			if($historyfound){
+				foreach($stmt_history as $row_history){
+					$itemList[]=$row_history;
+				}
+			}
+			echo json_encode($itemList);
+			break;
 		case "appoinmentList":
 			$userhistory='SELECT a.*,b.stock_ref,b.grading_lab FROM viewing_record a,diamonds b WHERE a.viewer = "'.$userid.'" and a.diamond=b.id ORDER BY a.id DESC';
 			$stmt_history=$conn->query($userhistory);
@@ -39,11 +63,11 @@ if($_REQUEST['action']) {
 			break;
 		case "appointmentMake":
 			if($_REQUEST['type']=='dia'){
-				$diaId=$_REQUEST['diaId'];
+				$diaId=$_REQUEST['appointmentId'];
 				$jewId=0;
 			}else{
 				$diaId=0;
-				$jewId=$_REQUEST['jewId'];
+				$jewId=$_REQUEST['appointmentId'];
 			}
 			$name=$_POST['name'];
 			$email=$_POST['email'];

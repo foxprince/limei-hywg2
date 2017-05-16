@@ -110,14 +110,35 @@ section{width:1200px; height:640px; float:left;}
 .t-bot{width:1200px; height:608px; float:left; margin-top:70px;}
 .t-bot a{box-shadow: 0 0 #333;}
 .t-left{float: left; margin-right: 2px; margin-left: 30px;}
+/*
 .t-center{float: left; width:386px;}
 .t-center a{float: left;}
 .t-center img{display: block;}
 .t-right{float: left; margin-top:294px; margin-left: -1px;}
 .t-right a{float: left;}
-.t-right img{display: block;}
-
-
+.t-right img{display: block;}*/
+#wrapper {
+    border: 1px solid blue;
+}
+.t-center {
+    display: inline-block;position:relative;
+    width:281px;
+    height:100%;
+}
+.t-center img{max-width:281px;display: block;margin-left: auto;margin-right: auto; }
+.t-center .detail{margin-left: 100px;height: auto;color:#9c9c9c;font-size: 14px;}
+.t-right {
+    vertical-align:top;position:relative;
+    display: inline-block;
+    width:281px;
+    height:100%;
+}
+.t-right img{max-width:281px;display: block;margin-left: auto;margin-right: auto;}
+.t-right .detail{margin-left: 100px;height: auto;color:#9c9c9c;font-size: 14px;}
+.tuijian ul{width:420px; height:30px;}
+.tuijian ul li{cursor:pointer;float:left;width:50px; height:24px; display:block; background:url(../images/hg.png) no-repeat;color:#666; padding-top:6px; letter-spacing:1.5px; font-weight:bold; padding-left:33px; margin-left:11px; margin-right:11px;}
+.tuijian ul li.on{background:url(../images/yuan.png) no-repeat; color:#fff;}
+.tuijian .l-bottom{margin:1.5em auto 1.5em 100px ;width: 100%;}
 
 .new{width:1200px; height:353px; float:left; margin-top:180px; }
 .newk{width:880px;height:353px; background:url(../images/tujtu.png) no-repeat; margin:0 auto;}
@@ -289,7 +310,7 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 /*预约登陆弹出层*/
 .layout{margin: auto;width:800px;min-height:600px;background-color: #fff;border: 1px solid #eceaea; }
 .l-close{text-align: right;margin: 13px 13px -1px;}
-.l-top{margin: auto;width: 61px;height: 18px;}
+.l-top{margin: 20px auto 20px auto;width: 61px;height: 18px;}
 .l-middle{margin: 28px 0px 10px 35px;border:0px solid #00f;height: 340px;clear: both;}
 
 .l-middle .pro_pics{margin-right:35px;margin-bottom:30px;float:left;height:122px;}
@@ -308,7 +329,7 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .l-input .rinputs{width:45%;margin-right:32px;float: left;}
 .l-input input{width: 202px;height: 16px;border: 1px solid #c18971;}
 .l-input select{width:48px;border: 1px solid #c18971;}
-.l-bottom{margin:auto;width: 100%;text-align: center;}
+.l-bottom{margin:1.5em auto;width: 100%;text-align: center;}
 .l-bottom #sub_btn{background: url(../images/yuyue_confirm.png) no-repeat;height: 35px;width: 95px;border: 0px;}
 
 .black_overlay {

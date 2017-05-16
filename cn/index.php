@@ -77,16 +77,29 @@
     <div class="x-cen">
       <div class="x-cenk">
         <ul>
-          <li src="images/dia-left.png" class="on">裸钻</li>
-          <li src="images/ring-left.png">戒指</li>
-          <li src="images/pendant-left.png">吊坠</li>
-          <li src="images/eardrop-left.png">耳饰</li>
+          <li src="images/dia-left.png" class="on" onclick="recommendDia()">裸钻</li>
+          <li src="images/ring-left.png" onclick="recommendJew('ring')">钻戒</li>
+          <li src="images/pendant-left.png" onclick="recommendJew('necklace')">吊坠</li>
+          <li src="images/eardrop-left.png" onclick="recommendJew('earring')">耳饰</li>
         </ul>
       </div>
     </div>
       <div class="t-bot clear">
         <div class="t-left">
             <img id="recommendImg" src="images/dia-left.png" alt="">
+        </div>
+        
+	<div id="recommCenter" class="t-center">
+    </div>
+    <div id="recommRight"class="t-right">
+    </div>
+        
+ <!--  
+        <div class="t-center" >
+          <a href="" style="margin-top:-1px; margin-left:-1px;"><img src="images/t-center-03.jpg" alt=""></a>
+        </div>
+        <div class="t-right" >
+          <a href=""><img src="images/t-right.jpg" alt=""></a>
         </div>
         <div class="t-center">
           <a href="" style=""><img src="images/t-center-01.jpg" alt=""></a>
@@ -96,6 +109,7 @@
         <div class="t-right">
           <a href=""><img src="images/t-right.jpg" alt=""></a>
         </div>
+-->
       </div>
       
 </div>
@@ -126,9 +140,45 @@
     </div>
   </div>
 </div>
+
+<div class="layout white_content" id="makeOrder" style="display:none;">
+    <div class="l-close"><a class="btn" href="javascript:void(0)" onclick="popToggle()"><img src="images/close.png"/></a></div>
+    <div class="l-top"><img src="images/yuyue_button.png"/></div>
+    <form id="appointmentForm" >
+<?php
+$userid=$_SESSION['useraccount'];
+$user_info='select name,tel,email from clients_list WHERE id = "'.$userid.'"';
+foreach($conn->query($user_info) as $r_u){
+	$name=$r_u['name'];
+	$email=$r_u['email'];
+	$tel=$r_u['tel'];
+}
+?>
+    <div class="l-input" id="appointmentDiv">
+        <div class="linput" style="height: 30px;">
+            <div class="linputs"><label>真实姓名：</label><input type="text" name="name" value="<?php echo $name;?>"/></div>
+            <div class="rinputs"><label>电子邮件：</label><input type="text" name="email" value="<?php echo $email;?>"/></div>
+        </div>
+        <div>
+            <div class="linputs"><label>手机号：</label><input type="text" name="tel" value="<?php echo $tel;?>"/></div>
+            <div class="rinputs"><label>预约时间：</label><input type="text" name="viewTime" value=""placeholder="yyyy-mm-dd hh:mi"/>
+            </div>
+        </div>
+        <br>
+        <div class="l-bottom" id="appointmentBottom">
+	        <input type="hidden" name="appointmentId" id="appointmentId"/>
+	        <input type="hidden" name="type" id="appointmentType"/>
+	        <input type="button" value="" id="sub_btn" onclick="appointment();"/>
+    	</div>
+    </div>
+    
+    </form>
+</div>
+<div class="black_overlay" id="fade" style="display:none;"></div>
 <?php include_once('footer.php');?>
 <script>
     $(function(){
+    	recommendDia();
         $(".caidanr a,.caidanl a").click(function () {
             if ($(".xlcd").is(":hidden")) {
                 $(".xlcd").show();
@@ -147,9 +197,142 @@
         })
       $(".tuijian .x-cenk li").click(function () {
             $(this).addClass("on").siblings().removeClass("on");
-            $('#recommendImg').fadeOut('slow').attr("src",$(this).attr("src")).fadeIn('slow');
+            $('#recommendImg').hide().attr("src",$(this).attr("src")).fadeIn('slow');
         })
     })
+    function checkLogin(type,id) {
+    	<?php if(!isset($_SESSION['useraccount'])){?>
+        if(window.confirm('请登录后继续操作')){window.location.href='login.php';}
+        <?php }else{?>
+		$("#appointmentType").val(type);
+		$("#appointmentId").val(id);
+        popToggle()
+        <?php }?>
+    }
+    function popToggle() {
+		$("#fade").fadeToggle();
+		$("#makeOrder").fadeToggle("slow").focus();
+    }
+    function appointment(type,id) {
+		//获得已经预约的钻石
+		$.ajax({
+			type : "post",
+			url : "action.php?action=appointmentMake",
+			data: $('#appointmentForm').serialize(),
+			complete : function() {
+				// layer.close(page_layer);
+			},
+			success : function(json) {
+				$('#appointmentBottom').text(json);
+			},
+			error : function() {
+				alert('载入数据失败！');
+			}
+		});
+		//popToggle();
+	}
+    function recommendDia() {
+    	$("#recommCenter").hide();$("#recommRight").hide();
+		$.ajax({
+				type : "get",
+				url : "action.php?action=recommendDia",
+				complete : function() {
+				},
+				success : function(json) {
+					var data=eval(json);
+					 $.each(data, function (n, j) {
+						if(n==0){
+						var item ='<div class="pro_pics">';
+			            item +='<div class="pic_00"><img src="images/pic_01.png"/>';
+			            item +='</div>';
+						item += '<div class="detail">';
+		                item += '<p>圆形裸钻</p>';
+		                item += '<p>'+j.carat+'克拉</p>';
+		                item += '<p>颜色：'+j.color+'</p>';
+		                item += '<p>净度：'+j.clarity+'</p>';
+		                item += '<p>切工：'+j.cut+'</p>';
+		                item += '<p>抛光：'+j.polish+'</p>';
+		                item += '<p>对称性：'+j.symmetry+'</p>';
+		                item += '<p>证书：'+j.grading_lab+'</p>';
+		                item += '<p>编号：'+j.stock_ref+'</p>';
+		                item += '<p>价格：'+j.price+'欧元</p>';
+		                item += '</div></div>';
+		                item += '<div class="l-bottom">';
+		                item += '<ul><li class="on" onclick="checkLogin(\'dia\','+j.id+')">预约</li></ul>';
+		                item += '</div>';
+		                $("#recommCenter").html(item).fadeIn('slow');}
+						if(n==1){
+							var item ='<div class="pro_pics">';
+				            item +='<div class="pic_00"><img src="images/pic_01.png"/>';
+				            item +='</div>';
+							item += '<div class="detail">';
+			                item += '<p>圆形裸钻</p>';
+			                item += '<p>'+j.carat+'克拉</p>';
+			                item += '<p>颜色：'+j.color+'</p>';
+			                item += '<p>净度：'+j.clarity+'</p>';
+			                item += '<p>切工：'+j.cut_grade+'</p>';
+			                item += '<p>抛光：'+j.polish+'</p>';
+			                item += '<p>对称性：'+j.symmetry+'</p>';
+			                item += '<p>证书：'+j.grading_lab+'</p>';
+			                item += '<p>编号：'+j.stock_ref+'</p>';
+			                item += '<p>价格：'+j.price+'欧元</p>';
+			                item += '</div></div>';
+			                item += '<div class="l-bottom">';
+			                item += '<ul><li class="on" onclick="checkLogin(\'dia\','+j.id+')">预约</li></ul>';
+			                item += '</div>';
+			                $("#recommRight").html(item).fadeIn('slow');}
+					});
+				},
+				error : function() {
+					alert('载入数据失败！');
+				}
+			});
+    	}
+    function recommendJew(jewType) {
+    	$("#recommCenter").hide();$("#recommRight").hide();
+    	$.ajax({
+			type : "get",
+			url : "action.php?action=recommendJew&jewType="+jewType,
+			complete : function() {
+			},
+			success : function(json) {
+				var data=eval(json);
+				 $.each(data, function (n, j) {
+					if(n==0){
+					var item ='<div class="pro_pics">';
+		            item +='<div class="pic_00">';
+		            item +='<img src="/images/sitepictures/thumbs/'+j.image1+'" alt="'+j.name_ch+'" />';
+		            item +='</div>';
+					item += '<div class="detail">';
+					item += '<p>'+j.name_ch+'</p>';
+	                item += '<p>'+j.text_ch+'</p>';
+	                item += '<p>价格：'+j.price+'欧元</p>';
+	                item += '</div></div>';
+	                item += '<div class="l-bottom">';
+	                item += '<ul><li class="on" onclick="checkLogin(\'jew\','+j.id+')">预约</li></ul>';
+	                item += '</div>';
+	                $("#recommCenter").html(item).fadeIn('slow');}
+					if(n==1){
+						var item ='<div class="pro_pics">';
+			            item +='<div class="pic_00">';
+			            item +='<img src="/images/sitepictures/thumbs/'+j.image1+'" alt="'+j.name_ch+'" />';
+			            item +='</div>';
+						item += '<div class="detail">';
+						item += '<p>'+j.name_ch+'</p>';
+		                item += '<p>'+j.text_ch+'</p>';
+		                item += '<p>价格：'+j.price+'欧元</p>';
+		                item += '</div></div>';
+		                item += '<div class="l-bottom">';
+		                item += '<ul><li class="on" onclick="checkLogin(\'jew\','+j.id+')">预约</li></ul>';
+		                item += '</div>';
+		                $("#recommRight").html(item).fadeIn('slow');}
+				});
+			},
+			error : function() {
+				alert('载入数据失败！');
+			}
+		});
+	}
 </script>
 </body>
 
