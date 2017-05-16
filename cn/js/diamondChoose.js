@@ -279,6 +279,7 @@ function update() {
 	//if($change){
 	$('div#loading_indi').fadeIn('fast');
 	$.post("diamond-data.php", {
+		ref : $('#queryRef').val(),
 		shape : $shape,
 		color : $color,
 		clarity : $clarity,

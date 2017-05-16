@@ -178,7 +178,11 @@ switch ($sorting){
 	$query_sorting =' ORDER BY price '.$sorting_direction;
 	break;
 }
-$sql_count='SELECT COUNT(*) AS num FROM diamonds WHERE'.$query_shape.$query_color.$query_clarity.$query_cut.$query_polish.$query_sym.$query_fluo.$query_certi.$and.'(carat >= '.$query_weight_from.' AND carat <= '.$query_weight_to.') AND (price BETWEEN '.$query_price_from.' AND '.$query_price_to.') AND status = "AVAILABLE" '.$featured;
+$ref=$_REQUEST['ref'];
+if($_REQUEST['ref']!=null)
+	$sql_count='SELECT COUNT(*) AS num FROM diamonds WHERE stock_ref LIKE "'.$ref.'" OR certificate_number = "'.$ref.'"';
+else
+	$sql_count='SELECT COUNT(*) AS num FROM diamonds WHERE visiable=1 and '.$query_shape.$query_color.$query_clarity.$query_cut.$query_polish.$query_sym.$query_fluo.$query_certi.$and.'(carat >= '.$query_weight_from.' AND carat <= '.$query_weight_to.') AND (price BETWEEN '.$query_price_from.' AND '.$query_price_to.') AND status = "AVAILABLE" '.$featured;
 foreach($conn->query($sql_count) as $num){
 	$result_number=$num['num'];
 }
@@ -188,8 +192,10 @@ if ($page <= 0)
 	$page = 1;
 
 /**/
-
-$sql='SELECT * FROM diamonds WHERE'.$query_shape.$query_color.$query_clarity.$query_cut.$query_polish.$query_sym.$query_fluo.$query_certi.$and.'(carat >= '.$query_weight_from.' AND carat <= '.$query_weight_to.') AND (price BETWEEN '.$query_price_from.' AND '.$query_price_to.') AND status = "AVAILABLE" '.$featured.' '.$query_sorting.' LIMIT '.$startfrom.', '.$pagesize;
+if($_REQUEST['ref']!=null)
+	$sql='SELECT * FROM diamonds WHERE stock_ref LIKE "'.$ref.'" OR certificate_number = "'.$ref.'"';
+else	
+	$sql='SELECT * FROM diamonds WHERE visiable=1 and '.$query_shape.$query_color.$query_clarity.$query_cut.$query_polish.$query_sym.$query_fluo.$query_certi.$and.'(carat >= '.$query_weight_from.' AND carat <= '.$query_weight_to.') AND (price BETWEEN '.$query_price_from.' AND '.$query_price_to.') AND status = "AVAILABLE" '.$featured.' '.$query_sorting.' LIMIT '.$startfrom.', '.$pagesize;
 logger($sql);
 //exit($sql);
 
