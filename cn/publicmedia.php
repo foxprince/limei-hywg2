@@ -19,156 +19,121 @@ $stmt=$conn->query($sql);
 $rulesCount=$stmt->rowCount();
 $n = floor($rulesCount/4);
 ?>
-			<li>
-          <a href="#">
-            <div class="about-txt"></div>
-          </a>
+		<li>
+            <a href="javascript:void(0);" ><div class="about-txt"></div></a>
         </li>
         <li>
           <?php $row=$stmt->fetch();?>
-          <a class="about-bg<?php echo rand(1, 4);?>" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
+          <a class="about-bg1" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
 			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
 		  </a>
         </li>
         <li>
           <?php $row=$stmt->fetch();?>
-          <a class="about-bg<?php echo rand(1, 4);?>" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
+          <a class="about-bg10" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
 			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
 		  </a>
         </li>
         <li>
-          <a href="#" class="about-bg02">
+          <a href="javascript:void(0);" class="about-bg02">
             <div class="about-txt"></div>
           </a>
         </li>
         <li>
           <?php $row=$stmt->fetch();?>
-          <a class="about-bg<?php echo rand(1, 4);?>" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
+          <a class="about-bg10" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
 			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
 		  </a>
         </li>
 
         <li>
           <?php $row=$stmt->fetch();?>
-          <a class="about-bg<?php echo rand(1, 4);?>" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
+          <a class="about-bg1" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
 			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
 		  </a>
         </li>
         <li>
-          <a href="#" class="about-bg03">
+          <a href="javascript:void(0);" class="about-bg03">
             <div class="about-txt"></div>
           </a>
         </li>
         <li>
           <?php $row=$stmt->fetch();?>
-          <a class="about-bg<?php echo rand(1, 4);?>" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
+          <a class="about-bg2" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
 			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
 		  </a>
         </li>
         <li>
           <?php $row=$stmt->fetch();?>
-          <a class="about-bg<?php echo rand(1, 4);?>" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
+          <a class="about-bg10" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
 			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
 		  </a>
         </li>
         <li>
-          <a href="#" class="about-bg0">
-            <div class="about-txt"></div>
-          </a>
-        </li>
-
-        <li>
-          <a href="#" class="about-bg0">
-            <div class="about-txt"></div>
-          </a>
-        </li>
-        <li>
-          <?php $row=$stmt->fetch();?>
-          <a class="about-bg<?php echo rand(1, 4);?>" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
-			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
-		  </a>
-        </li>
-        <li>
-          <?php $row=$stmt->fetch();?>
-          <a class="about-bg<?php echo rand(1, 4);?>" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
-			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
-		  </a>
-        </li>
-        <li>
-          <?php $row=$stmt->fetch();?>
-          <a class="about-bg<?php echo rand(1, 4);?>" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
-			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
-		  </a>
-        </li>
-        <li>
-          <a href="#" class="about-bg06">
+          <a href="javascript:void(0);" class="about-bg0">
             <div class="about-txt"></div>
           </a>
         </li>
 
         <li>
-          <a href="#" class="about-bg0">
-            <div class="about-txt"></div>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="about-bg0">
-            <div class="about-txt"></div>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="about-bg07">
+          <a href="javascript:void(0);" class="about-bg0">
             <div class="about-txt"></div>
           </a>
         </li>
         <li>
           <?php $row=$stmt->fetch();?>
-          <a class="about-bg<?php echo rand(1, 4);?>" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
+          <a class="about-bg4" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
 			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
 		  </a>
         </li>
         <li>
           <?php $row=$stmt->fetch();?>
-          <a class="about-bg<?php echo rand(1, 4);?>" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
-			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
-		  </a>
-        </li>
-
-        <li>
-          <a href="#" class="about-bg0">
-            <div class="about-txt"></div>
-          </a>
-        </li>
-        <li>
-          <?php $row=$stmt->fetch();?>
-          <a class="about-bg<?php echo rand(1, 4);?>" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
+          <a class="about-bg10" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
 			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
 		  </a>
         </li>
         <li>
           <?php $row=$stmt->fetch();?>
-          <a class="about-bg<?php echo rand(1, 4);?>" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
+          <a class="about-bg1" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
 			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
 		  </a>
         </li>
         <li>
-          <a href="#" class="about-bg08">
-            <div class="about-txt"></div>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="about-bg0">
+          <a href="javascript:void(0);" class="about-bg06">
             <div class="about-txt"></div>
           </a>
         </li>
 
         <li>
-          <a href="#" class="about-bg0">
+          <a href="javascript:void(0);" class="about-bg0">
             <div class="about-txt"></div>
           </a>
         </li>
         <li>
-          <a href="#" class="about-bg0">
+          <a href="javascript:void(0);" class="about-bg0">
+            <div class="about-txt"></div>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0);" class="about-bg07">
+            <div class="about-txt"></div>
+          </a>
+        </li>
+        <li>
+          <?php $row=$stmt->fetch();?>
+          <a class="about-bg0" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
+			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
+		  </a>
+        </li>
+        <li>
+          <?php $row=$stmt->fetch();?>
+          <a class="about-bg2" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
+			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
+		  </a>
+        </li>
+
+        <li>
+          <a href="javascript:void(0);" class="about-bg0">
             <div class="about-txt"></div>
           </a>
         </li>
@@ -180,13 +145,46 @@ $n = floor($rulesCount/4);
         </li>
         <li>
           <?php $row=$stmt->fetch();?>
-          <a class="about-bg<?php echo rand(1, 4);?>" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
+          <a class="about-bg0" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
+			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
+		  </a>
+        </li>
+        <li>
+          <a href="javascript:void(0);" class="about-bg08">
+            <div class="about-txt"></div>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0);" class="about-bg0">
+            <div class="about-txt"></div>
+          </a>
+        </li>
+
+        <li>
+          <a href="javascript:void(0);" class="about-bg0">
+            <div class="about-txt"></div>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0);" class="about-bg0">
+            <div class="about-txt"></div>
+          </a>
+        </li>
+        <li>
+          <?php $row=$stmt->fetch();?>
+          <a class="about-bg4" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
 			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
 		  </a>
         </li>
         <li>
           <?php $row=$stmt->fetch();?>
-          <a class="about-bg<?php echo rand(1, 4);?>" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
+          <a class="about-bg0" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
+			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
+		  </a>
+        </li>
+        <li>
+          <?php $row=$stmt->fetch();?>
+          <a class="about-bg1" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
 			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
 		  </a>
         </li>

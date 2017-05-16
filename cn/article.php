@@ -21,9 +21,6 @@
 					<div >
 					<span  id="articletitle" ><?php echo $row['title_ch']; ?></span>
 					</div>
-				
-
-
 				<div id="txt_box" style="margin-top:12px;">
 					<?php echo $row['text_ch']; ?>
 				</div>

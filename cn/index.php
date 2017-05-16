@@ -22,7 +22,7 @@
 
   <div class="dz clear">
     <div class="dz-box tc"><img src="images/dz-bg.jpg" alt=""></div>
-    <a href="#"><span></span>开始挑选</a>
+    <a href="dia.php"><span></span>开始挑选</a>
   </div>  
   
   <div class="xilie">
@@ -31,9 +31,9 @@
       <div class="x-cenk">
         <ul>
           <li class="on">推荐</li>
-          <li>婚戒</li>
-          <li>对戒</li>
-          <li>配饰</li>
+          <li>钻戒</li>
+          <li>吊坠</li>
+          <li>耳饰</li>
         </ul>
       </div>
     </div>
@@ -88,28 +88,25 @@
         <div class="t-left">
             <img id="recommendImg" src="images/dia-left.png" alt="">
         </div>
-        
-	<div id="recommCenter" class="t-center">
-    </div>
-    <div id="recommRight"class="t-right">
-    </div>
-        
- <!--  
-        <div class="t-center" >
-          <a href="" style="margin-top:-1px; margin-left:-1px;"><img src="images/t-center-03.jpg" alt=""></a>
+        <div id="recommWrapper">
+		    <!-- 
+	        <div id="recommCenter" class="t-dia-center">
+		    </div>
+		    <div id="recommRight"class="t-dia-right">
+		    </div>
+		    
+	        <div class="t-center">
+	          <a href="" style=""><img src="images/t-center-01.jpg" alt=""></a>
+	          <a href="" style="margin-top:-1px;"><img src="images/t-center-02.jpg" alt=""></a>
+	          <a href="" style="margin-top:-1px; margin-left:-1px;"><img src="images/t-center-03.jpg" alt=""></a>
+	        </div>
+	        <div class="t-right">
+	          <a href=""><img src="images/t-right.jpg" alt=""></a>
+	        </div>
+        	-->	
         </div>
-        <div class="t-right" >
-          <a href=""><img src="images/t-right.jpg" alt=""></a>
-        </div>
-        <div class="t-center">
-          <a href="" style=""><img src="images/t-center-01.jpg" alt=""></a>
-          <a href="" style="margin-top:-1px;"><img src="images/t-center-02.jpg" alt=""></a>
-          <a href="" style="margin-top:-1px; margin-left:-1px;"><img src="images/t-center-03.jpg" alt=""></a>
-        </div>
-        <div class="t-right">
-          <a href=""><img src="images/t-right.jpg" alt=""></a>
-        </div>
--->
+  
+
       </div>
       
 </div>
@@ -119,7 +116,7 @@
     <div class="newk">
       <div class="newkk">
         <div class="n-pp"><a href="about.php"><img src="images/ppgs.png"></a></div>
-        <div class="n-pp1"><a href="guide.php"><img src="images/zszs.png"></a></div>
+        <div class="n-pp1"><a href="about.php?p=knowledge"><img src="images/zszs.png"></a></div>
         <div class="n-new">
           <div class="n-title"><a href="">最新动态</a></div>
           <div class="n-con">
@@ -232,7 +229,9 @@ foreach($conn->query($user_info) as $r_u){
 		//popToggle();
 	}
     function recommendDia() {
-    	$("#recommCenter").hide();$("#recommRight").hide();
+    	recommWrapper
+    	$("#recommWrapper").hide();
+    	//$("#recommCenter").hide();$("#recommRight").hide();
 		$.ajax({
 				type : "get",
 				url : "action.php?action=recommendDia",
@@ -240,48 +239,32 @@ foreach($conn->query($user_info) as $r_u){
 				},
 				success : function(json) {
 					var data=eval(json);
-					 $.each(data, function (n, j) {
-						if(n==0){
-						var item ='<div class="pro_pics">';
-			            item +='<div class="pic_00"><img src="images/pic_01.png"/>';
-			            item +='</div>';
+					var item = "";
+					$.each(data, function (n, j) {
+						if(n==0)
+							item +='<div id="recommCenter" class="t-dia-center"><div class="pro_pics">';
+						else
+							item +='<div id="recommRight"class="t-dia-right"><div class="pro_pics">';
+						item +='<div class="pic_00"><img src="images/pic_01.png"/>';
+				        item +='</div>';
 						item += '<div class="detail">';
-		                item += '<p>圆形裸钻</p>';
-		                item += '<p>'+j.carat+'克拉</p>';
-		                item += '<p>颜色：'+j.color+'</p>';
-		                item += '<p>净度：'+j.clarity+'</p>';
-		                item += '<p>切工：'+j.cut+'</p>';
-		                item += '<p>抛光：'+j.polish+'</p>';
-		                item += '<p>对称性：'+j.symmetry+'</p>';
-		                item += '<p>证书：'+j.grading_lab+'</p>';
-		                item += '<p>编号：'+j.stock_ref+'</p>';
-		                item += '<p>价格：'+j.price+'欧元</p>';
-		                item += '</div></div>';
-		                item += '<div class="l-bottom">';
-		                item += '<ul><li class="on" onclick="checkLogin(\'dia\','+j.id+')">预约</li></ul>';
-		                item += '</div>';
-		                $("#recommCenter").html(item).fadeIn('slow');}
-						if(n==1){
-							var item ='<div class="pro_pics">';
-				            item +='<div class="pic_00"><img src="images/pic_01.png"/>';
-				            item +='</div>';
-							item += '<div class="detail">';
-			                item += '<p>圆形裸钻</p>';
-			                item += '<p>'+j.carat+'克拉</p>';
-			                item += '<p>颜色：'+j.color+'</p>';
-			                item += '<p>净度：'+j.clarity+'</p>';
-			                item += '<p>切工：'+j.cut_grade+'</p>';
-			                item += '<p>抛光：'+j.polish+'</p>';
-			                item += '<p>对称性：'+j.symmetry+'</p>';
-			                item += '<p>证书：'+j.grading_lab+'</p>';
-			                item += '<p>编号：'+j.stock_ref+'</p>';
-			                item += '<p>价格：'+j.price+'欧元</p>';
-			                item += '</div></div>';
-			                item += '<div class="l-bottom">';
-			                item += '<ul><li class="on" onclick="checkLogin(\'dia\','+j.id+')">预约</li></ul>';
-			                item += '</div>';
-			                $("#recommRight").html(item).fadeIn('slow');}
-					});
+			            item += '<p>圆形裸钻</p>';
+			            item += '<p>'+j.carat+'克拉</p>';
+			            item += '<p>颜色：'+j.color+'</p>';
+			            item += '<p>净度：'+j.clarity+'</p>';
+			            item += '<p>切工：'+j.cut+'</p>';
+			            item += '<p>抛光：'+j.polish+'</p>';
+			            item += '<p>对称性：'+j.symmetry+'</p>';
+			            item += '<p>证书：'+j.grading_lab+'</p>';
+			            item += '<p>编号：'+j.stock_ref+'</p>';
+			            item += '<p>价格：'+j.price+'欧元</p>';
+			            item += '</div></div>';
+			            item += '<div class="l-bottom">';
+			            item += '<ul><li class="on" onclick="checkLogin(\'dia\','+j.id+')">预约</li></ul>';
+			            item += '</div></div>';
+					$("#recommWrapper").html(item).fadeIn('slow');
+				});
+						
 				},
 				error : function() {
 					alert('载入数据失败！');
@@ -289,7 +272,7 @@ foreach($conn->query($user_info) as $r_u){
 			});
     	}
     function recommendJew(jewType) {
-    	$("#recommCenter").hide();$("#recommRight").hide();
+    	$("#recommWrapper").hide();
     	$.ajax({
 			type : "get",
 			url : "action.php?action=recommendJew&jewType="+jewType,
@@ -299,34 +282,17 @@ foreach($conn->query($user_info) as $r_u){
 				var data=eval(json);
 				 $.each(data, function (n, j) {
 					if(n==0){
-					var item ='<div class="pro_pics">';
-		            item +='<div class="pic_00">';
-		            item +='<img src="/images/sitepictures/thumbs/'+j.image1+'" alt="'+j.name_ch+'" />';
-		            item +='</div>';
-					item += '<div class="detail">';
-					item += '<p>'+j.name_ch+'</p>';
-	                item += '<p>'+j.text_ch+'</p>';
-	                item += '<p>价格：'+j.price+'欧元</p>';
-	                item += '</div></div>';
-	                item += '<div class="l-bottom">';
-	                item += '<ul><li class="on" onclick="checkLogin(\'jew\','+j.id+')">预约</li></ul>';
-	                item += '</div>';
-	                $("#recommCenter").html(item).fadeIn('slow');}
-					if(n==1){
-						var item ='<div class="pro_pics">';
-			            item +='<div class="pic_00">';
-			            item +='<img src="/images/sitepictures/thumbs/'+j.image1+'" alt="'+j.name_ch+'" />';
-			            item +='</div>';
-						item += '<div class="detail">';
-						item += '<p>'+j.name_ch+'</p>';
-		                item += '<p>'+j.text_ch+'</p>';
-		                item += '<p>价格：'+j.price+'欧元</p>';
-		                item += '</div></div>';
-		                item += '<div class="l-bottom">';
-		                item += '<ul><li class="on" onclick="checkLogin(\'jew\','+j.id+')">预约</li></ul>';
-		                item += '</div>';
-		                $("#recommRight").html(item).fadeIn('slow');}
+						var item ='<div class="t-center">';
+				        item +='  <a href="jewelry-detail.php?id='+j.id+'"><img style="max-width:386px;max-height:386px;"class="01" src="/images/sitepictures/thumbs/'+j.image1+'" alt="'+j.name_ch+'" /></a>';
+				        item +='  <a href="jewelry-detail.php?id='+j.id+'" style="margin-top:-1px;"><img style="max-width:238px;max-height:238px;" class="02"  src="/images/sitepictures/thumbs/'+j.image2+'" alt="'+j.name_ch+'" /></a>';
+				        item +='  <a href="jewelry-detail.php?id='+j.id+'" style="margin-top:-1px; margin-left:-1px;"><img style="max-width:148px;max-height:148px;" class="03" src="/images/sitepictures/thumbs/'+j.image3+'" alt="'+j.name_ch+'" /></a>';
+				        item +='</div>';
+				        item +='<div class="t-right">';
+				        item +='  <a href="jewelry-detail.php?id='+j.id+'"><img style="max-width:177px;max-height:177px;" class="04" src="/images/sitepictures/thumbs/'+j.image4+'" alt="'+j.name_ch+'" /></a>';
+				        item +='</div>';}
+					$("#recommWrapper").html(item).fadeIn('slow');
 				});
+				
 			},
 			error : function() {
 				alert('载入数据失败！');

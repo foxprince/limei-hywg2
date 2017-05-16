@@ -110,31 +110,35 @@ section{width:1200px; height:640px; float:left;}
 .t-bot{width:1200px; height:608px; float:left; margin-top:70px;}
 .t-bot a{box-shadow: 0 0 #333;}
 .t-left{float: left; margin-right: 2px; margin-left: 30px;}
-/*
+
 .t-center{float: left; width:386px;}
 .t-center a{float: left;}
-.t-center img{display: block;}
+.t-center img{display: block; max-width:100%;max-height:100%;}
+.t-center .01{max-width:386px;max-height:386px;}
+.t-center .02{max-width:238px;max-height:238px;}
+.t-center .03{max-width:148px;max-height:148px;}
+.t-right .04{max-width:177px;max-height:177px;}
 .t-right{float: left; margin-top:294px; margin-left: -1px;}
 .t-right a{float: left;}
-.t-right img{display: block;}*/
+.t-right img{display: block;}
 #wrapper {
     border: 1px solid blue;
 }
-.t-center {
+.t-dia-center {
     display: inline-block;position:relative;
     width:281px;
     height:100%;
 }
-.t-center img{max-width:281px;display: block;margin-left: auto;margin-right: auto; }
-.t-center .detail{margin-left: 100px;height: auto;color:#9c9c9c;font-size: 14px;}
-.t-right {
+.t-dia-center img{max-width:281px;display: block;margin-left: auto;margin-right: auto; }
+.t-dia-center .detail{margin-left: 100px;height: auto;color:#9c9c9c;font-size: 14px;}
+.t-dia-right {
     vertical-align:top;position:relative;
     display: inline-block;
     width:281px;
     height:100%;
 }
-.t-right img{max-width:281px;display: block;margin-left: auto;margin-right: auto;}
-.t-right .detail{margin-left: 100px;height: auto;color:#9c9c9c;font-size: 14px;}
+.t-dia-right img{max-width:281px;display: block;margin-left: auto;margin-right: auto;}
+.t-dia-right .detail{margin-left: 100px;height: auto;color:#9c9c9c;font-size: 14px;}
 .tuijian ul{width:420px; height:30px;}
 .tuijian ul li{cursor:pointer;float:left;width:50px; height:24px; display:block; background:url(../images/hg.png) no-repeat;color:#666; padding-top:6px; letter-spacing:1.5px; font-weight:bold; padding-left:33px; margin-left:11px; margin-right:11px;}
 .tuijian ul li.on{background:url(../images/yuan.png) no-repeat; color:#fff;}
