@@ -14,7 +14,7 @@ $ring_id=$_SESSION['ringChoice'];
 ###########################################################
 
 include_once('connection-dia-data.php');
-$conn_dia=dbConnect_dia('write','pdo');
+$conn_dia=dbConnect('write','pdo');
 $conn_dia->query("SET NAMES 'utf8'");
 
 

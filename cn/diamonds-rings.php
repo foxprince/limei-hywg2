@@ -56,7 +56,7 @@ if(isset($_POST['ringChoice']) && isset($_SESSION['dia_id']) && (isset($_POST['c
 
 
 include_once('connection-dia-data.php');
-$conn_dia=dbConnect_dia('write','pdo');
+$conn_dia=dbConnect('write','pdo');
 $conn_dia->query("SET NAMES 'utf8'");
 
 $sql_currency='SELECT * FROM convert_currency';

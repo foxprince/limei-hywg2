@@ -11,7 +11,7 @@ if($_POST || $_GET){include('nuke_magic_quotes.php');}
 
 
 require_once('connection-dia-data.php');
-$conn=dbConnect_dia('write','pdo');
+$conn=dbConnect('write','pdo');
 $conn->query("SET NAMES 'utf8'");
 
 
