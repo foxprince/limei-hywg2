@@ -12,6 +12,7 @@ var $shapeCU = false;
 var $shape = '';
 var $currency = '';
 var $color = '';
+var $fancy = '';
 var $clarity = '';
 var $cut = '';
 var $sym = '';
@@ -33,6 +34,18 @@ var $sorting_cut_direction = 'ASC';
 var $sorting_price_direction = 'ASC';
 var $sorting_direction = 'ASC';
 var $crr_page = 1;
+$(function () {
+	$(".fileber_fancy>li").click(function(){
+		$color = "";
+		$(this).toggleClass("on");
+		$(".fileber_fancy>li").each(function(){
+			if($(this).hasClass("on")) { 
+				if($color!="") $color +=" or ";
+				$color += 'color like "F%'+$(this).attr("color")+'"';}
+		});
+		update();
+    })
+});
 function filter_shape(theshape) {
 	var $theshape = theshape;
 	var $or = '';
@@ -282,6 +295,7 @@ function update() {
 		ref : $('#queryRef').val(),
 		shape : $shape,
 		color : $color,
+		fancy : $fancy,
 		clarity : $clarity,
 		cut : $cut,
 		polish : $polish,

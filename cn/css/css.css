@@ -373,6 +373,8 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .chg-box ul li a:hover{color:#fff; background-color: #f9b5b2; border-color:#f9b5b2;}
 .chg-box ul li a:hover span{background-color: #fff;}
 
+img.fa{width: 1.5em;text-align: center;}
+
 
 
 
