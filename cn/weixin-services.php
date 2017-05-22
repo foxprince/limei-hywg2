@@ -31,13 +31,7 @@ class wechatCallbackapiTest {
 			$keyword = trim ( $postObj->Content );
 			$MsgType = $postObj->MsgType;
 			$time = time ();
-			$textTpl = "<xml>
-			<ToUserName><![CDATA[%s]]></ToUserName>
-			<FromUserName><![CDATA[%s]]></FromUserName>
-			<CreateTime>%s</CreateTime>
-			<MsgType><![CDATA[%s]]></MsgType>
-			<Content><![CDATA[%s]]></Content>
-			</xml>";
+			$textTpl = "<xml> <ToUserName><![CDATA[%s]]></ToUserName> <FromUserName><![CDATA[%s]]></FromUserName> <CreateTime>%s</CreateTime> <MsgType><![CDATA[%s]]></MsgType> <Content><![CDATA[%s]]></Content> </xml>";
 			//  first of all, check if this is an event, if it's an subscription event, do the necessary here 
 			if ($MsgType == 'event') {
 				$theevent = $postObj->Event;
@@ -50,7 +44,7 @@ class wechatCallbackapiTest {
 				else if ($theevent == 'subscribe') {
 					$contentStr = $this->subscribe($fromUsername,$postObj);
 				}
-				$resultStr = sprintf ( $textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr );
+				$resultStr = sprintf ( $textTpl, $fromUsername, $toUsername, $time, "text", $contentStr );
 				logger ( $resultStr );
 				echo $resultStr;
 				exit ();
