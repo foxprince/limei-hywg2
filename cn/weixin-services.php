@@ -79,34 +79,20 @@ class wechatCallbackapiTest {
 			// --------------------------------------------------------------------------------#
 			// ----- 2 save the user message to the database ----------------------------------#
 			// #################################################################################
-			if (isset ( $keyword )) {
+			/*if (isset ( $keyword )) {
 				$MsgId = $postObj->MsgId;
-				if (! isset ( $MediaId )) {
-					$MediaId = '-';
-				}
-				if (! isset ( $Format )) {
-					$Format = '-';
-				}
-				if (! isset ( $ThumbMediaId )) {
-					$ThumbMediaId = '-';
-				}
-				if (! isset ( $Location_X )) {
-					$Location_X = '-';
-				}
-				if (! isset ( $Location_Y )) {
-					$Location_Y = '-';
-				}
-				if (! isset ( $Label )) {
-					$Label = '-';
-				}
-				if (! isset ( $Title )) {
-					$Title = '-';
-				}
-				if (! isset ( $Description )) {
-					$Description = '-';
-				}
+				if (! isset ( $MediaId )) { $MediaId = '-'; }
+				if (! isset ( $Format )) { $Format = '-'; }
+				if (! isset ( $ThumbMediaId )) { $ThumbMediaId = '-'; }
+				if (! isset ( $Location_X )) { $Location_X = '-'; }
+				if (! isset ( $Location_Y )) { $Location_Y = '-'; }
+				if (! isset ( $Label )) { $Label = '-'; }
+				if (! isset ( $Title )) { $Title = '-'; }
+				if (! isset ( $Description )) { $Description = '-'; }
 				$if_wechat = 'NEW';
 				// ######### END 第一次发信息将收到 利美客服消息 END
+				$conn = dbConnect ( 'write', 'pdo' );
+				$conn->query ( "SET NAMES 'utf8'" );
 				$sql = 'INSERT INTO wechat_record (client_id, wechat_open_id, wechat_name, message, CreateTime, MsgType, MsgId, MediaId, Format, ThumbMediaId, Location_X, Location_Y, Label, Title, Description, if_wechat) VALUES(:client_id, :wechat_open_id, :wechat_name, :message, NOW(), :MsgType, :MsgId, :MediaId, :Format, :ThumbMediaId, :Location_X, :Location_Y, :Label, :Title, :Description, :if_wechat)';
 				$stmt = $conn->prepare ( $sql );
 				$stmt->bindParam ( ':client_id', $this->clientID, PDO::PARAM_STR );
@@ -126,7 +112,7 @@ class wechatCallbackapiTest {
 				$stmt->bindParam ( ':if_wechat', $if_wechat, PDO::PARAM_STR );
 				$stmt->execute ();
 				$OK = $stmt->rowCount ();
-			}
+			}*/
 			
 			// ################# END second of all, if it's not an event, save the message to the database message table END ##################################
 			if ($keywordisTXT) {
@@ -134,10 +120,7 @@ class wechatCallbackapiTest {
 				// $messageToPost=iconv('UTF-16', 'UTF-8', $crr_message);
 				// $trans_sentence = iconv('UTF-8', 'ASCII//TRANSLIT', $utf8_sentence);
 				// $data = array("touser" => $wechatopenidofuser, "msgtype" => "text", "text" => array("content"=>$crr_message));
-				$data = '{
-							"user_open_id":"' . $fromUsername . '",
-							"content":"' . $keyword . '"
-								 }';
+				$data = '{ "user_open_id":"' . $fromUsername . '", "content":"' . $keyword . '" }';
 				$ch = curl_init ( $urltopost );
 				curl_setopt ( $ch, CURLOPT_SSL_VERIFYPEER, FALSE );
 				curl_setopt ( $ch, CURLOPT_SSL_VERIFYHOST, FALSE );
@@ -170,7 +153,6 @@ class wechatCallbackapiTest {
 	}
 	public function click($fromUsername,$postObj) {
 		$thebutton = $postObj->EventKey;
-		$msgType = "text";
 		$contentStr = "系统升级中...请稍后";
 		if ($thebutton == "KEY_BUDGET") {
 			$contentStr = '1. 输入您的预算金额，比如 "5000 欧元" "5000 美金" “50000 人民币” “5000 英镑”（有无空格均可） 我们推荐适合此预算的钻石。如果不输入货币单位，那么默认为欧元。 2. 您的预算金额，用货币英文的首字母也可以 "5000 e", "5000 d", "50000 y", "5000 p" 大小写无所谓，有无空格均可。 euro dollar yuan pound.';
@@ -183,9 +165,11 @@ class wechatCallbackapiTest {
 		} else if ($thebutton == "KEY_JEWLERY") {
 			$contentStr = '<a href="https://drive.google.com/folderview?id=0B1PdwXeXM9pXfm5CVHJTeThMUDQ1MEh6QkQ1QzZvUS0xNW56dkpPSDZyUVc3WFU0RzVQWDg&usp=sharing">点击查看精美首饰款式 所有的戒托有现货或者可以订制</a>';
 		} else if ($thebutton == "KEY_QRCODE") {
-			$content = array ();
+			$conn = dbConnect ( 'write', 'pdo' );
+			$conn->query ( "SET NAMES 'utf8'" );
 			$sql_check_user = 'SELECT id,qrcode FROM clients_list WHERE wechat_open_id = "' . $fromUsername . '"';
-			$r_u = $conn->query ( $sql_check_user );
+			$r_u = $conn->query ( $sql_check_user )->fetch(PDO::FETCH_ASSOC);
+			$content = array ();
 			if ($r_u ['qrcode']) {
 				$content [] = array (
 						"Title" => "动态二维码",
@@ -200,9 +184,7 @@ class wechatCallbackapiTest {
 				$contentStr = '您尚未被分配动态二维码，请联系我们的客服：limeikefu，申请专属二维码。';
 			}
 		} else if ($thebutton == "KEY_PASSWEBACCOUNT") {
-			$contentStr = '系统尚未找到您的用户名和密码';
-			if ($found_user)
-				$contentStr = '您用来登录利美网站的用户名：' . $website_username . '  密码：' . $website_password;
+			$contentStr = $this->scan($fromUsername);
 		}
 		return $contentStr;
 	}
@@ -338,7 +320,6 @@ class wechatCallbackapiTest {
 			} else {
 				logger ( $sql . "\n" . mysql_errno () . ": " . mysql_error () . "\n" );
 			}
-			$msgType = "text";
 			$contentStr = "感谢您关注比利时利美珠宝首饰公司!" . $feedbackwebpass;
 			if($referee=='1118')
 				$contentStr = $contentStr." \n您已扫描成功，获得Lumia利美钻石提供的150欧电子优惠卷，本次电子优惠扫码活动有效期截止到2月1日。持有效电子优惠卷的朋友可在2017年7月28日前购买Lumia指定产品，0.7克拉到0.79克拉时出示此优惠卷，即可享受立减优惠。";
@@ -383,8 +364,8 @@ class wechatCallbackapiTest {
             <Description><![CDATA[%s]]></Description>
             <PicUrl><![CDATA[%s]]></PicUrl>
             <Url><![CDATA[%s]]></Url>
-        </item>
-";
+        	</item>
+		";
 		$item_str = "";
 		foreach ( $newsArray as $item ) {
 			$item_str .= sprintf ( $itemTpl, $item ['Title'], $item ['Description'], $item ['PicUrl'], $item ['Url'] );
@@ -395,11 +376,11 @@ class wechatCallbackapiTest {
 		<CreateTime>%s</CreateTime>
 		<MsgType><![CDATA[news]]></MsgType>
 		<ArticleCount>%s</ArticleCount>
-		<Articles>
-		$item_str    </Articles>
+		<Articles>".
+		$item_str   ." </Articles>
 		</xml>";
-		
 		$result = sprintf ( $xmlTpl, $object->FromUserName, $object->ToUserName, time (), count ( $newsArray ) );
+		logger($result);
 		return $result;
 	}
 }
