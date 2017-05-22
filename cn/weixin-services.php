@@ -1,11 +1,11 @@
 <?php
 include_once ('log.php');
 require_once ('connection.php');
-traceHttp ();
 define ( "TOKEN", "lumia123weixin" );
 $wechatObj = new wechatCallbackapiTest ();
 $wechatObj->valid ();
 $wechatObj->responseMsg ();
+
 class wechatCallbackapiTest {
 	public $found_user = false;
 	public $clientID;
@@ -45,6 +45,7 @@ class wechatCallbackapiTest {
 					$contentStr = $this->subscribe($fromUsername,$postObj);
 				}
 				$resultStr = sprintf ( $textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr );
+				logger ( $resultStr );
 				echo $resultStr;
 				exit ();
 			}
