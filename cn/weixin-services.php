@@ -36,7 +36,7 @@ class wechatCallbackapiTest {
 			if ($MsgType == 'event') {
 				$theevent = $postObj->Event;
 				if ($theevent == 'SCAN'){
-					$contentStr = $this->scan($fromUsername);
+					$contentStr = $this->scan($fromUsername,$postObj->EventKey);
 				}
 				else if ($theevent == 'CLICK') {
 					$contentStr = $this->click($fromUsername,$postObj);
@@ -80,38 +80,7 @@ class wechatCallbackapiTest {
 			// ----- 2 save the user message to the database ----------------------------------#
 			// #################################################################################
 			/*if (isset ( $keyword )) {
-				$MsgId = $postObj->MsgId;
-				if (! isset ( $MediaId )) { $MediaId = '-'; }
-				if (! isset ( $Format )) { $Format = '-'; }
-				if (! isset ( $ThumbMediaId )) { $ThumbMediaId = '-'; }
-				if (! isset ( $Location_X )) { $Location_X = '-'; }
-				if (! isset ( $Location_Y )) { $Location_Y = '-'; }
-				if (! isset ( $Label )) { $Label = '-'; }
-				if (! isset ( $Title )) { $Title = '-'; }
-				if (! isset ( $Description )) { $Description = '-'; }
-				$if_wechat = 'NEW';
-				// ######### END 第一次发信息将收到 利美客服消息 END
-				$conn = dbConnect ( 'write', 'pdo' );
-				$conn->query ( "SET NAMES 'utf8'" );
-				$sql = 'INSERT INTO wechat_record (client_id, wechat_open_id, wechat_name, message, CreateTime, MsgType, MsgId, MediaId, Format, ThumbMediaId, Location_X, Location_Y, Label, Title, Description, if_wechat) VALUES(:client_id, :wechat_open_id, :wechat_name, :message, NOW(), :MsgType, :MsgId, :MediaId, :Format, :ThumbMediaId, :Location_X, :Location_Y, :Label, :Title, :Description, :if_wechat)';
-				$stmt = $conn->prepare ( $sql );
-				$stmt->bindParam ( ':client_id', $this->clientID, PDO::PARAM_STR );
-				$stmt->bindParam ( ':wechat_open_id', $fromUsername, PDO::PARAM_STR );
-				$stmt->bindParam ( ':wechat_name', $wechat_name, PDO::PARAM_STR );
-				$stmt->bindParam ( ':message', $keyword, PDO::PARAM_STR );
-				$stmt->bindParam ( ':MsgType', $MsgType, PDO::PARAM_STR );
-				$stmt->bindParam ( ':MsgId', $MsgId, PDO::PARAM_STR );
-				$stmt->bindParam ( ':MediaId', $MediaId, PDO::PARAM_STR );
-				$stmt->bindParam ( ':Format', $Format, PDO::PARAM_STR );
-				$stmt->bindParam ( ':ThumbMediaId', $ThumbMediaId, PDO::PARAM_STR );
-				$stmt->bindParam ( ':Location_X', $Location_X, PDO::PARAM_STR );
-				$stmt->bindParam ( ':Location_Y', $Location_Y, PDO::PARAM_STR );
-				$stmt->bindParam ( ':Label', $Label, PDO::PARAM_STR );
-				$stmt->bindParam ( ':Title', $Title, PDO::PARAM_STR );
-				$stmt->bindParam ( ':Description', $Description, PDO::PARAM_STR );
-				$stmt->bindParam ( ':if_wechat', $if_wechat, PDO::PARAM_STR );
-				$stmt->execute ();
-				$OK = $stmt->rowCount ();
+				logMsg($fromUsername,$postObj);
 			}*/
 			
 			// ################# END second of all, if it's not an event, save the message to the database message table END ##################################
@@ -141,15 +110,52 @@ class wechatCallbackapiTest {
 			exit ();
 		}
 	}
-	
+	function logMsg($fromUsername,$postObj) {
+		$MsgId = $postObj->MsgId;
+		if (! isset ( $MediaId )) { $MediaId = '-'; }
+		if (! isset ( $Format )) { $Format = '-'; }
+		if (! isset ( $ThumbMediaId )) { $ThumbMediaId = '-'; }
+		if (! isset ( $Location_X )) { $Location_X = '-'; }
+		if (! isset ( $Location_Y )) { $Location_Y = '-'; }
+		if (! isset ( $Label )) { $Label = '-'; }
+		if (! isset ( $Title )) { $Title = '-'; }
+		if (! isset ( $Description )) { $Description = '-'; }
+		$if_wechat = 'NEW';
+		// ######### END 第一次发信息将收到 利美客服消息 END
+		$conn = dbConnect ( 'write', 'pdo' );
+		$conn->query ( "SET NAMES 'utf8'" );
+		$sql = 'INSERT INTO wechat_record (client_id, wechat_open_id, wechat_name, message, CreateTime, MsgType, MsgId, MediaId, Format, ThumbMediaId, Location_X, Location_Y, Label, Title, Description, if_wechat) VALUES(:client_id, :wechat_open_id, :wechat_name, :message, NOW(), :MsgType, :MsgId, :MediaId, :Format, :ThumbMediaId, :Location_X, :Location_Y, :Label, :Title, :Description, :if_wechat)';
+		$stmt = $conn->prepare ( $sql );
+		$stmt->bindParam ( ':client_id', $this->clientID, PDO::PARAM_STR );
+		$stmt->bindParam ( ':wechat_open_id', $fromUsername, PDO::PARAM_STR );
+		$stmt->bindParam ( ':wechat_name', $wechat_name, PDO::PARAM_STR );
+		$stmt->bindParam ( ':message', $keyword, PDO::PARAM_STR );
+		$stmt->bindParam ( ':MsgType', $MsgType, PDO::PARAM_STR );
+		$stmt->bindParam ( ':MsgId', $MsgId, PDO::PARAM_STR );
+		$stmt->bindParam ( ':MediaId', $MediaId, PDO::PARAM_STR );
+		$stmt->bindParam ( ':Format', $Format, PDO::PARAM_STR );
+		$stmt->bindParam ( ':ThumbMediaId', $ThumbMediaId, PDO::PARAM_STR );
+		$stmt->bindParam ( ':Location_X', $Location_X, PDO::PARAM_STR );
+		$stmt->bindParam ( ':Location_Y', $Location_Y, PDO::PARAM_STR );
+		$stmt->bindParam ( ':Label', $Label, PDO::PARAM_STR );
+		$stmt->bindParam ( ':Title', $Title, PDO::PARAM_STR );
+		$stmt->bindParam ( ':Description', $Description, PDO::PARAM_STR );
+		$stmt->bindParam ( ':if_wechat', $if_wechat, PDO::PARAM_STR );
+		$stmt->execute ();
+		return $stmt->rowCount ();
+	}
 	public function valid() {
 		$echoStr = $_GET ["echostr"];
 		if ($this->checkSignature ()) {
 			echo $echoStr;
 		}
 	}
-	function scan($fromUsername) {
-		return '您用来登录利美网站的用户名：' . $this->website_username . '  密码：' . $this->website_password;
+	function scan($fromUsername,$eventKey) {
+		//<EventKey><![CDATA[8001]]></EventKey>
+		$contentStr = '您用来登录利美网站的用户名：' . $this->website_username . '  密码：' . $this->website_password;
+		if($eventKey=='8001')
+			$contentStr = $contentStr." \n您已扫描成功，感谢您参加Lumia利美钻石钻石文化与奖赏讲座抽奖活动，敬请期待开奖吧。";
+		return $contentStr;
 	}
 	public function click($fromUsername,$postObj) {
 		$thebutton = $postObj->EventKey;
@@ -246,11 +252,9 @@ class wechatCallbackapiTest {
 	}
 	
 	function subscribe($fromUsername,$postObj) {
+		//<EventKey><![CDATA[qrscene_8001]]></EventKey>
 		$conn = dbConnect ( 'write', 'pdo' );
 		$conn->query ( "SET NAMES 'utf8'" );
-		if ($found_user) {
-			return '您用来登录利美网站的用户名：' . $this->website_username . '  密码：' . $this->website_password;
-		} else {
 			$referee = substr ( $postObj->EventKey, 8 );
 			logger ( "referee" . $referee );
 			$addwords = '';
@@ -323,8 +327,9 @@ class wechatCallbackapiTest {
 			$contentStr = "感谢您关注比利时利美珠宝首饰公司!" . $feedbackwebpass;
 			if($referee=='1118')
 				$contentStr = $contentStr." \n您已扫描成功，获得Lumia利美钻石提供的150欧电子优惠卷，本次电子优惠扫码活动有效期截止到2月1日。持有效电子优惠卷的朋友可在2017年7月28日前购买Lumia指定产品，0.7克拉到0.79克拉时出示此优惠卷，即可享受立减优惠。";
-				return $contentStr;
-		}
+			if($referee=='8001')
+				$contentStr = $contentStr." \n您已扫描成功，感谢您参加Lumia利美钻石钻石文化与奖赏讲座抽奖活动，敬请期待开奖吧。";
+			return $contentStr;
 	}
 	
 	private function checkSignature() {
