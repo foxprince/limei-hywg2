@@ -1,5 +1,6 @@
 <?php
 include_once ('log.php');
+include_once('./lib/emoji.php');
 require_once ('connection.php');
 define ( "TOKEN", "lumia123weixin" );
 $wechatObj = new wechatCallbackapiTest ();
@@ -7,6 +8,7 @@ $wechatObj->valid ();
 $wechatObj->responseMsg ();
 
 class wechatCallbackapiTest {
+	public $msg8001 = "扫描成功，感谢您参加Lumia利美钻石钻石文化与鉴赏讲座活动，您已获得抽奖资格，敬请期待开奖吧/::)";
 	public $found_user = false;
 	public $clientID;
 	public $website_username;
@@ -23,18 +25,23 @@ class wechatCallbackapiTest {
 			libxml_disable_entity_loader ( true );
 			$postObj = simplexml_load_string ( $postStr, 'SimpleXMLElement', LIBXML_NOCDATA );
 			$fromUsername = $postObj->FromUserName;
-			if($this->checkUser($fromUsername))
-				$this->updateUser($fromUsername);
-			else 
-				$this->subscribe($fromUsername,$postObj);
 			$toUsername = $postObj->ToUserName;
 			$keyword = trim ( $postObj->Content );
 			$MsgType = $postObj->MsgType;
-			$time = time ();
+			$theevent = $postObj->Event;
+			if($MsgType == 'event'&&$theevent == 'unsubscribe'){
+				$this->unsubscribe($fromUsername);
+				echo "";
+				exit();
+			}
+			else {
+				if($this->checkUser($fromUsername))
+					$this->updateUser($fromUsername);
+				else
+					$this->subscribe($fromUsername,$postObj);
+			}
 			$textTpl = "<xml> <ToUserName><![CDATA[%s]]></ToUserName> <FromUserName><![CDATA[%s]]></FromUserName> <CreateTime>%s</CreateTime> <MsgType><![CDATA[%s]]></MsgType> <Content><![CDATA[%s]]></Content> </xml>";
-			//  first of all, check if this is an event, if it's an subscription event, do the necessary here 
 			if ($MsgType == 'event') {
-				$theevent = $postObj->Event;
 				if ($theevent == 'SCAN'){
 					$contentStr = $this->scan($fromUsername,$postObj->EventKey);
 				}
@@ -44,7 +51,7 @@ class wechatCallbackapiTest {
 				else if ($theevent == 'subscribe') {
 					$contentStr = $this->subscribe($fromUsername,$postObj);
 				}
-				$resultStr = sprintf ( $textTpl, $fromUsername, $toUsername, $time, "text", $contentStr );
+				$resultStr = sprintf ( $textTpl, $fromUsername, $toUsername, time(), "text", $contentStr );
 				logger ( $resultStr );
 				echo $resultStr;
 				exit ();
@@ -79,9 +86,9 @@ class wechatCallbackapiTest {
 			// --------------------------------------------------------------------------------#
 			// ----- 2 save the user message to the database ----------------------------------#
 			// #################################################################################
-			/*if (isset ( $keyword )) {
+			if (isset ( $keyword )) {
 				logMsg($fromUsername,$postObj);
-			}*/
+			}
 			
 			// ################# END second of all, if it's not an event, save the message to the database message table END ##################################
 			if ($keywordisTXT) {
@@ -98,7 +105,7 @@ class wechatCallbackapiTest {
 				curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
 				$msgType = "text";
 				$result = curl_exec ( $ch );
-				$resultStr = sprintf ( $textTpl, $fromUsername, $toUsername, $time, $msgType, $result );
+				$resultStr = sprintf ( $textTpl, $fromUsername, $toUsername, time(), $msgType, $result );
 				logger ( $resultStr );
 				echo $resultStr;
 				exit ();
@@ -154,7 +161,7 @@ class wechatCallbackapiTest {
 		//<EventKey><![CDATA[8001]]></EventKey>
 		$contentStr = '您用来登录利美网站的用户名：' . $this->website_username . '  密码：' . $this->website_password;
 		if($eventKey=='8001')
-			$contentStr = $contentStr." \n您已扫描成功，感谢您参加Lumia利美钻石钻石文化与奖赏讲座抽奖活动，敬请期待开奖吧。";
+			$contentStr = $contentStr." \n".$this->msg8001;
 		return $contentStr;
 	}
 	public function click($fromUsername,$postObj) {
@@ -250,7 +257,14 @@ class wechatCallbackapiTest {
 		) );
 		return $stmt->rowCount ();
 	}
-	
+	function unsubscribe($fromUsername) {
+		$conn = dbConnect ( 'write', 'pdo' );
+		$conn->query ( "SET NAMES 'utf8'" );
+		$sql = 'UPDATE clients_list SET suscribe_status = "unsubscribe",last_update_time=time() WHERE wechat_open_id = ?'; // $fromUsername
+		$stmt = $conn->prepare ( $sql );
+		$stmt->execute ( array ( $fromUsername ) );
+		return $stmt->rowCount ();
+	}
 	function subscribe($fromUsername,$postObj) {
 		//<EventKey><![CDATA[qrscene_8001]]></EventKey>
 		$conn = dbConnect ( 'write', 'pdo' );
@@ -328,7 +342,7 @@ class wechatCallbackapiTest {
 			if($referee=='1118')
 				$contentStr = $contentStr." \n您已扫描成功，获得Lumia利美钻石提供的150欧电子优惠卷，本次电子优惠扫码活动有效期截止到2月1日。持有效电子优惠卷的朋友可在2017年7月28日前购买Lumia指定产品，0.7克拉到0.79克拉时出示此优惠卷，即可享受立减优惠。";
 			if($referee=='8001')
-				$contentStr = $contentStr." \n您已扫描成功，感谢您参加Lumia利美钻石钻石文化与奖赏讲座抽奖活动，敬请期待开奖吧。";
+				$contentStr = $contentStr." \n".$this->msg8001;
 			return $contentStr;
 	}
 	
@@ -337,11 +351,9 @@ class wechatCallbackapiTest {
 		if (! defined ( "TOKEN" )) {
 			throw new Exception ( 'TOKEN is not defined!' );
 		}
-		
 		$signature = $_GET ["signature"];
 		$timestamp = $_GET ["timestamp"];
 		$nonce = $_GET ["nonce"];
-		
 		$token = TOKEN;
 		$tmpArr = array (
 				$token,
