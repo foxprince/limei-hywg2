@@ -10,6 +10,41 @@ $userid = $_SESSION ['useraccount'];
 if($_REQUEST['action']) {
 	$action = $_REQUEST['action'];
 	switch($action) {
+		case "event20170526List":
+			$userhistory='SELECT wechat_open_id,wechat_name from clients_list  where suscribe_status!="unsuscribe" and more_info="20170526wenzhou"';
+			$stmt_history=$conn->query($userhistory);
+			$historyfound=$stmt_history->rowCount();
+			$itemList=array();
+			if($historyfound){
+				foreach($stmt_history as $row_history){
+					$itemList[]=$row_history;
+				}
+			}
+			echo json_encode($itemList);
+			break;
+		case "event20170526Draw"://抽奖
+			$grade = $_REQUEST['grade'];
+			$sql = 'SELECT t1.id,t1.wechat_open_id,t1.wechat_name FROM clients_list as t1 where suscribe_status!="unsuscribe" and more_info="20170526wenzhou" and id >= (SELECT floor(RAND() * (SELECT MAX(id) FROM clients_list))) ORDER BY id LIMIT 1'; // $fromUsername
+			$stmt = $conn->prepare ( $sql );
+			$stmt->execute ( array ( $grade ) );
+			$found=$stmt->rowCount();
+			$itemList=array();
+			if($found){
+				foreach($stmt as $row){
+					$itemList[]=$row;
+				}
+			}
+			$sql = 'UPDATE clients_list SET more_info = "20170526wenzhou_grade_"'.$grade.' WHERE wechat_open_id = ?'; // $fromUsername
+			$stmt = $conn->prepare ( $sql );
+			$stmt->execute ( array ( $row['wechat_open_id'] ) );
+			echo json_encode($itemList);
+			break;
+		case "event20170526Cancel"://取消获奖资格
+			$sql = 'UPDATE clients_list SET more_info = "20170526wenzhou_Cancel" WHERE wechat_open_id = ?'; // $fromUsername
+			$stmt = $conn->prepare ( $sql );
+			$stmt->execute ( array ( $fromUsername ) );
+			echo "OK";
+			break;
 		case "recommendDia":
 			$userhistory='SELECT * from diamonds  where visiable=1 limit 0,2';
 			$stmt_history=$conn->query($userhistory);
