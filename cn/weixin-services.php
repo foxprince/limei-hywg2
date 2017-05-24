@@ -160,9 +160,18 @@ class wechatCallbackapiTest {
 	function scan($fromUsername,$eventKey) {
 		//<EventKey><![CDATA[8001]]></EventKey>
 		$contentStr = '您用来登录利美网站的用户名：' . $this->website_username . '  密码：' . $this->website_password;
-		if($eventKey=='8001')
-			$contentStr = $contentStr." \n".$this->msg8001;
+		if($eventKey=='8001') {
+			$contentStr .= "\n".$this->event20170526($fromUsername);//$contentStr." \n".$this->msg8001;
+		}
 		return $contentStr;
+	}
+	function event20170526($fromUsername) {
+		$conn = dbConnect ( 'write', 'pdo' );
+		$conn->query ( "SET NAMES 'utf8'" );
+		$sql = 'UPDATE clients_list SET more_info = "20170526wenzhou" WHERE wechat_open_id = ?'; // $fromUsername
+		$stmt = $conn->prepare ( $sql );
+		$stmt->execute ( array ( $fromUsername ) );
+		return $this->msg8001;
 	}
 	public function click($fromUsername,$postObj) {
 		$thebutton = $postObj->EventKey;
@@ -342,7 +351,7 @@ class wechatCallbackapiTest {
 			if($referee=='1118')
 				$contentStr = $contentStr." \n您已扫描成功，获得Lumia利美钻石提供的150欧电子优惠卷，本次电子优惠扫码活动有效期截止到2月1日。持有效电子优惠卷的朋友可在2017年7月28日前购买Lumia指定产品，0.7克拉到0.79克拉时出示此优惠卷，即可享受立减优惠。";
 			if($referee=='8001')
-				$contentStr = $contentStr." \n".$this->msg8001;
+				$contentStr .= "\n".$this->event20170526($fromUsername);//$contentStr." \n".$this->msg8001;
 			return $contentStr;
 	}
 	
