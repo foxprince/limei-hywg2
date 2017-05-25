@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8">
+            <title>
+                抽奖页面
+            </title>
+            <style>
+                *{margin:0; padding: 0;}
+    .w1000{width: 1000px; margin:0 auto;}
+    .clearfix{}
+    .clearfix:after {content: "";display: block; clear: both; height: 0;}
+    .clearfix {zoom: 1;}
+    .fl{float: left;}
+    .fr{float: right;}
+    .none{display: none;}
+
+    body,html{width: 100%; height: 100%; background: #ed595d; background-image: url(images/bottom-bg.png); background-repeat: no-repeat; background-position: center bottom; }
+    .tit{position: absolute; width: 980px; left: 50%; top:40px; margin-left: -490px; z-index: 99;}
+    .tit img{width: 100%;}
+    .content-wrap{height: calc(100% - 98px); overflow: hidden;}
+    .content{width: 100%; height: 100%; padding-top: 90px;}
+    .first{height: 100%; background: url(images/first.png) no-repeat center top; position: relative;}
+    .first span{width: 600px; height: 300px; line-height: 300px; position: absolute; left: 50%; top:50%; margin-left: -300px; margin-top:-120px; text-align: center; color: #fff; font-size: 92px; font-weight: bold;}
+    .second{height: 100%; background: url(images/second.png) no-repeat center top; position: relative;}
+    .second ul{width: 600px; height: 360px; position: absolute; left: 50%; top: 50%; margin-left: -300px; margin-top:-120px;}
+    .second h2{text-align: center; font-size: 72px; color:#fff; margin-bottom: 20px;}
+    .second li{text-align: center; list-style: none; font-size: 36px; font-weight: bold; color: #fff; margin-bottom: 6px;}
+    .third{height: 100%; background: url(images/third.png) no-repeat center; position: relative;}
+    .third ul{width: 600px; height: 360px; position: absolute; left: 50%; top: 50%; margin-left: -300px; margin-top:-120px;}
+    .third h2{text-align: center; font-size: 72px; color:#fff; margin-bottom: 20px;}
+    .third li{text-align: center; list-style: none; font-size: 36px; font-weight: bold; color: #fff; margin-bottom: 6px;}
+    .content i{font-style: normal; margin-left: 20px; cursor: pointer; font-weight: normal; font-size: 20px; display: inline-block; padding:2px 9px;}
+    .code{height: 100%;}
+    .code img{width: 300px; height:300px; position: absolute; left: 50%; top:50%; margin-left: -150px; margin-top: -100px;padding:20px; background: #fff;}
+    @media (max-width: 1400px){
+        .tit{width: 800px; top:10px; margin-left: -400px;}
+        .first,.second,.second,.third{background-size: cover;}
+        .first span{margin-top: -92px;}
+    }
+    @media (max-width: 1600px){
+        .first span{margin-top: -46px;}
+    }
+    .bottom-wrap{width: 100%; height: 98px; position: absolute; bottom:0; z-index: 98;}
+    .bottom{position: relative;}
+    .bottom a{display: block; width: 136px; height: 88px; line-height: 88px; text-align: center; background: url(images/bottom-btn.png) no-repeat; background-size: contain; color: #fff; font-size: 24px; text-decoration:none; position: absolute;}
+    .bottom a:nth-child(1){top:4px;}
+    .bottom a:nth-child(2){top:3px; left: 170px;}
+    .bottom a:nth-child(3){top:6px; right: 0;}
+    .bottom a span{display: inline-block; transform:rotate(-12deg);}
+    .bottom a:hover{ color:#f79e2c;}
+            </style>
+            <script src="js/jquery.min.js">
+            </script>
+        </meta>
+    </head>
+    <body>
+        <div class="content-wrap">
+            <!-- 标题 -->
+            <div class="tit w1000">
+                <img alt="" src="images/title.png"/>
+            </div>
+            <div class="content">
+                <div class="first">
+                    <!--<span>1111111111 <i>X</i></span>-->
+                </div>
+                <div class="second none">
+                    <ul>
+                    </ul>
+                </div>
+                <div class="third none">
+                    <ul>
+                    </ul>
+                </div>
+                <div class="code none">
+                    <img alt="" src="images/code.jpg"/>
+                </div>
+            </div>
+        </div>
+        <!-- bottom -->
+        <div class="bottom-wrap">
+            <div class="bottom w1000 clearfix">
+                <a class="fl" href="javascript:javascript:draw();" id="draw">
+                    <span>
+                        抽奖
+                    </span>
+                </a>
+                <a class="fl" href="javascript:void(0);" id="stop">
+                    <span>
+                        停止
+                    </span>
+                </a>
+                <a class="fr" href="javascript:javascript:void(0);" id="clear">
+                    <span>
+                        清除
+                    </span>
+                </a>
+            </div>
+        </div>
+        <!-- bottom -->
+    </body>
+    <script>
+        //抽奖类型: 1:一等奖;2:二等奖3:三等奖;4:二维码
+    var type = 4;
+    //抽奖对象
+    $(function(){
+        show();
+    })
+    //抽中键值
+    var t = '';
+    var time;
+    var time2;
+    var idList = [];
+    var personList = [];
+    function getList() {
+        $.ajax({
+                type : "get",
+                url : "http://localhost:8000/cn/action.php?action=event20170526List",
+                success : function(json) {
+                    var data=eval(json);var i = 0;
+                    $.each(data, function (n, j) {
+                        idList[i] = j.id;
+                        personList[i] = j.wechat_name;
+                        i++;
+                    });
+                },
+                error : function() {
+                    alert('载入数据失败！');
+                }
+            });
+    }
+    function drawServer(grade,number,id) {
+        $.ajax({
+                type : "get",crossDomain:true,crossDomain:true,
+                url : "http://localhost:8000/cn/action.php?action=event20170526Draw&grade="+grade+"&number="+number,
+                success : function(json) {
+                    var data=eval(json);var i = 0;
+                    var w = '';
+                    var obj;
+                    if(grade == 3){
+                        obj = $('.third>ul');
+                        w = '<h2>三等奖</h2>';
+                        var cla = "'third'";
+                    }
+                    if(grade == 2){
+                        obj = $('.second>ul');
+                        w = '<h2>二等奖</h2>';
+                        var cla = "'second'";
+                    }
+                    if(grade == 1){
+                        obj = $('.first');
+                        var cla = "'first'";
+                    }
+                    var icontent;
+                    $.each(data, function (n, j) {
+                    	icontent = j.wechat_name+'<i pId='+j.id+' onclick="one('+j.id+','+cla+')">X</i>';
+                    	if(id==0){
+                    	//显示中奖者
+                    	if(type == 1){
+                            w += '<span id='+j.id+'>'+icontent+'</span>';
+                        }else{
+                            w += '<li id='+j.id+'>'+icontent+'</li>';
+                        }}
+                    	else{
+                    		$('#'+id).html(icontent);$('#'+id).attr("id",j.id);
+                    	}
+                    });
+                    if(id==0) obj.html(w)
+                },
+                error : function() {
+                    alert('载入数据失败！');
+                }
+            });
+    }
+    function cancel(id) {
+        $.ajax({
+                type : "get",crossDomain:true,
+                url : "http://localhost:8000/cn/action.php?action=event20170526Cancel&id="+id,
+                success : function(json) {
+                },
+                error : function() {
+                    alert('载入数据失败！');
+                }
+            });
+    }
+    //显示类型
+    function show(){
+        $('.content>div').hide();
+        if(type == 3){
+            $('.third').show();
+        }else if(type == 2){
+            $('.second').show();
+        }else if(type == 1){
+            $('.first').show();
+        }else{
+            $('.code').show();
+        }
+    }
+
+    function draw(){
+        var number;
+    	if(type == 4){
+            $("#draw").html('三等奖')
+            type = 3;number = 3;
+        }else if(type == 3){
+            $("#draw").html('二等奖')
+            type = 2;number = 2;
+        }else if(type == 2){
+            $("#draw").html('一等奖');
+            type = 1;number = 1;
+            $("#clear").attr('href','javascript:clear()')
+        }
+    	show();
+    	draw_act(type,number);
+        $("#draw").attr('href','javascript:void(0)');
+        $("#stop").attr('href','javascript:stop('+type+','+number+')')
+    }
+
+    //抽取人数
+    function draw_act(type,i){
+        getList();
+        time = setInterval('act('+type+','+i+')',100);
+    }
+
+    //抽奖动作
+    function act(type,i){
+        var w = '';
+        var obj;
+        if(type == 3){
+            obj = $('.third>ul');
+            w = '<h2>三等奖</h2>';
+            var cla = "'third'";
+        }
+        if(type == 2){
+            obj = $('.second>ul');
+            w = '<h2>二等奖</h2>';
+            var cla = "'second'";
+        }
+        if(type == 1){
+            obj = $('.first');
+            var cla = "'first'";
+        }
+        t = my_ran3(i,0,personList.length)
+        for(var k = 0; k<i ; k++){
+            if(type == 1){
+                w += '<span pId=“idList[t[k]]”>'+personList[t[k]]+'</span>';
+            }else{
+                w += '<li pId=“idList[t[k]]”>'+personList[t[k]]+'</li>';
+            }
+        }
+        obj.html(w)
+    }
+
+    function one(id,k){
+    	cancel(id);
+    	getList();
+    	time2 = setInterval('one_act("'+id+'")',100);
+        var grade;
+        if(k == 'first'){
+            grade = 1;
+        }
+        if(k == 'second'){
+        	grade = 2;
+        }
+        if(k == 'third'){
+        	grade = 3;
+        }
+        $("#stop").attr('href','javascript:stop2('+id+','+grade+',1)');
+    }
+
+    function one_act(id){
+    	var s = my_ran3(1,0,personList.length);
+        var w = personList[s];
+        w = w+'<i onclick="one('+id+')">X</i>';
+        $('#'+id).html(w);
+    }
+
+    function my_ran3(n,min,max){
+        var arr=[];
+        var arr2=[];
+        for(i=0;i<max;i++){
+            arr[i]=i+min;
+        }
+        for(var j,x,i=arr.length;i;j=parseInt(Math.random()*i),x=arr[--i],arr[i]=arr[j],arr[j]=x);
+        for(i=0;i<n;i++){
+            arr2[i]=arr[i];
+        }
+        return arr2;
+    }
+
+	//点击停止按钮
+    function stop(type,number){
+        clearInterval(time)
+        if(type == 4){
+            $("#draw").html('三等奖')
+        }else if(type == 3){
+            $("#draw").html('二等奖')
+        }else if(type == 2){
+            $("#draw").html('一等奖')
+        }
+        drawServer(type,number,0);
+        $("#draw").attr('href','javascript:draw();');
+        $("#stop").attr('href','javascript:void(0)');
+    }
+	//单独停止
+    function stop2(id,type,number){
+        clearInterval(time2)
+        console.log(type+"---"+number);
+        drawServer(type,number,id);
+        $("#stop").attr('href','javascript:void(0)');
+    }
+    //清除
+    function clear(){
+        type = 4;
+        show();
+    }
+    </script>
+</html>
