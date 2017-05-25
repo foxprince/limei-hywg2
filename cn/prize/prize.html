@@ -115,7 +115,7 @@
     function getList() {
         $.ajax({
                 type : "get",
-                url : "http://localhost:8000/cn/action.php?action=event20170526List",
+                url : "/cn/action.php?action=event20170526List",
                 success : function(json) {
                     var data=eval(json);var i = 0;
                     $.each(data, function (n, j) {
@@ -132,7 +132,7 @@
     function drawServer(grade,number,id) {
         $.ajax({
                 type : "get",crossDomain:true,crossDomain:true,
-                url : "http://localhost:8000/cn/action.php?action=event20170526Draw&grade="+grade+"&number="+number,
+                url : "/cn/action.php?action=event20170526Draw&grade="+grade+"&number="+number,
                 success : function(json) {
                     var data=eval(json);var i = 0;
                     var w = '';
@@ -175,7 +175,7 @@
     function cancel(id) {
         $.ajax({
                 type : "get",crossDomain:true,
-                url : "http://localhost:8000/cn/action.php?action=event20170526Cancel&id="+id,
+                url : "/cn/action.php?action=event20170526Cancel&id="+id,
                 success : function(json) {
                 },
                 error : function() {
