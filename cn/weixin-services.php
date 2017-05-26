@@ -37,8 +37,8 @@ class wechatCallbackapiTest {
 			else {
 				if($this->checkUser($fromUsername))
 					$this->updateUser($fromUsername);
-				else
-					$this->subscribe($fromUsername,$postObj);
+				//else
+					//$this->subscribe($fromUsername,$postObj);
 			}
 			$textTpl = "<xml> <ToUserName><![CDATA[%s]]></ToUserName> <FromUserName><![CDATA[%s]]></FromUserName> <CreateTime>%s</CreateTime> <MsgType><![CDATA[%s]]></MsgType> <Content><![CDATA[%s]]></Content> </xml>";
 			if ($MsgType == 'event') {
@@ -49,6 +49,9 @@ class wechatCallbackapiTest {
 					$contentStr = $this->click($fromUsername,$postObj);
 				}
 				else if ($theevent == 'subscribe') {
+					$contentStr = "感谢您关注比利时利美珠宝首饰公司!" ;
+					$resultStr = sprintf ( $textTpl, $fromUsername, $toUsername, time(), "text", $contentStr );
+					echo $resultStr;
 					$contentStr = $this->subscribe($fromUsername,$postObj);
 				}
 				$resultStr = sprintf ( $textTpl, $fromUsername, $toUsername, time(), "text", $contentStr );
@@ -348,7 +351,7 @@ class wechatCallbackapiTest {
 			} else {
 				logger ( $sql . "\n" . mysql_errno () . ": " . mysql_error () . "\n" );
 			}
-			$contentStr = "感谢您关注比利时利美珠宝首饰公司!" . $feedbackwebpass;
+			$contentStr =  $feedbackwebpass;
 			if($referee=='1118')
 				$contentStr = $contentStr." \n您已扫描成功，获得Lumia利美钻石提供的150欧电子优惠卷，本次电子优惠扫码活动有效期截止到2月1日。持有效电子优惠卷的朋友可在2017年7月28日前购买Lumia指定产品，0.7克拉到0.79克拉时出示此优惠卷，即可享受立减优惠。";
 			if($referee=='8001')
