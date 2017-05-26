@@ -44,19 +44,22 @@ class wechatCallbackapiTest {
 			if ($MsgType == 'event') {
 				if ($theevent == 'SCAN'){
 					$contentStr = $this->scan($fromUsername,$postObj->EventKey);
+					$resultStr = sprintf ( $textTpl, $fromUsername, $toUsername, time(), "text", $contentStr );
+					logger ( $resultStr );
+					echo $resultStr;
 				}
 				else if ($theevent == 'CLICK') {
 					$contentStr = $this->click($fromUsername,$postObj);
+					$resultStr = sprintf ( $textTpl, $fromUsername, $toUsername, time(), "text", $contentStr );
+					logger ( $resultStr );
+					echo $resultStr;
 				}
 				else if ($theevent == 'subscribe') {
 					$contentStr = "感谢您关注比利时利美珠宝首饰公司!" ;
 					$resultStr = sprintf ( $textTpl, $fromUsername, $toUsername, time(), "text", $contentStr );
 					echo $resultStr;
-					$contentStr = $this->subscribe($fromUsername,$postObj);
+					$this->pushMsg($fromUsername, $this->subscribe($fromUsername,$postObj));
 				}
-				$resultStr = sprintf ( $textTpl, $fromUsername, $toUsername, time(), "text", $contentStr );
-				logger ( $resultStr );
-				echo $resultStr;
 				exit ();
 			}
 			else if ($MsgType == 'text') {
@@ -412,6 +415,33 @@ class wechatCallbackapiTest {
 		$result = sprintf ( $xmlTpl, $object->FromUserName, $object->ToUserName, time (), count ( $newsArray ) );
 		logger($result);
 		return $result;
+	}
+	
+	private function pushMsg($toUsername,$msg) {
+		require_once ('getaccesstoken.php');
+		$urltopost='https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token='.$theaccesstoken;
+		$data = '{
+			"touser":"'.$toUsername.'",
+			"msgtype":"text",
+			"text":
+			{
+				 "content":"'.$msg.'"
+			}
+		}';
+			
+		$ch = curl_init($urltopost);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		$result = curl_exec($ch);
+		logger($result);
+		$obj_reply = json_decode($result);
+		$reply_feedback=$obj_reply->{'errmsg'};
+		logger($reply_feedback);
 	}
 }
 
