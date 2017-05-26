@@ -241,7 +241,7 @@ class wechatCallbackapiTest {
 		$sex = '-';
 		$address = '-';
 		$usericon = '';
-		require_once ('getaccesstoken.php');
+		require('getaccesstoken.php');
 		$curl_ci = curl_init (); // client info
 		curl_setopt_array ( $curl_ci, array (
 				CURLOPT_RETURNTRANSFER => 1,
@@ -295,7 +295,7 @@ class wechatCallbackapiTest {
 			$suscribe_status = $theevent;
 			$usericon = '';
 			// here we get all the infos of the user
-			require_once ('getaccesstoken.php');
+			require('getaccesstoken.php');
 			$curl_ci = curl_init (); // client info Set some options - we are passing in a useragent too here
 			curl_setopt_array ( $curl_ci, array (
 					CURLOPT_RETURNTRANSFER => 1,
@@ -418,7 +418,8 @@ class wechatCallbackapiTest {
 	}
 	
 	private function pushMsg($toUsername,$msg) {
-		require_once ('getaccesstoken.php');
+		require ('getaccesstoken.php');
+		logger("accesstoken:".$theaccesstoken);
 		$urltopost='https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token='.$theaccesstoken;
 		$data = '{
 			"touser":"'.$toUsername.'",
