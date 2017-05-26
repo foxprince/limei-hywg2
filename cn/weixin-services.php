@@ -93,7 +93,7 @@ class wechatCallbackapiTest {
 			// ----- 2 save the user message to the database ----------------------------------#
 			// #################################################################################
 			if (isset ( $keyword )) {
-				logMsg($fromUsername,$postObj);
+				$this->logMsg($fromUsername,$postObj);
 			}
 			
 			// ################# END second of all, if it's not an event, save the message to the database message table END ##################################
