@@ -275,10 +275,13 @@ class wechatCallbackapiTest {
 	function unsubscribe($fromUsername) {
 		$conn = dbConnect ( 'write', 'pdo' );
 		$conn->query ( "SET NAMES 'utf8'" );
-		$sql = 'UPDATE clients_list SET suscribe_status = "unsubscribe",last_update_time=time() WHERE wechat_open_id = ?'; // $fromUsername
+		$sql = 'UPDATE clients_list SET suscribe_status = "unsubscribe",last_update_time=now() WHERE wechat_open_id = :wechat_open_id'; // $fromUsername
 		$stmt = $conn->prepare ( $sql );
-		$stmt->execute ( array ( $fromUsername ) );
-		return $stmt->rowCount ();
+		$stmt->execute(array(
+				'wechat_open_id'=> $fromUsername
+		));
+		logger("unsubscribe :".$stmt->rowCount ());
+		return ;
 	}
 	function subscribe($fromUsername,$postObj) {
 		//<EventKey><![CDATA[qrscene_8001]]></EventKey>
@@ -286,13 +289,16 @@ class wechatCallbackapiTest {
 		$conn->query ( "SET NAMES 'utf8'" );
 			$referee = substr ( $postObj->EventKey, 8 );
 			logger ( "referee" . $referee );
+			$more_info = '';
+			if($referee=='8001')
+				$more_info='20170526wenzhou';
 			$addwords = '';
 			$name = '-';
 			$address = '-';
 			$wechat_name = '-';
 			$sex = '-';
 			$address = '-';
-			$suscribe_status = $theevent;
+			$suscribe_status = 'suscribe';
 			$usericon = '';
 			// here we get all the infos of the user
 			require('getaccesstoken.php');
@@ -319,7 +325,7 @@ class wechatCallbackapiTest {
 			$website_username = '-';
 			$website_password = '-';
 			$feedbackwebpass = '';
-			$sql = 'INSERT INTO clients_list (wechat_open_id, wechat_name, website_username, website_password, name, sex, reference, address, subscribed_time, suscribe_status, icon,referee,more_info,last_update_time) VALUES("'.$fromUsername.'", "'.$wechat_name.'", "'.$website_username.'", "'.$website_password.'", "'.$name.'", "'.$sex.'", "'.$reference.'", "'.$address.'", NOW(), "'.$suscribe_status.'", "'.$usericon.'","'.$referee.'","20170526wenzhou",now())';
+			$sql = 'INSERT INTO clients_list (wechat_open_id, wechat_name, website_username, website_password, name, sex, reference, address, subscribed_time, suscribe_status, icon,referee,more_info,last_update_time) VALUES("'.$fromUsername.'", "'.$wechat_name.'", "'.$website_username.'", "'.$website_password.'", "'.$name.'", "'.$sex.'", "'.$reference.'", "'.$address.'", NOW(), "'.$suscribe_status.'", "'.$usericon.'","'.$referee.'","'.$more_info.'",now())';
 			$stmt = $conn->prepare ( $sql );
 // 			$stmt->bindParam ( ':wechat_open_id', $fromUsername, PDO::PARAM_STR );
 // 			$stmt->bindParam ( ':wechat_name', $wechat_name, PDO::PARAM_STR );
@@ -439,10 +445,9 @@ class wechatCallbackapiTest {
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		$result = curl_exec($ch);
-		logger($result);
+		logger("push result".$result);
 		$obj_reply = json_decode($result);
 		$reply_feedback=$obj_reply->{'errmsg'};
-		logger($reply_feedback);
 	}
 }
 
