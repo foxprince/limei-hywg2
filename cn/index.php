@@ -1,4 +1,5 @@
 <?php include_once('header.php');?>
+<meta name="baidu-site-verification" content="yCkRoevxFF" />
 <title>比利时钻石,安特卫普钻石 - 利美钻石</title>
 </head>
 <body>
