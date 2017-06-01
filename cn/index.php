@@ -13,9 +13,9 @@
   <div class="pic">
     <div class="pic_k">
       <ul>
-        <li><a href="javascript:;" bgurl="images/top1.jpg"><img src="images/top2s.jpg"></a></li>
-        <li><a href="javascript:;" bgurl="images/top2.jpg"><img src="images/top1s.jpg"></a></li>
-        <li><a href="javascript:;" bgurl="images/top3.jpg"><img src="images/top2s.jpg"></a></li>
+        <li><a href="javascript:;" bgurl="images/top1.jpg"><img src="images/top1s.jpg"></a></li>
+        <li><a href="javascript:;" bgurl="images/top2.jpg"><img src="images/top2s.jpg"></a></li>
+        <li><a href="javascript:;" bgurl="images/top3.jpg"><img src="images/top3s.jpg"></a></li>
       </ul>
     </div>
   </div>
@@ -38,10 +38,10 @@
       </div>
     </div>
       <div class="x-bot">
-          <a href="jewelry.php?from=index&category=recommend"><img src="images/ccs.png" class="on"></a>
-          <a href="jewelry.php?from=index&category=weddingRing"><img src="images/ccs.png"></a>
-          <a href="jewelry.php?from=index&category=idoRing"><img src="images/ccs.png"></a>
-          <a href="jewelry.php?from=index&category=ornament"><img src="images/ccs.png"></a>
+          <a href="jewelry.php?from=index&category=recommend"><img src="images/xltj.jpg" class="on"></a>
+          <a href="jewelry.php?from=index&category=weddingRing"><img src="images/xlzj.jpg"></a>
+          <a href="jewelry.php?from=index&category=idoRing"><img src="images/xldz.jpg"></a>
+          <a href="jewelry.php?from=index&category=ornament"><img src="images/xles.jpg"></a>
       </div>
   </div>
   
@@ -64,7 +64,7 @@
           <b class="wz">裸钻精品</b><br><br>
           利美是位于比利时安特卫普钻石交易所内，是AntwerpDiamond Club钻石交易所的注册会员，世界钻石交易所联合会的会员，同时也是上海钻交所的会员。从原石采购并自己进行组织加工，通过大宗采购来降低成本，这使得我们的销售价格甚至小于某些公司的成本价。 中国一些知名的珠宝品牌商也是我们的客户。</div>
         </div> 
-        <div class="about-right"><img src="images/xz2.png"></div>
+        <div class="about-right"><img src="images/whylumia.gif"></div>
        
       </div>
     </div> 

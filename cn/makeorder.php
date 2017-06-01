@@ -10,12 +10,12 @@
 <div class="col-xs-12 col-sm-12 col-md-9">
 <ul>
 <li class="box" >
-<a href="diamonds.php">
+<a href="dia.php">
 <img style="border:none; width:133px; border-radius:8px;" alt="选择裸钻" src="../images/site_elements/shopping_guide1.png" />
 </a>
 <ul>
-<li><a href="diamonds.php">按4C选择心仪的钻石</a></li>
-<li><a href="diamonds.php">记录钻石代号</a></li>
+<li><a href="dia.php">按4C选择心仪的钻石</a></li>
+<li><a href="dia.php">记录钻石代号</a></li>
 </ul>
 </li>
 <li class="box" >

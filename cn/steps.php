@@ -15,6 +15,6 @@
 				</div>
 			</div>
 </div></div>
-	<div class="div_down">
-		<div class="text-bottom"></div>
-   	</div>
+<div class="div_down">
+	<div class="text-bottom"></div>
+</div>
