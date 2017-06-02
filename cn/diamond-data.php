@@ -30,7 +30,9 @@ if(!isset($_POST['sorting'])){
 
 if($_POST || $_GET){include('nuke_magic_quotes.php');}
 $and='';
-
+$fancy = false;
+if($_POST['fancy'])
+	$fancy = true;
 if($_POST['shape']==''){
 	$query_shape='';
 }else{
@@ -209,6 +211,19 @@ if(isset($error[2])) exit($error[2]);
 $r=0;
 foreach($stmt as $row){
 	$r++;
+	if(strlen($row['color'])>1)
+		switch (substr($row['color'],-1)) {
+			case "Y" :
+				$fancyTxt = "黄";break;
+				case "P" :
+					$fancyTxt = "粉";break;
+					case "G" :
+						$fancyTxt = "绿";break;
+						case "R" :
+							$fancyTxt = "红";break;
+							case "B" :
+								$fancyTxt = "蓝";break;
+		}
 	switch ($row['shape']){
 		case "BR":
 			$pic_where="01.gif";
@@ -276,12 +291,17 @@ foreach($stmt as $row){
 				<div class="dia-piece-box">
                     <div class="1 generalinfobox">
                         <span class="valuetxt" id="<?php echo $row['id'];?>_carat"><?php echo number_format($row['carat'],2);?></span>
-                        <span class="shapedesc-box">
+                        <?php if($fancy){?>
+                        <span class="valuetxt" id="<?php echo $row['id'];?>_fancy"><?php echo $fancyTxt; ?></span>
+                        <?php }?>
+                        <span class="valuetxt shapedesc-box">
                           <img class="shapeicon" id="<?php echo $row['id'];?>_shapeicon" src="../images/site_elements/icons/<?php echo $pic_where; ?>" alt="<?php echo $shape_TXT; ?>"/>
                         </span>
                         <span class="valuetxt" id="<?php echo $row['id'];?>_color"> <?php echo $row['color']; ?> </span>
                         <span class="valuetxt" id="<?php echo $row['id'];?>_clarity"><?php echo $row['clarity']; ?></span>
+                        <?php if(!$fancy){?>
                         <span class="valuetxt" id="<?php echo $row['id'];?>_cut"><?php echo ($row['cut_grade']===NULL?"-":$row['cut_grade']); ?></span>
+                        <?php }?>
                         <span class="valuetxt" id="<?php echo $row['id'];?>_polish"><?php echo $row['polish']; ?></span>
                         <span class="valuetxt" id="<?php echo $row['id'];?>_symmetry"><?php echo $row['symmetry']; ?></span>
                         <span class="valuetxt" id="<?php echo $row['id'];?>_grading_lab"><?php echo $row['grading_lab']; ?></span>

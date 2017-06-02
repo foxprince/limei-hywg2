@@ -31,18 +31,15 @@
     <div class="x-cen">
       <div class="x-cenk">
         <ul>
-          <li class="on">推荐</li>
-          <li>钻戒</li>
-          <li>吊坠</li>
-          <li>耳饰</li>
+          <li href="jewelry.php?from=index&category=recommend" src="images/xltj.jpg"class="on">推荐</li>
+          <li href="jewelry.php?from=index&category=ring" src="images/xlzj.jpg">钻戒</li>
+          <li href="jewelry.php?from=index&category=necklace" src="images/xldz.jpg">吊坠</li>
+          <li href="jewelry.php?from=index&category=earring" src="images/xles.jpg">耳饰</li>
         </ul>
       </div>
     </div>
       <div class="x-bot">
-          <a href="jewelry.php?from=index&category=recommend"><img src="images/xltj.jpg" class="on"></a>
-          <a href="jewelry.php?from=index&category=weddingRing"><img src="images/xlzj.jpg"></a>
-          <a href="jewelry.php?from=index&category=idoRing"><img src="images/xldz.jpg"></a>
-          <a href="jewelry.php?from=index&category=ornament"><img src="images/xles.jpg"></a>
+          <a id="xilieLink" href="jewelry.php?from=index&category=recommend"><img id="xilieImg" src="images/xltj.jpg" class="on"></a>
       </div>
   </div>
   
@@ -186,10 +183,10 @@ foreach($conn->query($user_info) as $r_u){
         })
         $(".xilie .x-cenk li").click(function () {
             $(this).addClass("on").siblings().removeClass("on");
-            $(".xilie .x-bot img").removeClass("on");
-            $(".xilie .x-bot a").eq($(this).index()).find("img").addClass("on");
+            $('#xilieImg').fadeOut('slow').attr("src",$(this).attr("src")).fadeIn('slow');
+            $('#xilieLink').attr("href",$(this).attr("href"));
         })
-		  $(".pic .pic_k li a").click(function () {
+		 $(".pic .pic_k li a").click(function () {
 			  var bkgUrl=$(this).attr("bgurl");
             $(".datu").css("background-image","url("+bkgUrl+")");
         })
