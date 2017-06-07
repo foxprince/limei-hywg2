@@ -73,7 +73,7 @@
 						$the_page='article.php';
 						break;
 					default:
-					$the_page='brandstory.php';
+						$the_page='publicmedia.php';
 				}
 				include_once("$the_page");
 				?>

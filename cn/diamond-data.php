@@ -290,13 +290,13 @@ foreach($stmt as $row){
 	?>
 				<div class="dia-piece-box">
                     <div class="1 generalinfobox">
+                        <span class="valuetxt shapedesc-box">
+                          <img class="shapeicon" id="<?php echo $row['id'];?>_shapeicon" src="../images/site_elements/icons/<?php echo $pic_where; ?>" alt="<?php echo $shape_TXT; ?>"/>
+                        </span>
                         <span class="valuetxt" id="<?php echo $row['id'];?>_carat"><?php echo number_format($row['carat'],2);?></span>
                         <?php if($fancy){?>
                         <span class="valuetxt" id="<?php echo $row['id'];?>_fancy"><?php echo $fancyTxt; ?></span>
                         <?php }?>
-                        <span class="valuetxt shapedesc-box">
-                          <img class="shapeicon" id="<?php echo $row['id'];?>_shapeicon" src="../images/site_elements/icons/<?php echo $pic_where; ?>" alt="<?php echo $shape_TXT; ?>"/>
-                        </span>
                         <span class="valuetxt" id="<?php echo $row['id'];?>_color"> <?php echo $row['color']; ?> </span>
                         <span class="valuetxt" id="<?php echo $row['id'];?>_clarity"><?php echo $row['clarity']; ?></span>
                         <?php if(!$fancy){?>

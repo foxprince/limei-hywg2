@@ -1,18 +1,4 @@
-    
-<div class="div_down">
-    <div class="text-title"><span>钻石知识</span></div>
-    <div class="text-top">
-      <img class="ring" src="../images/ring.png">
-    </div>
-</div>
-   <div class="div_text">
-    <div class="text_in"> 
-
-
-<div  class="container-fluid">
-<div class="row ">
-
-<div class="col-xs-12 col-sm-12 col-md-9">
+<ul class="clear">
 <?php 
 $sql_count='SELECT COUNT(*) AS num_articles FROM usefulinfo WHERE category = "knowledge"';
 foreach($conn->query($sql_count) as $number){
@@ -37,14 +23,13 @@ $stmt=$conn->query($sql);
 ?>
 
 
-<ul class="news-box">
 <?php
 foreach($stmt as $row){
 ?>
 
 <li class="media_li">
-			<a href="about.php?p=article&ref=knowledge&id=<?php echo $row['id']; ?>">
 			<img style="width:160px;height:160px;" src="<?php echo $row['main_image_ch']; ?>"/> 
+			<a href="about.php?p=article&ref=knowledge&id=<?php echo $row['id']; ?>"><br/>
 			<span class="sp_short"><?php echo $row['title_ch']; ?></span>
 			</a>
 			</li>
@@ -74,11 +59,3 @@ if(isset($totalpages) && $totalpages>1){
 </li>
 
 </ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="div_down">
-		<div class="text-bottom"></div>
-   	</div>
