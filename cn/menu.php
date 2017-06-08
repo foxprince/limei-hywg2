@@ -28,7 +28,7 @@
 					<div class="div1" <?php if(strstr($_SERVER['REQUEST_URI'],'about.php?p=steps')||strstr($_SERVER['REQUEST_URI'],'about.php?p=makeorder')||strstr($_SERVER['REQUEST_URI'],'about.php?p=buyeasy')){ echo 'style="display:block;"';} ?>>
 						<ul class="ul_2">
 							<li class="li_2" style="position: relative;">
-								<a href="about.php?p=steps" class="a_menu2" <?php if(strstr($_SERVER['REQUEST_URI'],'about.php?p=steps')){ echo 'style="color:#b68168;"';} ?>>购买流程</a>
+								<a href="intro.php?c=order" class="a_menu2" <?php if(strstr($_SERVER['REQUEST_URI'],'about.php?p=steps')){ echo 'style="color:#b68168;"';} ?>>购买流程</a>
 							</li>
 							<li class="li_2" style="position: relative;">
 								<a href="about.php?p=makeorder" class="a_menu2" <?php if(strstr($_SERVER['REQUEST_URI'],'about.php?p=makeorder')){ echo 'style="color:#b68168;"';} ?>>如何下单</a>

@@ -36,9 +36,10 @@ foreach($stmt as $row){
 <?php
 }
 ?>
-
+</ul>
+<ul>
 <li class="pagesbtn">
-<?php
+第<?php
 if(isset($totalpages) && $totalpages>1){
 	
 	for($i=1; $i<=$totalpages; $i++){
@@ -55,7 +56,7 @@ if(isset($totalpages) && $totalpages>1){
 	<?php
 	}
 }
-?>
+?>页
 </li>
 
 </ul>
