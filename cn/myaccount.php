@@ -14,7 +14,7 @@ if(!isset($_SESSION['useraccount'])){
 <?php
 		include_once('header.php');
 	?>
-	<title>利美钻石 - 我的钻戒历史纪录</title>
+	<title>利美钻石 </title>
 	
 <?php
 $userid=$_SESSION['useraccount'];
@@ -142,7 +142,7 @@ if(isset($feedbackmessage)){
 
 <a class="btn" style="font-size:14px; display:inline-block; margin-left:25px; padding: 5px 12px; background-color:#eee; position:relative; top:-3px;" href="login.php?action=logout">退出登录</a>
 
-<?php
+<?php/*
 $userhistory='SELECT * FROM viewing_record WHERE viewer = "'.$userid.'" ORDER BY id DESC';
 $stmt_history=$conn->query($userhistory);
 $historyfound=$stmt_history->rowCount();
@@ -245,7 +245,7 @@ if($user_diamond_grading_lab=='HRD'){
 	}
 }else{
    echo '您尚未选购任何钻石';
-}
+}*/
 ?>
 	</div>
 	<div class="div_down">

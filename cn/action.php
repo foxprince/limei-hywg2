@@ -103,6 +103,34 @@ if($_REQUEST['action']) {
 			$conn->query($sql_delete);
 			echo "OK";
 			break;
+		case "appointmentMakeAll":
+			$name=$_POST['name'];
+			$email=$_POST['email'];
+			$tel=$_POST['tel'];
+			$userSql = "update clients_list set name=:name,email=:email,tel=:tel where id=:id";
+			$stmt=$conn->prepare($userSql);
+			$stmt->execute(array(
+					'name'=> $name,
+					'email'=> $email,
+					'tel'=> $tel,
+					'id'=> $userid
+			));
+			$OK=$stmt->rowCount();
+			$viewTime=$_POST['viewTime'];
+			$timeSql = "update viewing_record set view_time=:viewTime where viewer=:userid";
+			$stmt=$conn->prepare($timeSql);
+			$stmt->execute(array(
+					'viewTime'=> $viewTime,
+					'userid'=> $userid
+			));
+			$OK=$stmt->rowCount();
+			if($OK){
+				$feedbackwords='非常感谢您的预订。您的预约已经保存，我们会尽快联系您。';
+			}else{
+				$feedbackwords='非常抱歉，系统繁忙，请电话联系我们或发送电子邮件。谢谢！';
+			}
+			echo $feedbackwords;
+			break;
 		case "appointmentMake":
 			if($_REQUEST['type']=='dia'){
 				$diaId=$_REQUEST['appointmentId'];
@@ -136,10 +164,11 @@ if($_REQUEST['action']) {
 				}
 			
 				$sql_dia='SELECT * FROM diamonds WHERE id = '.$diaId;
+				logger($sql_dia);
 				$stmt_dia=$conn->query($sql_dia);
-				$dia_found=$stmt_dia->rowCount();
-				if($dia_found){
-					foreach($conn->query($sql_dia) as $r_d){
+				//$dia_found=$stmt_dia->rowCount();
+				//if($dia_found){
+					foreach($stmt_dia as $r_d){
 						$stock_ref=$r_d['stock_ref'];
 						$stock_num_rapnet=$r_d['stock_num_rapnet'];
 						$shape=$r_d['shape'];
@@ -165,7 +194,7 @@ if($_REQUEST['action']) {
 						$contact_tel=$r_d['contact_tel'];
 						$certificatelink=$r_d['certificatelink'];
 					}
-				}
+				//}
 				$jewellery_price=0;$thetotalprice=0;
 				$chosenby='USER';
 				$sql_view='INSERT INTO viewing_record (diamond, diamond_shape, diamond_color, diamond_clarity, diamond_carat, diamond_cut, diamond_symmetry, diamond_polish, diamond_fluo, diamond_price, jewellery_price, totalprice_in_currency, jewellery_id, viewer, view_time, chosenby) 

@@ -13,20 +13,18 @@
         <li><a href="dia.php"><span></span>裸钻</a></li>
         <li><a href="#community.php"><span></span>社区</a></li>
         <li><a href="aboutus.php"><span></span>联系我们</a></li>
-        <li>
         <?php
         if(!isset($_SESSION['useraccount'])){?>
-    	<a href="login.php"><span></span>加入LUMIA</a>
+    	<li><a href="login.php"><span></span>加入LUMIA</a></li>
+    	<li><a id="gwc" href="#shopcart.php"><span></span> <img id="gwcLogo" src="images/gwc.gif" > </a></li>
     	<?php }else{
     	$sql_ordernum='SELECT COUNT(*) AS myordernum FROM viewing_record WHERE viewer = "'.$_SESSION['useraccount'].'"';
 		foreach($conn->query($sql_ordernum) as $r_o_n){
 			$myordernum=$r_o_n['myordernum'];
 		}?>
-        <a href="myaccount.php"><span></span>我的钻戒(<?php echo $myordernum; ?>)</a>
+        <li><a href="myaccount.php"><span></span>加入LUMIA</a></li>
+    	<li><a id="gwc" href="shopcart.php"><img id="gwcLogo" src="images/gwc.gif" >(<?php echo $myordernum; ?>) </a></li>
     	<?php }?>
-        <li><a id="gwc" href="#shopcart.php"><span></span>
-        <img id="gwcLogo" src="images/gwc.gif" >
-        </a></li>
       </ul>
     </div>
   </div>
