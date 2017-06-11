@@ -85,7 +85,7 @@
 				<p>&nbsp;</p>
 				<p><a href="tel:+32(0)36897394"><img class="fa" src="images/icon-phone.png" alt="电话"/></a>：+32（0）3689 7394</p>
 				<p><a href="mailto:info@lumiagem.com"><img class="fa" src="images/icon-email.png" alt="邮箱"/></a>：info@lumiagem.com</p>
-				<p><img class="fa" src="./images/erweima.png" alt="微信"/>：请扫描右侧二维码</p>
+				<p><img class="fa" src="images/icon-wechat.png" alt="微信"/>：请扫描右侧二维码</p>
 				<p><a href="#" onclick="codeAddress('Pelikaanstraat 62,2018 Antwerp Belgium')"><img class="fa" src="images/icon-address.png" alt="地址"/></a>：Pelikaanstraat 62,2018 Antwerp Belgium(比利时安特卫普)</p>
 				</div>
 			</div>
