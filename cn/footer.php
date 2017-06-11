@@ -1,3 +1,4 @@
+<?php ob_end_flush();?>
 <footer>
   <div class="f-top">
     <div class="f-au">

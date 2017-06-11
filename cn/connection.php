@@ -61,8 +61,8 @@ function dbConnect($usertype='write', $connectionType = 'pdo') {
     			PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     			PDO::ATTR_STATEMENT_CLASS => array('MyPDOStatement', array()),
     	);
-    	//return new PDO("mysql:host=$host;dbname=$db", $user, $pwd, $options);
-    	return new PDO("mysql:host=$host;dbname=$db", $user, $pwd);
+    	return new PDO("mysql:host=$host;dbname=$db", $user, $pwd, $options);
+    	//return new PDO("mysql:host=$host;dbname=$db", $user, $pwd);
     } catch (PDOException $e) {
       echo $e;
       echo 'Cannot connect to database!';

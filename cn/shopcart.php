@@ -13,7 +13,7 @@
     <div class="l-top"><img src="images/yuyue_button.png"/></div>
     <div class="l-middle" >
         <div id="appointmentList"></div>
-        <div class="pro_pics" >
+        <div id="pro_pics"class="pro_pics" >
             <div class="add_pic" id="add_pic"><div class="fonts"><a href="dia.php">追加商品</a></div></div>
         </div>
     </div>
@@ -73,23 +73,39 @@ date.setHours (date.getHours () + 1)
 	$("#datetimepicker").val(date.toLocaleString ());
 	$('#datetimepicker').datetimepicker();
 	function appointment(id) {
-		//获得已经预约的钻石
+		if(Cookies.get('userId')===undefined){
+			alert("请登录之后到购物车之内复查您的预约并继续操作。");
+			window.location.href="login.php";
+		}
+		else {
+			$.ajax({
+				type : "post",
+				url : "action.php?action=appointmentMakeAll",
+				data: $('#appointmentForm').serialize(),
+				complete : function() {
+					// layer.close(page_layer);
+				},
+				success : function(json) {
+					$('#appointmentResult').html(json);
+					$('#appointmentBottom').html('');
+				},
+				error : function() {
+					alert('载入数据失败！');
+				}
+			});
+		}
+	}
+	function removeAppointment(item) {
 		$.ajax({
-			type : "post",
-			url : "action.php?action=appointmentMakeAll",
-			data: $('#appointmentForm').serialize(),
-			complete : function() {
-				// layer.close(page_layer);
-			},
+			type : "get",
+			url : "action.php?action=removeAppointment&id="+$(item).attr('id'),
 			success : function(json) {
-				$('#appointmentResult').html(json);
-			},
-			error : function() {
-				alert('载入数据失败！');
+				remove(item);
 			}
 		});
-		$('#diaId').val(id);
-		//popToggle();
+	}
+	function remove(item) {
+		$(item).parent().parent().parent().fadeOut();
 	}
 function popup(id) {
 	//获得已经预约的钻石
@@ -101,7 +117,8 @@ function popup(id) {
 		success : function(json) {
 			$("#appointmentList").html('');
 			var data=eval(json);
-			 $.each(data, function (n, j) {
+			var i = 0;
+			$.each(data, function (n, j) {
 			    var item ='<div class="pro_pics">';
 	            item +='<div class="pic_00"><img src="images/pic_01.png"/>';
 		        item +='    <div class="quxiao" >';
@@ -118,9 +135,12 @@ function popup(id) {
                 item += '<p>对称性：'+j.diamond_symmetry+'</p>';
                 item += '<p>证书：'+j.grading_lab+'</p>';
                 item += '<p>编号：'+j.stock_ref+'</p>';
-                item += '<p>价格：'+j.diamond_price+'欧元</p>';
+                item += '<p>价格：'+Math.round(j.diamond_price)+'欧元</p>';
                 item += '</div></div>';
+                i = i+1;
 				$("#appointmentList").prepend(item);
+				if(i==5)
+					$("#pro_pics").html("");
 			});
 		},
 		error : function() {

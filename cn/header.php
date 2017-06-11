@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 if(!isset($conn)){
 	require_once('connection.php');
@@ -26,4 +27,20 @@ require_once('log.php');
 	<link rel="stylesheet" type="text/css" href="./css/css.css">
 	<script type="text/javascript" src="./js/jquery.1.11.3.min.js"></script>
 	<script type="text/javascript" src="./js/text.js"></script>
-    
+	<script type="text/javascript" src="./js/js.cookie.js"></script>
+	<script>
+	// Generate four random hex digits.  
+	function S4() {  
+	   return (((1+Math.random())*0x10000)|0).toString(16).substring(1);  
+	};  
+	// Generate a pseudo-GUID by concatenating random hexadecimal.  
+	function guid() {  
+	   return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());  
+	};  
+    // set a cookie "id" to "12345"
+    // usage: ec.set(key, value)
+    if(Cookies.get('everUserId')===undefined) {
+    	Cookies.set("everUserId", guid(), { expires: 365,path: '/cn' }); 
+		console.log(Cookies.get('everUserId'));
+    }
+	</script>

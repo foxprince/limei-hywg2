@@ -315,20 +315,11 @@ foreach($stmt as $row){
                             <span>证书编号: <?php echo $row['certificate_number']; ?> &nbsp; &nbsp;<a class="certi_linker" target="_blank" href="<?php echo $certi_linker; ?>">查看证书</a></span>
                             <span id="<?php echo $row['id'];?>_stock_ref">编号: <?php echo $row['stock_ref']; ?></span>
                             <span class="price"><?php echo $morePrice ?></span>
-                            <?php if(!isset($_SESSION['useraccount'])){?>
-                            <span class="btnforprice" onclick="if(window.confirm('请登录后继续操作')){window.location.href='login.php';}">预约看钻</span>
-                            <?php }else{?>
                             <span class="btnforprice" onclick="popup('<?php echo $row['id']; ?>')">预约看钻</span>
-                            <?php }?>
                         </p>
                     </div><!-- end details -->
-					<?php
-					if(isset($row['recommend_words']) && $row['recommend_words']!=''){
-					?>
-					<p class="commentbox"><?php echo $row['recommend_words']; ?></p>
-					<?php
-					}
-					?>
+					<?php if(isset($row['recommend_words']) && $row['recommend_words']!=''){ ?>
+					<p class="commentbox"><?php echo $row['recommend_words']; ?></p> <?php } ?>
 				</div><!-- end dia-pice-box -->
 				<?php
 				}
