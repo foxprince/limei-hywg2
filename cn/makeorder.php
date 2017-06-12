@@ -35,7 +35,7 @@
 			<p>欢迎致电或添加我们的客服微信号咨询</p>
 			<p>微信号limeikefu或直接扫描二维码添加</p>
 			<div style="width:15%;display:inline-block;">
-		    		<img src="images/kefuqrcode-small.gif">
+		    		<img src="images/kefuqrcode.jpg" width="81" height="79">
 		    		</div>
 		    		<div style="width:20%;display:inline-block;">
 		    		<a href="callto://Belgem.antwerp"><img id="skype" src="images/skype.gif"></a>

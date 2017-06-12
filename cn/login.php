@@ -15,7 +15,6 @@ if($_REQUEST['action']) {
 	$action = $_REQUEST['action'];
 	if($action=='logout') {
 		$_SESSION['useraccount']=null;
-		setcookie("userId",null);
 		gheader('login.php');
 	}
 }

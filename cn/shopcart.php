@@ -48,7 +48,7 @@ foreach($conn->query($user_info) as $r_u){
     	</div>
     	<div class="contacticonsbox" style="width:100%;height:100%;text-align:center;position:relative; padding-left:0; margin-left:0; left:0;">
     		<div style="width:12%;display:inline-block;">
-    		<img src="images/kefuqrcode-small.gif">
+    		<img src="images/kefuqrcode.jpg" width="81" height="79">
     		</div>
     		<div style="width:20%;display:inline-block;">
     		<a href="callto://Belgem.antwerp"><img id="skype" src="images/skype.gif"></a>
@@ -134,6 +134,13 @@ function popup(id) {
                 item += '<p>抛光：'+j.diamond_polish+'</p>';
                 item += '<p>对称性：'+j.diamond_symmetry+'</p>';
                 item += '<p>证书：'+j.grading_lab+'</p>';
+                if(j.grading_lab=="HRD"){
+                	item += '<a class="certi_linker" target="_blank" href="http://www.hrdantwerplink.be/index.php?record_number='+j.certificate_number+'&weight=&L="><img id="gradinglabicon" src="../images/site_elements/HRD.png" /></a>';
+                }else if(j.grading_lab=='GIA'){
+                	item += '<a class="certi_linker" target="_blank" href="http://www.gia.edu/cs/Satellite?pagename=GST%2FDispatcher&childpagename=GIA%2FPage%2FReportCheck&c=Page&cid=1355954554547&reportno='+j.certificate_number+'"><img id="gradinglabicon" src="../images/site_elements/GIA.png" /></a>';
+                } else if(j.grading_lab=='IGI'){
+                	item += '<a class="certi_linker" target="_blank" href="http://www.igiworldwide.com/igi/verify.php?r='+j.certificate_number+'"><img id="gradinglabicon" src="../images/site_elements/IGI.png" /></a>';
+                }
                 item += '<p>编号：'+j.stock_ref+'</p>';
                 item += '<p>价格：'+Math.round(j.diamond_price)+'欧元</p>';
                 item += '</div></div>';

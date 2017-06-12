@@ -1,6 +1,6 @@
   <header>
     <div class="top">
-      <div class="t_cen"><img src="images/logo.png"></div>
+      <div class="t_cen"><img src="images/logo.png" width="152" height="59"></div>
     </div>
   </header>
 

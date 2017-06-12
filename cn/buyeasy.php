@@ -15,7 +15,7 @@
 			<div class="contacticonsbox" style="position:relative; padding-left:0; margin-left:0; left:0;">
 				<div  style="width:100%;height:100%;text-align:center;">
 		    		<div style="width:15%;display:inline-block;">
-		    		<img src="images/kefuqrcode-small.gif">
+		    		<img src="images/kefuqrcode.jpg" width="81" height="79">
 		    		</div>
 		    		<div style="width:20%;display:inline-block;">
 		    		<a href="callto://Belgem.antwerp"><img id="skype" src="images/skype.gif"></a>
