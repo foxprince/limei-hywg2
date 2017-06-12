@@ -47,18 +47,21 @@ foreach($conn->query($user_info) as $r_u){
 	        <input type="button" value="" id="sub_btn" onclick="appointment();"/>
     	</div>
     	<div class="contacticonsbox" style="width:100%;height:100%;text-align:center;position:relative; padding-left:0; margin-left:0; left:0;">
+    		<div  style="width:80%;height:100%;text-align:center;vertical-align:top;">
+    		<div style="width:1%;display:inline-block;vertical-align:top;font-size: 14px;">在线客服</div>
     		<div style="width:12%;display:inline-block;">
     		<img src="images/kefuqrcode.jpg" width="81" height="79">
     		</div>
-    		<div style="width:20%;display:inline-block;">
+    		<div style="width:20%;display:inline-block;vertical-align:top;">
     		<a href="callto://Belgem.antwerp"><img id="skype" src="images/skype.gif"></a>
 		    		<a href="tel:+32(0)36897394"><img id="phone" src="images/phone.gif"></a>
     		</div>
-    		<div style="width:33%;display:inline-block;">
+    		<div style="width:33%;display:inline-block;vertical-align:top;">
 		    	<p>在您选购钻石首饰的过程中如有疑问</p>
 		    	<p>欢迎致电或添加我们的客服微信号咨询</p>
 		    	<p>微信号limeikefu或直接扫描二维码添加</p>
 		   	</div>
+    		</div>
     	</div>
     	
     </div>
@@ -101,6 +104,7 @@ date.setHours (date.getHours () + 1)
 			url : "action.php?action=removeAppointment&id="+$(item).attr('id'),
 			success : function(json) {
 				remove(item);
+				$("#pro_pics").html('<div class="add_pic" id="add_pic"><div class="fonts"><a href="dia.php">追加商品</a></div></div>');
 			}
 		});
 	}

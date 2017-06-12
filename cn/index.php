@@ -48,8 +48,11 @@
   <section>
     <div class="about-k">
       <div class="about-bot">
-        <div class="about-left">
         <div class="about-title"><img src="images/xz.png"></div>
+        <div class="about-left">
+        
+          <img width="560" src="images/whylumia.gif">
+          <!--  
           <div class="about"><b class="wz">钻石源头</b><br>
 
           <br>利美钻石诞生于安特卫普，这座城市自1447年起便成为了世界钻石交易中心， 闻名于世。全球80%的钻石在这里切割，半数以上的钻石都在安特卫普交易。利美钻石品牌背后的是全球最出色的钻石供应商和钻石百年世家的传承的信念。
@@ -60,10 +63,9 @@
 
           <br><br>
           <b class="wz">裸钻精品</b><br><br>
-          利美是位于比利时安特卫普钻石交易所内，是AntwerpDiamond Club钻石交易所的注册会员，世界钻石交易所联合会的会员，同时也是上海钻交所的会员。从原石采购并自己进行组织加工，通过大宗采购来降低成本，这使得我们的销售价格甚至小于某些公司的成本价。 中国一些知名的珠宝品牌商也是我们的客户。</div>
-        </div> 
-        <div class="about-right"><img src="images/whylumia.gif"></div>
-       
+          利美是位于比利时安特卫普钻石交易所内，是AntwerpDiamond Club钻石交易所的注册会员，世界钻石交易所联合会的会员，同时也是上海钻交所的会员。从原石采购并自己进行组织加工，通过大宗采购来降低成本，这使得我们的销售价格甚至小于某些公司的成本价。 中国一些知名的珠宝品牌商也是我们的客户。</div>-->
+       	</div> 
+        <div class="about-right "><img src="images/why-01.jpg"><img src="images/why-02.jpg"><img src="images/why-03.jpg"></div>
       </div>
     </div> 
   </section>

@@ -82,6 +82,7 @@ section{width:1200px; height:640px; float:left;}
 /*.about-title{width:1050px; height:96px; float:left; padding-left:72px;}*/
 .about-bot{height:530px;}
 .about-right{width:580px; height:530px;float:right; }
+.about-right img{width:580px; height:200px;float:right; }
 .about-left{width:540px; height:530px; float:left; /*background:url(../images/jeihzi.png) no-repeat;*/}
 .about{/*width:476px;*/ float:left; height:490px; color:#494345; font-size:12px; line-height:18px;/* padding-top:40px;*/background: url(../images/about-bg.png) no-repeat 0 80px; background-size: contain;}
 .wz{font-size:16px; line-height:1.2;}
@@ -159,10 +160,11 @@ section{width:1200px; height:640px; float:left;}
 footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top: 30px;}
 .f-top{width:1200px; height:75px; margin:0 auto;}
 .f-au{width:874px; height:75px; margin:0 auto;}
+.f-au dl dt img{width:108px; height:106px; margin:0 auto;}
 .f-au dl{width:57px; height:75px; float:left; margin-left:33px; margin-right:33px;}
 .f-au dl a{display: inline-block; cursor: pointer;}
 .f-au dl dt{width:57px; height:57px; float:left;}
-.f-au dl dd{width:57px; height:28px; float:left; text-align:center; font-size:14px;}
+.f-au dl dd{width:57px; height:28px; float:left; text-align:center; font-size:14px;margin: 10px 12px;}
 .f-bot{width:1200px; height:106px; margin:0 auto; margin-top:22px;}
 .foot{width:870px; height:106px; margin:0 auto;}
 .f-left{height:106px; float:left;}
@@ -245,7 +247,7 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .sewv{position: relative;width: 100px;display: inline-block;vertical-align: middle;}
 .sewvtop{width:100%;height:23px;border:none; outline: none; cursor:pointer;border-radius: 2px;overflow: hidden; border:1px solid #fff;}
 .sewvtop>span{float:left;width:60%;height:23px;white-space:pre;text-overflow:ellipsis;overflow: hidden;font-size: 12px;line-height:22px;color: #666;vertical-align: middle;}
-.sewvtop>em{float:right;width: 20px;height: 20px;vertical-align: middle;}
+.sewvtop>img{width: 20px;height: 20px;vertical-align: middle;}
 .sewvbm{width: 60px;position: absolute;right: 0;top: 25px;display: none;border: 1px #D9D9D9 solid;border-radius: 2px; background: #fff;box-shadow: 0 0 6px #f9b5b2; z-index: 99;}
 .sewvbm>li{cursor:pointer;width:56px;height:20px;line-height:20px;font-size: 12px;color: #666;padding-left:5px;}
 .sewvbm>li:hover{background: #f9b5b2;color: #fff;}
@@ -312,10 +314,10 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .share li{float: left; margin-right: 6px;}
 
 /*预约登陆弹出层*/
-.layout{margin: auto;width:900px;min-height:680px;background-color: #fff;border: 1px solid #eceaea; }
+.layout{margin: auto;width:900px;min-height:740px;background-color: #fff;border: 1px solid #eceaea; }
 .l-close{text-align: right;margin: 13px 13px -1px;}
 .l-top{margin: 20px auto 20px auto;width: 61px;height: 18px;}
-.l-middle{margin: 28px 0px 10px 35px;border:0px solid #00f;height: 390px;clear: both;}
+.l-middle{margin: 28px 0px 20px 35px;border:0px solid #00f;height: 390px;clear: both;}
 
 .l-middle .pro_pics{margin-right:35px;margin-bottom:30px;float:left;height:122px;}
 .l-middle .pro_pics .pic_00{position: relative;}
