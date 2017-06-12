@@ -160,11 +160,11 @@ section{width:1200px; height:640px; float:left;}
 footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top: 30px;}
 .f-top{width:1200px; height:75px; margin:0 auto;}
 .f-au{width:874px; height:75px; margin:0 auto;}
-.f-au dl dt img{width:108px; height:106px; margin:0 auto;}
+/*.f-au dl dt img{width:108px; height:106px; margin:0 auto;}*/
 .f-au dl{width:57px; height:75px; float:left; margin-left:33px; margin-right:33px;}
 .f-au dl a{display: inline-block; cursor: pointer;}
 .f-au dl dt{width:57px; height:57px; float:left;}
-.f-au dl dd{width:57px; height:28px; float:left; text-align:center; font-size:14px;margin: 10px 12px;}
+.f-au dl dd{width:57px; height:28px; float:left; text-align:center; font-size:14px;/*margin: 10px 12px;*/}
 .f-bot{width:1200px; height:106px; margin:0 auto; margin-top:22px;}
 .foot{width:870px; height:106px; margin:0 auto;}
 .f-left{height:106px; float:left;}
