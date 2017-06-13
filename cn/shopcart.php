@@ -141,12 +141,13 @@ function popup(id) {
                 item += '<p>编号：'+j.stock_ref+'</p>';
                 item += '<p>价格：'+Math.round(j.diamond_price)+'欧元</p>';
                 if(j.grading_lab=="HRD"){
-                	item += '<a class="certi_linker" target="_blank" href="http://www.hrdantwerplink.be/index.php?record_number='+j.certificate_number+'&weight=&L="><img id="gradinglabicon" src="../images/site_elements/HRD.png" /></a>';
+                	item += '<a class="certi_linker" target="_blank" href="http://www.hrdantwerplink.be/index.php?record_number='+j.certificate_number+'&weight=&L="><img id="gradinglabicon" src="./images/hrd.gif" /></a>';
                 }else if(j.grading_lab=='GIA'){
-                	item += '<a class="certi_linker" target="_blank" href="http://www.gia.edu/cs/Satellite?pagename=GST%2FDispatcher&childpagename=GIA%2FPage%2FReportCheck&c=Page&cid=1355954554547&reportno='+j.certificate_number+'"><img id="gradinglabicon" src="../images/site_elements/GIA.png" /></a>';
+                	item += '<a class="certi_linker" target="_blank" href="http://www.gia.edu/cs/Satellite?pagename=GST%2FDispatcher&childpagename=GIA%2FPage%2FReportCheck&c=Page&cid=1355954554547&reportno='+j.certificate_number+'"><img id="gradinglabicon" src="./images/gia.gif" /></a>';
                 } else if(j.grading_lab=='IGI'){
-                	item += '<a class="certi_linker" target="_blank" href="http://www.igiworldwide.com/igi/verify.php?r='+j.certificate_number+'"><img id="gradinglabicon" src="../images/site_elements/IGI.png" /></a>';
+                	item += '<a class="certi_linker" target="_blank" href="http://www.igiworldwide.com/igi/verify.php?r='+j.certificate_number+'"><img id="gradinglabicon" src="./images/igi.gif" /></a>';
                 }
+                item += '<p>点击查看证书</p>';
                 item += '</div></div>';
                 i = i+1;
 				$("#appointmentList").prepend(item);
