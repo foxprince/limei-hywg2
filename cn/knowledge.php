@@ -44,7 +44,7 @@ if(isset($totalpages) && $totalpages>1){
 	
 	for($i=1; $i<=$totalpages; $i++){
 	?>
-	<a class="articlepagelinker" href="about.php?p=knowledge&n=<?php echo $i; ?>">
+	<a class="articlepagelinker" style="display: inline;" href="about.php?p=knowledge&n=<?php echo $i; ?>">
 	<?php 
 	if($crr_page==$i){
 		echo '<span style="font-weight:bold; font-size:16px;">'.$i.'</span>'; 
