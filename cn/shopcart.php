@@ -138,6 +138,8 @@ function popup(id) {
                 item += '<p>抛光：'+j.diamond_polish+'</p>';
                 item += '<p>对称性：'+j.diamond_symmetry+'</p>';
                 item += '<p>证书：'+j.grading_lab+'</p>';
+                item += '<p>编号：'+j.stock_ref+'</p>';
+                item += '<p>价格：'+Math.round(j.diamond_price)+'欧元</p>';
                 if(j.grading_lab=="HRD"){
                 	item += '<a class="certi_linker" target="_blank" href="http://www.hrdantwerplink.be/index.php?record_number='+j.certificate_number+'&weight=&L="><img id="gradinglabicon" src="../images/site_elements/HRD.png" /></a>';
                 }else if(j.grading_lab=='GIA'){
@@ -145,8 +147,6 @@ function popup(id) {
                 } else if(j.grading_lab=='IGI'){
                 	item += '<a class="certi_linker" target="_blank" href="http://www.igiworldwide.com/igi/verify.php?r='+j.certificate_number+'"><img id="gradinglabicon" src="../images/site_elements/IGI.png" /></a>';
                 }
-                item += '<p>编号：'+j.stock_ref+'</p>';
-                item += '<p>价格：'+Math.round(j.diamond_price)+'欧元</p>';
                 item += '</div></div>';
                 i = i+1;
 				$("#appointmentList").prepend(item);
