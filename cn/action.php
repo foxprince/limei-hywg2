@@ -111,6 +111,10 @@ if($_REQUEST['action']) {
 			echo "OK";
 			break;
 		case "appointmentMakeAll":
+			if(!isset($_SESSION['useraccount'])){
+				echo '请<a href="login.php">登录</a>之后到购物车之内复查您的预约并继续操作。';
+				return;
+			}
 			$name=$_POST['name'];
 			$email=$_POST['email'];
 			$tel=$_POST['tel'];
