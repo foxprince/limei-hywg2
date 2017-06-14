@@ -163,6 +163,8 @@ function popup(id) {
 </script>
 <script>
 $(function () {
+	$("#skype").hover(function(){ $("#skype").attr("src","images/skype_on.gif"); },function(){ $("#skype").attr("src","images/skype.gif"); });
+	$("#phone").hover(function(){ $("#phone").attr("src","images/phone_on.gif"); },function(){ $("#phone").attr("src","images/phone.gif"); });
 	popup();
 });
 </script>
