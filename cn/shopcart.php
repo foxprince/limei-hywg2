@@ -70,7 +70,6 @@ foreach($conn->query($user_info) as $r_u){
 	</div>
 </div>
 <script>
-popup();
 var date = new Date ();
 date.setHours (date.getHours () + 1)
 	$("#datetimepicker").val(date.toLocaleString ());
@@ -161,6 +160,11 @@ function popup(id) {
 		}
 	});
 }
+</script>
+<script>
+$(function () {
+	popup();
+});
 </script>
 <?php include_once('footer.php');?>
 </body>
