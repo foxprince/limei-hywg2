@@ -27,7 +27,7 @@
     		$myordernum=$r_o_n['myordernum'];
     	}?>
         <li><a href="myaccount.php"><span></span>加入LUMIA</a></li>
-    	<li><a id="gwc" href="shopcart.php"><img id="gwcLogo" src="images/gwc.gif" >(<?php echo $myordernum; ?>) </a></li>
+    	<li><a id="gwc" href="shopcart.php"><img id="gwcLogo" src="images/gwc.gif" >(<b id="gwcTotal"><?php echo $myordernum; ?></b>) </a></li>
     	<?php }?>
       </ul>
     </div>

@@ -104,6 +104,7 @@ date.setHours (date.getHours () + 1)
 			url : "action.php?action=removeAppointment&id="+$(item).attr('id'),
 			success : function(json) {
 				remove(item);
+				$("#gwcTotal").text($("#gwcTotal").text()-1);
 				$("#pro_pics").html('<div class="add_pic" id="add_pic"><div class="fonts"><a href="dia.php">追加商品</a></div></div>');
 			}
 		});
