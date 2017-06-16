@@ -204,7 +204,6 @@ if($_REQUEST['action']) {
 			}
 			
 			$sql_dia='SELECT * FROM diamonds WHERE id = '.$_REQUEST['appointmentId'];;
-			logger($sql_dia);
 			$stmt_dia=$conn->query($sql_dia);
 			foreach($stmt_dia as $r_d){
 				$stock_ref=$r_d['stock_ref'];
