@@ -1,6 +1,4 @@
-
 <?php
-session_start();
 include_once 'log.php';
 if(!isset($conn)){
 	require_once('connection.php');
