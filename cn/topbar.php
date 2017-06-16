@@ -15,7 +15,7 @@
         <li><a href="aboutus.php"><span></span>联系我们</a></li>
         <?php
         if (!isset($_COOKIE["userId"])){
-        	$sql_ordernum='SELECT COUNT(*) AS myordernum FROM viewing_record WHERE viewer = "'.$_COOKIE["everUserId"].'"';
+        	$sql_ordernum='SELECT COUNT(*) AS myordernum FROM viewing_record WHERE viewer = "'.$_COOKIE["everUserId"].'" and diamond in (select id from diamonds)';
         	logger($sql_ordernum);
         	foreach($conn->query($sql_ordernum) as $r_o_n){
         		$myordernum=$r_o_n['myordernum'];
@@ -23,7 +23,7 @@
     	<li><a href="login.php"><span></span>加入LUMIA</a></li>
     	<li><a id="gwc" href="shopcart.php"><span></span> <img id="gwcLogo" src="images/gwc.gif" >(<?php echo $myordernum; ?>)  </a></li>
     	<?php }else{
-    	$sql_ordernum='SELECT COUNT(*) AS myordernum FROM viewing_record WHERE viewer = "'.$_COOKIE["userId"].'"';
+    	$sql_ordernum='SELECT COUNT(*) AS myordernum FROM viewing_record WHERE viewer = "'.$_COOKIE["userId"].'"  and diamond in (select id from diamonds)';
     	logger($sql_ordernum);
     	foreach($conn->query($sql_ordernum) as $r_o_n){
     		$myordernum=$r_o_n['myordernum'];
