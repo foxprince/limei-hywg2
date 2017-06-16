@@ -83,10 +83,10 @@
 				<p>无论现场咨询还是提货，Lumia钻石公司都欢迎您的亲临访问。</p>
 				<div style="width: 162px;">
 				<p>&nbsp;</p>
-				<p><a href="tel:+32(0)36897394"><img class="fa" src="images/icon-phone.png" alt="电话"/></a>：+32（0）3689 7394</p>
-				<p><a href="mailto:info@lumiagem.com"><img class="fa" src="images/icon-email.png" alt="邮箱"/></a>：info@lumiagem.com</p>
+				<p><a href="tel:+32(0)36897394"><img class="fa" src="images/icon-phone.png" alt="电话"/>：+32（0）3689 7394</a></p>
+				<p><a href="mailto:info@lumiagem.com"><img class="fa" src="images/icon-email.png" alt="邮箱"/>：info@lumiagem.com</a></p>
 				<p><img class="fa" src="images/icon-wechat.png" alt="微信"/>：请扫描右侧二维码</p>
-				<p><a href="#" onclick="codeAddress('Pelikaanstraat 62,2018 Antwerp Belgium')"><img class="fa" src="images/icon-address.png" alt="地址"/></a>：Pelikaanstraat 62,2018 Antwerp Belgium(比利时安特卫普)</p>
+				<p><a href="#" onclick="codeAddress('Pelikaanstraat 62,2018 Antwerp Belgium')"><img class="fa" src="images/icon-address.png" alt="地址"/>：Pelikaanstraat 62,2018 Antwerp Belgium(比利时安特卫普)</a></p>
 				</div>
 			</div>
 			<div class="aboutus_weixin"></div>
