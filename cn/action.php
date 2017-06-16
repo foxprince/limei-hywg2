@@ -171,7 +171,7 @@ if($_REQUEST['action']) {
 				$appointmentOwner = $_COOKIE["userId"];
 			else
 				$appointmentOwner = $_COOKIE["everUserId"];
-			$sql_dia='SELECT count(*) as t FROM viewing_record WHERE viewer="'.$appointmentOwner.'"';
+			$sql_dia='SELECT count(*) as t FROM viewing_record WHERE viewer="'.$appointmentOwner.'"  and diamond in (select id from diamonds)';
 			foreach($conn->query($sql_dia) as $r_r){
 				$t=$r_r['t'];
 			}
