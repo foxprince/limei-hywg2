@@ -282,11 +282,11 @@ foreach($stmt as $row){
 		}
 	}
 	if(trim($row["grading_lab"])=='HRD')
-		$certi_linker="http://www.hrdantwerplink.be/index.php?record_number="+ $row['certificate_number']+"&weight="+$row['carat']+"&L=";
+		$certi_linker="http://www.hrdantwerplink.be/index.php?record_number=". $row['certificate_number']."&weight=".$row['carat']."&L=";
 	else if(trim($row["grading_lab"])=='GIA')
-		$certi_linker="http://www.gia.edu/cs/Satellite?pagename=GST%2FDispatcher&childpagename=GIA%2FPage%2FReportCheck&c=Page&cid=1355954554547&reportno="+$row['certificate_number'];
+		$certi_linker="http://www.gia.edu/cs/Satellite?pagename=GST%2FDispatcher&childpagename=GIA%2FPage%2FReportCheck&c=Page&cid=1355954554547&reportno=".$row['certificate_number'];
 	else if(trim($row["grading_lab"])=='IGI')
-		$certi_linker="http://www.igiworldwide.com/igi/verify.php?r="+$row['certificate_number'];
+		$certi_linker="http://www.igiworldwide.com/igi/verify.php?r=".$row['certificate_number'];
 	?>
 				<div class="dia-piece-box">
                     <div class="1 generalinfobox">

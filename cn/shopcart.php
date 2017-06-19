@@ -3,6 +3,9 @@
 </head>
 <link rel="stylesheet" type="text/css"  href="./css/jquery.datetimepicker.css">
 <script type="text/javascript" src="./js/jquery.datetimepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css">
+<script type="text/javascript" src="js/jquery.fancybox.min.js"></script>
+    
 <script>
 var date = new Date ();
 date.setHours (date.getHours () + 1)
@@ -75,11 +78,11 @@ function popup(id) {
                 item += '<p>编号：'+j.stock_ref+'</p>';
                 item += '<p>价格：'+Math.round(j.diamond_price)+'欧元</p>';
                 if(j.grading_lab=="HRD"){
-                	item += '<a class="certi_linker" target="_blank" href="http://www.hrdantwerplink.be/index.php?record_number='+j.certificate_number+'&weight=&L="><img id="gradinglabicon" src="./images/HRD.png" width="98" height="37" /></a>';
+                	item += '<a class="certi_linker" href="javascript:;" data-fancybox data-src="http://www.hrdantwerplink.be/index.php?record_number='+j.certificate_number+'&weight=&L="><img id="gradinglabicon" src="./images/HRD.png" width="98" height="37" /></a>';
                 }else if(j.grading_lab=='GIA'){
-                	item += '<a class="certi_linker" target="_blank" href="http://www.gia.edu/cs/Satellite?pagename=GST%2FDispatcher&childpagename=GIA%2FPage%2FReportCheck&c=Page&cid=1355954554547&reportno='+j.certificate_number+'"><img id="gradinglabicon" src="./images/GIA.png" width="98" height="37"/></a>';
+                	item += '<a class="certi_linker" href="javascript:;" data-fancybox data-src="http://www.gia.edu/cs/Satellite?pagename=GST%2FDispatcher&childpagename=GIA%2FPage%2FReportCheck&c=Page&cid=1355954554547&reportno='+j.certificate_number+'"><img id="gradinglabicon" src="./images/GIA.png" width="98" height="37"/></a>';
                 } else if(j.grading_lab=='IGI'){
-                	item += '<a class="certi_linker" target="_blank" href="http://www.igiworldwide.com/igi/verify.php?r='+j.certificate_number+'"><img id="gradinglabicon" src="./images/IGI.png" width="98" height="37"/></a>';
+                	item += '<a class="certi_linker" href="javascript:;" data-fancybox data-src="http://www.igiworldwide.com/igi/verify.php?r='+j.certificate_number+'"><img id="gradinglabicon" src="./images/IGI.png" width="98" height="37"/></a>';
                 }
                 item += '<p>点击查看证书</p>';
                 item += '</div></div>';
@@ -97,6 +100,25 @@ function popup(id) {
 </script>
 <script>
 $(function () {
+	$("[data-fancybox]").fancybox({
+		iframe : {
+			tpl : '<iframe id="fancybox-frame{rnd}" name="fancybox-frame{rnd}" class="fancybox-iframe" frameborder="0" vspace="0" hspace="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen allowtransparency="true" src=""></iframe>',
+			// Preload iframe before displaying it
+			// This allows to calculate iframe content width and height
+			// (note: Due to "Same Origin Policy", you can't get cross domain data).
+			preload : true,
+			// Scrolling attribute for iframe tag
+			scrolling : 'yes',
+			// Custom CSS styling for iframe wrapping element
+			css : {}
+		},
+		beforeLoad: function(){
+		 $("body").css({"overflow-y":"hidden"});
+		},
+		afterClose: function(){
+		 $("body").css({"overflow-y":"visible"});
+		}
+	});
 	$("#skype").hover(function(){ $("#skype").attr("src","images/skype_on.gif"); },function(){ $("#skype").attr("src","images/skype.gif"); });
 	$("#phone").hover(function(){ $("#phone").attr("src","images/phone_on.gif"); },function(){ $("#phone").attr("src","images/phone.gif"); });
 });
