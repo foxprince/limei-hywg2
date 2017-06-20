@@ -2,13 +2,13 @@
 <footer>
   <div class="f-top">
     <div class="f-au">
-      <dl><a href="intro.php?c=gia"><dt><img src="images/footico.png" ></dt><dd>权威认证</dd></a></dl>
-      <dl><a href="intro.php?c=hrd"><dt><img src="images/footico2.png"></dt><dd>权威认证</dd></a></dl>
-      <dl><a href="intro.php?c=igi"><dt><img src="images/footico3.png"></dt><dd>权威认证</dd></a></dl>
-      <dl><a href="intro.php?c=maintain"><dt><img src="images/footico4.png"></dt><dd>终生保养</dd></a></dl>
-      <dl><a href="intro.php?c=route"><dt><img src="images/footico5.png"></dt><dd>交通指示</dd></a></dl>
-      <dl><a href="intro.php?c=tochina"><dt><img src="images/footico6.png"></dt><dd>直邮中国</dd></a></dl>
-      <dl><a href="intro.php?c=order"><dt><img src="images/footico7.png"></dt><dd>预约购买</dd></a></dl>
+      <dl><a href="intro.php?c=gia"><dt><img width="57" src="images/footer-01.png" ></dt><dd>权威认证</dd></a></dl>
+      <dl><a href="intro.php?c=hrd"><dt><img width="57" src="images/footer-02.png"></dt><dd>权威认证</dd></a></dl>
+      <dl><a href="intro.php?c=igi"><dt><img width="57" src="images/footer-03.png"></dt><dd>权威认证</dd></a></dl>
+      <dl><a href="intro.php?c=maintain"><dt><img width="57" src="images/footer-04.png"></dt><dd>终生保养</dd></a></dl>
+      <dl><a href="intro.php?c=route"><dt><img width="57" src="images/footer-05.png"></dt><dd>交通指示</dd></a></dl>
+      <dl><a href="intro.php?c=tochina"><dt><img width="57" src="images/footer-06.png"></dt><dd>直邮中国</dd></a></dl>
+      <dl><a href="intro.php?c=order"><dt><img width="57" src="images/footer-07.png"></dt><dd>预约购买</dd></a></dl>
     </div>
   </div>
   <div class="f-bot">
@@ -27,7 +27,7 @@
           <p>更多钻石请看这里:<a href="about.php?p=knowledge">钻石知识</a></p>
         </div>
       </div>
-      <div class="f-right"><img src="images/footerwe.png"></div>
+      <div class="f-right"><img width="57" src="images/footerwe.png"></div>
     </div>
   </div>
 </footer>

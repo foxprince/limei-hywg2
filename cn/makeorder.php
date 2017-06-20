@@ -34,15 +34,15 @@
 		    		<p>在您选购钻石首饰的过程中如有疑问</p>
 			<p>欢迎致电或添加我们的客服微信号咨询</p>
 			<p>微信号limeikefu或直接扫描二维码添加</p>
-			<div style="width:15%;display:inline-block;">
+					<div style="width:20%;display:inline-block;">
+		    		<img id="kefu" src="images/kefu.gif">
+		    		</div>
+		    		<div style="width:15%;display:inline-block;">
 		    		<img src="images/kefuqrcode.jpg" width="81" height="79">
 		    		</div>
 		    		<div style="width:20%;display:inline-block;">
 		    		<a href="callto://Belgem.antwerp"><img id="skype" src="images/skype.gif"></a>
 		    		<a href="tel:+32(0)36897394"><img id="phone" src="images/phone.gif"></a>
-		    		</div>
-		    		<div style="width:20%;display:inline-block;">
-		    		<img id="kefu" src="images/kefu.gif">
 		    		</div>
 		    		
 		    	</div>

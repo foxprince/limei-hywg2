@@ -105,6 +105,12 @@ section{width:1200px; height:640px; float:left;}
 .erweima p{font-size:14px}
 .bodycontent{text-align:right;width:100%;margin: 0 auto;}
 
+.account-right{margin:10px 180px 10px 10px;width:408px; height:700px;float:right; }
+.account-top{width:407px; height:310px;margin-bottom:-155px;background:url(../images/text-top.png) no-repeat scroll; background-size:contain;}
+.account-bottom{width:407px; height:310px;margin-top:-155px;background:url(../images/text-bottom.png) no-repeat scroll; background-size:contain;}
+.account-left{margin:10px 10px 10px 180px;width:408px; height:700px; float:left; }
+.account{text-align:center;height:490px; color:#494345; font-size:14px; line-height:18px;/* padding-top:40px;*/}
+.account-text { width: 88%; margin: 10px 18px 15px auto; position: relative; z-index: 99; }
 
 .tuijian{width:1200px; height:835px; float:left; margin-top:110px; }
 .t-top{width:1200px; float:left; text-align:center; margin-bottom:10px; font-size: 30px;}

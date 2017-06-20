@@ -103,159 +103,34 @@ p.feedbackmessage, p.errormessage{
 </style>
 </head>
 
-
 <body>
-<div class="zhuti clear">
-	<?php
-		include_once('topbar.php');
-	?>
-<div class="contain clear">
-				<div class="div_down" >
-                    <div class="text-title" style="left:34%;">
-                        <span>
-                            我的账户
-                        </span>
-                    </div>
-                    <div class="text-top" style="left:14%;">
-                        <img class="ring" src="../images/ring.png"></img>
-                    </div>
-                </div>
-                <div class="div_text">
-
-<?php
-if(isset($errormessage)){
-?>
-<p class="errormessage"><?php echo $errormessage; ?></p>
-<?php
-}
-?>
-
-<?php
-if(isset($feedbackmessage)){
-?>
-<p class="feedbackmessage"><?php echo $feedbackmessage; ?></p>
-<?php
-}
-?>
-
-<a style="font-size:14px; display:inline-block; margin-left:25px; padding: 5px 12px; background-color:#eee; position:relative; top:-3px;" href="manageaccount.php">修改用户名密码</a>
-
-<a class="btn" style="font-size:14px; display:inline-block; margin-left:25px; padding: 5px 12px; background-color:#eee; position:relative; top:-3px;" href="login.php?action=logout">退出登录</a>
-
-<?php/*
-$userhistory='SELECT * FROM viewing_record WHERE viewer = "'.$userid.'" ORDER BY id DESC';
-$stmt_history=$conn->query($userhistory);
-$historyfound=$stmt_history->rowCount();
-if($historyfound){
-	foreach($stmt_history as $row_history){
-		$user_diamond = $row_history['diamond'];
-		$user_jewellery_price = $row_history['jewellery_price'];
-		$user_jewellery_id = $row_history['jewellery_id'];
-		$user_view_time = $row_history['view_time'];
-		$totalprice=$row_history['totalprice_in_currency'];
-		$sql_dia='SELECT * FROM diamonds WHERE id = '.$user_diamond;
-		foreach($conn->query($sql_dia) as $r_d){
-			$user_diamond_shape = $r_d['shape'];
-			$user_diamond_color = $r_d['color'];
-			$user_diamond_clarity = $r_d['clarity'];
-			$user_diamond_carat = $r_d['carat'];
-			$user_diamond_cut = $r_d['cut_grade'];
-			$user_diamond_symmetry = $r_d['symmetry'];
-			$user_diamond_polish = $r_d['polish'];
-			$user_diamond_fluo = $r_d['fluorescence_intensity'];
-			$user_diamond_price = $r_d['retail_price'];
-			$user_diamond_grading_lab=$r_d['grading_lab'];
-			$user_diamond_certificate_number=$r_d['certificate_number'];
-		}
-		
-		$demopiclink='./img-eles/goodprice.png';
-		
-		if($user_jewellery_id!='' && $user_jewellery_id!=NULL && $user_jewellery_id!=0){
-			$sql_ring='SELECT * FROM jewelry WHERE id = '.$user_jewellery_id;
-			foreach($conn->query($sql_ring) as $r_r){
-				$user_ring_name_ch=$r_r['name_ch'];
-				$user_ring_image1=$r_r['image1'];
-			}
-			$demopiclink='../images/sitepictures/'.$user_ring_image1;
-		}
-		
-?>
-<div class="history-choice">
-
-<img src="<?php echo $demopiclink; ?>" class="demo-pic" />
-
-
-
-
-
-<div class="dia-para-box">
-<?php
-if(isset($user_ring_name_ch)){
-?>
-<h3><?php echo $user_ring_name_ch; ?></h3>
-<p class="totalpricebox">总价格：<?php echo $totalprice; ?></p>
-<?php
-}else{
-?>
-<h3>裸钻</h3>
-<?php
-}
-?>
-
-<h3>钻石参数：</h3>
-<p class="dia-para"><label class="dia-label">克拉:</label><?php echo $user_diamond_carat; ?>克拉</p>
-<p class="dia-para"><label class="dia-label">颜色:</label><?php echo $user_diamond_color; ?></p>
-<p class="dia-para"><label class="dia-label">净度:</label><?php echo $user_diamond_clarity; ?></p>
-<p class="dia-para"><label class="dia-label">切工:</label>切割：<?php echo $user_diamond_cut; ?> | 抛光：<?php echo $user_diamond_polish; ?> | 对称性：<?php echo $user_diamond_symmetry; ?></p>
-<p class="dia-para"><label class="dia-label">荧光:</label><?php  echo $user_diamond_fluo; ?></p>
-<p class="dia-para"><label class="dia-label">出品地:</label>比利时 安特卫普</p>
-<p class="dia-para"><label class="dia-label">证书编号:</label><?php echo $user_diamond_certificate_number; ?></p>
-<p class="dia-para"><label class="dia-label">价格:</label><?php echo $user_diamond_price; ?> 美元</p>
-<p class="dia-para"><label class="dia-label">查看证书:</label>
-
-<p class="dia-para"><a class="button" href="myaccount.php?delete=<?php echo $row_history['id'];?>">删除</a></p>
-
-<?php
-if($user_diamond_grading_lab=='HRD'){
-?>
-<a class="certi_linker" target="_blank" href="http://www.hrdantwerplink.be/index.php?record_number=<?php echo $user_diamond_certificate_number; ?>&weight=<?php echo $user_diamond_carat; ?>&L="><img id="gradinglabicon" src="../images/site_elements/<?php echo strtoupper($user_diamond_grading_lab); ?>.png" /></a>
-<?php
-}else if($user_diamond_grading_lab=='GIA'){
-?>
-<a class="certi_linker" target="_blank" href="http://www.gia.edu/cs/Satellite?pagename=GST%2FDispatcher&childpagename=GIA%2FPage%2FReportCheck&c=Page&cid=1355954554547&reportno=<?php echo $user_diamond_certificate_number; ?>"><img id="gradinglabicon" src="../images/site_elements/<?php echo strtoupper($user_diamond_grading_lab); ?>.png" /></a>
-<?php
-}else if($user_diamond_grading_lab=='IGI'){
-?>
-<a class="certi_linker" target="_blank" href="http://www.igiworldwide.com/igi/verify.php?r=<?php echo $user_diamond_certificate_number; ?>"><img id="gradinglabicon" src="../images/site_elements/<?php echo strtoupper($user_diamond_grading_lab); ?>.png" /></a>
-<?php
-}
-?>
-
-</p>
-
-
-</div><!-- end dia-para-box -->
-
-
-
-<br style="clear:both;" />
-
-</div>
-<?php		
-	}
-}else{
-   echo '您尚未选购任何钻石';
-}*/
-?>
+	<div class="zhuti clear">
+		<?php include_once('topbar.php'); ?>
+		<div class="contain clear">
+	    	<div class="account">
+	    		<p style="color: #bd8167;font-size:16px;">个人信息</p>
+	    		<div class="account-left">
+	    			<div class="account-top"></div>
+	    			<div class="account-text">
+	    			<span>查看／修改您的个人信息</span>
+	    			<div class="linput" style="height: 30px;">
+            <div class="linputs"><label>真实姓名：</label><input type="text" name="name" value="<?php echo $name;?>"/></div>
+            <div class="rinputs"><label>电子邮件：</label><input type="text" name="email" value="<?php echo $email;?>"/></div>
+        </div>
+        </div>
+	    			<div class="account-bottom"></div>
+	    		</div>
+	    		<div class="account-right">
+	    			<div class="account-top"></div>
+	    			<div class="account-text"><span>修改密码</span>gggg</div>
+	    			<div class="account-bottom"></div>
+	    		</div>
+	    		<!--  
+				<a style="font-size:14px; display:inline-block; margin-left:25px; padding: 5px 12px; background-color:#eee; position:relative; top:-3px;" href="manageaccount.php">修改用户名密码</a>
+				<a class="btn" style="font-size:14px; display:inline-block; margin-left:25px; padding: 5px 12px; background-color:#eee; position:relative; top:-3px;" href="login.php?action=logout">退出登录</a>
+				-->
+			</div>
+		</div>
 	</div>
-	<div class="div_down">
-		<div class="text-bottom" style="left:14%;"></div>
-   	</div>
-</div>
-</div>
-
-		<?php
-		include_once('footer.php');
-		?>
-
+	<?php include_once('footer.php'); ?>
 </body>
