@@ -29,9 +29,10 @@
 				<p><img class="fa" src="images/icon-wechat.png" alt="微信"/>：请扫描右侧二维码</p>
 				<p>
 					<a href="http://map.baidu.com/?latlng=51.215356,4.420171&title=我们在这里&content=Pelikaanstraat 62,2018 Antwerp Belgium&autoOpen=true&l" >
-					<img class="fa" src="images/icon-address.png" alt="地址"/>：Pelikaanstraat 62,2018 Antwerp Belgium(比利时安特卫普)
+					<img class="fa" src="images/icon-address.png" alt="地址"/>：Pelikaanstraat 62,2018 Antwerp Belgium
 					</a>
-				</p>
+				</p><p>&nbsp;</p>
+				<p><a href="intro.php?c=route"><img class="fa" src="images/trafficGuide.png" alt="邮箱"/>：交通指引及注意事项</a></p>
 				</div>
 			</div>
 			<div class="aboutus_weixin"></div>
