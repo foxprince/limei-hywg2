@@ -383,6 +383,24 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 
 img.fa{width: 1.5em;text-align: center;}
 
+<!-- 新增css20170620 -->
+    .step-box{height: 95px;}
+    .step{width: 940px; height: 95px; margin:0 auto 30px auto; background: url(../images/step-bg.png) no-repeat;}
+    .step li{float: left; width: 235px; font-size: 16px; color:#b2b2b2;}
+    .step li h2{ line-height: 80px;}
+    .two-box{}
+    .two{padding-left: 40px; margin-left: 32px; padding-top: 26px; height: 48px; line-height: 48px; background: url(../images/two.png) no-repeat left bottom;}
+    .three{padding-left: 40px; margin-left: 32px; padding-top: 26px; height: 48px; line-height: 48px; background: url(../images/three.png) no-repeat left bottom;}
+    .four{padding-left: 40px; margin-left: 32px; padding-top: 26px; height: 48px; background: url(../images/four.png) no-repeat left bottom;}
+    .two p{font-size: 14px;}
+    .two p:first-child{padding-top: 4px;}
+    .two i{margin-left: 10px; font-style: normal; color:#bd8165; cursor: pointer;}
+    .two img{ margin-left: 40px; width: 32px;}
+    .three img{ margin-left: 40px;}
+    .four{line-height: 48px;}
+
+    .step li .active{ width: 262px; height: 94px; background: url(../images/step-hover.png) no-repeat left top;}
+    .one{ line-height: 94px;}
 
 
 
