@@ -27,7 +27,7 @@
           <p>更多钻石请看这里:<a href="about.php?p=knowledge">钻石知识</a></p>
         </div>
       </div>
-      <div class="f-right"><img width="57" src="images/footerwe.png"></div>
+      <div class="f-right"><img src="images/footerwe.png"></div>
     </div>
   </div>
 </footer>
