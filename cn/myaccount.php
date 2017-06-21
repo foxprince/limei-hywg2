@@ -25,9 +25,6 @@ foreach($conn->query($user_info) as $r_u){
 }
 
 if(isset($_POST['usernamenew']) && isset($_POST['passwordold']) && isset($_POST['passwordnew']) && isset($_POST['passwordnewrepeat'])){
-	
-	//exit('post');
-	
 	$usernamenew=addslashes($_POST['usernamenew']);
 	$passwordold=addslashes($_POST['passwordold']);
 	$passwordnew=addslashes($_POST['passwordnew']);
@@ -57,80 +54,92 @@ if(isset($_GET['delete'])){
 	$conn->query($sql_delete);
 }
 ?>
-<style type="text/css">
-div.history-choice{
-	border-bottom-style:solid;
-	border-width:1px;
-	border-color:#999;
-	padding:20px 0;
-}
-img.demo-pic{
-	display:block;
-	float:left;
-	width:228px;
-	margin:25px 25px 0 0;
-}
-div.dia-para-box{
-	float:left;
-	width:358px;
-	font-size:14px;
-}
-.dia-para-box h3{
-	font-size:18px;
-}
-.dia-para-box p{
-	font-size:14px;
-	margin:0 0 3px 0;
-}
+<!-- 新增CSS20170620 -->
+<style>
+      .contain{min-height: 500px;}
+      .contain h2{font-size: 17px; color: #bd8167; font-weight: bold; padding-top: 30px;}
+      .message-box{width: 856px; margin:0 auto;}
+      .message-box:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+      .message{width: 348px; padding:20px 10px; border-radius: 4px; margin:30px; box-shadow: 0 0 40px #999;}
+      .message .hint{display:none;margin-top: 20px; text-align: center;padding-left: 10px; height: 30px; font-size: 16px; background-color: #f1f1f1; line-height: 30px; color:#bc8064;}
+      .message .tit{padding-left: 10px; height: 30px; font-size: 16px; background-color: #f1f1f1; line-height: 30px; color:#bc8064;}
+      .message .tit span{width: 12px; height: 6px; font-size: 20px; color: #999; margin-right: 2px;}
+      .message ul{margin-top:16px;}
+      .message li{margin-top:12px;}
+      .message li span{display: inline-block; width: 84px; text-align: right; margin-right: 6px; color:#333; font-size: 14px;}
+      .message li input{height: 24px; border:none;  border:1px solid #c18971; width: 204px;}
+      .message .btn{margin:0 auto; width: 94px; margin-top: 16px;}
+      .message .btn a{display: block; width: 74px; height: 32px; cursor: pointer; line-height: 32px; border-radius: 50px; font-size: 14px; color:#fff; background-color: #f9b5b2; border-color:#f9b5b2; padding:0 18px; }
+      .message .btn span{width: 8px; height: 8px; display: inline-block; border-radius: 50%; margin-right: 18px; margin-bottom: 2px; background-color: #fff;}
+      .message .btn a:hover{background-color: #fb918c; border-color:#fb918c;}
+      .message .btn a:hover span{ background-color: #ccc;}
 
-
-div#account-setting-form-box{
-	position:relative;
-	width:288px;
-	padding:15px;
-	background-color:#FFF;
-	border-style:solid;
-	border-width:1px;
-	border-color:#999;
-	margin-left:158px;
-	margin-top:25px;
-	margin-bottom:50px;
-}
-p.feedbackmessage, p.errormessage{
-	font-size:24px;
-	color:#C30;
-}
-</style>
+      .signout{margin:0 auto; width: 94px; margin-top: 30px;}
+      .signout a{display: block; width: 74px; height: 32px; cursor: pointer; line-height: 32px; border-radius: 50px; font-size: 14px; color:#999; background-color: #fff; border:1px solid #999; padding:0 18px; }
+      .signout span{width: 8px; height: 8px; display: inline-block; border-radius: 50%; margin-right: 10px; margin-bottom: 2px; background-color: #999;}
+      .signout a:hover{background-color: #f9b5b2; border-color:#f9b5b2; color:#fff;}
+      .signout a:hover span{ background-color: #fff;}
+    </style>
 </head>
 
 <body>
 	<div class="zhuti clear">
 		<?php include_once('topbar.php'); ?>
-		<div class="contain clear">
-	    	<div class="account">
-	    		<p style="color: #bd8167;font-size:16px;">个人信息</p>
-	    		<div class="account-left">
-	    			<div class="account-top"></div>
-	    			<div class="account-text">
-	    			<span>查看／修改您的个人信息</span>
-	    			<div class="linput" style="height: 30px;">
-            <div class="linputs"><label>真实姓名：</label><input type="text" name="name" value="<?php echo $name;?>"/></div>
-            <div class="rinputs"><label>电子邮件：</label><input type="text" name="email" value="<?php echo $email;?>"/></div>
-        </div>
-        </div>
-	    			<div class="account-bottom"></div>
-	    		</div>
-	    		<div class="account-right">
-	    			<div class="account-top"></div>
-	    			<div class="account-text"><span>修改密码</span>gggg</div>
-	    			<div class="account-bottom"></div>
-	    		</div>
-	    		<!--  
-				<a style="font-size:14px; display:inline-block; margin-left:25px; padding: 5px 12px; background-color:#eee; position:relative; top:-3px;" href="manageaccount.php">修改用户名密码</a>
-				<a class="btn" style="font-size:14px; display:inline-block; margin-left:25px; padding: 5px 12px; background-color:#eee; position:relative; top:-3px;" href="login.php?action=logout">退出登录</a>
-				-->
-			</div>
-		</div>
+		<!-- 内容主题 -->
+	  <div class="contain">
+	      <!-- 关于我们 -->
+	      <h2 class="tc">个人信息</h2>
+	      <div class="message-box">
+	        <div class="message fl"><form id="profileForm">
+	          <div class="tit"><span>></span>查看/修改您的联系信息</div>
+	          <ul>
+	            <li><span>微信ID:</span><?php echo $r_u['wechat_name'];?></li>
+	            <li><span>真实姓名:</span><input type="text" name="name" value="<?php echo $r_u['name'];?>"></li>
+	            <li><span>电话:</span><input type="text" name="tel" value="<?php echo $r_u['tel'];?>"></li>
+	            <li><span>电子邮件:</span><input type="text" name="email" value="<?php echo $r_u['email'];?>"></li>
+	          </ul>
+	          <div class="hint" id="profileHint">保存成功的提示</div>
+	          <div class="btn"><a href="javascript:;" onclick="updateProfile()" ><span></span>保存</a></div></form>
+	        </div>
+	        <div class="message fl"><form id="passForm">
+	          <div class="tit"><span>></span>修改密码</div>
+	          <ul>
+	            <li><span>用户名:</span><input type="text" name="usernamenew" value="<?php echo $r_u['website_username'];?>"></li>
+	            <li><span>当前密码:</span><input type="password" name="passwordold" ></li>
+	            <li><span>新密码:</span><input type="password" name="passwordnew"></li>
+	            <li><span>确认新密码:</span><input type="password" name="passwordnewrepeat"></li>
+	          </ul>
+	          <div class="hint" id="passHint">保存成功的提示</div>
+	          <div class="btn"><a href="javascript:;" onclick="updatePass()" ><span></span>保存</a></div></form>
+	        </div>
+	      </div>
+	      <div class="signout"><a href="login.php?action=logout" ><span></span>退出登录</a></div>
+	  </div>
 	</div>
 	<?php include_once('footer.php'); ?>
+	<script>
+	$(function(){
+		
+	});
+	function updateProfile(item) {
+		$.ajax({
+			type : "post",
+			url : "action.php?action=updateProfile",
+			data: $('#profileForm').serialize(),
+			success : function(json) {
+				$('#profileHint').text(json).fadeIn();
+			}
+		});
+	}
+	function updatePass(item) {
+		$.ajax({
+			type : "post",
+			url : "action.php?action=updatePassword",
+			data: $('#passForm').serialize(),
+			success : function(json) {
+				$('#passHint').text(json).fadeIn();
+			}
+		});
+	}
+	</script>
 </body>

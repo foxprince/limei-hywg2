@@ -16,7 +16,6 @@
         <?php
         if (!isset($_COOKIE["userId"])){
         	$sql_ordernum='SELECT COUNT(*) AS myordernum FROM viewing_record WHERE viewer = "'.$_COOKIE["everUserId"].'" and diamond in (select id from diamonds)';
-        	logger($sql_ordernum);
         	foreach($conn->query($sql_ordernum) as $r_o_n){
         		$myordernum=$r_o_n['myordernum'];
         	}?>
@@ -24,7 +23,6 @@
     	<li><a id="gwc" href="shopcart.php"><span></span> <img id="gwcLogo" src="images/gwc.gif" >(<?php echo $myordernum; ?>)  </a></li>
     	<?php }else{
     	$sql_ordernum='SELECT COUNT(*) AS myordernum FROM viewing_record WHERE viewer = "'.$_COOKIE["userId"].'"  and diamond in (select id from diamonds)';
-    	logger($sql_ordernum);
     	foreach($conn->query($sql_ordernum) as $r_o_n){
     		$myordernum=$r_o_n['myordernum'];
     	}?>

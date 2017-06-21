@@ -5,7 +5,7 @@ if(!isset($conn)){
 	$conn=dbConnect('write','pdo');
 	$conn->query("SET NAMES 'utf8'");
 }
-$userid = $_SESSION ['useraccount'];
+$userid = $_COOKIE["userId"];
 $cookieId = $_COOKIE['everCookieId'];
 if($_REQUEST['action']) {
 	$action = $_REQUEST['action'];
@@ -121,6 +121,49 @@ if($_REQUEST['action']) {
 			$sql_delete='delete from viewing_record WHERE id = '.$_REQUEST['id'];
 			$conn->query($sql_delete);
 			echo "OK";
+			break;
+		case "updatePassword":
+			$usernamenew=addslashes($_POST['usernamenew']);
+			$passwordold=addslashes($_POST['passwordold']);
+			$passwordnew=addslashes($_POST['passwordnew']);
+			$passwordnewrepeat=addslashes($_POST['passwordnewrepeat']);
+			if($passwordnewrepeat!=$passwordnew){
+				$feedbackmessage='两次输入的新密码不一致，请重新输入';
+			}
+			else if($passwordold!=$website_password){
+				$feedbackmessage='密码输入不正确，请重试';
+			}
+			else if($passwordnewrepeat==$passwordnew && $passwordold==$website_password){
+				$sql_user_update='UPDATE clients_list SET website_username = "'.$usernamenew.'", website_password = "'.$passwordnew.'" WHERE id = '.$userid;
+				logger($sql_user_update);
+				$stmt_user_update=$conn->query($sql_user_update);
+				$userupdated=$stmt_user_update->rowCount();
+				if($userupdated){
+					$website_username=$usernamenew;
+					$feedbackmessage='修改成功。';
+				}
+			}
+			echo $feedbackmessage;
+			break;
+		case "updateProfile":
+			$name=addslashes($_REQUEST['name']);
+			$email=addslashes($_REQUEST['email']);
+			$tel=addslashes($_REQUEST['tel']);
+			$userSql = "update clients_list set name=:name,email=:email,tel=:tel where id=:id";
+			$stmt=$conn->prepare($userSql);
+			$stmt->execute(array(
+					'name'=> $name,
+					'email'=> $email,
+					'tel'=> $tel,
+					'id'=> $userid
+			));
+			$OK=$stmt->rowCount();
+			if($OK){
+				$feedbackwords='修改成功。';
+			}else{
+				$feedbackwords='修改失败，请检查您输入的数据。';
+			}
+			echo $feedbackwords;
 			break;
 		case "appointmentMakeAll":
 			if(!isset($_SESSION['useraccount'])){
