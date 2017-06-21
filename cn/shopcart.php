@@ -129,6 +129,33 @@ $(function () {
 		include_once('topbar.php');
 	?>
 	<div class="contain">
+	
+	<!-- 步骤 -->
+    <div class="step-box">
+      <ul class="step">
+        <li class="tc one-box">
+          <div><!-- 此处为背景控件active -->
+            <div class="one">定制您的首饰</div>
+          </div>
+        </li>
+        <li class="two-box">
+          <div ><!-- 此处为背景控件active -->
+            <div class="two"><span>选择裸钻</span><img src="./images/step-three.png" alt=""></div>
+          </div>
+        </li>
+        <li class="tc three-box">
+          <div><!-- 此处为背景控件active -->
+            <div class="three"><span>选择款式</span><img src="./images/step-two.png" alt=""></div>
+          </div>
+        </li>
+        <li class="tc four-box">
+          <div class="active"><!-- 此处为背景控件active -->
+            <div class="four">完成定制</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- 步骤END -->
 			<div class="layout" id="makeOrder">
     <div class="l-top"><img src="images/yuyue_button.png"/></div>
     <div class="l-middle" >
