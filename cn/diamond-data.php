@@ -316,6 +316,7 @@ foreach($stmt as $row){
                             <span id="<?php echo $row['id'];?>_stock_ref">编号: <?php echo $row['stock_ref']; ?></span>
                             <span class="price"><?php echo $morePrice ?></span>
                             <span class="btnforprice" onclick="popup('<?php echo $row['id']; ?>')">预约看钻</span>
+                            <span class="btnforprice" onclick="makeOrder('<?php echo $row['id']; ?>')">定制</span>
                         </p>
                     </div><!-- end details -->
 					<?php if(isset($row['recommend_words']) && $row['recommend_words']!=''){ ?>

@@ -165,6 +165,14 @@ if($_REQUEST['action']) {
 			}
 			echo $feedbackwords;
 			break;
+		case "makeOrder":
+			setcookie("orderDiaId",$_REQUEST['diaId'],time()+365*24*3600);
+			echo '定制成功，请继续选择款式';
+			break;
+		case "makeOrderJew":
+			setcookie("orderJewId",$_REQUEST['jewId'],time()+365*24*3600);
+			echo '定制成功，请继续';
+			break;
 		case "appointmentMakeAll":
 			if(!isset($_SESSION['useraccount'])){
 				echo '请<a href="login.php">登录</a>之后到购物车之内复查您的预约并继续操作。';

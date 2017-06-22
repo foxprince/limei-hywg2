@@ -76,7 +76,7 @@ function popup(id) {
                 item += '<p>对称性：'+j.diamond_symmetry+'</p>';
                 item += '<p>证书：'+j.grading_lab+'</p>';
                 item += '<p>编号：'+j.stock_ref+'</p>';
-                item += '<p>价格：'+Math.round(j.diamond_price)+'欧元</p>';
+                item += '<p>价格：'+Math.round(j.diamond_price)+'美元</p>';
                 if(j.grading_lab=="HRD"){
                 	item += '<a class="certi_linker" href="javascript:;" data-fancybox data-src="http://www.hrdantwerplink.be/index.php?record_number='+j.certificate_number+'&weight=&L="><img id="gradinglabicon" src="./images/HRD.png" width="98" height="37" /></a>';
                 }else if(j.grading_lab=='GIA'){
@@ -130,33 +130,7 @@ $(function () {
 	?>
 	<div class="contain">
 	
-	<!-- 步骤 -->
-    <div class="step-box">
-      <ul class="step">
-        <li class="tc one-box">
-          <div><!-- 此处为背景控件active -->
-            <div class="one">定制您的首饰</div>
-          </div>
-        </li>
-        <li class="two-box">
-          <div ><!-- 此处为背景控件active -->
-            <div class="two"><span>选择裸钻</span><img src="./images/step-three.png" alt=""></div>
-          </div>
-        </li>
-        <li class="tc three-box">
-          <div><!-- 此处为背景控件active -->
-            <div class="three"><span>选择款式</span><img src="./images/step-two.png" alt=""></div>
-          </div>
-        </li>
-        <li class="tc four-box">
-          <div class="active"><!-- 此处为背景控件active -->
-            <div class="four">完成定制</div>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <!-- 步骤END -->
-			<div class="layout" id="makeOrder">
+	<div class="layout" id="makeOrder">
     <div class="l-top"><img src="images/yuyue_button.png"/></div>
     <div class="l-middle" >
         <div id="appointmentList"></div>
