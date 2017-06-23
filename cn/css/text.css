@@ -250,7 +250,7 @@
 	width:1200px;
 	height:676px;
 	position:relative;
-	background:url("../images/aboutus.png") no-repeat center center;
+	background:url("../images/aboutus2.png") no-repeat center center;
 }
 .trans{
 	width:285px;
@@ -285,8 +285,8 @@
 	width:295px;
 	height:215px;
 	position:absolute;
-	top:75px;
-	left:755px;
+	top:110px;
+	left:470px;
 	color:#4f4747;
 }
 .div_tttel p{
@@ -296,8 +296,8 @@
 	width:133px;
 	height:132px;
 	position:absolute;
-	top:100px;
-	left:930px;
+	top:145px;
+	left:645px;
 	background:url("../images/erweima.png") no-repeat center center;
 }
 
