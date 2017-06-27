@@ -315,8 +315,8 @@ foreach($stmt as $row){
                             <span>证书编号: <?php echo $row['certificate_number']; ?> &nbsp; &nbsp;<a class="certi_linker" target="_blank" href="<?php echo $certi_linker; ?>">查看证书</a></span>
                             <span id="<?php echo $row['id'];?>_stock_ref">编号: <?php echo $row['stock_ref']; ?></span>
                             <span class="price"><?php echo $morePrice ?></span>
-                            <span class="btnforprice" onclick="popup('<?php echo $row['id']; ?>')">预约看钻</span>
-                            <span class="btnforprice" onclick="makeOrder('<?php echo $row['id']; ?>')">定制</span>
+                            <span class="btnforprice" onclick="popup('<?php echo $row['id']; ?>')">预约裸钻</span>
+                            <span class="btnforprice" onclick="makeOrder('<?php echo $row['id']; ?>')">定制首饰</span>
                         </p>
                     </div><!-- end details -->
 					<?php if(isset($row['recommend_words']) && $row['recommend_words']!=''){ ?>

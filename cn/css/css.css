@@ -203,7 +203,7 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 
 /*定制*/
 .dz{position: relative; margin-bottom: 60px;}
-.dz a{position: absolute; right:148px; top: 217px; padding:0 20px; width: 80px; display: block; height: 30px; line-height: 30px; color: #666; border:1px solid #ddd; border-radius: 50px; background-color: #fff; font-size: 14px;}
+.dz a{position: absolute; right:123px; top: 217px; padding:0 20px; width: 120px; display: block; height: 30px; line-height: 30px; color: #666; border:1px solid #ddd; border-radius: 50px; background-color: #fff; font-size: 14px;}
 .dz a span{width: 8px; height: 8px; display: inline-block; border-radius: 50%; background-color: #ccc; margin-right: 12px; margin-bottom: 2px;}
 .dz a:hover{color:#f9b5b2;}
 .dz a:hover span{background-color:#f9b5b2;}
@@ -334,7 +334,7 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .l-middle .pro_pics .pic_00 img{border:1px solid #e2e2e2;clear:both;margin-bottom:13px;}
 .l-middle .pro_pics .quxiao img{border: 0px;}
 .l-middle .pro_pics .add_pic{margin-top:20px;width:97px;height:92px;text-align:center;background: url(../images/add.png) no-repeat;}
-.l-middle .pro_pics .add_pic .fonts{padding-top:50px;height: 20px;color: #9c9c9c;font-size:14px;font-weight: bold;}
+.l-middle .pro_pics .add_pic .fonts{padding-top:18px;color: #9c9c9c;font-size:14px;font-weight: bold;}
 .l-middle .pro_pics .detail{width: 124px;height: auto;color:#9c9c9c;font-size: 14px;}
 .l-input{width: 100%;height: 18px;height: 80px;}
 .l-input div{width: 100%;}

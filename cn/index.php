@@ -22,8 +22,9 @@
   </div>
 
   <div class="dz clear">
-    <div class="dz-box tc"><img src="images/dz-bg.jpg" alt=""></div>
-    <a href="dia.php"><span></span>开始挑选</a>
+    <div class="dz-box tc"><img src="images/dz-bg.png" alt=""></div>
+    <a href="jewelry.php?step=jew"><span></span>从款式开始挑选</a>
+    <a href="dia.php?step=dia" style="top:257px;"><span></span>从裸钻开始挑选</a>
   </div>  
   
   <div class="xilie">

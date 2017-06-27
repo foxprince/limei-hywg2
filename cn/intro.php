@@ -64,14 +64,11 @@ if (isset($_GET['c'])) {
 										<?php } else if ($c == 'route') {?>
 										<div>
 											<img style="max-width: 550px;" src="images/traffic.jpg" alt="利美钻石交通指引"/>
-											<p>公司地址：DIAMANTCLUB VAN ANTWERPEN Pelikaanstraat 62, 2018 Antwerp, Belgium 比利时安特卫普</p>
+											<p>公司地址：DIAMANTCLUB VAN ANTWERPEN</p><p>Pelikaanstraat 62, 2018 Antwerp, Belgium 比利时安特卫普</p>
 											<p>电话：+32 (0)3 689 73 94</p>
-											<p>您可以选择从大门 <img src="images/traffic-02.png" style="max-width: 20px;" alt="利美钻石交通指引"/>  Pelikaanstraat 62 2018 Antwerp 进入 (周一至周五开放）</p>
-											<p>或大门 <img src="images/traffic-03.png" style="max-width: 20px;" alt="利美钻石交通指引"/> Hovenierstraat 35 2018 Antwerp 进入 （周一至周日开放）</p>
+											<p>您可以选择从大门 <img src="images/traffic-02.png" style="max-width: 20px;" alt="利美钻石交通指引"/>  Pelikaanstraat 62 2018 Antwerp 进入</p><p> (周一至周五开放）</p>
+											<p>或大门 <img src="images/traffic-03.png" style="max-width: 20px;" alt="利美钻石交通指引"/> Hovenierstraat 35 2018 Antwerp 进入</p><p> （周一至周日开放）</p>
 											<p>钻石街停车场地址 <img src="images/traffic-04.png" style="max-width: 20px;" alt="利美钻石交通指引"/>：Vestingstraat 382018 Antwerp Belgium</p>
-											<p>您到公司楼下后，跟保安说到Belgem。 </p>
-											<p>记得带上护照，进来的时候要把证件押在保安那。</p>
-											<p>我们公司在313。</p>
 										</div>
 										<?php }?>
 									</div>

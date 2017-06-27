@@ -135,7 +135,9 @@ $(function () {
     <div class="l-middle" >
         <div id="appointmentList"></div>
         <div id="pro_pics"class="pro_pics" >
-            <div class="add_pic" id="add_pic"><div class="fonts"><a href="dia.php">追加商品</a></div></div>
+            <div class="add_pic" id="add_pic">
+            <div class="fonts"><a href="dia.php?step=dia"><img src="images/addDia.gif"/></a></div><div class="fonts" style=" padding-top: 10px; "><a href="jewelry.php?step=jew"><img src="images/addJew.gif"/></a></div>
+            </div>
         </div>
     </div>
     <form id="appointmentForm" >
