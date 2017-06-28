@@ -104,7 +104,7 @@ function makeOrder(diaId) {
 		url : "action.php?action=makeOrder&diaId=" + diaId,
 		success : function(json) {
 			alert(json);
-			window.location.href="dia.php";
+			window.location.href="jewelry.php?step=dia";
 		}
 	});
 	return check;
@@ -173,7 +173,7 @@ function removeAppointment(item) {
 		success : function(json) {
 			remove(item);
 			$("#gwcTotal").text($("#gwcTotal").text() - 1);
-			$("#pro_pics").html('<div class="add_pic" id="add_pic"><div class="fonts"><a href="dia.php">追加商品</a></div></div>');
+			$("#pro_pics").html('<div class="add_pic" id="add_pic"> <div class="fonts"><a href="dia.php?step=dia"><img src="images/addDia.gif"/></a></div><div class="fonts" style=" padding-top: 10px; "><a href="jewelry.php?step=jew"><img src="images/addJew.gif"/></a></div> </div>');
 		}
 	});
 }

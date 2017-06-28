@@ -2,9 +2,13 @@
 if($_REQUEST['action']) {
 	if($_REQUEST['action']=='resetOrderDia') {
 		setcookie("orderDiaId",NULL);
+		header("Location: ./dia.php");
+		exit;
 	}
 	else if($_REQUEST['action']=='resetOrderJew') {
 		setcookie("orderJewId",NULL);
+		header("Location: ./jewelry.php");
+		exit;
 	}
 }
 if($_REQUEST['step']) {
@@ -14,9 +18,17 @@ $firtStep = "two";
 $firstClass="active";
 $secondStep = "three";
 $secondClass="";
-if($_SESSION['orderStep']=='jew') {
+$diaFirst = true;
+if($_COOKIE["orderDiaId"]||$_REQUEST['step']=="dia")
+	$diaFirst = true;
+else if($_COOKIE["orderJewId"])
+	$diaFirst = false;
+else if($_REQUEST['step']=="jew")
+	$diaFirst = false;
+else if(strpos($_SERVER['PHP_SELF'], "jew")) {
 	$firtStep = "three";$secondStep = "two";
 	$firstClass="";$secondClass="active";
+	$diaFirst = false;
 }
 ?>
 <!-- 步骤 -->
@@ -27,10 +39,12 @@ if($_SESSION['orderStep']=='jew') {
             <div class="one">定制您的首饰</div>
           </div>
         </li>
-        <?php if($_SESSION['orderStep']=='dia'){?>
+        <?php //if($_SESSION['orderStep']=='dia'){
+		if($diaFirst){
+		?>
         <li class="two-box">
           <div id="step1" class = "<?php echo $firstClass;?>"><!-- 此处为背景控件active -->
-            <div class="<?php echo $firtStep;?>">
+            <div class="two">
             <?php if(isset($_COOKIE['orderDiaId'])){
         	$sql='SELECT * FROM diamonds WHERE id = '.$_COOKIE['orderDiaId'];
         	foreach($conn->query($sql) as $r){}
@@ -45,7 +59,7 @@ if($_SESSION['orderStep']=='jew') {
         </li>
         <li class="tc three-box">
           <div id="step2" class="<?php echo $secondClass;?>"><!-- 此处为背景控件active -->
-            <div class="<?php echo $secondStep;?>">
+            <div class="three">
             <?php if(isset($_COOKIE['orderJewId'])){
         	$sql='SELECT * FROM jewelry WHERE id = '.$_COOKIE['orderJewId'];
         	foreach($conn->query($sql) as $r_jew){}?>
@@ -57,9 +71,9 @@ if($_SESSION['orderStep']=='jew') {
           </div>
         </li>
         <?php }else{?>
-        <li class="tc three-box">
-          <div id="step2" class="<?php echo $secondClass;?>"><!-- 此处为背景控件active -->
-            <div class="<?php echo $secondStep;?>">
+        <li class="two-box">
+          <div id="step2" class="<?php echo $firstClass;?>"><!-- 此处为背景控件active -->
+            <div class="two">
             <?php if(isset($_COOKIE['orderJewId'])){
         	$sql='SELECT * FROM jewelry WHERE id = '.$_COOKIE['orderJewId'];
         	foreach($conn->query($sql) as $r_jew){}?>
@@ -70,9 +84,9 @@ if($_SESSION['orderStep']=='jew') {
             </div>
           </div>
         </li>
-        <li class="two-box">
-          <div id="step1" class ='<?php echo $firstClass;?>'><!-- 此处为背景控件active -->
-            <div class="<?php echo $firtStep;?>">
+        <li class="tc three-box">
+          <div id="step1" class ='<?php echo $secondClass;?>'><!-- 此处为背景控件active -->
+            <div class="three">
             <?php if(isset($_COOKIE['orderDiaId'])){
         	$sql='SELECT * FROM diamonds WHERE id = '.$_COOKIE['orderDiaId'];
         	foreach($conn->query($sql) as $r){}
