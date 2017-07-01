@@ -110,9 +110,9 @@ function makeOrder(diaId) {
 	return check;
 }
 function appointment(id) {
-	if (Cookies.get('userId') === undefined) {
-		alert("请登录之后到购物车之内复查您的预约并继续操作。");
-		window.location.href = "login.php";
+	console.log($('#name').val());
+	if ($('#name').val()==''||$('#email').val()==''||$('#tel').val()==''||$('#viewing_time').val()=='') {
+		alert("请提供您的姓名、邮件、电话和预约时间。");
 	} else {
 		$.ajax({
 			type : "post",
@@ -176,6 +176,9 @@ function removeAppointment(item) {
 			$("#pro_pics").html('<div class="add_pic" id="add_pic"> <div class="fonts"><a href="dia.php?step=dia"><img src="images/addDia.gif"/></a></div><div class="fonts" style=" padding-top: 10px; "><a href="jewelry.php?step=jew"><img src="images/addJew.gif"/></a></div> </div>');
 		}
 	});
+}
+function remove(item) {
+	$(item).parent().parent().parent().fadeOut();
 }
 $(document).ready(function() {
 	$(".a_menu1").click(function() {

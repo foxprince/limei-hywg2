@@ -3,51 +3,30 @@
 </head>
 <link rel="stylesheet" type="text/css"  href="./css/jquery.datetimepicker.css">
 <script type="text/javascript" src="./js/jquery.datetimepicker.js"></script>
-<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css">
-<script type="text/javascript" src="js/jquery.fancybox.min.js"></script>
-    
+<!-- <link rel="stylesheet" type="text/css" href="css/jquery.fancybox.min.css"> -->
+<!-- <script type="text/javascript" src="js/jquery.fancybox.min.js"></script> -->
+
+<body onload="popup();">
+<div class="zhuti clear">
+	<?php
+		include_once('topbar.php');
+	?>
+	<div class="contain">
+	<?php include('orderPopup.php'); ?>
+	</div>
+</div>
+
+
+<?php include_once('footer.php');?>
+</body>
 <script>
 var date = new Date ();
 date.setHours (date.getHours () + 1)
-	$("#datetimepicker").val(date.toLocaleString ());
+$(function () {
 	$('#datetimepicker').datetimepicker();
-	function appointment(id) {
-		if(Cookies.get('userId')===undefined){
-			alert("请登录之后到购物车之内复查您的预约并继续操作。");
-			window.location.href="login.php";
-		}
-		else {
-			$.ajax({
-				type : "post",
-				url : "action.php?action=appointmentMakeAll",
-				data: $('#appointmentForm').serialize(),
-				complete : function() {
-					// layer.close(page_layer);
-				},
-				success : function(json) {
-					$('#appointmentResult').html(json);
-					$('#appointmentBottom').html('');
-				},
-				error : function() {
-					alert('载入数据失败！');
-				}
-			});
-		}
-	}
-	function removeAppointment(item) {
-		$.ajax({
-			type : "get",
-			url : "action.php?action=removeAppointment&id="+$(item).attr('id'),
-			success : function(json) {
-				remove(item);
-				$("#gwcTotal").text($("#gwcTotal").text()-1);
-				$("#pro_pics").html('<div class="add_pic" id="add_pic"> <div class="fonts"><a href="dia.php?step=dia"><img src="images/addDia.gif"/></a></div><div class="fonts" style=" padding-top: 10px; "><a href="jewelry.php?step=jew"><img src="images/addJew.gif"/></a></div> </div>');
-			}
-		});
-	}
-	function remove(item) {
-		$(item).parent().parent().parent().fadeOut();
-	}
+	$("#datetimepicker").val(date.toLocaleString ());
+	console.log($("#datetimepicker").val());
+});
 function popup(id) {
 	//获得已经预约的钻石
 	$.ajax({
@@ -78,11 +57,11 @@ function popup(id) {
                 item += '<p>编号：'+j.stock_ref+'</p>';
                 item += '<p>价格：'+Math.round(j.diamond_price)+'美元</p>';
                 if(j.grading_lab=="HRD"){
-                	item += '<a class="certi_linker" href="javascript:;" data-fancybox data-src="http://www.hrdantwerplink.be/index.php?record_number='+j.certificate_number+'&weight=&L="><img id="gradinglabicon" src="./images/HRD.png" width="98" height="37" /></a>';
+                	item += '<a class="certi_linker" target="_black" href="http://www.hrdantwerplink.be/index.php?record_number='+j.certificate_number+'&weight=&L="><img id="gradinglabicon" src="./images/HRD.png" width="98" height="37" /></a>';
                 }else if(j.grading_lab=='GIA'){
-                	item += '<a class="certi_linker" href="javascript:;" data-fancybox data-src="http://www.gia.edu/cs/Satellite?pagename=GST%2FDispatcher&childpagename=GIA%2FPage%2FReportCheck&c=Page&cid=1355954554547&reportno='+j.certificate_number+'"><img id="gradinglabicon" src="./images/GIA.png" width="98" height="37"/></a>';
+                	item += '<a class="certi_linker" target="_black" href="http://www.gia.edu/cs/Satellite?pagename=GST%2FDispatcher&childpagename=GIA%2FPage%2FReportCheck&c=Page&cid=1355954554547&reportno='+j.certificate_number+'"><img id="gradinglabicon" src="./images/GIA.png" width="98" height="37"/></a>';
                 } else if(j.grading_lab=='IGI'){
-                	item += '<a class="certi_linker" href="javascript:;" data-fancybox data-src="http://www.igiworldwide.com/igi/verify.php?r='+j.certificate_number+'"><img id="gradinglabicon" src="./images/IGI.png" width="98" height="37"/></a>';
+                	item += '<a class="certi_linker" target="_black" href="http://www.igiworldwide.com/igi/verify.php?r='+j.certificate_number+'"><img id="gradinglabicon" src="./images/IGI.png" width="98" height="37"/></a>';
                 }
                 item += '<p>点击查看证书</p>';
                 item += '</div></div>';
@@ -100,98 +79,24 @@ function popup(id) {
 </script>
 <script>
 $(function () {
-	$("[data-fancybox]").fancybox({
-		iframe : {
-			tpl : '<iframe id="fancybox-frame{rnd}" name="fancybox-frame{rnd}" class="fancybox-iframe" frameborder="0" vspace="0" hspace="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen allowtransparency="true" src=""></iframe>',
-			// Preload iframe before displaying it
-			// This allows to calculate iframe content width and height
-			// (note: Due to "Same Origin Policy", you can't get cross domain data).
-			preload : true,
-			// Scrolling attribute for iframe tag
-			scrolling : 'yes',
-			// Custom CSS styling for iframe wrapping element
-			css : {}
-		},
-		beforeLoad: function(){
-		 $("body").css({"overflow-y":"hidden"});
-		},
-		afterClose: function(){
-		 $("body").css({"overflow-y":"visible"});
-		}
-	});
+// 	$("[data-fancybox]").fancybox({
+// 		iframe : {
+// 			tpl : '<iframe id="fancybox-frame{rnd}" name="fancybox-frame{rnd}" class="fancybox-iframe" frameborder="0" vspace="0" hspace="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen allowtransparency="true" src=""></iframe>',
+// 			preload : true,
+// 			// Scrolling attribute for iframe tag
+// 			scrolling : 'yes',
+// 			// Custom CSS styling for iframe wrapping element
+// 			css : {}
+// 		},
+// 		beforeLoad: function(){
+// 		 $("body").css({"overflow-y":"hidden"});
+// 		},
+// 		afterClose: function(){
+// 		 $("body").css({"overflow-y":"visible"});
+// 		}
+// 	});
 	$("#skype").hover(function(){ $("#skype").attr("src","images/skype_on.gif"); },function(){ $("#skype").attr("src","images/skype.gif"); });
 	$("#phone").hover(function(){ $("#phone").attr("src","images/phone_on.gif"); },function(){ $("#phone").attr("src","images/phone.gif"); });
 });
 </script>
-<body onload="popup();">
-<div class="zhuti clear">
-	<?php
-		include_once('topbar.php');
-	?>
-	<div class="contain">
-	
-	<div class="layout" id="makeOrder">
-    <div class="l-top"><img src="images/yuyue_button.png"/></div>
-    <div class="l-middle" >
-        <div id="appointmentList"></div>
-        <div id="pro_pics"class="pro_pics" >
-            <div class="add_pic" id="add_pic"> <div class="fonts"><a href="dia.php?step=dia"><img src="images/addDia.gif"/></a></div><div class="fonts" style=" padding-top: 10px; "><a href="jewelry.php?step=jew"><img src="images/addJew.gif"/></a></div> </div>
-        </div>
-    </div>
-    <form id="appointmentForm" >
-<?php
-$userid=$_SESSION['useraccount'];
-$user_info='select name,tel,email from clients_list WHERE id = "'.$userid.'"';
-foreach($conn->query($user_info) as $r_u){
-	$name=$r_u['name'];
-	$email=$r_u['email'];
-	$tel=$r_u['tel'];
-}
-?>
-    <div class="l-input" id="appointmentDiv">
-        <div class="linput" style="height: 30px;">
-            <div class="linputs"><label>真实姓名：</label><input type="text" name="name" value="<?php echo $name;?>"/></div>
-            <div class="rinputs"><label>电子邮件：</label><input type="text" name="email" value="<?php echo $email;?>"/></div>
-        </div>
-        <div>
-            <div class="linputs"><label>手机号：</label><input type="text" name="tel" value="<?php echo $tel;?>"/></div>
-            <div class="rinputs"><label>预约时间：</label><input type="text" name="viewTime"  placeholder="点击选择" id="datetimepicker" value="">
-            </div>
-        </div>
-        <br>
-        <br>
-        <div style="text-align:center;">
-        	<p id="appointmentResult"></p>
-        </div>
-        <div class="l-bottom" id="appointmentBottom">
-	        <input type="hidden" name="appointmentId" id="appointmentId"/>
-	        <input type="button" value="" id="sub_btn" onclick="appointment();"/>
-    	</div>
-    	<div class="contacticonsbox" style="width:100%;height:100%;text-align:center;position:relative; padding-left:0; margin-left:0; left:0;">
-    		<div  style="width:80%;height:100%;text-align:center;vertical-align:top;">
-    		<div style="width:1%;display:inline-block;vertical-align:top;font-size: 14px;">在线客服</div>
-    		<div style="width:12%;display:inline-block;">
-    		<img src="images/kefuqrcode.jpg" width="81" height="79">
-    		</div>
-    		<div style="width:20%;display:inline-block;vertical-align:top;">
-    		<a href="callto://Belgem.antwerp"><img id="skype" src="images/skype.gif"></a>
-		    		<a href="tel:+32(0)36897394"><img id="phone" src="images/phone.gif"></a>
-    		</div>
-    		<div style="width:33%;display:inline-block;vertical-align:top;">
-		    	<p>在您选购钻石首饰的过程中如有疑问</p>
-		    	<p>欢迎致电或添加我们的客服微信号咨询</p>
-		    	<p>微信号limeikefu或直接扫描二维码添加</p>
-		   	</div>
-    		</div>
-    	</div>
-    	
-    </div>
-    </form>
-</div>
-	</div>
-</div>
-
-
-<?php include_once('footer.php');?>
-</body>
 </html>

@@ -343,7 +343,7 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .l-input .rinputs{width:45%;margin-right:32px;float: left;}
 .l-input input{width: 202px;height: 16px;border: 1px solid #c18971;}
 .l-input select{width:48px;border: 1px solid #c18971;}
-.l-bottom{margin:1.5em auto;width: 100%;text-align: center;}
+.l-bottom{margin:0.7em auto;width: 100%;text-align: center;}
 .l-bottom #sub_btn{background: url(../images/yuyue_confirm.png) no-repeat;height: 35px;width: 95px;border: 0px;}
 
 .black_overlay {

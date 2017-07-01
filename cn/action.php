@@ -174,27 +174,30 @@ if($_REQUEST['action']) {
 			echo '定制成功，请继续';
 			break;
 		case "appointmentMakeAll":
-			if(!isset($_SESSION['useraccount'])){
-				echo '请<a href="login.php">登录</a>之后到购物车之内复查您的预约并继续操作。';
-				return;
-			}
 			$name=$_POST['name'];
 			$email=$_POST['email'];
 			$tel=$_POST['tel'];
-			$userSql = "update clients_list set name=:name,email=:email,tel=:tel where id=:id";
-			$stmt=$conn->prepare($userSql);
-			$stmt->execute(array(
-					'name'=> $name,
-					'email'=> $email,
-					'tel'=> $tel,
-					'id'=> $userid
-			));
-			//var_dump( $stmt->queryString, $stmt->_debugQuery() );
-			$OK=$stmt->rowCount();
+			$isRegist = 0;
+			if(isset($_SESSION['useraccount'])){
+				$isRegist = 1;
+				$userSql = "update clients_list set name=:name,email=:email,tel=:tel where id=:id";
+				$stmt=$conn->prepare($userSql);
+				$stmt->execute(array(
+						'name'=> $name,
+						'email'=> $email,
+						'tel'=> $tel,
+						'id'=> $userid
+				));
+				//var_dump( $stmt->queryString, $stmt->_debugQuery() );
+				$OK=$stmt->rowCount();
+			}
 			$viewTime=$_POST['viewTime'];
-			$timeSql = "update viewing_record set view_time=:viewTime where viewer=:userid";
+			$timeSql = "update viewing_record set name=:name,email=:email,tel=:tel,isRegist=:isRegist,view_time=:viewTime where viewer=:userid";
 			$stmt=$conn->prepare($timeSql);
-			$stmt->execute(array(
+			$stmt->execute(array('name'=> $name,
+						'email'=> $email,
+						'tel'=> $tel,
+						'isRegist'=> $isRegist,
 					'viewTime'=> $viewTime,
 					'userid'=> $userid
 			));
@@ -251,7 +254,6 @@ if($_REQUEST['action']) {
 				$ringname='无戒托';
 				$ringpic='Diamond.jpg';
 			}
-			
 			$sql_dia='SELECT * FROM diamonds WHERE id = '.$_REQUEST['appointmentId'];;
 			$stmt_dia=$conn->query($sql_dia);
 			foreach($stmt_dia as $r_d){
