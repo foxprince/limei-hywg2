@@ -237,24 +237,20 @@ if($_REQUEST['action']) {
 				$appointmentOwner = $_COOKIE["userId"];
 			else
 				$appointmentOwner = $_COOKIE["everUserId"];
-			if($_REQUEST['type']=='dia'){
-				$diaId=$_REQUEST['appointmentId'];
-				$jewId=0;
-			}else{
-				$diaId=0;
-				$jewId=$_REQUEST['appointmentId'];
-			}
-			if($jewId!=0){
-				$sql_ring='SELECT name_ch, image1 FROM jewelry WHERE id='.$jewId;
+			$diaId=$_REQUEST['diaId'];
+			$jewId=$_REQUEST['jewId'];
+			if($_REQUEST['type']=='jew'){
+				$sql_ring='SELECT name_ch, image1,price FROM jewelry WHERE id='.$jewId;
 				foreach($conn->query($sql_ring) as $r_r){
 					$ringname=$r_r['name_ch'];
 					$ringpic=$r_r['image1'];
+					$jewellery_price=$r_r['price'];
 				}
 			}else{
 				$ringname='无戒托';
-				$ringpic='Diamond.jpg';
+				$ringpic='Diamond.jpg';$jewellery_price=0;
 			}
-			$sql_dia='SELECT * FROM diamonds WHERE id = '.$_REQUEST['appointmentId'];;
+			$sql_dia='SELECT * FROM diamonds WHERE id = '.$diaId;
 			$stmt_dia=$conn->query($sql_dia);
 			foreach($stmt_dia as $r_d){
 				$stock_ref=$r_d['stock_ref'];
@@ -282,7 +278,7 @@ if($_REQUEST['action']) {
 				$contact_tel=$r_d['contact_tel'];
 				$certificatelink=$r_d['certificatelink'];
 			}
-			$jewellery_price=0;$thetotalprice=0;
+			$thetotalprice=0;
 			$chosenby='USER';$viewTime=null;
 			$sql_view='INSERT INTO viewing_record (diamond, diamond_shape, diamond_color, diamond_clarity, diamond_carat, diamond_cut, diamond_symmetry, diamond_polish, diamond_fluo, diamond_price, jewellery_price, totalprice_in_currency, jewellery_id, viewer, view_time, chosenby)
 											  VALUES (:diamond, :diamond_shape, :diamond_color, :diamond_clarity, :diamond_carat, :diamond_cut, :diamond_symmetry, :diamond_polish, :diamond_fluo, :diamond_price, :jewellery_price, :totalprice_in_currency, :jewellery_id, :viewer, :viewTime, :chosenby)';

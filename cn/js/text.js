@@ -1,9 +1,13 @@
-function makeOrderStep(id) {
-	if (appointmentCheck(id) > 0) {
+function makeOrderStep(diaId,jewId) {
+	console.log('iiiiiiiii');
+	if (appointmentCheck(diaId) > 0) {
+		console.log(diaId);
 		alert('您已经预约过此钻石，可以在购物车里复查预约登记。');
 	} else if (appointmentCount() > 4) {
+		console.log(diaId);
 		alert('您只能预约五颗钻石。');
-	} else if (appointmentMake(id)) {
+	} else if (appointmentMake("jew",diaId,jewId)) {
+		console.log(diaId);
 		window.location.href="shopcart.php";
 	}
 }
@@ -12,7 +16,7 @@ function popup(id) {
 		alert('您已经预约过此钻石，可以在购物车里复查预约登记。');
 	} else if (appointmentCount() > 4) {
 		alert('您只能预约五颗钻石。');
-	} else if (appointmentMake(id)) {
+	} else if (appointmentMake("dia",id,0)) {
 		var $haveChoose = false;
 		$.ajax({
 					type : "get",
@@ -131,16 +135,17 @@ function appointment(id) {
 		});
 	}
 }
-function appointmentMake(id) {
+function appointmentMake(type,diaId,jewId) {
 	var result = false;
 	$.ajax({
 		type : "post",
 		async : false,
-		url : "action.php?action=appointmentMake&type=dia&appointmentId=" + id,
+		url : "action.php?action=appointmentMake&type="+type+"&diaId=" + diaId+"&jewId="+jewId,
 		complete : function() {
 			// layer.close(page_layer);
 		},
 		success : function(json) {
+			console.log(json);
 			if (json == '1') {
 				result = true;
 			}

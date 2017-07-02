@@ -19,13 +19,14 @@ $firstClass="active";
 $secondStep = "three";
 $secondClass="";
 $diaFirst = true;
-if($_COOKIE["orderDiaId"]||$_REQUEST['step']=="dia")
+/*if($_COOKIE["orderDiaId"]||$_REQUEST['step']=="dia")
 	$diaFirst = true;
 else if($_COOKIE["orderJewId"])
 	$diaFirst = false;
 else if($_REQUEST['step']=="jew")
 	$diaFirst = false;
-else if(strpos($_SERVER['PHP_SELF'], "jew")) {
+else */
+if(strpos($_SERVER['PHP_SELF'], "jew")) {
 	$firtStep = "three";$secondStep = "two";
 	$firstClass="";$secondClass="active";
 	$diaFirst = false;
