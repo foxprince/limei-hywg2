@@ -11,6 +11,10 @@ function makeOrderStep(diaId,jewId) {
 		window.location.href="shopcart.php";
 	}
 }
+/**
+ * @param id
+ * @returns
+ */
 function popup(id) {
 	if (appointmentCheck(id) > 0) {
 		alert('您已经预约过此钻石，可以在购物车里复查预约登记。');
@@ -20,16 +24,15 @@ function popup(id) {
 		var $haveChoose = false;
 		$.ajax({
 					type : "get",
-					url : "action.php?action=appoinmentList&type=dia&appointmentId=" + id,
+					url : "action.php?action=appointmentList&type=dia&appointmentId=" + id,
 					complete : function() {
 						$("#gwcTotal").text(parseInt($("#gwcTotal").text()) + 1);
 					},
 					success : function(json) {
 						$("#appointmentList").html('');
-						var data = eval(json);
+						var data = eval(json);console.log(data);
 						var i = 0;
-						$
-								.each(
+						$.each(
 										data,
 										function(n, j) {
 											i++;
@@ -40,7 +43,7 @@ function popup(id) {
 											item += '    </div>';
 											item += '</div>';
 											item += '<div class="detail">';
-											item += '<p>圆形裸钻</p>';
+											item += '<p>'+j.shapeTxt+'裸钻</p>';
 											item += '<p>' + j.diamond_carat + '克拉</p>';
 											item += '<p>颜色：' + j.diamond_color + '</p>';
 											item += '<p>净度：' + j.diamond_clarity + '</p>';

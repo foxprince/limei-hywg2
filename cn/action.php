@@ -89,13 +89,13 @@ if($_REQUEST['action']) {
 			}
 			echo $t;
 			break;
-		case "appoinmentList":
+		case "appointmentList":
 			$appointmentOwner;
 			if (isset($_COOKIE["userId"]))
 				$appointmentOwner = $_COOKIE["userId"];
 			else
 				$appointmentOwner = $_COOKIE["everUserId"];
-			$userhistory='SELECT a.*,b.stock_ref,b.grading_lab,b.certificate_number FROM viewing_record a,diamonds b WHERE a.viewer = "'.$appointmentOwner.'" and a.diamond=b.id ORDER BY a.id DESC';
+			$userhistory='SELECT a.*,b.stock_ref,b.grading_lab,b.certificate_number,c.name_ch,c.image1,c.price FROM viewing_record a,diamonds b,jewelry c WHERE a.viewer = "'.$appointmentOwner.'" and a.diamond=b.id and a.jewellery_id=c.id ORDER BY a.id DESC';
 			logger($userhistory);
 			$stmt_history=$conn->query($userhistory);
 			$historyfound=$stmt_history->rowCount();
@@ -103,6 +103,8 @@ if($_REQUEST['action']) {
 			if($historyfound){
 				foreach($stmt_history as $row_history){
 					$appoinmentList[]=$row_history;
+					$appoinmentList[0]['shapeTxt']=diamondShapeDesc($row_history['shape']);
+					/*
 					$demopiclink='./img-eles/goodprice.png';
 					if($user_jewellery_id!='' && $user_jewellery_id!=NULL && $user_jewellery_id!=0){
 						$sql_ring='SELECT * FROM jewelry WHERE id = '.$user_jewellery_id;
@@ -111,7 +113,7 @@ if($_REQUEST['action']) {
 							$user_ring_image1=$r_r['image1'];
 						}
 						$demopiclink='../images/sitepictures/'.$user_ring_image1;
-					}
+					}*/
 					$i++;
 				}
 			}
@@ -315,5 +317,49 @@ if($_REQUEST['action']) {
 			break;
 	}
 }
-
+function diamondShapeDesc($shape) {
+	switch ($shape){
+		case "BR":
+			$pic_where="01.gif";
+			$shape_TXT='圆形';
+			break;
+		case "PR":
+			$pic_where="02.gif";
+			$shape_TXT='水滴形';
+			break;
+		case "PS":
+			$pic_where="03.gif";
+			$shape_TXT='公主方';
+			break;
+		case "HS":
+			$pic_where="04.gif";
+			$shape_TXT='心形';
+			break;
+		case "MQ":
+			$pic_where="05.gif";
+			$shape_TXT='马眼形';
+			break;
+		case "OV":
+			$pic_where="06.gif";
+			$shape_TXT='椭圆形';
+			break;
+		case "EM":
+			$pic_where="07.gif";
+			$shape_TXT='祖母绿形';
+			break;
+		case "RAD":
+			$pic_where="08.gif";
+			$shape_TXT='雷电形';
+			break;
+		case "CU":
+			$pic_where="09.gif";
+			$shape_TXT='垫形';
+			break;
+		default:
+			$pic_where="01.gif";
+			$shape_TXT='圆形';
+			break;
+	}
+	return $shape_TXT;	
+}
 ?>

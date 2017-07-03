@@ -25,13 +25,12 @@ date.setHours (date.getHours () + 1)
 $(function () {
 	$('#datetimepicker').datetimepicker();
 	$("#datetimepicker").val(date.toLocaleString ());
-	console.log($("#datetimepicker").val());
 });
 function popup(id) {
 	//获得已经预约的钻石
 	$.ajax({
 		type : "get",
-		url : "action.php?action=appoinmentList",
+		url : "action.php?action=appointmentList",
 		complete : function() {
 		},
 		success : function(json) {
@@ -40,13 +39,19 @@ function popup(id) {
 			var i = 0;
 			$.each(data, function (n, j) {
 			    var item ='<div class="pro_pics">';
-	            item +='<div class="pic_00"><img src="images/pic_01.png"/>';
+				if(j.jewellery_id>0)
+					item +='<div class="pic_00"><img width=122 height=122 src="../images/sitepictures/'+j.image1+'"/>';
+				else
+					item +='<div class="pic_00"><img src="images/pic_01.png"/>';
 		        item +='    <div class="quxiao" >';
 		        item +='        <img class="removeApp" id="'+j.id+'" onclick="removeAppointment(this)" src="images/close.png"/>';
 		        item +='    </div>';
 	            item +='</div>';
 				item += '<div class="detail">';
-                item += '<p>圆形裸钻</p>';
+				if(j.jewellery_id>0)
+					item += '<p>'+j.name_ch+'</p>';
+				else
+                	item += '<p>'+j.shapeTxt+'裸钻</p>';
                 item += '<p>'+j.diamond_carat+'克拉</p>';
                 item += '<p>颜色：'+j.diamond_color+'</p>';
                 item += '<p>净度：'+j.diamond_clarity+'</p>';
