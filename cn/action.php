@@ -213,15 +213,15 @@ if($_REQUEST['action']) {
 				//$mail->IsHTML(true); // set email format to HTML //是否使用HTML格式
 				$mail->AddAddress($email, $name);//收件人地址，可以替换成任何想要接收邮件的email信箱,格式是AddAddress("收件人email","收件人姓名")
 				$mail->Subject = '您在利美钻石预约的钻石信息'; //邮件标题
-				$content = '非常感谢您的预订。您预约的时间是：'.$viewTime.'，我们将恭候您的光临。\n';
-				$content .= '公司地址：DIAMANTCLUB VAN ANTWERPEN
-Pelikaanstraat 62, 2018 Antwerp, Belgium 比利时安特卫普
-电话：+32 (0)3 689 73 94
-您可以选择从大门 Pelikaanstraat 62, 2018 Antwerp 进入
-(周一至周五开放）
-或大门 Hovenierstraat 35, 2018 Antwerp 进入
-（周一至周日开放）
-钻石街停车场地址：Vestingstraat 382018 Antwerp Belgium';
+				$content = '非常感谢您的预订。您预约的时间是：'.$viewTime.'，我们将恭候您的光临。';
+				/*$content .= '公司地址：DIAMANTCLUB VAN ANTWERPEN
+					Pelikaanstraat 62, 2018 Antwerp, Belgium 比利时安特卫普
+					电话：+32 (0)3 689 73 94
+					您可以选择从大门 Pelikaanstraat 62, 2018 Antwerp 进入
+					(周一至周五开放）
+					或大门 Hovenierstraat 35, 2018 Antwerp 进入
+					（周一至周日开放）
+					钻石街停车场地址：Vestingstraat 382018 Antwerp Belgium';*/
 				$mail->Body = $content; //邮件内容
 				$mail->AltBody = "This is the body in plain text for non-HTML mail clients"; //附加信息，可以省略
 				if(!$mail->send()) {
