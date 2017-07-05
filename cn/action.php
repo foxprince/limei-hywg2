@@ -98,7 +98,8 @@ if($_REQUEST['action']) {
 				$appointmentOwner = $_COOKIE["userId"];
 			else
 				$appointmentOwner = $_COOKIE["everUserId"];
-			$userhistory='SELECT a.*,b.stock_ref,b.grading_lab,b.certificate_number,c.name_ch,c.image1,c.price FROM viewing_record a,diamonds b,jewelry c WHERE a.viewer = "'.$appointmentOwner.'" and a.diamond=b.id and a.jewellery_id=c.id ORDER BY a.id DESC';
+			//$userhistory='SELECT a.*,b.stock_ref,b.grading_lab,b.certificate_number,c.name_ch,c.image1,c.price FROM viewing_record a,diamonds b,jewelry c WHERE a.viewer = "'.$appointmentOwner.'" and a.diamond=b.id and a.jewellery_id=c.id ORDER BY a.id DESC';
+			$userhistory='select  t.*,c.name_ch,c.image1,c.price from (SELECT a.*,b.stock_ref,b.grading_lab,b.certificate_number FROM viewing_record a,diamonds b WHERE a.viewer = "'.$appointmentOwner.'" and a.diamond=b.id ) as t  left join jewelry c on t.jewellery_id=c.id ORDER BY t.id DESC';
 			logger($userhistory);
 			$stmt_history=$conn->query($userhistory);
 			$historyfound=$stmt_history->rowCount();
