@@ -117,7 +117,6 @@ function makeOrder(diaId) {
 	return check;
 }
 function appointment(id) {
-	console.log($('#name').val());
 	if ($('#name').val()==''||$('#email').val()==''||$('#tel').val()==''||$('#viewing_time').val()=='') {
 		alert("请提供您的姓名、邮件、电话和预约时间。");
 	} else {

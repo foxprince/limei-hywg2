@@ -9,7 +9,11 @@ if(!isset($conn)){
 	$conn->query("SET NAMES 'utf8'");
 }
 $userid = $_COOKIE["userId"];
-$cookieId = $_COOKIE['everCookieId'];
+$cookieId = $_COOKIE['everUserId'];
+if (isset($_COOKIE["userId"]))
+	$userid = $_COOKIE["userId"];
+else
+	$userid = $_COOKIE["everUserId"];
 if($_REQUEST['action']) {
 	$action = $_REQUEST['action'];
 	switch($action) {
@@ -80,26 +84,15 @@ if($_REQUEST['action']) {
 			echo json_encode($itemList);
 			break;
 		case "appoinmentTotal":
-			$appointmentOwner;
-			if (isset($_COOKIE["userId"]))
-				$appointmentOwner = $_COOKIE["userId"];
-			else
-				$appointmentOwner = $_COOKIE["everUserId"];
-						
-			$userhistory='SELECT count(*) FROM viewing_record a WHERE a.viewer = "'.$appointmentOwner.'"';
+			$userhistory='SELECT count(*) FROM viewing_record a WHERE a.viewer = "'.$userid.'"';
 			foreach($conn->query($userhistory) as $r_r){
 				$t=$r_r['t'];
 			}
 			echo $t;
 			break;
 		case "appointmentList":
-			$appointmentOwner;
-			if (isset($_COOKIE["userId"]))
-				$appointmentOwner = $_COOKIE["userId"];
-			else
-				$appointmentOwner = $_COOKIE["everUserId"];
 			//$userhistory='SELECT a.*,b.stock_ref,b.grading_lab,b.certificate_number,c.name_ch,c.image1,c.price FROM viewing_record a,diamonds b,jewelry c WHERE a.viewer = "'.$appointmentOwner.'" and a.diamond=b.id and a.jewellery_id=c.id ORDER BY a.id DESC';
-			$userhistory='select  t.*,c.name_ch,c.image1,c.price from (SELECT a.*,b.stock_ref,b.grading_lab,b.certificate_number FROM viewing_record a,diamonds b WHERE a.viewer = "'.$appointmentOwner.'" and a.diamond=b.id ) as t  left join jewelry c on t.jewellery_id=c.id ORDER BY t.id DESC';
+			$userhistory='select  t.*,c.name_ch,c.image1,c.price from (SELECT a.*,b.stock_ref,b.grading_lab,b.certificate_number FROM viewing_record a,diamonds b WHERE a.viewer = "'.$userid.'" and a.diamond=b.id ) as t  left join jewelry c on t.jewellery_id=c.id ORDER BY t.id DESC';
 			logger($userhistory);
 			$stmt_history=$conn->query($userhistory);
 			$historyfound=$stmt_history->rowCount();
@@ -242,33 +235,20 @@ Pelikaanstraat 62, 2018 Antwerp, Belgium 比利时安特卫普
 			echo $feedbackwords;
 			break;
 		case "appointmentCheck":
-			if (isset($_COOKIE["userId"]))
-				$appointmentOwner = $_COOKIE["userId"];
-			else
-				$appointmentOwner = $_COOKIE["everUserId"];
-			$sql_dia='SELECT count(*) as t FROM viewing_record WHERE diamond = '.$_REQUEST['appointmentId'].' and viewer="'.$appointmentOwner.'"';
+			$sql_dia='SELECT count(*) as t FROM viewing_record WHERE diamond = '.$_REQUEST['appointmentId'].' and viewer="'.$userid.'"';
 			foreach($conn->query($sql_dia) as $r_r){
 				$t=$r_r['t'];
 			}
 			echo $t;
 			break;
 		case "appointmentCount":
-			if (isset($_COOKIE["userId"]))
-				$appointmentOwner = $_COOKIE["userId"];
-			else
-				$appointmentOwner = $_COOKIE["everUserId"];
-			$sql_dia='SELECT count(*) as t FROM viewing_record WHERE viewer="'.$appointmentOwner.'"  and diamond in (select id from diamonds)';
+			$sql_dia='SELECT count(*) as t FROM viewing_record WHERE viewer="'.$userid.'"  and diamond in (select id from diamonds)';
 			foreach($conn->query($sql_dia) as $r_r){
 				$t=$r_r['t'];
 			}
 			echo $t;
 			break;
 		case "appointmentMake":
-			$appointmentOwner;
-			if (isset($_COOKIE["userId"]))
-				$appointmentOwner = $_COOKIE["userId"];
-			else
-				$appointmentOwner = $_COOKIE["everUserId"];
 			$diaId=$_REQUEST['diaId'];
 			$jewId=$_REQUEST['jewId'];
 			if($_REQUEST['type']=='jew'){
@@ -329,7 +309,7 @@ Pelikaanstraat 62, 2018 Antwerp, Belgium 比利时安特卫普
 					'jewellery_price'=> $jewellery_price,
 					'totalprice_in_currency'=> $thetotalprice,
 					'jewellery_id'=> $jewId,
-					'viewer'=> $appointmentOwner,
+					'viewer'=> $userid,
 					'viewTime'=> $viewTime,
 					'chosenby'=> $chosenby
 			));
