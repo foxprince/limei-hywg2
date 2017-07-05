@@ -206,7 +206,7 @@ if($_REQUEST['action']) {
 				//发送邮件
 				$mail = new PHPMailer(); //建立邮件发送类
 				$mail->isSendmail();
-				$mail->From = "service@lumiagem.com"; //邮件发送者email地址
+				$mail->From = "info@lumiagem.com"; //邮件发送者email地址
 				$mail->FromName = "lumiagem";
 				$mail->AddReplyTo("info@lumiagem.com", "info_lumiagem");
 				
