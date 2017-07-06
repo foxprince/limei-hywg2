@@ -165,12 +165,13 @@ if($_REQUEST['action']) {
 			break;
 		case "makeOrder":
 			$_SESSION['orderDiaId'] = $_REQUEST['diaId'];
-			//setcookie("orderDiaId",$_REQUEST['diaId'],time()+365*24*3600);
-			echo '定制成功，请继续选择款式';
+			setcookie("orderDiaId",$_REQUEST['diaId'],time()+3600);
+			logger("orderDiaId:".$_SESSION['orderDiaId']);
+			echo '定制成功，请继续';
 			break;
 		case "makeOrderJew":
 			$_SESSION['orderJewId'] = $_REQUEST['jewId'];
-			//setcookie("orderJewId",$_REQUEST['jewId'],time()+365*24*3600);
+			setcookie("orderJewId",$_REQUEST['jewId'],time()+3600);
 			echo '定制成功，请继续';
 			break;
 		case "appointmentMakeAll":

@@ -1,5 +1,4 @@
 function makeOrderStep(diaId,jewId) {
-	console.log('iiiiiiiii');
 	if (appointmentCheck(diaId) > 0) {
 		console.log(diaId);
 		alert('您已经预约过此钻石，可以在购物车里复查预约登记。');
@@ -111,7 +110,10 @@ function makeOrder(diaId) {
 		url : "action.php?action=makeOrder&diaId=" + diaId,
 		success : function(json) {
 			alert(json);
-			window.location.href="jewelry.php?step=dia";
+			if(Cookies.get('orderJewId')!=undefined)
+				window.location.href="jewelry-detail.php?id="+Cookies.get('orderJewId')+"step=dia&orderDiaId="+diaId;
+			else
+				window.location.href="jewelry.php?step=dia";
 		}
 	});
 	return check;

@@ -2,12 +2,13 @@
 if($_REQUEST['action']) {
 	if($_REQUEST['action']=='resetOrderDia') {
 		$_SESSION['orderDiaId'] = null;
+		setcookie("orderDiaId",NULL);
 		header("Location: ./dia.php");
 		exit;
 	}
 	else if($_REQUEST['action']=='resetOrderJew') {
 		$_SESSION['orderJewId'] = null;
-		//setcookie("orderJewId",NULL);
+		setcookie("orderJewId",NULL);
 		header("Location: ./jewelry.php");
 		exit;
 	}
@@ -20,6 +21,7 @@ $firstClass="active";
 $secondStep = "three";
 $secondClass="";
 $diaFirst = true;
+logger("orderDiaId:".$_SESSION['orderDiaId']);
 /*if($_COOKIE["orderDiaId"]||$_REQUEST['step']=="dia")
 	$diaFirst = true;
 else if($_COOKIE["orderJewId"])
@@ -44,8 +46,8 @@ if(strpos($_SERVER['PHP_SELF'], "jew")) {
         <li class="two-box">
           <div id="step1" class = "<?php echo $firstClass;?>"><!-- 此处为背景控件active -->
             <div class="two">
-            <?php if(isset($_SESSION['orderDiaId'])){
-        	$sql='SELECT * FROM diamonds WHERE id = '.$_SESSION['orderDiaId'];
+            <?php if(isset($_COOKIE["orderDiaId"])){
+        	$sql='SELECT * FROM diamonds WHERE id = '.$_COOKIE["orderDiaId"];
         	foreach($conn->query($sql) as $r){}
         	?>
             <p><?php echo $r['carat'].'ct '.$r['color'].'色 '.$r['clarity'].' '.$r['cut_grade'].' '.$r['polish'].' '.$r['symmetry']?></p>
@@ -59,8 +61,8 @@ if(strpos($_SERVER['PHP_SELF'], "jew")) {
         <li class="tc three-box">
           <div id="step2" class="<?php echo $secondClass;?>"><!-- 此处为背景控件active -->
             <div class="three">
-            <?php if(isset($_SESSION['orderJewId'])){
-        	$sql='SELECT * FROM jewelry WHERE id = '.$_SESSION['orderJewId'];
+            <?php if(isset($_COOKIE['orderJewId'])){
+        	$sql='SELECT * FROM jewelry WHERE id = '.$_COOKIE['orderJewId'];
         	foreach($conn->query($sql) as $r_jew){}?>
         	<p><?php echo $r_jew['name_ch']; ?></p>
 			<p><?php echo $r_jew['price']; ?>元 <a href="jewelry.php?action=resetOrderJew">重选</a></p>
@@ -69,17 +71,6 @@ if(strpos($_SERVER['PHP_SELF'], "jew")) {
             </div>
           </div>
         </li>
-        <!--  
-        <li class="two-box">
-          <div id="step1" class="active">
-            <div class="two"><span>选择款式</span><img src="./images/step-two.png" alt=""></div>
-          </div>
-        </li>
-        <li class="tc three-box">
-          <div id="step2">
-            <div class="three"><span>选择裸钻</span><img src="./images/step-three.png" alt=""></div>
-          </div>
-        </li>-->
         <li class="tc four-box">
           <div id="step3"><!-- 此处为背景控件active -->
             <div class="four">完成定制</div>

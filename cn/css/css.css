@@ -308,7 +308,7 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .detail-r{position: absolute; top:72px; right: 0; width: 360px;}
 .detail-r h1{font-size: 28px;}
 .detail-r p{margin:20px 0; font-size: 14px; color: #333；}
-.detail-r .jewDetail p{font-size: 14px; color: #333；}
+.jewDetail p{margin:5px 0; font-size: 14px; color: #333；}
 .detail-r span{font-size: 14px;}
 .detail-r select{width: 70px; height: 32px; background-color: #f7f1e5; border-color:#c89600; border-radius: 4px; font-size: 14px;}
 .detail-s{margin:6px 0;}
@@ -394,9 +394,10 @@ img.fa{width: 1.5em;text-align: center;}
     .two{padding-left: 48px; margin-left: 32px; padding-top: 26px; height: 48px; line-height: 20px; background: url(../images/two.png) no-repeat left bottom;}
     .three{padding-left: 48px; margin-left: 32px; padding-top: 20px; height: 54px; line-height: 20px; background: url(../images/three.png) no-repeat left bottom; text-align: left; }
     .four{padding-left: 48px; margin-left: 32px; padding-top: 26px; height: 48px; background: url(../images/four.png) no-repeat left bottom;line-height: 48px; text-align: left;}
-    .two p,.three p{font-size: 14px; text-align: left;}
+    .two p,.three p{font-size: 12px; text-align: left;}
     .two i,.three i{margin-left: 10px; font-style: normal; color:#bd8165; cursor: pointer;}
     .three img{ margin-left: 40px;}
+    .two img{ margin-left: 40px;}
     .step li .active{ width: 262px; height: 94px; margin-left: -3px; background: url(../images/step-hover.png) no-repeat left top;}
 
 
