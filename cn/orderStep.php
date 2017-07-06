@@ -1,12 +1,13 @@
 <?php
 if($_REQUEST['action']) {
 	if($_REQUEST['action']=='resetOrderDia') {
-		setcookie("orderDiaId",NULL);
+		$_SESSION['orderDiaId'] = null;
 		header("Location: ./dia.php");
 		exit;
 	}
 	else if($_REQUEST['action']=='resetOrderJew') {
-		setcookie("orderJewId",NULL);
+		$_SESSION['orderJewId'] = null;
+		//setcookie("orderJewId",NULL);
 		header("Location: ./jewelry.php");
 		exit;
 	}
@@ -43,8 +44,8 @@ if(strpos($_SERVER['PHP_SELF'], "jew")) {
         <li class="two-box">
           <div id="step1" class = "<?php echo $firstClass;?>"><!-- 此处为背景控件active -->
             <div class="two">
-            <?php if(isset($_COOKIE['orderDiaId'])){
-        	$sql='SELECT * FROM diamonds WHERE id = '.$_COOKIE['orderDiaId'];
+            <?php if(isset($_SESSION['orderDiaId'])){
+        	$sql='SELECT * FROM diamonds WHERE id = '.$_SESSION['orderDiaId'];
         	foreach($conn->query($sql) as $r){}
         	?>
             <p><?php echo $r['carat'].'ct '.$r['color'].'色 '.$r['clarity'].' '.$r['cut_grade'].' '.$r['polish'].' '.$r['symmetry']?></p>
@@ -58,8 +59,8 @@ if(strpos($_SERVER['PHP_SELF'], "jew")) {
         <li class="tc three-box">
           <div id="step2" class="<?php echo $secondClass;?>"><!-- 此处为背景控件active -->
             <div class="three">
-            <?php if(isset($_COOKIE['orderJewId'])){
-        	$sql='SELECT * FROM jewelry WHERE id = '.$_COOKIE['orderJewId'];
+            <?php if(isset($_SESSION['orderJewId'])){
+        	$sql='SELECT * FROM jewelry WHERE id = '.$_SESSION['orderJewId'];
         	foreach($conn->query($sql) as $r_jew){}?>
         	<p><?php echo $r_jew['name_ch']; ?></p>
 			<p><?php echo $r_jew['price']; ?>元 <a href="jewelry.php?action=resetOrderJew">重选</a></p>

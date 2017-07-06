@@ -308,12 +308,11 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .detail-r{position: absolute; top:72px; right: 0; width: 360px;}
 .detail-r h1{font-size: 28px;}
 .detail-r p{margin:20px 0; font-size: 14px; color: #333；}
-.detail-r .jewDetail p{margin:5px 20px; font-size: 14px; color: #333；}
+.detail-r .jewDetail p{font-size: 14px; color: #333；}
 .detail-r span{font-size: 14px;}
-.detail-r select{width: 240px; height: 32px; background-color: #f7f1e5; border-color:#c89600; border-radius: 4px; font-size: 14px;}
+.detail-r select{width: 70px; height: 32px; background-color: #f7f1e5; border-color:#c89600; border-radius: 4px; font-size: 14px;}
 .detail-s{margin:6px 0;}
 
-.detail-buy{margin-top:58px;}
 .detail-buy p{display: inline-block; font-size: 20px;}
 .detail-buy i{font-style: normal; color: #f9b5b2; font-size: 20px;}
 .detail-buy .btn{background-color:#bd8167; padding:7px 28px; border:1px solid #8b553e; color: #fff; border-radius: 6px; margin-left: 10px;}
@@ -345,6 +344,7 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .l-input select{width:48px;border: 1px solid #c18971;}
 .l-bottom{margin:0.7em auto;width: 100%;text-align: center;}
 .l-bottom #sub_btn{background: url(../images/yuyue_confirm.png) no-repeat;height: 35px;width: 95px;border: 0px;}
+.l-bottom .custm_serv{width:auto;height:auto;display:inline-block;vertical-align:top;font-size: 14px;}
 
 .black_overlay {
   display: none;
@@ -387,20 +387,17 @@ img.fa{width: 1.5em;text-align: center;}
 
 <!-- 新增css20170620 -->
 	.step-box{height: 95px; font-size: 14px;}
-	.step p{font-size:8px;text-align:left;}
-    .one{ line-height: 94px;}
-    .step{width: 940px; height: 95px; margin:0 auto 30px auto; background: url(../images/step-bg.png) no-repeat;}
+    .step{width: 940px; height: 95px; margin:0 auto; background: url(../images/step-bg.png) no-repeat;}
     .step li{float: left; width: 235px; font-size: 16px; color:#b2b2b2;}
     .step li h2{ line-height: 80px;}
     .one{ line-height: 94px;}
-    .two{padding-left: 40px; margin-left: 32px; padding-top: 26px; height: 48px; /*line-height: 48px;*/ background: url(../images/two.png) no-repeat left bottom;}
-    .three{padding-left: 48px; margin-left: 32px; padding-top: 26px; height: 48px; /*line-height: 48px;*/ background: url(../images/three.png) no-repeat left bottom;}
-    .four{padding-left: 48px; margin-left: 32px; padding-top: 26px; height: 48px; background: url(../images/four.png) no-repeat left bottom; line-height: 48px;}
-    .two i{margin-left: 10px; font-style: normal; color:#bd8165; cursor: pointer;}
-    .two img{ margin-left: 40px; width: 32px;}
+    .two{padding-left: 48px; margin-left: 32px; padding-top: 26px; height: 48px; line-height: 20px; background: url(../images/two.png) no-repeat left bottom;}
+    .three{padding-left: 48px; margin-left: 32px; padding-top: 20px; height: 54px; line-height: 20px; background: url(../images/three.png) no-repeat left bottom; text-align: left; }
+    .four{padding-left: 48px; margin-left: 32px; padding-top: 26px; height: 48px; background: url(../images/four.png) no-repeat left bottom;line-height: 48px; text-align: left;}
+    .two p,.three p{font-size: 14px; text-align: left;}
+    .two i,.three i{margin-left: 10px; font-style: normal; color:#bd8165; cursor: pointer;}
     .three img{ margin-left: 40px;}
-    .step li .active{ width: 262px; height: 94px; margin-left: -10px; background: url(../images/step-hover.png) no-repeat left top;}
-
+    .step li .active{ width: 262px; height: 94px; margin-left: -3px; background: url(../images/step-hover.png) no-repeat left top;}
 
 
 

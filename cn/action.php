@@ -9,7 +9,6 @@ if(!isset($conn)){
 	$conn->query("SET NAMES 'utf8'");
 }
 $userid = $_COOKIE["userId"];
-$cookieId = $_COOKIE['everUserId'];
 if (isset($_COOKIE["userId"]))
 	$userid = $_COOKIE["userId"];
 else
@@ -165,11 +164,13 @@ if($_REQUEST['action']) {
 			echo $feedbackwords;
 			break;
 		case "makeOrder":
-			setcookie("orderDiaId",$_REQUEST['diaId'],time()+365*24*3600);
+			$_SESSION['orderDiaId'] = $_REQUEST['diaId'];
+			//setcookie("orderDiaId",$_REQUEST['diaId'],time()+365*24*3600);
 			echo '定制成功，请继续选择款式';
 			break;
 		case "makeOrderJew":
-			setcookie("orderJewId",$_REQUEST['jewId'],time()+365*24*3600);
+			$_SESSION['orderJewId'] = $_REQUEST['jewId'];
+			//setcookie("orderJewId",$_REQUEST['jewId'],time()+365*24*3600);
 			echo '定制成功，请继续';
 			break;
 		case "appointmentMakeAll":

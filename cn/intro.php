@@ -68,7 +68,7 @@ if (isset($_GET['c'])) {
 											<p>电话：+32 (0)3 689 73 94</p>
 											<p>您可以选择从大门 <img src="images/traffic-02.png" style="max-width: 20px;" alt="利美钻石交通指引"/>  Pelikaanstraat 62, 2018 Antwerp 进入</p><p> (周一至周五开放）</p>
 											<p>或大门 <img src="images/traffic-03.png" style="max-width: 20px;" alt="利美钻石交通指引"/> Hovenierstraat 35, 2018 Antwerp 进入</p><p> （周一至周日开放）</p>
-											<p>钻石街停车场地址 <img src="images/traffic-04.png" style="max-width: 20px;" alt="利美钻石交通指引"/>：Vestingstraat 382018 Antwerp Belgium</p>
+											<p>钻石街停车场地址 <img src="images/traffic-04.png" style="max-width: 20px;" alt="利美钻石交通指引"/>：Vestingstraat 38, 2018 Antwerp Belgium</p>
 										</div>
 										<?php }?>
 									</div>
