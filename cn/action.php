@@ -99,7 +99,7 @@ if($_REQUEST['action']) {
 			if($historyfound){
 				foreach($stmt_history as $row_history){
 					$appoinmentList[]=$row_history;
-					$appoinmentList[0]['shapeTxt']=diamondShapeDesc($row_history['shape']);
+					$appoinmentList[$i]['shapeTxt']=diamondShapeDesc($row_history['shape']);
 					/*
 					$demopiclink='./img-eles/goodprice.png';
 					if($user_jewellery_id!='' && $user_jewellery_id!=NULL && $user_jewellery_id!=0){
