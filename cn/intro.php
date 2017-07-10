@@ -41,13 +41,13 @@ if (isset($_GET['c'])) {
 					<div class="div_text">
 							<div class="text_in"> 
 								<div class="row">
-									<div class="col-xs-12 col-sm-12 col-md-9">
+									<div class="col-xs-12 col-sm-12 col-md-9" style="text-align: center;">
 										<?php if ($c == 'gia') {?><IFRAME ID="Frame1" style="background-color=transparent" title="test" frameborder="0"  width="100%" height="1500" scrolling="yes" SRC="gia.html" allowTransparency="true"></IFRAME> 
 										<?php }elseif ($c == 'hrd') {?><IFRAME ID="Frame1" style="background-color=transparent" title="test" frameborder="0"  width="100%" height="1500" scrolling="yes" SRC="hrd.html" allowTransparency="true"></IFRAME> 
 										<?php }elseif ($c == 'igi') {?><IFRAME ID="Frame1" style="background-color=transparent" title="test" frameborder="0"  width="100%" height="1500" scrolling="yes" SRC="igi.html" allowTransparency="true"></IFRAME> 
 										<?php }else if ($c == 'order') {?>
 										<img src="images/makeorder.jpg" style="max-width: 590px;" alt="预约购买"/>
-										<img src="images/csqrcode.jpg" alt="利美客服二维码"/>
+										<img src="images/csqrcode.jpg" width="50%" alt="利美客服二维码"/>
 										<?php } else if ($c == 'maintain') {?>
 										<div style="text-align: center;">
 											<img style="max-width: 200px;" src="images/maintain-01.jpg" alt="终生保养服务"/>

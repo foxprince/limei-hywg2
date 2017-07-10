@@ -282,7 +282,7 @@
 	color:#4f4747;
 }
 .div_tttel{
-	width:295px;
+	width:auto;
 	height:215px;
 	position:absolute;
 	top:110px;
@@ -298,7 +298,7 @@
 	position:absolute;
 	top:145px;
 	left:645px;
-	background:url("../images/erweima.png") no-repeat center center;
+	background:url("../images/kefuqrcode-medium.jpg") no-repeat center center;
 }
 
 /*media*/
