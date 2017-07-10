@@ -38,7 +38,7 @@ foreach($conn->query($user_info) as $r_u){
         </div>
         <div class="l-bottom" id="appointmentBottom">
 	        <input type="hidden" name="appointmentId" id="appointmentId"/>
-	        <input type="button" value="" id="sub_btn" onclick="appointment();"/>
+	        <a href="javascript:void(0);" onclick="appointment();" class="btn">确定预约</a> 
     	</div>
     	<div class="l-bottom " style="width:100%;height:100%;text-align:center;position:relative; padding-left:0; margin-left:0; left:0;">
     		<div class="custm_serv" style="width:1.5%;">在线客服</div>

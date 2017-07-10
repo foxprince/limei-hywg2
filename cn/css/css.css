@@ -309,12 +309,13 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .detail-r p{margin:20px 0; font-size: 14px; color: #333；}
 .jewDetail p{margin:5px 0; font-size: 14px; color: #333；}
 .detail-r span{font-size: 16px;}
-.detail-r select{width: 70px; height: 32px; background-color: #f7f1e5; border-color:#c89600; border-radius: 4px; font-size: 14px;}
+.detail-r select{width: 80px; height: 32px; background-color: #f7f1e5; border-color:#c89600; border-radius: 4px; font-size: 14px;}
 .detail-s{margin:10px 0;}
-
+.detail-s .sewvtop{width:100%;height:23px;border:none; outline: none; cursor:pointer;border-radius: 2px;overflow: hidden; border:1px solid #fff;}
+.detail-s .sewvtop>img{width: 20px;height: 20px;vertical-align: middle;border: 2px solid #bd8165;border-radius: 4px;}
 .detail-buy p{display: inline-block; font-size: 16px;}
-.detail-buy i{font-style: normal; color: #f9b5b2; font-size: 16px;}
-.detail-buy .btn{background-color:#bd8167; font-size: 16px;float:right;padding:7px 28px; border:1px solid #8b553e; color: #fff; border-radius: 6px; margin-left: 10px;}
+.detail-buy i{font-style: normal; color: #bd8167; font-size: 18px;}
+.detail .btn{background-color:#bd8167; font-size: 16px;float:right;padding:7px 28px; border:1px solid #8b553e; color: #fff; border-radius: 6px; margin-left: 10px;}
 
 .share{margin-top: 42px;width: 800px; height: 100px; padding-left: 200px;}
 .share li{float: left; margin-right: 6px;}
@@ -341,10 +342,11 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .l-input .rinputs{width:45%;margin-right:32px;float: left;}
 .l-input input{width: 202px;height: 16px;border: 1px solid #c18971;}
 .l-input select{width:48px;border: 1px solid #c18971;}
-.l-bottom{margin:0.7em auto;width: 100%;text-align: center;}
+.l-bottom{margin:1em auto;width: 100%;text-align: center;}
+.l-bottom .btn{background-color:#bd8167; font-size: 16px;padding:7px 28px; border:1px solid #8b553e; color: #fff; border-radius: 6px; margin: 10px;}
 .l-bottom #sub_btn{background: url(../images/yuyue_confirm.png) no-repeat;height: 35px;width: 95px;border: 0px;}
-.l-bottom .custm_serv{width:auto;height:auto;display:inline-block;vertical-align:top;font-size: 14px;}
-
+.l-bottom .custm_serv{width:auto;height:auto;display:inline-block;vertical-align:middle;font-size: 14px;}
+.l-bottom .custm_serv p{font-size: 12px;}
 .black_overlay {
   display: none;
   position: fixed;
@@ -398,7 +400,6 @@ img.fa{width: 1.5em;text-align: center;}
     .three img{ margin-left: 40px;}
     .two img{ margin-left: 40px;}
     .step li .active{ width: 262px; height: 94px; margin-left: -3px; background: url(../images/step-hover.png) no-repeat left top;}
-
 
 
 
