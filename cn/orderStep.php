@@ -65,7 +65,7 @@ if(strpos($_SERVER['PHP_SELF'], "jew")) {
         	$sql='SELECT * FROM jewelry WHERE id = '.$_COOKIE['orderJewId'];
         	foreach($conn->query($sql) as $r_jew){}?>
         	<p><?php echo $r_jew['name_ch']; ?></p>
-			<p><?php echo $r_jew['price']; ?>元 <a href="jewelry.php?action=resetOrderJew">重选</a></p>
+			<p><?php echo $r_jew['price']; ?>美元 <a href="jewelry.php?action=resetOrderJew">重选</a></p>
         	<?php }else{ ?>
             <a style="color:#b2b2b2;" href="jewelry.php"><span>选择款式</span><img src="./images/step-two.png" alt=""></a><?php }?>
             </div>
