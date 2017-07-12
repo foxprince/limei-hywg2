@@ -318,6 +318,8 @@ if($_REQUEST['action']) {
 			$OK=$stmt->rowCount();
 			logger($OK);
 			if($OK){
+				setcookie("orderDiaId",NULL);
+				setcookie("orderJewId",NULL);
 				$feedbackwords='非常感谢您的预订。您的预约已经保存，我们会尽快联系您。';
 			}else{
 				$feedbackwords='非常抱歉，系统繁忙，请电话联系我们或发送电子邮件。谢谢！';

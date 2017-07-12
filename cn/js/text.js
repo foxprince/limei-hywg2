@@ -167,7 +167,6 @@ function appointmentMake(type,diaId,jewId) {
 			// layer.close(page_layer);
 		},
 		success : function(json) {
-			console.log(json);
 			if (json == '1') {
 				result = true;
 			}

@@ -54,12 +54,12 @@ if(strpos($_SERVER['PHP_SELF'], "jew")) {
             <p><?php echo $r['grading_lab']?> 钻石</p>
             <p>$<?php echo round($r['retail_price'])?><i><a href="dia.php?action=resetOrderDia">重选</a></i></p>
             <?php }else{ ?>
-            <a style="color:#b2b2b2;" href="dia.php"><span>选择裸钻</span><img src="./images/step-three.png" alt=""></a><?php }?>
+            <a class="link" href="dia.php"><span>选择裸钻</span></a><div class="icon"><img src="./images/step-three.png" alt=""></div><?php }?>
             </div>
           </div>
         </li>
         <li class="tc three-box">
-          <div id="step2" class="<?php echo $secondClass;?>"><!-- 此处为背景控件active -->
+          <div id="step2" class="<?php echo $secondClass;?>">
             <div class="three">
             <?php if(isset($_COOKIE['orderJewId'])){
         	$sql='SELECT * FROM jewelry WHERE id = '.$_COOKIE['orderJewId'];
@@ -67,12 +67,12 @@ if(strpos($_SERVER['PHP_SELF'], "jew")) {
         	<p><?php echo $r_jew['name_ch']; ?></p>
 			<p><?php echo $r_jew['price']; ?>美元 <a href="jewelry.php?action=resetOrderJew">重选</a></p>
         	<?php }else{ ?>
-            <a style="color:#b2b2b2;" href="jewelry.php"><span>选择款式</span><img src="./images/step-two.png" alt=""></a><?php }?>
+            <a class="link" href="jewelry.php"><span>选择款式</span></a><div class="icon"><img src="./images/step-two.png" alt=""></div><?php }?>
             </div>
           </div>
         </li>
         <li class="tc four-box">
-          <div id="step3"><!-- 此处为背景控件active -->
+          <div id="step3">
             <div class="four">完成定制</div>
           </div>
         </li>

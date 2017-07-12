@@ -391,13 +391,15 @@ img.fa{width: 1.5em;text-align: center;}
     .step{width: 940px; height: 95px; margin:0 auto; background: url(../images/step-bg.png) no-repeat;}
     .step li{float: left; width: 235px; font-size: 16px; color:#b2b2b2;}
     .step li h2{ line-height: 80px;}
+    .step .link {color:#b2b2b2;}
     .one{ line-height: 94px;}
-    .two{padding-left: 48px; margin-left: 32px; padding-top: 26px; height: 48px; line-height: 20px; background: url(../images/two.png) no-repeat left bottom;}
-    .three{padding-left: 48px; margin-left: 32px; padding-top: 26px; height: 48px; line-height: 20px; background: url(../images/three.png) no-repeat left bottom; text-align: left; }
-    .four{padding-left: 48px; margin-left: 32px; padding-top: 26px; height: 48px; background: url(../images/four.png) no-repeat left bottom;line-height: 48px; text-align: left;}
-    .two p,.three p{font-size: 12px; text-align: left;}
+    .two	{padding-left: 48px; margin-left: 32px; padding-top: 26px; height: 48px; background: url(../images/two.png) no-repeat left bottom;line-height: 48px;}
+    .three	{padding-left: 48px; margin-left: 32px; padding-top: 26px; height: 48px; background: url(../images/three.png) no-repeat left bottom; line-height: 48px;text-align: left; }
+    .four	{padding-left: 48px; margin-left: 32px; padding-top: 26px; height: 48px; background: url(../images/four.png) no-repeat left bottom;line-height: 48px; text-align: left;}
+    .two p,.three p{font-size: 12px; text-align: left;line-height: normal;}
     .two i,.three i{margin-left: 10px; font-style: normal; color:#bd8165; cursor: pointer;}
-    .three img{ margin-left: 40px;}
+    .three .icon{     margin: -49px 20px auto 80px;}
+    .two .icon{     margin: -40px auto auto 60px;}
     .two img{ margin-left: 40px;}
     .step li .active{ width: 262px; height: 94px; margin-left: -3px; background: url(../images/step-hover.png) no-repeat left top;}
 
