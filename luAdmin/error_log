@@ -1,0 +1,143 @@
+[02-Jun-2016 08:22:35 UTC] PHP Warning:  require_once(getaccesstoken.php): failed to open stream: No such file or directory in /home/sihui/public_html/limei/_admin/clients.php on line 40
+[02-Jun-2016 08:22:35 UTC] PHP Fatal error:  require_once(): Failed opening required 'getaccesstoken.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/sihui/public_html/limei/_admin/clients.php on line 40
+[02-Jun-2016 08:24:03 UTC] PHP Warning:  require_once(../getaccesstoken.php): failed to open stream: No such file or directory in /home/sihui/public_html/limei/_admin/clients.php on line 40
+[02-Jun-2016 08:24:03 UTC] PHP Fatal error:  require_once(): Failed opening required '../getaccesstoken.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/sihui/public_html/limei/_admin/clients.php on line 40
+[02-Jun-2016 08:26:16 UTC] PHP Warning:  require_once(createQrcode.php): failed to open stream: No such file or directory in /home/sihui/public_html/limei/_admin/clients.php on line 42
+[02-Jun-2016 08:26:16 UTC] PHP Fatal error:  require_once(): Failed opening required 'createQrcode.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/sihui/public_html/limei/_admin/clients.php on line 42
+[02-Jun-2016 08:28:01 UTC] PHP Parse error:  syntax error, unexpected '$jsonInfo' (T_VARIABLE) in /home/sihui/public_html/limei/_admin/createQrcode.php on line 7
+[02-Jun-2016 08:33:22 UTC] PHP Parse error:  syntax error, unexpected 'logger' (T_STRING) in /home/sihui/public_html/limei/_admin/createQrcode.php on line 7
+[02-Jun-2016 08:40:39 UTC] PHP Parse error:  syntax error, unexpected 'logger' (T_STRING) in /home/sihui/public_html/limei/_admin/createQrcode.php on line 7
+[02-Jun-2016 08:43:29 UTC] PHP Parse error:  syntax error, unexpected 'logger' (T_STRING) in /home/sihui/public_html/limei/_admin/createQrcode.php on line 7
+[02-Jun-2016 08:47:14 UTC] PHP Parse error:  syntax error, unexpected 'logger' (T_STRING) in /home/sihui/public_html/limei/_admin/createQrcode.php on line 7
+[02-Jun-2016 08:52:42 UTC] PHP Parse error:  syntax error, unexpected 'logger' (T_STRING) in /home/sihui/public_html/limei/_admin/createQrcode.php on line 7
+[02-Jun-2016 08:54:00 UTC] PHP Warning:  fopen(./qrcode/2025.jpg): failed to open stream: Permission denied in /home/sihui/public_html/limei/_admin/createQrcode.php on line 14
+[02-Jun-2016 08:55:00 UTC] PHP Warning:  fopen(./qrcode/2025.jpg): failed to open stream: Permission denied in /home/sihui/public_html/limei/_admin/createQrcode.php on line 14
+[02-Jun-2016 09:01:36 UTC] PHP Parse error:  syntax error, unexpected '"' in /home/sihui/public_html/limei/_admin/createQrcode.php on line 4
+[05-Jun-2016 09:16:15 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/sihui/public_html/limei/_admin/clients.php on line 123
+[05-Jun-2016 09:21:37 UTC] PHP Parse error:  syntax error, unexpected '"%'"' (T_CONSTANT_ENCAPSED_STRING) in /home/sihui/public_html/limei/_admin/clients.php on line 124
+[05-Jun-2016 09:24:34 UTC] PHP Parse error:  syntax error, unexpected '"%'"' (T_CONSTANT_ENCAPSED_STRING) in /home/sihui/public_html/limei/_admin/clients.php on line 136
+[05-Jun-2016 09:27:07 UTC] PHP Parse error:  syntax error, unexpected '"%'"' (T_CONSTANT_ENCAPSED_STRING) in /home/sihui/public_html/limei/_admin/clients.php on line 136
+[05-Jun-2016 09:27:52 UTC] PHP Parse error:  syntax error, unexpected '"%'"' (T_CONSTANT_ENCAPSED_STRING) in /home/sihui/public_html/limei/_admin/clients.php on line 136
+[05-Jun-2016 09:28:14 UTC] PHP Parse error:  syntax error, unexpected '"%'"' (T_CONSTANT_ENCAPSED_STRING) in /home/sihui/public_html/limei/_admin/clients.php on line 136
+[05-Jun-2016 09:28:18 UTC] PHP Parse error:  syntax error, unexpected '"%'"' (T_CONSTANT_ENCAPSED_STRING) in /home/sihui/public_html/limei/_admin/clients.php on line 136
+[05-Jun-2016 09:28:39 UTC] PHP Parse error:  syntax error, unexpected '"%'"' (T_CONSTANT_ENCAPSED_STRING) in /home/sihui/public_html/limei/_admin/clients.php on line 136
+[05-Jun-2016 09:28:46 UTC] PHP Parse error:  syntax error, unexpected '"%'"' (T_CONSTANT_ENCAPSED_STRING) in /home/sihui/public_html/limei/_admin/clients.php on line 136
+[05-Jun-2016 09:29:35 UTC] PHP Parse error:  syntax error, unexpected '"%'"' (T_CONSTANT_ENCAPSED_STRING) in /home/sihui/public_html/limei/_admin/clients.php on line 136
+[05-Jun-2016 09:30:01 UTC] PHP Fatal error:  Cannot use object of type PDOStatement as array in /home/sihui/public_html/limei/_admin/clients.php on line 127
+[05-Jun-2016 09:32:47 UTC] PHP Fatal error:  Cannot use object of type PDOStatement as array in /home/sihui/public_html/limei/_admin/clients.php on line 127
+[05-Jun-2016 09:38:28 UTC] PHP Fatal error:  Call to undefined method PDO::fetch() in /home/sihui/public_html/limei/_admin/clients.php on line 127
+[05-Jun-2016 09:47:20 UTC] PHP Fatal error:  Cannot use object of type PDOStatement as array in /home/sihui/public_html/limei/_admin/clients.php on line 128
+[05-Jun-2016 09:49:49 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, object given in /home/sihui/public_html/limei/_admin/clients.php on line 128
+[05-Jun-2016 09:51:23 UTC] PHP Warning:  mysql_query() expects parameter 2 to be resource, object given in /home/sihui/public_html/limei/_admin/clients.php on line 128
+[05-Jun-2016 09:51:23 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, null given in /home/sihui/public_html/limei/_admin/clients.php on line 129
+[05-Jun-2016 09:52:29 UTC] PHP Warning:  mysql_query() expects parameter 2 to be resource, object given in /home/sihui/public_html/limei/_admin/clients.php on line 128
+[05-Jun-2016 09:52:29 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, null given in /home/sihui/public_html/limei/_admin/clients.php on line 129
+[05-Jun-2016 09:53:15 UTC] PHP Warning:  mysql_query() expects parameter 2 to be resource, object given in /home/sihui/public_html/limei/_admin/clients.php on line 128
+[05-Jun-2016 09:53:15 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, null given in /home/sihui/public_html/limei/_admin/clients.php on line 129
+[05-Jun-2016 10:01:02 UTC] PHP Warning:  mysql_query() expects parameter 2 to be resource, object given in /home/sihui/public_html/limei/_admin/clients.php on line 128
+[05-Jun-2016 10:01:02 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, null given in /home/sihui/public_html/limei/_admin/clients.php on line 129
+[05-Jun-2016 10:01:48 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, object given in /home/sihui/public_html/limei/_admin/clients.php on line 129
+[05-Jun-2016 10:03:05 UTC] PHP Fatal error:  Call to undefined method PDO::fetch() in /home/sihui/public_html/limei/_admin/clients.php on line 127
+[05-Jun-2016 10:03:49 UTC] PHP Fatal error:  Call to undefined method PDO::fetch() in /home/sihui/public_html/limei/_admin/clients.php on line 127
+[05-Jun-2016 10:04:06 UTC] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, object given in /home/sihui/public_html/limei/_admin/clients.php on line 129
+[05-Jun-2016 13:31:03 UTC] PHP Parse error:  syntax error, unexpected '$tpages' (T_VARIABLE) in /home/sihui/public_html/limei/_admin/clients.php on line 131
+[05-Jun-2016 13:32:06 UTC] PHP Parse error:  syntax error, unexpected '$tpages' (T_VARIABLE) in /home/sihui/public_html/limei/_admin/clients.php on line 131
+[05-Jun-2016 13:32:38 UTC] PHP Parse error:  syntax error, unexpected '$tpages' (T_VARIABLE) in /home/sihui/public_html/limei/_admin/clients.php on line 131
+[05-Jun-2016 13:33:02 UTC] PHP Parse error:  syntax error, unexpected '$adjacents' (T_VARIABLE) in /home/sihui/public_html/limei/_admin/clients.php on line 132
+[05-Jun-2016 13:36:32 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 126
+[05-Jun-2016 13:37:22 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 126
+[05-Jun-2016 13:38:11 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 126
+[05-Jun-2016 13:38:15 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 126
+[05-Jun-2016 13:38:26 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 126
+[05-Jun-2016 13:39:35 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 164
+[05-Jun-2016 13:52:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[05-Jun-2016 13:52:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[05-Jun-2016 13:52:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[05-Jun-2016 13:52:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[05-Jun-2016 13:52:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[05-Jun-2016 13:52:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[05-Jun-2016 13:52:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[05-Jun-2016 13:52:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[05-Jun-2016 13:52:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[05-Jun-2016 13:52:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[05-Jun-2016 13:52:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[05-Jun-2016 13:52:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[05-Jun-2016 13:52:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[05-Jun-2016 13:52:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[05-Jun-2016 13:52:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[05-Jun-2016 13:52:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[05-Jun-2016 13:52:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[05-Jun-2016 13:52:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[05-Jun-2016 13:52:57 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[05-Jun-2016 13:55:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:55:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 176
+[05-Jun-2016 13:59:53 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 126
+[05-Jun-2016 14:01:17 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 126
+[05-Jun-2016 14:07:06 UTC] PHP Parse error:  syntax error, unexpected 'include' (T_INCLUDE), expecting ',' or ';' in /home/sihui/public_html/limei/_admin/clients.php on line 226
+[05-Jun-2016 14:10:40 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 126
+[05-Jun-2016 14:11:17 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 127
+[01-Jul-2016 11:10:02 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/viwerList.php on line 129
+[01-Jul-2016 11:12:33 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/viwerList.php on line 129
+[01-Jul-2016 11:13:25 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/viwerList.php on line 129
+[01-Jul-2016 11:15:59 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/viwerList.php on line 129
+[01-Jul-2016 11:16:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/viwerList.php on line 129
+[13-Sep-2016 05:03:08 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 126
+[13-Sep-2016 05:03:08 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 164
+[13-Sep-2016 05:03:18 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 126
+[13-Sep-2016 05:03:18 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 164
+[13-Sep-2016 05:03:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 126
+[13-Sep-2016 05:03:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 164
+[15-Sep-2016 01:13:38 UTC] PHP Parse error:  syntax error, unexpected '.' in /home/sihui/public_html/limei/_admin/createQrcode.php on line 4
+[15-Sep-2016 01:16:02 UTC] PHP Fatal error:  Call to a member function query() on a non-object in /home/sihui/public_html/limei/_admin/createQrcode.php on line 11
+[18-Sep-2016 02:57:39 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 137
+[18-Sep-2016 02:57:39 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[18-Sep-2016 02:58:00 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 137
+[18-Sep-2016 02:58:00 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[18-Sep-2016 03:13:05 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 137
+[18-Sep-2016 03:13:05 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[18-Sep-2016 03:13:11 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 137
+[18-Sep-2016 03:13:11 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[18-Sep-2016 03:13:18 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 137
+[18-Sep-2016 03:13:18 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[21-Sep-2016 08:55:21 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 137
+[21-Sep-2016 08:55:21 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[21-Sep-2016 08:55:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 137
+[21-Sep-2016 08:55:37 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175
+[21-Sep-2016 11:21:47 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 137
+[21-Sep-2016 11:21:47 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/sihui/public_html/limei/_admin/clients.php on line 175

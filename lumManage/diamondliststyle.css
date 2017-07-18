@@ -1,0 +1,134 @@
+p.valueline{
+	margin:4px;
+	background-color:#FFF;
+	padding:2px;
+	font-size:10px;
+	position:relative;
+}
+span.shape_txt{
+	display:inline-block;
+	position:relative;
+	width:18px;
+	height:18px;
+	overflow:visible;
+	margin:0 5px;
+	padding:0;
+}
+span.stockref_txt{
+	position:relative;
+	display:inline-block;
+	width:52px;
+	padding:0;
+	margin:0 5px;
+	font-size:10px;
+	overflow:visible;
+}
+span.weight_txt{
+	display:inline-block;
+	width:56px;
+	overflow:visible;
+}
+.shape_txt img{
+	position:absolute;
+	top:-3px;
+	left:-2px;
+}
+.thevaluetxt{
+	font-size:16px;
+}
+span.colorvalue, span.clarityvalue{
+	display:inline-block;
+	margin:0 5px;
+	font-size:14px;	
+	font-weight:bold;
+}
+span.colorvalue{
+	width:15px;
+	color:#06F;
+	overflow:visible;
+	text-align:center;
+}
+span.clarityvalue{
+	width:28px;
+	color:#96F;
+	overflow:visible;
+	font-size:12px;
+}
+span.cutting_grade{
+	display:inline-block;
+	margin:2px 8px;
+	width:88px;
+}
+span.cutting_grade_inner, span.certivalue{
+	display:inline-block;
+	padding:1px 3px;
+	background-color:#FFC;
+	font-size:14px;
+}
+span.cuttinggrade_txt{
+	display:inline-block;
+	margin:0 2px;
+}
+span.fluo_txt{
+	display:inline-block;
+	width:92px;
+	padding:2px 8px;
+	overflow:visible;
+}
+span.certivalue{
+	display:inline-block;
+	position:relative;
+	width:50px;
+	text-align:center;
+	background-color:#CFF;
+	padding:2px 0;
+	margin-right:12px;
+}
+span.certi-num{
+	position:absolute;
+	bottom:-5px;
+	font-size:10px;
+	left:-5px;
+}
+button.choosethisdiamondbtn{
+	position:absolute;
+	right:3px;
+	top:1px;
+	background-color:#F3C;
+	font-size:16px;
+	border-width:1px;
+}
+span.more-detail{
+	display:inline-block;
+	margin-left:12px;
+	background-color:#FFA;
+	padding:1px 5px;
+}
+button.seemore-thisdiamondbtn{
+	background-color:#6CF;
+	border-width:1px;
+}
+
+p#page-navi{
+	margin:2px 0;
+	text-align:center;
+}
+#page-navi button{
+	display:inline-block;
+	background-color:#CCC;
+	font-size:12px;
+	padding:2px;
+	margin:2px;
+	border:none;
+}
+#page-navi button.crr-page{
+	background-color:#0CF;
+}
+.rawprice{
+	font-size:12px;
+}
+a.certi-linker{
+	position:relative;
+	display:inline-block;
+	top:-5px;
+}

@@ -1,0 +1,90 @@
+#filter_box{
+	font-size:14px;
+	border-bottom-style:solid;
+	border-width:5px;
+	border-color:#C63;
+	position:relative;
+}
+div.filter_line{
+	position:relative;
+	padding:3px 0 3px 3px;
+	background-color:#FC6;
+	margin:1px;
+}
+.filter_line ul{
+	margin:0;
+	padding:0;
+}
+div.filter_line_inner{
+	position:relative;
+	display:inline-block;
+	width:320px;
+}
+.filter_line_inner ul{
+	margin-left:48px;
+}
+.filter_line_inner input{
+	width:50px;
+}
+
+
+span.filter_title{
+	position:absolute;
+	top:3px;
+	left:3px;
+	font-size:12px;
+}
+li.filter_shape, li.filter_color, li.filter_clarity, li.filter_cut, li.filter_polish, li.filter_sym, li.filter_fluo, li.filter_certi{
+	display:inline-block;
+	position:relative;
+	cursor:pointer;
+	background-color:#FFF;
+	padding:3px;
+}
+li.chosen{
+	background-color:#3CF;
+}
+ul.fileber_shape_outer{
+	margin-left:48px;
+}
+.filter_shape img{
+	width:26px;
+	height:26px;
+}
+
+div#filter_line_weight{
+	margin-left:42px;
+}
+div#filter_line_price{
+	margin-left:70px;
+}
+div#filter_line_clarity{
+	width:380px;
+	font-size:12px;
+}
+
+p#filtertab{
+	position:absolute;
+	top:5px;
+	right:15px;
+	font-size:22px;
+	font-weight:bold;
+	color:#E0B050;
+	margin:0;
+}
+
+p#totalrecordsindi{
+	position:absolute;
+	right:8px;
+	bottom:0;
+	margin:0;
+}
+
+button#updateBTN{
+	background-color:#F3F;
+	padding:3px 8px;
+	font-size:18px;
+	border-width:1px;
+	color:#FFF;
+	margin-left:12px;
+}

@@ -1,0 +1,14 @@
+@charset "UTF-8";
+/* CSS Document */
+div.complete-detial-dia-toview{
+	display:inline-block;
+	padding:5px;
+	margin:3px 0;
+	background-color:#3FF;
+	font-size:12px;
+}
+
+div#choicelist{
+	height:320px;
+	overflow:auto;
+}

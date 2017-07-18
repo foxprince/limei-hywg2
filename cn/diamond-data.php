@@ -226,43 +226,43 @@ foreach($stmt as $row){
 		}
 	switch ($row['shape']){
 		case "BR":
-			$pic_where="01.gif";
+			$pic_where="01.png";
 			$shape_TXT='圆形';
 			break;
 		case "PR":
-			$pic_where="02.gif";
+			$pic_where="02.png";
 			$shape_TXT='水滴形';
 			break;
 		case "PS":
-			$pic_where="03.gif";
+			$pic_where="03w.png";
 			$shape_TXT='公主方';
 			break;
 		case "HS":
-			$pic_where="04.gif";
+			$pic_where="04.png";
 			$shape_TXT='心形';
 			break;
 		case "MQ":
-			$pic_where="05.gif";
+			$pic_where="05w.png";
 			$shape_TXT='马眼形';
 			break;
 		case "OV":
-			$pic_where="06.gif";
+			$pic_where="06w.png";
 			$shape_TXT='椭圆形';
 			break;
 		case "EM":
-			$pic_where="07.gif";
+			$pic_where="07.png";
 			$shape_TXT='祖母绿形';
 			break;
 		case "RAD":
-			$pic_where="08.gif";
+			$pic_where="08.png";
 			$shape_TXT='雷电形';
 			break;
 		case "CU":
-			$pic_where="09.gif";
+			$pic_where="09.png";
 			$shape_TXT='垫形';
 			break;
 		default:
-			$pic_where="01.gif";
+			$pic_where="01.png";
 			$shape_TXT='圆形';
 	}
 	$price=$row['retail_price'];
@@ -291,7 +291,7 @@ foreach($stmt as $row){
 				<div class="dia-piece-box">
                     <div class="1 generalinfobox">
                         <span class="valuetxt shapedesc-box">
-                          <img class="shapeicon" id="<?php echo $row['id'];?>_shapeicon" src="../images/site_elements/icons/<?php echo $pic_where; ?>" alt="<?php echo $shape_TXT; ?>"/>
+                          <img class="shapeicon" id="<?php echo $row['id'];?>_shapeicon" src="./images/<?php echo $pic_where; ?>" alt="<?php echo $shape_TXT; ?>"/>
                         </span>
                         <span class="valuetxt" id="<?php echo $row['id'];?>_carat"><?php echo number_format($row['carat'],2);?></span>
                         <?php if($fancy){?>

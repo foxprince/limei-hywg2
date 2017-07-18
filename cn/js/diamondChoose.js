@@ -178,7 +178,7 @@ function filter_polish(thegrade) {
 	update();
 }
 function filter_sym(thegrade) {
-	$symmetry = 'symmetry in("'+symRange.slice(symSlider.noUiSlider.get('start')[0],symSlider.noUiSlider.get('start')[1]).join('","')+'")';
+	$sym = 'symmetry in("'+symRange.slice(symSlider.noUiSlider.get('start')[0],symSlider.noUiSlider.get('start')[1]).join('","')+'")';
 	update();
 }
 function filter_certi(thelab) {
