@@ -201,6 +201,7 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .nav-box ul li a.on i{background: url(../images/gwc-w.gif) no-repeat;}
 .my_gwc{float: right;position: relative;top:-3px;left: -8px;}
 
+#whiteSwitch{background: url(../images/whiteSwitch.gif) no-repeat;}
 /*定制*/
 .dz{position: relative; margin-bottom: 60px;}
 .dz a{position: absolute; right:123px; top: 217px; padding:0 20px; width: 120px; display: block; height: 30px; line-height: 30px; color: #666; border:1px solid #ddd; border-radius: 50px; background-color: #fff; font-size: 14px;}
@@ -377,13 +378,14 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .chg-box{text-align: center;margin-bottom:1em;}
 .chg-box ul{display: inline-block;}
 .chg-box ul li{cursor: pointer; float: left;}
-.chg-box ul li a{padding:0 10px; height: 30px; line-height: 30px; color: #666; border:1px solid #ddd; border-radius: 50px; margin:0 10px; background-color: #fff;}
+.chg-box ul li a{margin:0 10px; background-color: #fff;}
+/* .chg-box ul li a{padding:0 10px; height: 30px; line-height: 30px; color: #666; border:1px solid #ddd; border-radius: 50px; margin:0 10px; background-color: #fff;} 
 .chg-box span{width: 8px; height: 8px; display: inline-block; border-radius: 50%; background-color: #ccc; margin-right: 4px; }
 .chg-box ul li a.on{color:#fff; background-color: #f9b5b2; border-color:#f9b5b2;}
 .chg-box ul li a.on span{background-color: #fff;}
 .chg-box ul li a:hover{color:#fff; background-color: #f9b5b2; border-color:#f9b5b2;}
 .chg-box ul li a:hover span{background-color: #fff;}
-
+*/
 img.fa{width: 1.5em;text-align: center;}
 
 <!-- 新增css20170620 -->
