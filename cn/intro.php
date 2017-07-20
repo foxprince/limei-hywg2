@@ -45,6 +45,8 @@ if (isset($_GET['c'])) {
 										<?php if ($c == 'gia') {?><IFRAME ID="Frame1" style="background-color=transparent" title="test" frameborder="0"  width="100%" height="1500" scrolling="yes" SRC="gia.html" allowTransparency="true"></IFRAME> 
 										<?php }elseif ($c == 'hrd') {?><IFRAME ID="Frame1" style="background-color=transparent" title="test" frameborder="0"  width="100%" height="1500" scrolling="yes" SRC="hrd.html" allowTransparency="true"></IFRAME> 
 										<?php }elseif ($c == 'igi') {?><IFRAME ID="Frame1" style="background-color=transparent" title="test" frameborder="0"  width="100%" height="1500" scrolling="yes" SRC="igi.html" allowTransparency="true"></IFRAME> 
+										<?php }else if ($c == 'tochina') {?>
+										<img src="images/toChina.jpg" style="max-width: 590px;" alt="直邮中国"/>
 										<?php }else if ($c == 'order') {?>
 										<img src="images/makeorder.jpg" style="max-width: 590px;" alt="预约购买"/>
 										<img src="images/csqrcode.jpg" width="50%" alt="利美客服二维码"/>
