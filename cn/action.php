@@ -223,9 +223,10 @@ if($_REQUEST['action']) {
 				$Mail->FromName    = 'lumiagem';
 				$Mail->WordWrap    = 900; // RFC 2822 Compliant for Max 998 characters per line
 				$Mail->AddAddress($email, $name);//收件人地址，可以替换成任何想要接收邮件的email信箱,格式是AddAddress("收件人email","收件人姓名")
-				$Mail->Subject = '您在利美钻石预约的钻石信息'; //邮件标题
-				$content = '非常感谢您的预订。您预约的时间是：'.$viewTime.'，我们将恭候您的光临。';
-				$Mail->isHTML( FALSE );
+				$Mail->Subject = '新的看钻预约来自于'.$name; //邮件标题
+				$content="新的看钻预约, 姓名：".$name."联系电话：".$tel."电子邮件：".$email;
+				$content .= "<br/>预约时间：".$viewTime;
+				$Mail->isHTML( TRUE );
 				$Mail->Body = $content; //邮件内容
 				$Mail->AltBody = "This is the body in plain text for non-HTML mail clients"; //附加信息，可以省略
 				$Mail->Send();
