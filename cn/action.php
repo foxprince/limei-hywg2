@@ -222,9 +222,9 @@ if($_REQUEST['action']) {
 				$Mail->From        = 'anthony.fly@gmail.com';
 				$Mail->FromName    = 'lumiagem';
 				$Mail->WordWrap    = 900; // RFC 2822 Compliant for Max 998 characters per line
-				$Mail->AddAddress($email, $name);//收件人地址，可以替换成任何想要接收邮件的email信箱,格式是AddAddress("收件人email","收件人姓名")
+				$Mail->AddAddress('info@lumiagem.com');//收件人地址，可以替换成任何想要接收邮件的email信箱,格式是AddAddress("收件人email","收件人姓名")
 				$Mail->Subject = '新的看钻预约来自于'.$name; //邮件标题
-				$content="新的看钻预约, 姓名：".$name."联系电话：".$tel."电子邮件：".$email;
+				$content="新的看钻预约, 姓名：".$name." 联系电话：".$tel." 电子邮件：".$email;
 				$content .= "<br/>预约时间：".$viewTime;
 				$Mail->isHTML( TRUE );
 				$Mail->Body = $content; //邮件内容
