@@ -140,6 +140,7 @@ function appointment(id) {
 	if ($('#name').val()==''||$('#email').val()==''||$('#tel').val()==''||$('#viewing_time').val()=='') {
 		alert("请提供您的姓名、邮件、电话和预约时间。");
 	} else {
+		$('#appointmentBtn').text('处理中...').attr("onclick","");;
 		$.ajax({
 			type : "post",
 			url : "action.php?action=appointmentMakeAll",
