@@ -234,7 +234,7 @@ foreach($stmt as $row){
 			$shape_TXT='水滴形';
 			break;
 		case "PS":
-			$pic_where="03w.png";
+			$pic_where="08.png";
 			$shape_TXT='公主方';
 			break;
 		case "HS":
@@ -250,11 +250,11 @@ foreach($stmt as $row){
 			$shape_TXT='椭圆形';
 			break;
 		case "EM":
-			$pic_where="07.png";
+			$pic_where="03w.png";
 			$shape_TXT='祖母绿形';
 			break;
 		case "RAD":
-			$pic_where="08.png";
+			$pic_where="07.png";
 			$shape_TXT='雷电形';
 			break;
 		case "CU":
