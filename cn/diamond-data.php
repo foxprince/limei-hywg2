@@ -230,11 +230,11 @@ foreach($stmt as $row){
 			$shape_TXT='圆形';
 			break;
 		case "PR":
-			$pic_where="02.png";
+			$pic_where="08.png";
 			$shape_TXT='水滴形';
 			break;
 		case "PS":
-			$pic_where="08.png";
+			$pic_where="02.png";
 			$shape_TXT='公主方';
 			break;
 		case "HS":
