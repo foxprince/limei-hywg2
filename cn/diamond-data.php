@@ -253,6 +253,10 @@ foreach($stmt as $row){
 			$pic_where="03w.png";
 			$shape_TXT='祖母绿形';
 			break;
+		case "AS":
+			$pic_where="03w.png";
+			$shape_TXT='祖母绿形';
+			break;
 		case "RAD":
 			$pic_where="07.png";
 			$shape_TXT='雷电形';

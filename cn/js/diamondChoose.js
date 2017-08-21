@@ -148,7 +148,7 @@ function filter_shape(theshape) {
 		$or = ' OR ';
 	}
 	if ($shapeEM) {
-		$shape += $or + ' shape = "EM" ';
+		$shape += $or + ' (shape = "EM" or shape = "AS")';
 		$or = ' OR ';
 	}
 	if ($shapeRAD) {
