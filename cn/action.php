@@ -228,6 +228,46 @@ if($_REQUEST['action']) {
 				$Mail->Subject = '新的看钻预约来自于'.$name; //邮件标题
 				$content="新的看钻预约, 姓名：".$name." 联系电话：".$tel." 电子邮件：".$email;
 				$content .= "<br/>预约时间：".$viewTime;
+				//预约钻石的详细信息
+				$userhistory='select  t.*,c.name_ch,c.image1,c.price from (SELECT a.*,b.stock_ref,b.grading_lab,b.certificate_number FROM viewing_record a,diamonds b WHERE a.viewer = "'.$userid.'" and a.diamond=b.id ) as t  left join jewelry c on t.jewellery_id=c.id ORDER BY t.id DESC';
+				logger($userhistory);
+				$stmt_history=$conn->query($userhistory);
+				$historyfound=$stmt_history->rowCount();
+				$appoinmentList=array();$i=0;
+				if($historyfound){
+					foreach($stmt_history as $row_history){
+						$content .='<div class="pro_pics">';
+						if($row_history['jewellery_id']>0)
+							$content .='<div class="pic_00"><img width=122 height=122 src="http://www.lumiagem.com/images/sitepictures/'.$row_history['image1'].'"/>';
+						else
+							$content .='<div class="pic_00"><img src="http://www.lumiagem.com/cn/images/pic_01.png"/>';
+						$content .='</div>';
+						$content .= '<div class="detail">';
+						if($row_history['jewellery_id']>0)
+							$content .= '<p>'.$row_history['name_ch'].'</p>';
+						else
+							$content .= '<p>'.$row_history['shapeTxt'].'裸钻</p>';
+						$content .= '<p>'.$row_history['diamond_carat'].'克拉</p>';
+						$content .= '<p>颜色：'.$row_history['diamond_color'].'</p>';
+						$content .= '<p>净度：'.$row_history['diamond_clarity'].'</p>';
+						$content .= '<p>切工：'.$row_history['diamond_cut'].'</p>';
+						$content .= '<p>抛光：'.$row_history['diamond_polish'].'</p>';
+						$content .= '<p>对称性：'.$row_history['diamond_symmetry'].'</p>';
+						$content .= '<p>证书：'.$row_history['grading_lab'].'</p>';
+						$content .= '<p>编号：'.$row_history['stock_ref'].'</p>';
+						$content .= '<p>价格：'.round($row_history['diamond_price']).'美元</p>';
+						if($row_history['grading_lab']=="HRD"){
+							$content .= '<a class="certi_linker" target="_black" href="http://www.hrdantwerplink.be/index.php?record_number='.$row_history['certificate_number'].'&weight=&L="><img id="gradinglabicon" src="http://www.lumiagem.com/cn/images/HRD.png" width="98" height="37" /></a>';
+						}else if($row_history['grading_lab']=='GIA'){
+							$content .= '<a class="certi_linker" target="_black" href="http://www.gia.edu/cs/Satellite?pagename=GST%2FDispatcher&childpagename=GIA%2FPage%2FReportCheck&c=Page&cid=1355954554547&reportno='.$row_history['certificate_number'].'"><img id="gradinglabicon" src="http://www.lumiagem.com/cn/images/GIA.png" width="98" height="37"/></a>';
+						} else if($row_history['grading_lab']=='IGI'){
+							$content .= '<a class="certi_linker" target="_black" href="http://www.igiworldwide.com/igi/verify.php?r='.$row_history['certificate_number'].'"><img id="gradinglabicon" src="http://www.lumiagem.com/cn/images/IGI.png" width="98" height="37"/></a>';
+						}
+						$content .= '<p>点击查看证书</p>';
+						$content .= '</div></div><hr>';
+						$i++;
+					}
+				}
 				$Mail->Body = $content; //邮件内容
 				$Mail->AltBody = "This is the body in plain text for non-HTML mail clients"; //附加信息，可以省略
 				$Mail->Send();
@@ -240,7 +280,7 @@ if($_REQUEST['action']) {
 				$content .='您的预约已经保存，我们会尽快联系您。';
 				$Mail->Body = $content; //邮件内容
 				$Mail->AltBody = "This is the body in plain text for non-HTML mail clients"; //附加信息，可以省略
-				$Mail->Send();
+ 				$Mail->Send();
 				$Mail->SmtpClose();
 				if(!$Mail->IsError()) {
 					logger( 'Mailer Error: ' . $mail->ErrorInfo);
