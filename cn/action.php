@@ -313,9 +313,9 @@ if($_REQUEST['action']) {
 			$sql_dia='SELECT * FROM diamonds WHERE visiable=1 and stock_ref LIKE "'.$ref.'" OR certificate_number = "'.$ref.'"';
 			$stmt_dia=$conn->query($sql_dia);
 			foreach($stmt_dia as $r_d){
-				$itemList[]=$r_d;
+				$item=$r_d;
 			}
-			echo json_encode($itemList);
+			echo json_encode($item);
 			break;
 		case "appointmentMake":
 			$diaId=$_REQUEST['diaId'];
