@@ -225,6 +225,8 @@ if($_REQUEST['action']) {
 				$Mail->isHTML( TRUE );
 				//发邮件给客服
 				$Mail->AddAddress('info@lumiagem.com');//收件人地址，可以替换成任何想要接收邮件的email信箱,格式是AddAddress("收件人email","收件人姓名")
+				$Mail->addCC('lwl380451663@Outlook.com');                // 添加抄送人
+				$Mail->addCC('cxjlgzzc@163.com');
 				$Mail->Subject = '新的看钻预约来自于'.$name; //邮件标题
 				$content="新的看钻预约, 姓名：".$name." 联系电话：".$tel." 电子邮件：".$email;
 				$content .= "<br/>预约时间：".$viewTime;
@@ -305,6 +307,15 @@ if($_REQUEST['action']) {
 				$t=$r_r['t'];
 			}
 			echo $t;
+			break;
+		case "fetchDia":
+			$ref=$_REQUEST['ref'];
+			$sql_dia='SELECT * FROM diamonds WHERE visiable=1 and stock_ref LIKE "'.$ref.'" OR certificate_number = "'.$ref.'"';
+			$stmt_dia=$conn->query($sql_dia);
+			foreach($stmt_dia as $r_d){
+				$itemList[]=$r_d;
+			}
+			echo json_encode($itemList);
 			break;
 		case "appointmentMake":
 			$diaId=$_REQUEST['diaId'];
