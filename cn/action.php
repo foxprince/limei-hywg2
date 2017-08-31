@@ -308,6 +308,35 @@ if($_REQUEST['action']) {
 			}
 			echo $t;
 			break;
+		case "receipt":
+			$obj=json_decode($_REQUEST['receipt'],TRUE);
+			$sql = 'insert into customer(name,passport,street,city,postcode,country,ctime) values(:name,:passport,:street,:city,:postcode,:country,now())';
+			$stmt=$conn->prepare($sql);
+			$stmt->execute(array('name'=>$obj['name'],
+					'passport'=>$obj['passport'],
+					'street'=>$obj['street'],'city'=>$obj['city'],
+					'postcode'=>$obj['postcode'],
+					'country'=>$obj['country']));
+			$customerId = $conn->lastInsertId();
+			//--得到Json_list数组长度
+			$num=count($obj["json_list"]);
+			//--遍历数组，将对应信息添加入数据库
+			for ($i=0;$i<$num;$i++) {
+				$item = $obj["json_list"][$i];
+				$insert_order_product_sql="INSERT INTO receipt (customer_id,report_no,shape,color,fancy,grading_lab,carat,
+						clarity,cut_grade,polish,symmetry,price,jewerly,material,jewerly_price,vat_price,total_price,ctime)
+						VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())";
+				$result = $conn -> prepare($insert_order_product_sql);
+				$result -> execute(array( $customerId,$item["report_no"],$item["shape"],$item["color"],
+						$item["fancy"],$item["grading_lab"],$item["carat"],
+						$item["clarity"],$item["cut_grade"],$item["polish"],
+						$item["symmetry"],$item["price"],$item["jewerly"],
+						$item["material"],$item["jewerly_price"],$item["vat_price"],
+						$item["total_price"]
+				));
+			}
+			echo ok;
+			break;
 		case "fetchDia":
 			$ref=$_REQUEST['ref'];
 			$sql_currency='SELECT * FROM convert_currency';
@@ -320,8 +349,8 @@ if($_REQUEST['action']) {
 			$stmt_dia=$conn->query($sql_dia);
 			foreach($stmt_dia as $r_d){
 				$item=$r_d;
+				$item['retail_price']=$euro_price=round($r_d['retail_price']*$USD_EUR);
 			}
-			$item['retail_price']=$euro_price=round($r_d['retail_price']*$USD_EUR);
 			echo json_encode($item);
 			break;
 		case "appointmentMake":
