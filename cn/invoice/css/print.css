@@ -1,0 +1,74 @@
+/*zhangheng  463106544@qq.com*/
+.logo{
+    margin: 80px 0 36px 0 ;
+    width: 238px;
+    }
+.rise{
+    color: #3a3838;
+    font-size: 10px;
+    }
+.rise p{
+    margin: 0;
+
+    }
+.rise-vat{
+    margin-top: 10px !important;
+    }
+.header_items{
+    border-top:2px solid #3a3838;
+    height:55px;
+    line-height: 68px;
+    border-bottom: 1px dashed #3a3838;
+    font-family: Vani;
+    font-size: 16px;
+    margin-bottom: 25px;
+    }
+.items{
+    font-size: 10px;
+    color: #3a3838;
+    }
+.items .col-xs-3 p{
+    margin-bottom: 0;
+    }
+.items .col-xs-3 p:first-child{
+    margin-bottom: 25px;
+    }
+.items .col-xs-3:first-child p:last-child{
+    margin-top: 10px;
+    }
+/*价格*/
+.prices{
+    margin-top: 70px;
+    padding-bottom: 52.5px;
+    }
+.prices p{
+    font-size: 10px;
+    color: #3a3838;
+    margin: 0;
+    }
+/*客户信息*/
+.client{
+    font-size: 10px;
+    color: #3a3838;
+    border-top: 1px dashed #3a3838 !important;
+    }
+.client .client-cli{
+    margin-top: 10px;
+    }
+.client p{
+    margin:0;
+    }
+@media print {
+
+   .lnvoice-row{
+       position: static !important;
+       top:0 !important;
+       }
+         .row-content{
+            display: none;
+        }
+    html,body{
+        font-family:AdobeHeitiStd-Regular;
+        }
+
+    }

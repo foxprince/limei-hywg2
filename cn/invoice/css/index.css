@@ -1,0 +1,237 @@
+
+.logo {
+    margin: 42px 0;
+    }
+.logo img {
+    width: 144px;
+    }
+.title {
+    margin: 0;
+    }
+.color-3a{
+    color: #3a3838;
+    }
+/*图片与hover*/
+.addImg{
+    display: block;
+    width:32px;
+    height: 32px;
+    vertical-align: middle;
+    background-size: 32px auto;
+    cursor: pointer;
+    }
+.fotterBtn{
+    display: block;
+    width:95px;
+    height: 34px;
+    vertical-align: middle;
+    background-size: 95px auto;
+    cursor: pointer;
+    }
+/*减号*/
+.delete{
+    margin-left: 15px;
+    background-image: url("../images/icon/delete.png");
+    margin-bottom: 10px;
+    }
+.delete:hover{
+    background-image: url("../images/icon/activeDelete.png");
+    }
+.delete:active{
+    background-image: url("../images/icon/activeDelete.png");
+    }
+/*加号*/
+.activeAdd{
+    background-image: url("../images/icon/Add.png");
+    }
+.activeAdd:hover{
+    background-image: url("../images/icon/activeAdd.png");
+    }
+.activeAdd:active{
+    background-image: url("../images/icon/activeAdd.png");
+    }
+/*return*/
+.return{
+    margin-left: 15px;
+    background-image: url("../images/icon/return.png");
+    }
+
+.return:hover{
+    background-image: url("../images/icon/activeReturn.png");
+    }
+.return:active{
+    background-image: url("../images/icon/activeReturn.png");
+    }
+/*remove*/
+.remove{
+    margin-left: 15px;
+    background-image: url("../images/icon/remove.png");
+    }
+
+.remove:hover{
+    background-image: url("../images/icon/activeRemove.png");
+    }
+.remove:active{
+    background-image: url("../images/icon/activeRemove.png");
+    }
+/*save*/
+.save{
+    margin-left: 15px;
+    background-image: url("../images/icon/save.png");
+    }
+
+.save:hover{
+    background-image: url("../images/icon/activeSave.png");
+    }
+.save:active{
+    background-image: url("../images/icon/activeSave.png");
+    }
+/*lnvoice*/
+.lnvoice{
+    margin-left: 15px;
+    background-image: url("../images/icon/printBill.png");
+    }
+
+.lnvoice:hover{
+    background-image: url("../images/icon/activePrintBill.png");
+    }
+.lnvoice:active{
+    background-image: url("../images/icon/activePrintBill.png");
+    }
+/*printReceipt.png*/
+.receipt{
+    margin-left: 15px;
+    background-image: url("../images/icon/printReceipt.png");
+    }
+.receipt:hover{
+    background-image: url("../images/icon/activePrintReceipt.png");
+    }
+.receipt:active{
+    background-image: url("../images/icon/activePrintReceipt.png");
+    }
+/*form*/
+.form-login {
+    margin: 20px 0 30px 0;
+    }
+.form-login label {
+    padding-top: 7px;
+    text-align: left !important;
+    font-weight: 100;
+    color: #3a3838;
+    }
+.form-login input {
+    color: #b6b6b6;
+    }
+/*Add*/
+.Add{
+    line-height: 60px;
+    height:60px;
+    border-bottom: 2px solid #3a3838;
+
+    }
+.activeAdd{
+    position: relative;
+    top: 14px;
+    }
+/*addApend*/
+.addContent{
+    width:100%;
+    }
+.addApend{
+    padding: 10px 0;
+    border-bottom: 1px dashed #3a3838;
+    position: relative;
+    }
+.addApend .pdNone{
+    padding: 0;
+    position: static;
+    }
+.formBorder{
+    height: 1px;
+    border-top:1px dashed #3a3838;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    }
+.addApend label{
+    padding: 7px 0 0 0;
+    }
+/*减号*/
+.delete-content{
+    position: absolute;
+    width:100%;
+    top:0;
+    height:100%;
+    padding-top: 10px;
+    background:rgba(204,204,204,.5);
+    z-index: 100;
+    display: none;
+    }
+
+/*工作人员*/
+.staff {
+    height: 50px;
+    line-height: 50px;
+    border-top: 2px solid #3a3838;
+    border-bottom: 1px dashed #3a3838;
+    }
+/*总计*/
+.Total{
+    margin-top: 30px;
+
+    }
+.Total h1{
+    font-size: 31px;
+    margin-bottom: 15px;
+    }
+/*fotter*/
+.fotter{
+    margin-bottom: 65px;
+    margin-top: 25px;
+    }
+/*平板*/
+@media (min-width: 768px ) and (max-width: 992px) {
+    .removeData{
+        margin-top: 15px;
+        }
+    }
+/*中等尺寸*/
+@media (min-width: 993px) {
+
+    }
+/*手机*/
+@media (min-width: 320px) and (max-width: 767px) {
+    .logo {
+        margin: 21px 0;
+        }
+    .logo img {
+        width: 80px;
+        }
+    .title {
+        font-size: 16px;
+        }
+    .form-login {
+        font-size: 13px;
+        }
+    .addApend label{
+        font-size: 14px;
+        font-weight: 100;
+        text-align: left;
+        }
+    .removeData{
+            margin-top: 15px;
+        }
+    .delete,.return,.remove{
+        margin:0 0 10px 0;
+        }
+    .Total h1{
+        font-size: 20px;
+        }
+    .fotterBtn{
+        width:85px;
+        height: 30px;
+        background-size: 85px auto;
+        }
+    .save{
+        margin: 0;
+        }
+    }
