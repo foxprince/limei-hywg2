@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set("Asia/Shanghai");
 include_once 'log.php';
 require 'mail/PHPMailerAutoload.php';
 require("mail/class.phpmailer.php");
@@ -318,22 +319,16 @@ if($_REQUEST['action']) {
 					'postcode'=>$obj['postcode'],
 					'country'=>$obj['country']));
 			$customerId = $conn->lastInsertId();
-			$invoiceNo = 1;
-			$sql_dia='SELECT count(*) as t FROM invoice ';
-			foreach($conn->query($sql_dia) as $r_r){
-				$invoiceNo=$r_r['t']+1;
-			}
-			$invoiceStr=  date('Y').sprintf('%04s', $invoiceNo);
 			//--得到Json_list数组长度
 			$num=count($obj["json_list"]);
 			//--遍历数组，将对应信息添加入数据库
 			for ($i=0;$i<$num;$i++) {
 				$item = $obj["json_list"][$i];
-				$insert_order_product_sql="INSERT INTO invoice (customer_id,invoice_no,report_no,shape,color,fancy,grading_lab,carat,
+				$insert_order_product_sql="INSERT INTO invoice (customer_id,invoice_data,invoice_no,report_no,shape,color,fancy,grading_lab,carat,
 						clarity,cut_grade,polish,symmetry,price,jewerly,material,jewerly_price,vat_price,total_price,ctime)
-						VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())";
+						VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())";
 				$result = $conn -> prepare($insert_order_product_sql);
-				$result -> execute(array( $customerId,$invoiceStr,$item["report_no"],$item["shape"],$item["color"],
+				$result -> execute(array( $customerId,$obj['invoice_data'],$obj['invoice_no'],$item["report_no"],$item["shape"],$item["color"],
 						$item["fancy"],$item["grading_lab"],$item["carat"],
 						$item["clarity"],$item["cut_grade"],$item["polish"],
 						$item["symmetry"],$item["price"],$item["jewerly"],
@@ -360,6 +355,15 @@ if($_REQUEST['action']) {
 				$item['retail_price']=$euro_price=round($r_d['retail_price']*$USD_EUR);
 			}
 			echo json_encode($item);
+			break;
+		case "invoiceNo":
+			$invoiceNo = 1;
+			$sql_dia='SELECT count(*) as t FROM invoice ';
+			foreach($conn->query($sql_dia) as $r_r){
+				$invoiceNo=$r_r['t']+1;
+			}
+			$invoiceStr=  date('Y').sprintf('%04s', $invoiceNo);
+			echo $invoiceStr;
 			break;
 		case "appointmentMake":
 			$diaId=$_REQUEST['diaId'];
