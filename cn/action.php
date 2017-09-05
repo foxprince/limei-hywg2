@@ -324,7 +324,7 @@ if($_REQUEST['action']) {
 			//--遍历数组，将对应信息添加入数据库
 			for ($i=0;$i<$num;$i++) {
 				$item = $obj["json_list"][$i];
-				$insert_order_product_sql="INSERT INTO invoice (customer_id,invoice_data,invoice_no,report_no,shape,color,fancy,grading_lab,carat,
+				$insert_order_product_sql="INSERT INTO invoice (customer_id,invoice_date,invoice_no,report_no,shape,color,fancy,grading_lab,carat,
 						clarity,cut_grade,polish,symmetry,price,jewerly,material,jewerly_price,vat_price,total_price,ctime)
 						VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())";
 				$result = $conn -> prepare($insert_order_product_sql);
@@ -338,7 +338,7 @@ if($_REQUEST['action']) {
 			}
 			$invoiceId = $conn->lastInsertId();
 			logger($invoiceStr.','.$invoiceId);
-			echo $invoiceStr.','.$invoiceId;
+			echo $invoiceId;
 			break;
 		case "fetchDia":
 			$ref=$_REQUEST['ref'];

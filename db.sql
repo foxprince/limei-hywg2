@@ -10,7 +10,7 @@ create table customer(
 	ctime datetime not null
 );
 
-drop table receipt;
+drop table invoice;
 create table invoice(
 	id bigint not null primary key auto_increment,
 	customer_id	bigint not null,
