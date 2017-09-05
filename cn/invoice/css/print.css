@@ -58,6 +58,10 @@
 .client p{
     margin:0;
     }
+    .del_items{
+    	padding: 25px 0;
+    	border-bottom: 1px dashed #3A3838;
+    }
 @media print {
 
    .lnvoice-row{

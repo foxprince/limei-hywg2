@@ -6,7 +6,7 @@ function to_port(e){
     $('#to_port').html(e)
 }
 function to_address(e){
-    $('#to_address').html(e)
+    //$('#to_address').html(e)
 }
 function to_city(e){
     //$('#to_city').html(e)
@@ -21,15 +21,18 @@ function to_country(e){
 function to_print(){
     var countCont = $('.addContent').children('.addApend').length;
     var html = '';
+    var address = $('#street').val()+'　'+$('#postcode').val()+'　'+$('#city').val()+'　'+$('#country').val()
+    $('#to_address').html(address)
     $('.del_items').remove();
     for (var i = 0 ;i<countCont; i++){
-        html += '<div class="del_items items clearfix" style="border-bottom: 1px dashed #3a3838">'+
+        html += '<div class="del_items items clearfix">'+
                 '<div class="col-xs-3 clearfix">'+
-                '<p id="model"></p>'+
+                '<p id="model">'+$(".addApend").eq(i).find("#form_model").find("option:selected").val()+'</p>'+
                 '<p>Carat Weight <span class="pull-right">'+$(".addApend").eq(i).find("#form_weight").val()+'</span></p>'+
                 '<p>Colour Grade <span class="pull-right">'+$(".addApend").eq(i).find('#form_colourGrade').find('option:selected').val()+'</span></p>'+
                 '<p>Clarity Grade <span class="pull-right">'+$(".addApend").eq(i).find('#form_clarity').find('option:selected').val()+'</span></p>'+
                 '<p>'+$(".addApend").eq(i).find('#form_jewerly').find('option:selected').val()+' White Gold '+$(".addApend").eq(i).find('#form_material').find('option:selected').val()+'</p>'+
+
                 '</div>'+
                 '<div class="col-xs-3 clearfix">'+
                 '<p>'+$(".addApend").eq(i).find('#form_gia').find('option:selected').val()+'</p>'+
@@ -39,6 +42,7 @@ function to_print(){
                 '</div>'+
                 '<div class="col-xs-3 clearfix">'+
                 '<p>'+$(".addApend").eq(i).find('#form_color').find('option:selected').val()+'</p>'+
+                '<p>　</p><p>　</p><p>　</p><p>€'+$(".addApend").eq(i).find("#form_price2").val()+'</p>'+
                 '</div>'+
                 '<div class="col-xs-3 clearfix">'+
                 '<p>€'+$(".addApend").eq(i).find("#form_price").val()+'</p>'+
@@ -90,11 +94,17 @@ $(function () {
 
     });
     /*减号*/
-
+    var time = new Date();
+    var to_time = String(time.getFullYear())+String(PrefixInteger(time.getMonth()+1))+String(PrefixInteger(time.getDate()));
+    $('.to_time').html('DATE：  '+ to_time);
+    $('.to_invoice').html('INVOICE：  '+ to_time);
 });
 
 
-
+//补零
+function PrefixInteger(num) {
+    return ( "0000000000000000" + num ).substr(-2);
+}
 
 /**
  * 保存信息
@@ -186,6 +196,7 @@ function ht(){
     html += "<label class='col-sm-2 col-xs-3  control-label'>Colour</label>";
     html += "<div class='col-sm-10 col-xs-9'>";
     html += "<select id='form_color' class='fancy form-control'>";
+    html += "<option value=''></option>";
     html += "<option value='Yellow'>Yellow</option>";
     html += "<option value='Pink'>Pink</option>";
     html += "<option value='Green'>Green</option>";
@@ -325,7 +336,7 @@ function ht(){
     html += "<div class='form-group clearfix'>";
     html += "<label class='col-sm-2 col-xs-3  control-label'>Price</label>";
     html += "<div class='col-sm-10 col-xs-9'>";
-    html += " <input onblur='total()' class='jewerly_price form-control' value='' type='text' placeholder='0.00'>";
+    html += " <input onblur='total()' class='jewerly_price form-control' id='form_price2' value='' type='text' placeholder='0.00'>";
     html += "</div>";
     html += "</div>";
 
@@ -501,7 +512,7 @@ function ref(to,ref){
             html += "<div class='form-group clearfix'>";
             html += "<label class='col-sm-2 col-xs-3  control-label'>Price</label>";
             html += "<div class='col-sm-10 col-xs-9'>";
-            html += " <input onblur='total()' value='' class='jewerly_price form-control' type='text' placeholder='0.00'>";
+            html += " <input onblur='total()' value='' id='form_price2' class='jewerly_price form-control' type='text' placeholder='0.00'>";
             html += "</div>";
             html += "</div>";
 
@@ -544,6 +555,36 @@ function  total(){
     var vat = (totals*0.21).toFixed(2);
     $('.vat_price').html('€'+vat)
     $('.vat_price').attr('data-price',vat)
-    $('.total_price').html('€'+totals)
-    $('.total_price').attr('data-price',totals)
+    $('.total_price').html('€'+Number(totals)+Number(vat))
+    $('.total_price').attr('data-price',Number(totals)+Number(vat))
+}
+function  total_invoice(){
+    var totals = 0;
+    $('.price').each(function(){
+        totals += Number($(this).val())
+    })
+    $('.jewerly_price').each(function(){
+        totals += Number($(this).val())
+    })
+
+    var vat = (totals*0.21).toFixed(2);
+    //$('.vat_price').html('€'+vat)
+    //$('.vat_price').attr('data-price',vat)
+    //$('.total_price').html('€'+totals)
+    $('.total_price').attr('data-price',Number(totals)+Number(vat))
+}
+function  total_receipt(){
+    var totals = 0;
+    $('.price').each(function(){
+        totals += Number($(this).val())
+    })
+    $('.jewerly_price').each(function(){
+        totals += Number($(this).val())
+    })
+
+    var vat = (totals*0.21).toFixed(2);
+    //$('.vat_price').html('€'+vat)
+    $('.vat_price').attr('data-price',vat)
+    //$('.total_price').html('€'+totals)
+    $('.total_price').attr('data-price',Number(totals)+Number(vat))
 }

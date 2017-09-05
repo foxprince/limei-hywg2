@@ -105,22 +105,22 @@
 					<p>PELIKAANSTRAAT 62 BUS 314</p>
 					<div class="clearfix">
 						<span class="pull-left">2018   ANTWERPEN</span>
-						<span class="pull-right ">DATE：  20170808</span>
+						<span class="pull-right to_time"></span>
 					</div>
 					<div class="clearfix" style="margin-bottom: 5px">
 						<span class="pull-left">Tel:  0032 3 689 73 94 </span>
-						<span class="pull-right print_none">INVOICE：  20170808</span>
+						<span class="pull-right  to_invoice"></span>
 					</div>
 				</div>
 				<!--ITEMS-->
-				<header id="items" class="col-xs-12 header_items">
+				<header id="items" class="col-xs-12 clearfix header_items">
 					ITEMS
 				</header>
-
-
 				<!--价格-->
 				<div class="prices clearfix">
 					<!--内容-->
+					<div class="col-xs-3  clearfix"></div>
+					<div class="col-xs-3  clearfix"></div>
 					<div class="col-xs-3  clearfix">
 						<p class="print_none print_none">21%VAT:</p>
 						<p class="">Total:</p>
@@ -138,7 +138,7 @@
 						<p>Address </p>
 					</div>
 					<!--信息-->
-					<div class="col-xs-5 client-cli">
+					<div class="col-xs-10 client-cli">
 						<p id="to_name"></p>
 						<p id="to_port"></p>
 						<p id="to_address"></p>
@@ -154,6 +154,7 @@
 		/*发票*/
 		$('.lnvoice').click(function() {
             to_print()
+            total_invoice()
 			$('.print_none').show();
 			setTimeout(function() {
 				window.print();
@@ -162,6 +163,7 @@
 		/*收据*/
 		$('.receipt').click(function() {
             to_print()
+            total_receipt()
 			$('.print_none').hide();
 			window.print();
 		});
