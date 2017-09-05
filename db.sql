@@ -10,10 +10,12 @@ create table customer(
 	ctime datetime not null
 );
 
-create table receipt(
+drop table receipt;
+create table invoice(
 	id bigint not null primary key auto_increment,
 	customer_id	bigint not null,
 	report_no varchar(20) not null,
+	invoice_no varchar(10) null,
 	shape	varchar(20) null,
 	color	varchar(20) null,
 	fancy	varchar(20) null,

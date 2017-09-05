@@ -131,8 +131,8 @@ function saves(){
         });
     }
     if(data){
-        var url = "service.php";
-        $.post(url,{data:data},function(data){
+        var url = "http://www.lumiagem.com/cn/action.php?action=receipt";
+        $.get(url,{receipt:JSON.stringify(data)},function(data){
             if(data == 1){
                 alert('保存成功')
             }else{
@@ -356,7 +356,7 @@ function ht(){
  * @param ref
  */
 function ref(to,ref){
-    var url = 'service.php';
+    var url = 'http://www.lumiagem.com/cn/action.php?action=fetchDia';
     var html = '';
     var price = '';
     $.ajax({
