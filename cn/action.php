@@ -341,7 +341,8 @@ if($_REQUEST['action']) {
 					$i++;
 				}
 			}
-			$result = array('total'=>$total,'page'=>$crr_page,'list'=>$invoiceList);
+			$tpages = ceil ( $total / $pagesize );
+			$result = array('total'=>$total,'page'=>$crr_page,'total_pages'=>$tpages,'list'=>$invoiceList);
 			echo $callback.'('.json_encode($result).')';
 			break;
 		case "receipt":
