@@ -117,7 +117,7 @@ function saves(){
         'passport':$('#passport').val(),
         'street':$('#street').val(),
         'city':$('#city').val(),
-        'postcode':$('#postcode').val(),
+        'postcode':$('#postcode').val(),'vat_price':$('.vat_price').attr('data-price'),'total_price':$('.total_price').attr('data-price'),
         'country':$('#country').val(),'invoice_date':$('#invoice_date').val(),'invoice_no':$('#invoice_no').val(),
         'json_list':[]
         };
@@ -137,20 +137,20 @@ function saves(){
             'price':$('.addApend').eq(i).find('.price').val(),
             'jewerly':$('.addApend').eq(i).find('.jewerly').find('option:selected').val(),
             'material':$('.addApend').eq(i).find('.material').find('option:selected').val(),
-            'jewerly_price':$('.addApend').eq(i).find('.jewerly_price').val(),
-            'vat_price':$('.vat_price').attr('data-price'),
-            'total_price':$('.total_price').attr('data-price'),
+            'jewerly_price':$('.addApend').eq(i).find('.jewerly_price').val()
         });
     }
     if(data){
-        var url = "service.php";
-        $.post(url,{data:data},function(data){
-            if(data == 1){
+        //var url = "service.php";
+        var url = "../action.php?action=receipt";
+        $.post(url,{receipt:JSON.stringify(data)},function(data){
+            console.log(data);
+        	if(data == 'ok'){
                 alert('保存成功')
             }else{
                 alert('网络错误，请检查信息并重试')
             }
-        },'json')
+        })
     }
 }
 
@@ -367,7 +367,7 @@ function invoiceNo(){
 	$.ajax({
         url:'../action.php?action=invoiceNo',
         type:'get',
-        dataType:'json',
+        dataType:'jsonp',
         async:false,
         success:function(data){
         	no = data;
@@ -381,7 +381,7 @@ function invoiceNo(){
  * @param ref
  */
 function ref(to,ref){
-    var url = 'service.php';
+    var url = '../action.php?action=fetchDia';
     var html = '';
     var price = '';
     $.ajax({
@@ -389,7 +389,7 @@ function ref(to,ref){
         type:'post',
         data:{ref:ref},
         dataType:'json',
-        async:false,
+        //async:false,
         success:function(data){
         if(data){
             html += "<div class='col-lg-1 pdNone col-md-1 col-sm-12 col-xs-12'>";
@@ -585,7 +585,7 @@ function  total_invoice(){
     //$('.vat_price').html('€'+vat)
     //$('.vat_price').attr('data-price',vat)
     $('#print_price').html('€'+(Number(totals)+Number(vat)))
-    //$('.total_price').attr('data-price',Number(totals)+Number(vat))
+    $('.total_price').attr('data-price',Number(totals)+Number(vat))
 }
 function  total_receipt(){
     var totals = 0;

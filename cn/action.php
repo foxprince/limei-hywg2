@@ -309,36 +309,72 @@ if($_REQUEST['action']) {
 			}
 			echo $t;
 			break;
+		case "invoiceList":
+			$callback = $_REQUEST['callback'];
+			$totalSql = 'select count(*) as t from invoice';
+			$sql='select id,invoice_no,invoice_date,name,total_price from invoice';
+			$clause = ' where 1=1 ';
+			if($_REQUEST['name']!=null)
+				$clause .= ' and name like "%'.$_REQUEST['name'].'%"';
+			if($_REQUEST['invoice_no']!=null)
+				$clause .= ' and invoice_no like "%'.$_REQUEST['invoice_no'].'%"';
+			if($_REQUEST['start']!=null)
+				$clause .= ' and invoice_date>='.$_REQUEST['start'];
+			if($_REQUEST['end']!=null)
+				$clause .= ' and invoice_date<'.$_REQUEST['end'];
+			$pagesize = 10;
+			if(isset($_REQUEST['page'])){
+				$crr_page=$_REQUEST['page'];
+			}else{
+				$crr_page=1;
+			}
+			$startfrom=($crr_page-1)*$pagesize;
+			$totalSql .= $clause;
+			$sql .= $clause.' limit '.$startfrom.','.$pagesize;logger($sql);
+			foreach($conn->query($totalSql) as $r_r){
+				$total=$r_r['t'];
+			}
+			if($total>0) {
+				$invoiceList=array();$i=0;
+				foreach($conn->query($sql) as $row){
+					$invoiceList[]=$row;
+					$i++;
+				}
+			}
+			$result = array('total'=>$total,'page'=>$crr_page,'list'=>$invoiceList);
+			echo $callback.'('.json_encode($result).')';
+			break;
 		case "receipt":
 			$obj=json_decode($_REQUEST['receipt'],TRUE);
-			$sql = 'insert into customer(name,passport,street,city,postcode,country,ctime) values(:name,:passport,:street,:city,:postcode,:country,now())';
+			$sql = 'insert into invoice(name,passport,street,city,postcode,country,invoice_date,invoice_no,vat_price,total_price,ctime) 
+					values(:name,:passport,:street,:city,:postcode,:country,:invoice_date,:invoice_no,:vat_price,:total_price,now())';
 			$stmt=$conn->prepare($sql);
 			$stmt->execute(array('name'=>$obj['name'],
 					'passport'=>$obj['passport'],
 					'street'=>$obj['street'],'city'=>$obj['city'],
 					'postcode'=>$obj['postcode'],
-					'country'=>$obj['country']));
-			$customerId = $conn->lastInsertId();
+					'country'=>$obj['country'],
+					'invoice_date'=>$obj['invoice_date'],
+					'invoice_no'=>$obj['invoice_no'],'vat_price'=>$obj['vat_price'],'total_price'=>$obj['total_price']));
+			$invoiceId = $conn->lastInsertId();
 			//--得到Json_list数组长度
 			$num=count($obj["json_list"]);
 			//--遍历数组，将对应信息添加入数据库
 			for ($i=0;$i<$num;$i++) {
 				$item = $obj["json_list"][$i];
-				$insert_order_product_sql="INSERT INTO invoice (customer_id,invoice_date,invoice_no,report_no,shape,color,fancy,grading_lab,carat,
-						clarity,cut_grade,polish,symmetry,price,jewerly,material,jewerly_price,vat_price,total_price,ctime)
-						VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())";
+				$insert_order_product_sql="INSERT INTO receipt (invoice_id,report_no,shape,color,fancy,grading_lab,carat,
+						clarity,cut_grade,polish,symmetry,price,jewerly,material,jewerly_price,ctime)
+						VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())";
 				$result = $conn -> prepare($insert_order_product_sql);
-				$result -> execute(array( $customerId,$obj['invoice_data'],$obj['invoice_no'],$item["report_no"],$item["shape"],$item["color"],
+				$result -> execute(array( $invoiceId,$item["report_no"],$item["shape"],$item["color"],
 						$item["fancy"],$item["grading_lab"],$item["carat"],
 						$item["clarity"],$item["cut_grade"],$item["polish"],
 						$item["symmetry"],$item["price"],$item["jewerly"],
-						$item["material"],$item["jewerly_price"],$item["vat_price"],
-						$item["total_price"]
+						$item["material"],$item["jewerly_price"]
 				));
 			}
-			$invoiceId = $conn->lastInsertId();
-			logger($invoiceStr.','.$invoiceId);
-			echo $invoiceId;
+			$receiptId = $conn->lastInsertId();
+			echo 'ok';
 			break;
 		case "fetchDia":
 			$ref=$_REQUEST['ref'];
@@ -363,7 +399,7 @@ if($_REQUEST['action']) {
 				$invoiceNo=$r_r['t']+1;
 			}
 			$invoiceStr=  date('Y').sprintf('%04s', $invoiceNo);
-			echo $invoiceStr;
+			echo $_REQUEST['callback'].'('.($invoiceStr).')';
 			break;
 		case "appointmentMake":
 			$diaId=$_REQUEST['diaId'];

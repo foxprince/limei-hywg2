@@ -11,7 +11,7 @@
  * 输入编号返回信息
  */
 
-$url = 'http://www.lumiagem.com/cn/action.php?';
+$url = 'http://localhost:8000/cn/action.php?';
 if(!empty($_POST['ref'])){
     $data = array(
         'action' => 'fetchDia',
