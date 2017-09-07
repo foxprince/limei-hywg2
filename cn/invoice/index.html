@@ -171,8 +171,9 @@
 		});
 		/*收据*/
 		$('.receipt').click(function() {
-            to_print()
-            total_receipt()
+            to_print();
+            total_receipt();
+            $('.to_invoice').html('');
 			$('.print_none').hide();
 			window.print();
 		});
