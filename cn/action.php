@@ -379,6 +379,7 @@ if($_REQUEST['action']) {
 			break;
 		case "fetchDia":
 			$ref=$_REQUEST['ref'];
+			if($_REQUEST['ref']!=null){
 			$sql_currency='SELECT * FROM convert_currency';
 			foreach($conn->query($sql_currency) as $row_currency){
 				$USD_EUR=$row_currency['USD_EUR'];
@@ -391,7 +392,7 @@ if($_REQUEST['action']) {
 				$item=$r_d;
 				$item['retail_price']=$euro_price=round($r_d['retail_price']*$USD_EUR);
 			}
-			echo json_encode($item);
+			echo json_encode($item);}
 			break;
 		case "invoiceNo":
 			$invoiceNo = 1;
