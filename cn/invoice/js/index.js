@@ -391,7 +391,7 @@ function ref(to,ref){
         dataType:'json',
         async:false,
         success:function(data){
-        if(data){
+        if(data){console.log("fetch");
         	html += "<div class='col-lg-1 pdNone col-md-1 col-sm-12 col-xs-12'>";
             html += "<span class='delete addImg' onclick='deleteDate(this)'></span>";
 
