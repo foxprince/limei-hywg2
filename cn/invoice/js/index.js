@@ -34,7 +34,7 @@ function to_print(){
                 '<p>'+$(".addApend").eq(i).find('#form_jewerly').find('option:selected').val()+' White Gold '+$(".addApend").eq(i).find('#form_material').find('option:selected').val()+'</p>'+
                 '</div>'+
                 '<div class="col-xs-3 clearfix">'+
-                '<p>'+$(".addApend").eq(i).find('#form_gia').find('option:selected').val()+'&nbsp;'+$('#ref').val()+'</p>'+
+                '<p>'+$(".addApend").eq(i).find('#form_gia').find('option:selected').val()+'&nbsp;'+$(".addApend").eq(i).find('#ref').val()+'</p>'+
                 '<p>Cut Grade <span class="pull-right">'+$(".addApend").eq(i).find('#form_cutGrade').find('option:selected').val()+'</span></p>'+
                 '<p>Polish <span class="pull-right">'+$(".addApend").eq(i).find('#form_polish').find('option:selected').val()+'</span></p>'+
                 '<p>Symmetry<span class="pull-right">'+$(".addApend").eq(i).find('#form_symmetry').find('option:selected').val()+'</span></p>'+
@@ -351,8 +351,8 @@ function ht(){
     html += "<label class='col-sm-2 col-xs-3  control-label'>Material</label>";
     html += "<div class='col-sm-10 col-xs-9'>";
     html += "<select id='form_material' class='material form-control'>";
-    html += "<option value='Pt'>Pt</option>";
     html += "<option value='18K'>18K</option>";
+    html += "<option value='Pt'>Pt</option>";
     html += "</select>";
     html += "</div>";
     html += "</div>";
@@ -539,8 +539,8 @@ function ref(to,ref){
             html += "<label class='col-sm-2 col-xs-3  control-label'>Material</label>";
             html += "<div class='col-sm-10 col-xs-9'>";
             html += "<select id='form_material' class='material form-control'>";
-            html += "<option value='Pt'>Pt</option>";
             html += "<option value='18K'>18K</option>";
+            html += "<option value='Pt'>Pt</option>";
             html += "</select>";
             html += "</div>";
             html += "</div>";
