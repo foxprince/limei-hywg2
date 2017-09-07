@@ -389,10 +389,10 @@ function ref(to,ref){
         type:'post',
         data:{ref:ref},
         dataType:'json',
-        //async:false,
+        async:false,
         success:function(data){
         if(data){
-            html += "<div class='col-lg-1 pdNone col-md-1 col-sm-12 col-xs-12'>";
+        	html += "<div class='col-lg-1 pdNone col-md-1 col-sm-12 col-xs-12'>";
             html += "<span class='delete addImg' onclick='deleteDate(this)'></span>";
 
             /*jianhao */
