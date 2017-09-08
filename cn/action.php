@@ -395,20 +395,25 @@ if($_REQUEST['action']) {
 			break;
 		case "fetchDia":
 			$ref=$_REQUEST['ref'];
+			$currency=$_REQUEST['currency'];
 			if($_REQUEST['ref']!=null){
-			$sql_currency='SELECT * FROM convert_currency';
-			foreach($conn->query($sql_currency) as $row_currency){
-				$USD_EUR=$row_currency['USD_EUR'];
-				$USD_GBP=$row_currency['USD_GBP'];
-				$USD_CNY=$row_currency['USD_CNY'];
+				$sql_currency='SELECT * FROM convert_currency';
+				foreach($conn->query($sql_currency) as $row_currency){
+					$USD_EUR=$row_currency['USD_EUR'];
+					$USD_GBP=$row_currency['USD_GBP'];
+					$USD_CNY=$row_currency['USD_CNY'];
+				}
+				$sql_dia='SELECT * FROM diamonds WHERE visiable=1 and stock_ref LIKE "'.$ref.'" OR certificate_number = "'.$ref.'"';
+				$stmt_dia=$conn->query($sql_dia);
+				foreach($stmt_dia as $r_d){
+					$item=$r_d;
+					if($currency!=null&&$currency=='CNY')
+						$item['retail_price']=round($r_d['retail_price']*$USD_CNY);
+					else 
+						$item['retail_price']=round($r_d['retail_price']*$USD_EUR);
+				}
+				echo json_encode($item);
 			}
-			$sql_dia='SELECT * FROM diamonds WHERE visiable=1 and stock_ref LIKE "'.$ref.'" OR certificate_number = "'.$ref.'"';
-			$stmt_dia=$conn->query($sql_dia);
-			foreach($stmt_dia as $r_d){
-				$item=$r_d;
-				$item['retail_price']=$euro_price=round($r_d['retail_price']*$USD_EUR);
-			}
-			echo json_encode($item);}
 			break;
 		case "invoiceNo":
 			$invoiceNo = 1;
