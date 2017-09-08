@@ -221,7 +221,7 @@ function ht(){
     html += "<div class='form-group clearfix'>";
     html += "<label class='col-sm-2 col-xs-3  control-label'>Report No.</label>";
     html += "<div class='col-sm-10 col-xs-9'>";
-    html += " <input id='ref' onchange='ref(this,$(this).val())' class='report_no form-control' value='' type='text' placeholder='000000'>";
+    html += " <input id='ref' onblur='ref(this,$(this).val())' class='report_no form-control' value='' type='text' placeholder='000000'>";
     html += "</div>";
     html += "</div>";
 
@@ -229,7 +229,7 @@ function ht(){
     html += "<div class='form-group clearfix'>";
     html += "<label class='col-sm-2 col-xs-3  control-label'>Price</label>";
     html += "<div class='col-sm-10 col-xs-9'>";
-    html += " <input onchange='total()' value='' id='form_price' class='price form-control' type='text' placeholder='0.00'>";
+    html += " <input onblur='total()' value='' id='form_price' class='price form-control' type='text' placeholder='0.00'>";
     html += "</div>";
     html += "</div>";
 
@@ -336,7 +336,7 @@ function ht(){
     html += "<div class='form-group clearfix'>";
     html += "<label class='col-sm-2 col-xs-3  control-label'>Price</label>";
     html += "<div class='col-sm-10 col-xs-9'>";
-    html += " <input onchange='total()' class='jewerly_price form-control' id='form_price2' value='' type='text' placeholder='0.00'>";
+    html += " <input onblur='total()' class='jewerly_price form-control' id='form_price2' value='' type='text' placeholder='0.00'>";
     html += "</div>";
     html += "</div>";
 
@@ -437,7 +437,7 @@ function ref(to,ref){
             html += "<div class='form-group clearfix'>";
             html += "<label class='col-sm-2 col-xs-3  control-label'>Report No.</label>";
             html += "<div class='col-sm-10 col-xs-9'>";
-            html += " <input id='ref' onchange='ref($(this).val())' class='report_no form-control' disabled value='"+ref+"' type='text' placeholder='000000'>";
+            html += " <input id='ref' onblur='ref($(this).val())' class='report_no form-control' disabled value='"+ref+"' type='text' placeholder='000000'>";
             html += "</div>";
             html += "</div>";
 
@@ -445,7 +445,7 @@ function ref(to,ref){
             html += "<div class='form-group clearfix'>";
             html += "<label class='col-sm-2 col-xs-3  control-label'>Price</label>";
             html += "<div class='col-sm-10 col-xs-9'>";
-            html += " <input class='price form-control' id='form_price' disabled type='text' value='"+data.retail_price+"' placeholder='0.00'>";
+            html += " <input class='price form-control' onblur='total()' id='form_price'  type='text' value='"+data.retail_price+"' placeholder='0.00'>";
             html += "</div>";
             html += "</div>";
             html += "</div>";
@@ -490,7 +490,7 @@ function ref(to,ref){
             html += "<div class='form-group clearfix'>";
             html += "<label class='col-sm-2 col-xs-3  control-label'>Polish</label>";
             html += "<div class='col-sm-10 col-xs-9'>";
-            html += "<select id='form_polish' disabled class='polish form-control'>";
+            html += "<select id='form_polish'  class='polish form-control'>";
             html += "<option value='"+data.polish+"'>"+data.polish+"</option>";
             html += "</select>";
             html += "</div>";
@@ -524,7 +524,7 @@ function ref(to,ref){
             html += "<div class='form-group clearfix'>";
             html += "<label class='col-sm-2 col-xs-3  control-label'>Price</label>";
             html += "<div class='col-sm-10 col-xs-9'>";
-            html += " <input onchange='total()' value='' id='form_price2' class='jewerly_price form-control' type='text' placeholder='0.00'>";
+            html += " <input onblur='total()' value='' id='form_price2' class='jewerly_price form-control' type='text' placeholder='0.00'>";
             html += "</div>";
             html += "</div>";
 
