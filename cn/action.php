@@ -347,8 +347,8 @@ if($_REQUEST['action']) {
 			break;
 		case "receipt":
 			$obj=json_decode($_REQUEST['receipt'],TRUE);
-			$sql = 'insert into invoice(name,passport,street,city,postcode,country,invoice_date,invoice_no,vat_price,total_price,ctime) 
-					values(:name,:passport,:street,:city,:postcode,:country,:invoice_date,:invoice_no,:vat_price,:total_price,now())';
+			$sql = 'insert into invoice(name,passport,street,city,postcode,country,invoice_date,invoice_no,currency,vat_price,total_price,ctime) 
+					values(:name,:passport,:street,:city,:postcode,:country,:invoice_date,:invoice_no,:currency,:vat_price,:total_price,now())';
 			$stmt=$conn->prepare($sql);
 			$stmt->execute(array('name'=>$obj['name'],
 					'passport'=>$obj['passport'],
@@ -356,7 +356,7 @@ if($_REQUEST['action']) {
 					'postcode'=>$obj['postcode'],
 					'country'=>$obj['country'],
 					'invoice_date'=>$obj['invoice_date'],
-					'invoice_no'=>$obj['invoice_no'],'vat_price'=>$obj['vat_price'],'total_price'=>$obj['total_price']));
+					'invoice_no'=>$obj['invoice_no'],'currency'=>$obj['currency'],'vat_price'=>$obj['vat_price'],'total_price'=>$obj['total_price']));
 			$invoiceId = $conn->lastInsertId();
 			//--得到Json_list数组长度
 			$num=count($obj["json_list"]);
@@ -376,6 +376,22 @@ if($_REQUEST['action']) {
 			}
 			$receiptId = $conn->lastInsertId();
 			echo 'ok';
+			break;
+		case "currencyRate":
+			$from=$_REQUEST['from'];
+			$to=$_REQUEST['to'];
+			foreach($conn->query('SELECT * FROM convert_currency') as $row_currency){
+				$USD_EUR=$row_currency['USD_EUR'];
+				$USD_GBP=$row_currency['USD_GBP'];
+				$USD_CNY=$row_currency['USD_CNY'];
+			}
+			if($from=='EUR'&&$to=='CNY') {
+				$rate=($USD_CNY/$USD_EUR);
+			}
+			if($from=='CNY'&&$to=='EUR') {
+				$rate=($USD_EUR/$USD_CNY);
+			}
+			echo $rate;
 			break;
 		case "fetchDia":
 			$ref=$_REQUEST['ref'];

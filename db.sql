@@ -10,11 +10,12 @@ create table invoice(
 	country varchar(20) null,
 	invoice_date varchar(8) null,
 	invoice_no varchar(10) null,
+	currency varchar(6) null,
 	vat_price float null,
   	total_price float null,/*不含税价格*/
 	ctime datetime not null
 );
-
+alter table invoice add currency varchar(6) default 'EUR' null;
 drop table receipt;
 create table receipt(
 	id bigint not null primary key auto_increment,

@@ -73,7 +73,6 @@ function removeData(data) {
 $(function () {
 	//html内容
     var content = ht();
-
     /*add list*/
     var clickCount = 0;
     var add = $('.activeAdd');
@@ -90,7 +89,6 @@ $(function () {
         if (clickCount > 1) {
             addContent.append(content);
         }
-
     });
     /*减号*/
     var time = new Date();
@@ -113,7 +111,7 @@ function PrefixInteger(num) {
  */
 function saves(){
     var data = {
-        'name':$('#name').val(),
+        'name':$('#name').val(),'currency':currency,
         'passport':$('#passport').val(),
         'street':$('#street').val(),
         'city':$('#city').val(),
@@ -223,7 +221,7 @@ function ht(){
     html += "<div class='form-group clearfix'>";
     html += "<label class='col-sm-2 col-xs-3  control-label'>Report No.</label>";
     html += "<div class='col-sm-10 col-xs-9'>";
-    html += " <input id='ref' onblur='ref(this,$(this).val())' class='report_no form-control' value='' type='text' placeholder='000000'>";
+    html += " <input id='ref' onchange='ref(this,$(this).val())' class='report_no form-control' value='' type='text' placeholder='000000'>";
     html += "</div>";
     html += "</div>";
 
@@ -231,7 +229,7 @@ function ht(){
     html += "<div class='form-group clearfix'>";
     html += "<label class='col-sm-2 col-xs-3  control-label'>Price</label>";
     html += "<div class='col-sm-10 col-xs-9'>";
-    html += " <input onblur='total()' value='' id='form_price' class='price form-control' type='text' placeholder='0.00'>";
+    html += " <input onchange='total()' value='' id='form_price' class='price form-control' type='text' placeholder='0.00'>";
     html += "</div>";
     html += "</div>";
 
@@ -338,7 +336,7 @@ function ht(){
     html += "<div class='form-group clearfix'>";
     html += "<label class='col-sm-2 col-xs-3  control-label'>Price</label>";
     html += "<div class='col-sm-10 col-xs-9'>";
-    html += " <input onblur='total()' class='jewerly_price form-control' id='form_price2' value='' type='text' placeholder='0.00'>";
+    html += " <input onchange='total()' class='jewerly_price form-control' id='form_price2' value='' type='text' placeholder='0.00'>";
     html += "</div>";
     html += "</div>";
 
@@ -439,7 +437,7 @@ function ref(to,ref){
             html += "<div class='form-group clearfix'>";
             html += "<label class='col-sm-2 col-xs-3  control-label'>Report No.</label>";
             html += "<div class='col-sm-10 col-xs-9'>";
-            html += " <input id='ref' onblur='ref($(this).val())' class='report_no form-control' disabled value='"+ref+"' type='text' placeholder='000000'>";
+            html += " <input id='ref' onchange='ref($(this).val())' class='report_no form-control' disabled value='"+ref+"' type='text' placeholder='000000'>";
             html += "</div>";
             html += "</div>";
 
@@ -526,7 +524,7 @@ function ref(to,ref){
             html += "<div class='form-group clearfix'>";
             html += "<label class='col-sm-2 col-xs-3  control-label'>Price</label>";
             html += "<div class='col-sm-10 col-xs-9'>";
-            html += " <input onblur='total()' value='' id='form_price2' class='jewerly_price form-control' type='text' placeholder='0.00'>";
+            html += " <input onchange='total()' value='' id='form_price2' class='jewerly_price form-control' type='text' placeholder='0.00'>";
             html += "</div>";
             html += "</div>";
 
@@ -553,23 +551,57 @@ function ref(to,ref){
     }
 
 }
-
+var currency='EUR';
+var currencyHint = '€';
+/*汇率转换*/
+$(".currency img").click(function () {
+    $(this).addClass("selected").siblings().removeClass("selected");
+})
+function currencyRate(from,to) {
+	var totals = 0;
+	if(from!=to&&to!=currency){
+		$.ajaxSetup({  
+		    async : false  
+		});
+		$.get('../action.php?action=currencyRate',{from:from,to:to},function(rate){
+	        $('.price').each(function(){
+	            $(this).val(($(this).val()*rate).toFixed(2));
+	            totals += Number($(this).val());
+	        })
+	        $('.jewerly_price').each(function(){
+	        	$(this).val(($(this).val()*rate).toFixed(2));
+	        	totals += Number($(this).val());
+	        })
+	    })
+    }
+	if(to=='CNY'){
+		currency = 'CNY';
+		currencyHint = '￥';
+	}else{
+		currency = 'EUR';
+		currencyHint = '€';
+	}
+	var vat = (totals*0.21).toFixed(2);
+    $('.vat_price').html(currencyHint+vat)
+    $('.vat_price').attr('data-price',vat)
+    $('.total_price').html(currencyHint+totals)
+    $('.total_price').attr('data-price',totals)
+}
 /**
  * 求和
  */
-function  total(){
+function  total(){console.log('int total');
     var totals = 0;
     $('.price').each(function(){
-        totals += Number($(this).val())
+    	totals += Number($(this).val())
     })
     $('.jewerly_price').each(function(){
         totals += Number($(this).val())
     })
-
     var vat = (totals*0.21).toFixed(2);
-    $('.vat_price').html('€'+vat)
+    $('.vat_price').html(currencyHint+vat)
     $('.vat_price').attr('data-price',vat)
-    $('.total_price').html('€'+totals)
+    $('.total_price').html(currencyHint+totals)
     $('.total_price').attr('data-price',totals)
 }
 function  total_invoice(){
@@ -584,7 +616,7 @@ function  total_invoice(){
     var vat = (totals*0.21).toFixed(2);
     //$('.vat_price').html('€'+vat)
     //$('.vat_price').attr('data-price',vat)
-    $('#print_price').html('€'+(Number(totals)+Number(vat)))
+    $('#print_price').html(currencyHint+(Number(totals)+Number(vat)))
     $('.total_price').attr('data-price',Number(totals)+Number(vat))
 }
 function  total_receipt(){

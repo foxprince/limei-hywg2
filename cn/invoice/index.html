@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en">
-
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -88,9 +87,17 @@
 						<span class="addImg activeAdd"></span>
 					</div>
 				</div>
-				<div class="col-lg-4 Total col-lg-offset-8 col-md-5 col-md-offset-7 col-sm-6 col-sm-offset-6 col-xs-12">
+				<div>
+				<div class="col-lg-4 Total col-lg-offset-4 col-md-5 col-md-offset-5 col-sm-6 col-sm-offset-6 col-xs-6">
+				<span class="currency pull-right">
+                <img src="../images/eur.png" class="selected" onclick="currencyRate('CNY','EUR')"/>
+              	<img src="../images/cny.png"  onclick="currencyRate('EUR','CNY')"/>
+           		</span>
+				</div>
+				<div class="col-lg-4 Total col-lg-offset-8 col-md-5 col-md-offset-7 col-sm-6 col-sm-offset-6 col-xs-6">
 					<h1 class="clearfix">21%VAT:  <span data-price="0" class="vat_price pull-right">€0.00</span></h1>
 					<h1 class="clearfix">Total:  <span data-price="0" class="total_price pull-right">€0.00</span></h1>
+				</div>
 				</div>
 				<div class="col-xs-12 text-right fotter">
 					<span class="fotterBtn lnvoice pull-right"></span>

@@ -74,6 +74,9 @@
 .remove:active{
     background-image: url("../images/icon/activeRemove.png");
     }
+.currency>img{width: 20px;height: 20px;vertical-align: middle;}
+.currency .selected{border: 2px solid #bd8165;border-radius: 4px;}
+   
 /*save*/
 .save{
     margin-left: 15px;
