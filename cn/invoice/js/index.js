@@ -26,29 +26,37 @@ function to_print(){
     var address = $('#street').val()+'　'+$('#postcode').val()+'　'+$('#city').val()+'　'+$('#country').val()
     $('#to_address').html(address)
     $('.del_items').remove();
-    for (var i = 0 ;i<countCont; i++){
-        html += '<div class="del_items items clearfix">'+
-                '<div class="col-xs-3 clearfix">'+
-                '<p id="model">'+$(".addApend").eq(i).find("#form_model").find("option:selected").val()+'</p>'+
-                '<p>Carat Weight <span class="pull-right"><span class="pull-left">'+$(".addApend").eq(i).find("#form_weight").val()+'</span></span></p>'+
-                '<p>Colour Grade <span class="pull-right"><span  class="pull-left">'+$(".addApend").eq(i).find('#form_colourGrade').find('option:selected').val()+'</span></span></p>'+
-                '<p>Clarity Grade <span class="pull-right"><span class="pull-left">'+$(".addApend").eq(i).find('#form_clarity').find('option:selected').val()+'</span></span></p>'+
-                '<p>'+$(".addApend").eq(i).find('#form_jewerly').find('option:selected').val()+' White Gold '+$(".addApend").eq(i).find('#form_material').find('option:selected').val()+'</p>'+
-                '</div>'+
-                '<div class="col-xs-3 clearfix">'+
-                '<p>'+$(".addApend").eq(i).find('#form_gia').find('option:selected').val()+'&nbsp;'+$(".addApend").eq(i).find('#ref').val()+'</p>'+
-                '<p>Cut Grade <span class="pull-right">'+$(".addApend").eq(i).find('#form_cutGrade').find('option:selected').val()+'</span></p>'+
-                '<p>Polish <span class="pull-right">'+$(".addApend").eq(i).find('#form_polish').find('option:selected').val()+'</span></p>'+
-                '<p>Symmetry<span class="pull-right">'+$(".addApend").eq(i).find('#form_symmetry').find('option:selected').val()+'</span></p>'+
-                '</div>'+
-                '<div class="col-xs-4 clearfix">'+
-                '<p>'+$(".addApend").eq(i).find('#form_color').find('option:selected').val()+'</p>'+
-                '</div>'+
-                '<div class="col-xs-2 clearfix">'+
-                '<p>'+currencyHint+$(".addApend").eq(i).find("#form_price").val()+'</p>'+
-                '<p>　</p><p>　</p><p>　</p><p>'+currencyHint+$(".addApend").eq(i).find("#form_price2").val()+'</p>'+
-                '</div></div>';
-    }
+    $('.addApend').each(function(){
+    	html += '<div class="del_items items clearfix">'+
+        '<div class="col-xs-3 clearfix">';
+        if($(this).hasClass("dia")||$(this).hasClass("diajew"))
+        	html += '<p id="model">'+$(this).find("#form_model").find("option:selected").val()+'</p>'+
+	        '<p>Carat Weight <span class="pull-right"><span class="pull-left">'+$(this).find("#form_weight").val()+'</span></span></p>'+
+	        '<p>Colour Grade <span class="pull-right"><span  class="pull-left">'+$(this).find('#form_colourGrade').find('option:selected').val()+'</span></span></p>'+
+	        '<p>Clarity Grade <span class="pull-right"><span class="pull-left">'+$(this).find('#form_clarity').find('option:selected').val()+'</span></span></p>';
+        if($(this).hasClass("jew")||$(this).hasClass("diajew"))
+        	html +='<p>'+$(this).find('#form_jewerly').find('option:selected').val()+' White Gold '+$(this).find('#form_material').find('option:selected').val()+'</p>';
+        html+='</div>'+
+        '<div class="col-xs-3 clearfix">';
+        if($(this).hasClass("dia")||$(this).hasClass("diajew"))
+        	html+='<p>'+$(this).find('#form_gia').find('option:selected').val()+'&nbsp;'+$(this).find('#ref').val()+'</p>'+
+	        '<p>Cut Grade <span class="pull-right">'+$(this).find('#form_cutGrade').find('option:selected').val()+'</span></p>'+
+	        '<p>Polish <span class="pull-right">'+$(this).find('#form_polish').find('option:selected').val()+'</span></p>'+
+	        '<p>Symmetry<span class="pull-right">'+$(this).find('#form_symmetry').find('option:selected').val()+'</span></p>';
+        html+='</div>'+
+        '<div class="col-xs-4 clearfix">';
+        if($(this).hasClass("dia")||$(this).hasClass("diajew"))
+        	html+='<p>'+$(this).find('#form_color').find('option:selected').val()+'</p>';
+        html+='</div>'+
+        '<div class="col-xs-2 clearfix">';
+        if($(this).hasClass("dia")||$(this).hasClass("diajew"))
+        	html+='<p>'+currencyHint+$(this).find("#form_price").val()+'</p>';
+        if($(this).hasClass("diajew"))
+        	html+='<p>　</p><p>　</p><p>　</p>';
+        if($(this).hasClass("jew")||$(this).hasClass("diajew"))
+            html+='<p>'+currencyHint+$(this).find("#form_price2").val()+'</p>';
+        html+='</div></div>';
+    })
     $('#items').after(html);
 }
 
@@ -71,36 +79,6 @@ function removeData(data) {
 }
 
 
-
-$(function () {
-	//html内容
-    var content = ht();
-    /*add list*/
-    var clickCount = 0;
-    var add = $('.activeAdd');
-    var addContent = $('.addContent');
-    add.click(function () {
-        clickCount++;
-        if (addContent.html() != "") {
-            /*搞了好一会 才搞定*/
-        } else {
-            addContent.html(content);
-        }
-        //console.log(clickCount);
-        var appendDate = $('.addApend').eq(0);
-        if (clickCount > 1) {
-            addContent.append(content);
-        }
-    });
-    /*减号*/
-    var time = new Date();
-    var to_time = String(time.getFullYear())+String(PrefixInteger(time.getMonth()+1))+String(PrefixInteger(time.getDate()));
-    $('#invoice_date').val(to_time);
-    $('#invoice_no').val(invoiceNo());
-    $('#corp').html(String(time.getFullYear())+'   ANTWERPEN');
-    $('.to_time').html('DATE：  '+ to_time);
-    //$('.to_invoice').html('INVOICE：  '+ to_time);
-});
 
 
 //补零
@@ -154,13 +132,36 @@ function saves(){
     }
 }
 
+$(function () {
+	//html内容
+    /*add list*/
+    var clickCount = 0;
+    var add = $('.activeAdd');
+    var addContent = $('.addContent');
+    add.click(function () {
+        var obj = $(this).attr('obj');
+        var content = ht(obj);
+    	clickCount++;
+    	addContent.append(content);
+    });
+    /*减号*/
+    var time = new Date();
+    var to_time = String(time.getFullYear())+String(PrefixInteger(time.getMonth()+1))+String(PrefixInteger(time.getDate()));
+    $('#invoice_date').val(to_time);
+    $('#invoice_no').val(invoiceNo());
+    $('#corp').html(String(time.getFullYear())+'   ANTWERPEN');
+    $('.to_time').html('DATE：  '+ to_time);
+    //$('.to_invoice').html('INVOICE：  '+ to_time);
+});
+
+
 /**
  * 拼接内容html
  * @returns {string}
  */
-function ht(){
+function ht(type){
     var html = "";
-    html += "<div class='addApend clearfix'>";
+    html += "<div class='addApend clearfix "+type+"'>";
     html += "<div class='col-lg-1 pdNone col-md-1 col-sm-12 col-xs-12'>";
     html += "<span class='delete addImg' onclick='deleteDate(this)'></span>";
 
@@ -174,151 +175,162 @@ function ht(){
     html += "<span class='remove addImg' onclick='removeData(this)'></span>";
     html += "</div>";
     html += "</div>";
+    
     html += "</div>";
-    html += "<div class='col-lg-4  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>";
-    html += "<div class='form-group clearfix'>";
-    html += "<label class='col-sm-2 col-xs-3  control-label'>Model</label>";
-    html += "<div class='col-sm-10 col-xs-9'>";
-    html += "<select id='form_model' class='shape form-control'>";
-    html += "<option value='Round Brilliant'>Round Brilliant</option>";
-    html += "<option value='Pear'>Pear</option>";
-    html += "<option value='Princess'>Princess</option>";
-    html += "<option value='Heart'>Heart</option>";
-    html += "<option value='Marquise'>Marquise</option>";
-    html += "<option value='Oval'>Oval</option>";
-    html += "<option value='Emerald'>Emerald</option>";
-    html += "<option value='Radiant'>Radiant</option>";
-    html += "<option value='Cushion'>Cushion</option>";
-    html += "</select>";
-    html += "</div>";
-    html += "</div>";
-
-    html += "<div class='form-group clearfix'>";
-    html += "<label class='col-sm-2 col-xs-3  control-label'>Colour</label>";
-    html += "<div class='col-sm-10 col-xs-9'>";
-    html += "<select id='form_color' class='fancy form-control'>";
-    html += "<option value=''></option>";
-    html += "<option value='Yellow'>Yellow</option>";
-    html += "<option value='Pink'>Pink</option>";
-    html += "<option value='Green'>Green</option>";
-    html += "<option value='Red'>Red</option>";
-    html += "<option value='Blue'>Blue</option>";
-    html += "</select>";
-    html += "</div>";
-    html += "</div>";
-
-    html += "<div class='form-group clearfix'>";
-    html += "<label class='col-sm-2 col-xs-3  control-label'>Certification</label>";
-    html += "<div class='col-sm-10 col-xs-9'>";
-    html += "<select id='form_gia' class='grading_lab form-control'>";
-    html += "<option value='GIA'>GIA</option>";
-    html += "<option value='HRD'>HRD</option>";
-    html += "<option value='IGI'>IGI</option>";
-    html += "</select>";
-    html += "</div>";
-    html += "</div>";
-
-    html += "<div class='form-group clearfix'>";
-    html += "<label class='col-sm-2 col-xs-3  control-label'>Report No.</label>";
-    html += "<div class='col-sm-10 col-xs-9'>";
-    html += " <input id='ref' onblur='ref(this,$(this).val())' class='report_no form-control' value='' type='text' placeholder='000000'>";
-    html += "</div>";
-    html += "</div>";
-
-
-    html += "<div class='form-group clearfix'>";
-    html += "<label class='col-sm-2 col-xs-3  control-label'>Price</label>";
-    html += "<div class='col-sm-10 col-xs-9'>";
-    html += " <input onblur='total()' value='' id='form_price' class='price form-control' type='text' placeholder='0.00'>";
-    html += "</div>";
-    html += "</div>";
-
-    html += "</div>";
-    html += "<div class='col-lg-4  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>";
-
-    html += "<div class='form-group clearfix'>";
-    html += "<label class='col-sm-2 col-xs-3  control-label'>Carat Weight</label>";
-    html += "<div class='col-sm-10 col-xs-9'>";
-    html += " <input id='form_weight' class='carat form-control' type='text' placeholder='0.00'>";
-    html += "</div>";
-    html += "</div>";
-
-    html += "<div class='form-group clearfix'>";
-    html += "<label class='col-sm-2 col-xs-3  control-label'>Colour Grade</label>";
-    html += "<div class='col-sm-10 col-xs-9'>";
-    html += "<select id='form_colourGrade' class='color form-control'>";
-    html += "<option value='D'>D</option>";
-    html += "<option value='E'>E</option>";
-    html += "<option value='F'>F</option>";
-    html += "<option value='G'>G</option>";
-    html += "<option value='H'>H</option>";
-    html += "<option value='I'>I</option>";
-    html += "<option value='J'>J</option>";
-    html += "<option value='K'>K</option>";
-    html += "<option value='L'>L</option>";
-    html += "<option value='M'>M</option>";
-    html += "</select>";
-    html += "</div>";
-    html += "</div>";
-
-    html += "<div class='form-group clearfix'>";
-    html += "<label class='col-sm-2 col-xs-3  control-label'>Clarity Grade</label>";
-    html += "<div class='col-sm-10 col-xs-9'>";
-    html += "<select id='form_clarity' class='clarity form-control'>";
-    html += "<option value='FL'>FL</option>";
-    html += "<option value='IF'>IF</option>";
-    html += "<option value='VVS1'>VVS1</option>";
-    html += "<option value='VVS2'>VVS2</option>";
-    html += "<option value='VS1'>VS1</option>";
-    html += "<option value='VS2'>VS2</option>";
-    html += "<option value='SI1'>SI1</option>";
-    html += "<option value='SI2'>SI2</option>";
-    html += "</select>";
-    html += "</div>";
-    html += "</div>";
-
-
-    html += "<div class='form-group clearfix'>";
-    html += "<label class='col-sm-2 col-xs-3  control-label'>Cut Grade</label>";
-    html += "<div class='col-sm-10 col-xs-9'>";
-    html += "<select id='form_cutGrade' class='cut_grade form-control'>";
-    html += "<option value='EX'>EX</option>";
-    html += "<option value='VG'>VG</option>";
-    html += "<option value='G'>G</option>";
-    html += "<option value='F'>F</option>";
-    html += "</select>";
-    html += "</div>";
-    html += "</div>";
-
-    html += "<div class='form-group clearfix'>";
-    html += "<label class='col-sm-2 col-xs-3  control-label'>Polish</label>";
-    html += "<div class='col-sm-10 col-xs-9'>";
-    html += "<select id='form_polish' class='polish form-control'>";
-    html += "<option value='EX'>EX</option>";
-    html += "<option value='VG'>VG</option>";
-    html += "<option value='G'>G</option>";
-    html += "<option value='F'>F</option>";
-    html += "</select>";
-    html += "</div>";
-    html += "</div>";
-
-    html += "<div class='form-group clearfix'>";
-    html += "<label class='col-sm-2 col-xs-3  control-label'>Symmetry</label>";
-    html += "<div class='col-sm-10 col-xs-9'>";
-    html += "<select id='form_symmetry' class='symmetry form-control'>";
-    html += "<option value='EX'>EX</option>";
-    html += "<option value='VG'>VG</option>";
-    html += "<option value='G'>G</option>";
-    html += "<option value='F'>F</option>";
-    html += "</select>";
-    html += "</div>";
-    html += "</div>";
-
-    html += "</div>";
+    if(type=='dia'||type=='diajew')
+    	html += diaContent();
     /*边线*/
-    html += "<div class='col-lg-9 col-lg-offset-2 col-md-offset-2 pdNone col-md-9  formBorder  col-sm-12 col-xs-12'></div>";
-    html += "<div class='col-lg-4 col-lg-offset-2 col-md-offset-2 pdNone col-md-4    col-sm-12 col-xs-12'>";
+    if(type=='jew'||type=='diajew')
+    	html += jewelryContent();
+    html += "</div>";
+    return html;
+}
+function diaContent() {
+	var  html = "<div class='col-lg-4  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>";
+	    html += "<div class='form-group clearfix'>";
+	    html += "<label class='col-sm-2 col-xs-3  control-label'>Model</label>";
+	    html += "<div class='col-sm-10 col-xs-9'>";
+	    html += "<select id='form_model' class='shape form-control'>";
+	    html += "<option value='Round Brilliant'>Round Brilliant</option>";
+	    html += "<option value='Pear'>Pear</option>";
+	    html += "<option value='Princess'>Princess</option>";
+	    html += "<option value='Heart'>Heart</option>";
+	    html += "<option value='Marquise'>Marquise</option>";
+	    html += "<option value='Oval'>Oval</option>";
+	    html += "<option value='Emerald'>Emerald</option>";
+	    html += "<option value='Radiant'>Radiant</option>";
+	    html += "<option value='Cushion'>Cushion</option>";
+	    html += "</select>";
+	    html += "</div>";
+	    html += "</div>";
 
+	    html += "<div class='form-group clearfix'>";
+	    html += "<label class='col-sm-2 col-xs-3  control-label'>Colour</label>";
+	    html += "<div class='col-sm-10 col-xs-9'>";
+	    html += "<select id='form_color' class='fancy form-control'>";
+	    html += "<option value=''></option>";
+	    html += "<option value='Yellow'>Yellow</option>";
+	    html += "<option value='Pink'>Pink</option>";
+	    html += "<option value='Green'>Green</option>";
+	    html += "<option value='Red'>Red</option>";
+	    html += "<option value='Blue'>Blue</option>";
+	    html += "</select>";
+	    html += "</div>";
+	    html += "</div>";
+
+	    html += "<div class='form-group clearfix'>";
+	    html += "<label class='col-sm-2 col-xs-3  control-label'>Certification</label>";
+	    html += "<div class='col-sm-10 col-xs-9'>";
+	    html += "<select id='form_gia' class='grading_lab form-control'>";
+	    html += "<option value='GIA'>GIA</option>";
+	    html += "<option value='HRD'>HRD</option>";
+	    html += "<option value='IGI'>IGI</option>";
+	    html += "</select>";
+	    html += "</div>";
+	    html += "</div>";
+
+	    html += "<div class='form-group clearfix'>";
+	    html += "<label class='col-sm-2 col-xs-3  control-label'>Report No.</label>";
+	    html += "<div class='col-sm-10 col-xs-9'>";
+	    html += " <input id='ref' onblur='ref(this,$(this).val())' class='report_no form-control' value='' type='text' placeholder='000000'>";
+	    html += "</div>";
+	    html += "</div>";
+
+
+	    html += "<div class='form-group clearfix'>";
+	    html += "<label class='col-sm-2 col-xs-3  control-label'>Price</label>";
+	    html += "<div class='col-sm-10 col-xs-9'>";
+	    html += " <input onblur='total()' value='' id='form_price' class='price form-control' type='text' placeholder='0.00'>";
+	    html += "</div>";
+	    html += "</div>";
+
+	    html += "</div>";
+	    html += "<div class='col-lg-4  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>";
+
+	    html += "<div class='form-group clearfix'>";
+	    html += "<label class='col-sm-2 col-xs-3  control-label'>Carat Weight</label>";
+	    html += "<div class='col-sm-10 col-xs-9'>";
+	    html += " <input id='form_weight' class='carat form-control' type='text' placeholder='0.00'>";
+	    html += "</div>";
+	    html += "</div>";
+
+	    html += "<div class='form-group clearfix'>";
+	    html += "<label class='col-sm-2 col-xs-3  control-label'>Colour Grade</label>";
+	    html += "<div class='col-sm-10 col-xs-9'>";
+	    html += "<select id='form_colourGrade' class='color form-control'>";
+	    html += "<option value='D'>D</option>";
+	    html += "<option value='E'>E</option>";
+	    html += "<option value='F'>F</option>";
+	    html += "<option value='G'>G</option>";
+	    html += "<option value='H'>H</option>";
+	    html += "<option value='I'>I</option>";
+	    html += "<option value='J'>J</option>";
+	    html += "<option value='K'>K</option>";
+	    html += "<option value='L'>L</option>";
+	    html += "<option value='M'>M</option>";
+	    html += "</select>";
+	    html += "</div>";
+	    html += "</div>";
+
+	    html += "<div class='form-group clearfix'>";
+	    html += "<label class='col-sm-2 col-xs-3  control-label'>Clarity Grade</label>";
+	    html += "<div class='col-sm-10 col-xs-9'>";
+	    html += "<select id='form_clarity' class='clarity form-control'>";
+	    html += "<option value='FL'>FL</option>";
+	    html += "<option value='IF'>IF</option>";
+	    html += "<option value='VVS1'>VVS1</option>";
+	    html += "<option value='VVS2'>VVS2</option>";
+	    html += "<option value='VS1'>VS1</option>";
+	    html += "<option value='VS2'>VS2</option>";
+	    html += "<option value='SI1'>SI1</option>";
+	    html += "<option value='SI2'>SI2</option>";
+	    html += "</select>";
+	    html += "</div>";
+	    html += "</div>";
+
+	    html += "<div class='form-group clearfix'>";
+	    html += "<label class='col-sm-2 col-xs-3  control-label'>Cut Grade</label>";
+	    html += "<div class='col-sm-10 col-xs-9'>";
+	    html += "<select id='form_cutGrade' class='cut_grade form-control'>";
+	    html += "<option value='EX'>EX</option>";
+	    html += "<option value='VG'>VG</option>";
+	    html += "<option value='G'>G</option>";
+	    html += "<option value='F'>F</option>";
+	    html += "</select>";
+	    html += "</div>";
+	    html += "</div>";
+
+	    html += "<div class='form-group clearfix'>";
+	    html += "<label class='col-sm-2 col-xs-3  control-label'>Polish</label>";
+	    html += "<div class='col-sm-10 col-xs-9'>";
+	    html += "<select id='form_polish' class='polish form-control'>";
+	    html += "<option value='EX'>EX</option>";
+	    html += "<option value='VG'>VG</option>";
+	    html += "<option value='G'>G</option>";
+	    html += "<option value='F'>F</option>";
+	    html += "</select>";
+	    html += "</div>";
+	    html += "</div>";
+
+	    html += "<div class='form-group clearfix'>";
+	    html += "<label class='col-sm-2 col-xs-3  control-label'>Symmetry</label>";
+	    html += "<div class='col-sm-10 col-xs-9'>";
+	    html += "<select id='form_symmetry' class='symmetry form-control'>";
+	    html += "<option value='EX'>EX</option>";
+	    html += "<option value='VG'>VG</option>";
+	    html += "<option value='G'>G</option>";
+	    html += "<option value='F'>F</option>";
+	    html += "</select>";
+	    html += "</div>";
+	    html += "</div>";
+
+	    html += "</div>";
+	 return html;  
+}
+function jewelryContent() {
+	var html = "<div class='col-lg-9 col-lg-offset-2 col-md-offset-2 pdNone col-md-9  formBorder  col-sm-12 col-xs-12'></div>";
+    
+    html += "<div class='col-lg-4 col-lg-offset-2 col-md-offset-2 pdNone col-md-4    col-sm-12 col-xs-12'>";
 
     html += "<div class='form-group clearfix'>";
     html += "<label class='col-sm-2 col-xs-3  control-label'>Jewelry</label>";
@@ -331,14 +343,15 @@ function ht(){
     html += "</div>";
     html += "</div>";
 
-
     html += "<div class='form-group clearfix'>";
     html += "<label class='col-sm-2 col-xs-3  control-label'>Price</label>";
     html += "<div class='col-sm-10 col-xs-9'>";
     html += " <input onblur='total()' class='jewerly_price form-control' id='form_price2' value='' type='text' placeholder='0.00'>";
     html += "</div>";
     html += "</div>";
+    
     html += "</div>";
+    
     html += "<div class='col-lg-4 col-lg-offset-1 col-md-offset-1 pdNone col-md-4    col-sm-12 col-xs-12'>";
     html += "<div class='form-group clearfix'>";
     html += "<label class='col-sm-2 col-xs-3  control-label'>Material</label>";
@@ -347,7 +360,6 @@ function ht(){
     html += "<option value='18K'>18K</option>";
     html += "<option value='Pt'>Pt</option>";
     html += "</select>";
-    html += "</div>";
     html += "</div>";
     html += "</div>";
     html += "</div>";
@@ -497,41 +509,43 @@ function ref(to,ref){
 
             html += "</div>";
             /*边线*/
-            html += "<div class='col-lg-9 col-lg-offset-2 col-md-offset-2 pdNone col-md-9  formBorder  col-sm-12 col-xs-12'></div>";
-            html += "<div class='col-lg-4 col-lg-offset-2 col-md-offset-2 pdNone col-md-4    col-sm-12 col-xs-12'>";
-
-
-            html += "<div class='form-group clearfix'>";
-            html += "<label class='col-sm-2 col-xs-3  control-label'>Jewelry</label>";
-            html += "<div class='col-sm-10 col-xs-9'>";
-            html += "<select id='form_jewerly' class='jewerly form-control'>";
-            html += "<option value='Ring'>Ring</option>";
-            html += "<option value='Necklace'>Necklace</option>";
-            html += "</select>";
-            html += "</div>";
-            html += "</div>";
-
-            html += "<div class='form-group clearfix'>";
-            html += "<label class='col-sm-2 col-xs-3  control-label'>Price</label>";
-            html += "<div class='col-sm-10 col-xs-9'>";
-            html += " <input onblur='total()' value='' id='form_price2' class='jewerly_price form-control' type='text' placeholder='0.00'>";
-            html += "</div>";
-            html += "</div>";
-
-            html += "</div>";
-
-            html += "<div class='col-lg-4 col-lg-offset-1 col-md-offset-1 pdNone col-md-4    col-sm-12 col-xs-12'>";
-
-            html += "<div class='form-group clearfix'>";
-            html += "<label class='col-sm-2 col-xs-3  control-label'>Material</label>";
-            html += "<div class='col-sm-10 col-xs-9'>";
-            html += "<select id='form_material' class='material form-control'>";
-            html += "<option value='18K'>18K</option>";
-            html += "<option value='Pt'>Pt</option>";
-            html += "</select>";
-            html += "</div>";
-            html += "</div>";
-            html += "</div>";
+            if($(to).parents('.addApend').hasClass("diajew")){
+	            html += "<div class='col-lg-9 col-lg-offset-2 col-md-offset-2 pdNone col-md-9  formBorder  col-sm-12 col-xs-12'></div>";
+	            html += "<div class='col-lg-4 col-lg-offset-2 col-md-offset-2 pdNone col-md-4    col-sm-12 col-xs-12'>";
+	
+	
+	            html += "<div class='form-group clearfix'>";
+	            html += "<label class='col-sm-2 col-xs-3  control-label'>Jewelry</label>";
+	            html += "<div class='col-sm-10 col-xs-9'>";
+	            html += "<select id='form_jewerly' class='jewerly form-control'>";
+	            html += "<option value='Ring'>Ring</option>";
+	            html += "<option value='Necklace'>Necklace</option>";
+	            html += "</select>";
+	            html += "</div>";
+	            html += "</div>";
+	
+	            html += "<div class='form-group clearfix'>";
+	            html += "<label class='col-sm-2 col-xs-3  control-label'>Price</label>";
+	            html += "<div class='col-sm-10 col-xs-9'>";
+	            html += " <input onblur='total()' value='' id='form_price2' class='jewerly_price form-control' type='text' placeholder='0.00'>";
+	            html += "</div>";
+	            html += "</div>";
+	
+	            html += "</div>";
+	
+	            html += "<div class='col-lg-4 col-lg-offset-1 col-md-offset-1 pdNone col-md-4    col-sm-12 col-xs-12'>";
+	
+	            html += "<div class='form-group clearfix'>";
+	            html += "<label class='col-sm-2 col-xs-3  control-label'>Material</label>";
+	            html += "<div class='col-sm-10 col-xs-9'>";
+	            html += "<select id='form_material' class='material form-control'>";
+	            html += "<option value='18K'>18K</option>";
+	            html += "<option value='Pt'>Pt</option>";
+	            html += "</select>";
+	            html += "</div>";
+	            html += "</div>";
+	            html += "</div>";
+        	}
         }
     }})
     if(html){
