@@ -370,7 +370,7 @@ function invoiceNo(){
 	$.ajax({
         url:'../action.php?action=invoiceNo',
         type:'get',
-        dataType:'jsonp',
+        dataType:'json',
         async:false,
         success:function(data){
         	no = data;
