@@ -14,6 +14,7 @@ if (isset($_COOKIE["userId"]))
 	$userid = $_COOKIE["userId"];
 else
 	$userid = $_COOKIE["everUserId"];
+$callback = $_REQUEST['callback'];
 if($_REQUEST['action']) {
 	$action = $_REQUEST['action'];
 	switch($action) {
@@ -310,7 +311,6 @@ if($_REQUEST['action']) {
 			echo $t;
 			break;
 		case "invoiceList":
-			$callback = $_REQUEST['callback'];
 			$totalSql = 'select count(*) as t from invoice';
 			$sql='select id,invoice_no,invoice_date,name,total_price from invoice';
 			$clause = ' where 1=1 ';
@@ -375,7 +375,7 @@ if($_REQUEST['action']) {
 				));
 			}
 			$receiptId = $conn->lastInsertId();
-			echo 'ok';
+			echo $callback.'(ok)';
 			break;
 		case "currencyRate":
 			$from=$_REQUEST['from'];
@@ -391,7 +391,8 @@ if($_REQUEST['action']) {
 			if($from=='CNY'&&$to=='EUR') {
 				$rate=($USD_EUR/$USD_CNY);
 			}
-			echo $rate;
+			echo $callback.'('.json_encode($rate).')';
+			//echo $rate;
 			break;
 		case "fetchDia":
 			$ref=$_REQUEST['ref'];
@@ -412,7 +413,8 @@ if($_REQUEST['action']) {
 					else 
 						$item['retail_price']=round($r_d['retail_price']*$USD_EUR);
 				}
-				echo json_encode($item);
+				echo $callback.'('.json_encode($item).')';
+				//echo json_encode($item);
 			}
 			break;
 		case "invoiceNo":
@@ -422,6 +424,7 @@ if($_REQUEST['action']) {
 				$invoiceNo=$r_r['t']+1;
 			}
 			$invoiceStr=  date('Y').sprintf('%04s', $invoiceNo);
+			//echo $invoiceStr;
 			echo $_REQUEST['callback'].'('.($invoiceStr).')';
 			break;
 		case "appointmentMake":

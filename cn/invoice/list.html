@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="dist/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="dist/css/page.init.css" />
+    
+    <script src="dist/js/flexible.js"></script>
+    
+</head>
+
+<body>
+    <div class="order_look">
+        <header class="c_header">
+            <a href="javascript:;" class="h_logo" title=""></a><span>票据查询</span>
+        </header>
+
+        <main>
+            <form action="" class="c_form">
+                <p class="item">
+                    <label for="" class="field">日期选择</label>
+                    <input type="date" id="start" class="i_text i_date" placeholder="请输入起始日期"> 至 <input type="date" id="end" class="i_text i_date ml0" placeholder="请输入结束日期">
+                </p>
+                <p class="item">
+                    <label for="" class="field">订单编号</label>
+                    <input type="number" id="num" class="i_text" placeholder="请输入订单编号">
+                </p>
+                <p class="item">
+                    <label for="" class="field">客户姓名</label>
+                    <input type="text" id="custom" class="i_text" placeholder="请输入客户姓名">
+                </p>
+                <p class="item pc_btn"><button type="button" class="c_btn look_btn J_lookfor">查询</button></p>
+            </form>
+            <table class="t_data">
+            	<thead>
+            		<tr>
+            			<th>订单编号</th>
+            			<th>日期</th>
+            			<th>客户姓名</th>
+            			<th>金额</th>
+            			<th>修改</th>
+            		</tr>
+            	</thead>
+            	<tbody class='J_databody'>
+            	</tbody>
+            	<tfoot>
+            		<tr>
+            			<td colspan="3"></td>
+            			<td>合计：</td>
+            			<td>&yen;<span id='totalprice'>0.00</span></td>
+            		</tr>
+            	</tfoot>
+            </table>
+        </main>
+    </div>
+    <script src="dist/js/jquery-2.1.3.min.js"></script>
+    <script src="dist/js/pageInit.js"></script>
+    <script>
+    var pageflag = true;
+    	$(function(){
+    		// 点击展开数据
+    		function fnDataToggle(){
+    			$('body').on('click','.J_databody tr', function(){
+    				var 
+                        self = $(this),
+    					obox = self.find('.J_o_box');
+
+    				if(obox.is(':hidden')){
+    					self.css({'height': '2rem'});
+    					obox.fadeIn(200);
+    					self.find('.J_toggle').addClass('rotate');
+    				} else {
+    					self.css({'height': 'auto'});
+    					obox.hide();
+    					self.find('.J_toggle').removeClass('rotate');
+    				}
+    				return false;
+    			});
+    		}
+    		fnDataToggle();
+
+			query(1);
+            $(".J_lookfor").click(function(){
+               pageflag = true;
+               $('.page').empty();
+               query(1);
+            });
+
+
+    	});
+
+
+        function listpage(total,total_pages){
+            $.pageInit({
+                container:'.page',//容器：默认page
+                //setPos:'body',//放置位置：默认body
+                totalPages:total_pages,//总页数：必填
+                totalLists:total,//数据总数：必填
+                initPage:1,//初始页码：默认1
+                inputVal:1,//设置跳转的input值：默认1
+                //要执行的函数：默认null，必须为fn且返回true则可执行分页，false则不执行
+                callBack:function(n){
+                    var flag = true;
+                    query(n);
+                    return flag;
+                }
+            });
+            pageflag = false;
+        }
+
+
+        function query(page){
+            let query ='http://www.lumiagem.com/cn/action.php?action=invoiceList';
+            let name = $('#custom').val();
+            let start = $('#start').val();
+            let end = $('#end').val();
+            let invoice_no = $('#num').val();
+            let url = query +'&page=' + page;
+            if(''!==name){
+                url += '&name=' + name;
+            }
+            if(''!==start){
+                url += '&start=' + start.replace(/-/g, '');
+            }
+            if(''!==end){
+                url += '&end=' + end.replace(/-/g, '');
+            }
+            if(''!==invoice_no){
+                url += '&invoice_no=' + invoice_no;
+            }
+
+            $.ajax({
+                async:false,
+                url: url,
+                type: "GET",
+                dataType: 'jsonp',
+                timeout: 5000,
+                success: function (json) {
+                    var totalprice = 0;
+                    $('.J_databody').html('');
+                    total = json.total;
+                    total_pages = json.total_pages;
+                    for(var i=0;i<json.list.length;i++){
+                        var temp = '<tr><td><span class="J_toggle"></span>'+json.list[i].invoice_no+'</td><td>'+json.list[i].invoice_date+'</td><td>'+json.list[i].name+'</td><td>&yen;'+ json.list[i].total_price +'</td><td><div class="pl"><a href="" class="modify J_modify">修改</a><p class="o_box J_o_box"><a href="" class="t_operate">Invoice</a><a href="" class="t_operate">Receipt</a></p></div></td></tr>';
+                        totalprice += parseInt(json.list[i].total_price);
+                        $('.J_databody').append(temp);
+                        $('#totalprice').html(totalprice);
+                    }
+
+                    if(pageflag){
+                       listpage(total,total_pages);
+                    }
+
+                },
+                error: function(xhr){
+                    alert("请求出错(请检查相关度网络状况.)");
+                }
+            });
+        }
+           
+
+    </script>
+</body>
+</html>
