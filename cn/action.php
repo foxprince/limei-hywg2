@@ -311,9 +311,8 @@ if($_REQUEST['action']) {
 			echo $t;
 			break;
 		case "invoiceList":
-			
 			$totalSql = 'select count(*) as t from invoice';
-			$sql='select id,invoice_no,invoice_date,name,total_price from invoice';
+			$sql='select id,invoice_no,invoice_date,name,currency,vat_price,total_price from invoice';
 			$clause = ' where 1=1 ';
 			if($_REQUEST['name']!=null)
 				$clause .= ' and name like "%'.$_REQUEST['name'].'%"';
