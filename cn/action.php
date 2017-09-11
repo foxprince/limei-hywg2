@@ -344,7 +344,7 @@ if($_REQUEST['action']) {
 			}
 			$tpages = ceil ( $total / $pagesize );
 			$result = array('total'=>$total,'page'=>$crr_page,'total_pages'=>$tpages,'list'=>$invoiceList);
-			echo $callback.'('.json_encode($result).')';
+			echo json_encode($result);
 			break;
 		case "receipt":
 			$obj=json_decode($_REQUEST['receipt'],TRUE);

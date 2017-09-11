@@ -119,7 +119,7 @@
 
 
         function query(page){
-            let query ='http://www.lumiagem.com/cn/action.php?action=invoiceList';
+            let query ='../action.php?action=invoiceList';
             let name = $('#custom').val();
             let start = $('#start').val();
             let end = $('#end').val();
@@ -142,7 +142,7 @@
                 async:false,
                 url: url,
                 type: "GET",
-                dataType: 'jsonp',
+                dataType: 'json',
                 timeout: 5000,
                 success: function (json) {
                     var totalprice = 0;
