@@ -56,7 +56,7 @@ td{
 	display:inline-block;
 }
 </style>
-<script src="http://edecenter.com/lab/jquery-1.11.2.min.js"></script>
+<script src="/cn/js/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="formplugin.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){

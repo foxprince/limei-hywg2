@@ -70,7 +70,7 @@ a.modifybtn:hover{
 	color:#000;
 }
 </style>
-<script src="http://edecenter.com/lab/jquery-1.11.2.min.js"></script>
+<script src="/cn/js/jquery-1.11.2.min.js"></script>
 <script type="text/javascript">
 function delete_jb($id){
 	var r=confirm("确定删除该品牌 ?");

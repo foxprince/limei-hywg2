@@ -113,7 +113,7 @@ li{
 	margin:22px 0;
 }
 </style>
-<script src="http://edecenter.com/lab/jquery-1.11.2.min.js"></script>
+<script src="/cn/js/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="tinymce/tinymce.min.js"></script>
 <script type="text/javascript">
 tinymce.init({

@@ -104,7 +104,7 @@ h1.pagetitle{
 
 </style>
 
-<script src="http://edecenter.com/lab/jquery-1.11.2.min.js"></script>
+<script src="/cn/js/jquery-1.11.2.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 <script src="Chart.js"></script>
 </head>
