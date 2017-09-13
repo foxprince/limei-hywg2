@@ -327,7 +327,7 @@ if($_REQUEST['action']) {
 			break;
 		case "invoiceList":
 			$totalSql = 'select count(*) as t from invoice';
-			$sql='select id,invoice_no,invoice_date,name,currency,vat_price,total_price from invoice';
+			$sql='select id,invoice_no,invoice_date,name,currency,vat_price,total_price from invoice ';
 			$clause = ' where 1=1 ';
 			if($_REQUEST['name']!=null)
 				$clause .= ' and name like "%'.$_REQUEST['name'].'%"';
@@ -345,7 +345,7 @@ if($_REQUEST['action']) {
 			}
 			$startfrom=($crr_page-1)*$pagesize;
 			$totalSql .= $clause;
-			$sql .= $clause.' limit '.$startfrom.','.$pagesize;logger($sql);
+			$sql .= $clause.' order by id desc limit '.$startfrom.','.$pagesize;
 			foreach($conn->query($totalSql) as $r_r){
 				$total=$r_r['t'];
 			}
@@ -359,6 +359,36 @@ if($_REQUEST['action']) {
 			$tpages = ceil ( $total / $pagesize );
 			$result = array('total'=>$total,'page'=>$crr_page,'total_pages'=>$tpages,'list'=>$invoiceList);
 			echo json_encode($result);
+			break;
+		case "updateInvoice":
+			$obj=json_decode($_REQUEST['invoice'],TRUE);
+			$sql = 'update invoice set name=?,passport=?,street=?,city=?,postcode=?,country=?,invoice_date=?,invoice_no=?,currency=?,vat_price=?,total_price=? where id=?';
+			$stmt=$conn->prepare($sql);
+			$stmt->execute(array($obj['name'],
+					$obj['passport'],
+					$obj['street'],$obj['city'],
+					$obj['postcode'],
+					$obj['country'],
+					$obj['invoice_date'],
+					$obj['invoice_no'],$obj['currency'],$obj['vat_price'],$obj['total_price'],$obj['id']));
+			$OK=$stmt->rowCount();
+			$num=count($obj["list"]);
+			//--遍历数组，将对应信息添加入数据库
+			for ($i=0;$i<$num;$i++) {
+				$item = $obj["list"][$i];
+				$insert_order_product_sql="update receipt set report_no=?,shape=?,color=?,fancy=?,grading_lab=?,carat=?,
+						clarity=?,cut_grade=?,polish=?,symmetry=?,price=?,jewerly=?,material=?,jewerly_price=?,type=? where id=?";
+				$result = $conn -> prepare($insert_order_product_sql);
+				$result -> execute(array( $item["report_no"],$item["shape"],$item["color"],
+						$item["fancy"],$item["grading_lab"],$item["carat"],
+						$item["clarity"],$item["cut_grade"],$item["polish"],
+						$item["symmetry"],$item["price"],$item["jewerly"],
+						$item["material"],$item["jewerly_price"],$item["type"],$item["id"]
+				));
+				$OK=$result->rowCount();
+				logger($OK);
+			}
+			echo 'okkkk';
 			break;
 		case "receipt":
 			$obj=json_decode($_REQUEST['receipt'],TRUE);

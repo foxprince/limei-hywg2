@@ -16,9 +16,11 @@ create table invoice(
 	ctime datetime not null
 );
 alter table invoice add currency varchar(6) default 'EUR' null;
+alter table receipt add type varchar(6) default 'diajew' not null;
 drop table receipt;
 create table receipt(
 	id bigint not null primary key auto_increment,
+	type varchar(6) default 'diajew' not null ;
 	invoice_id bigint not null,
 	report_no varchar(20) not null,
 	shape	varchar(20) null,
