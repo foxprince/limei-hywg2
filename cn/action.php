@@ -386,9 +386,8 @@ if($_REQUEST['action']) {
 						$item["material"],$item["jewerly_price"],$item["type"],$item["id"]
 				));
 				$OK=$result->rowCount();
-				logger($OK);
 			}
-			echo 'okkkk';
+			echo 'ok';
 			break;
 		case "receipt":
 			$obj=json_decode($_REQUEST['receipt'],TRUE);
