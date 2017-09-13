@@ -310,6 +310,21 @@ if($_REQUEST['action']) {
 			}
 			echo $t;
 			break;
+		case "invoiceDetail":
+			$stmt=$conn->prepare('select * from invoice where id=:id');
+			$stmt->execute(array('id'=>$_REQUEST['id']));
+			foreach($stmt as $r){
+				$invoiceDetail=$r;
+			}
+			$stmt=$conn->prepare('select * from receipt where invoice_id=:invoice_id');
+			$stmt->execute(array('invoice_id'=>$_REQUEST['id']));
+			$receiptList=array();
+			foreach($stmt as $row){
+				$receiptList[]=$row;
+			}
+			$result = array('invoiceDetail'=>$invoiceDetail,'list'=>$receiptList);
+			echo json_encode($result);
+			break;
 		case "invoiceList":
 			$totalSql = 'select count(*) as t from invoice';
 			$sql='select id,invoice_no,invoice_date,name,currency,vat_price,total_price from invoice';
