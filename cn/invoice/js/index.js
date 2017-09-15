@@ -48,9 +48,15 @@ function to_print(){
         '<div class="col-xs-3 clearfix">';
         if($(this).hasClass("dia"))
         	html += '<p id="model">'+$(this).find("#form_model").find("option:selected").val()+'</p>'+
-	        '<p>Carat Weight <span class="pull-right"><span class="pull-left">'+$(this).find("#form_weight").val()+'</span></span></p>'+
-	        '<p>Colour Grade <span class="pull-right"><span  class="pull-left">'+$(this).find('#form_colourGrade option:selected').val()+'</span></span></p>'+
-	        '<p>Clarity Grade <span class="pull-right"><span class="pull-left">'+$(this).find('#form_clarity option:selected').val()+'</span></span></p>';
+        	 '<p>Carat Weight <span class="pull-right"><span class="pull-left">'+$(this).find("#form_weight").val()+'</span></span></p>'+
+	         '<p>Colour Grade <span class="pull-right"><span  class="pull-left">'+$(this).find('#form_colourGrade option:selected').val()+'</span></span></p>'+
+	         '<p>Clarity Grade <span class="pull-right"><span class="pull-left">'+$(this).find('#form_clarity option:selected').val()+'</span></span></p>';
+	        //'<table><tr><th>Carat Weight </th><td>'+$(this).find("#form_weight").val()+'</td><td></td></tr>'+
+	        //'<tr><th>Colour Grade </th><td>'+$(this).find('#form_colourGrade option:selected').val()+'</td><td></td></tr>'+
+	        //'<tr><th>Clarity Grade </th><td>'+$(this).find('#form_clarity option:selected').val()+'</td><td></td></tr></table>';
+	        // '<p>Carat Weight <span class="pull-right"><span class="pull-left">'+$(this).find("#form_weight").val()+'</span></span></p>'+
+	        // '<p>Colour Grade <span class="pull-right"><span  class="pull-left">'+$(this).find('#form_colourGrade option:selected').val()+'</span></span></p>'+
+	        // '<p>Clarity Grade <span class="pull-right"><span class="pull-left">'+$(this).find('#form_clarity option:selected').val()+'</span></span></p>';
         if($(this).hasClass("jew"))
         	html +='<p>'+$(this).find('#form_material option:selected').val()+' White Gold '+$(this).find('#form_jewerly option:selected').val()+'</p>';
         html+='</div>'+
