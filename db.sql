@@ -1,6 +1,6 @@
 /*交易客户，每次交易生成一个客户id，即使是同一个客户，不同的交易也会生成多条纪录*/
 drop table invoice;
-create table invoice(
+create table transaction(
 	id bigint not null primary key auto_increment,
 	name varchar(30)	null,
 	passport varchar(50) null,
@@ -8,20 +8,19 @@ create table invoice(
 	city	varchar(30) null,
 	postcode varchar(20) null,
 	country varchar(20) null,
-	invoice_date varchar(8) null,
+	type	varchar(7)	null,/*receipt,invoice*/
+	tranc_date varchar(8) null,
 	invoice_no varchar(10) null,
 	currency varchar(6) null,
 	vat_price float null,
   	total_price float null,/*不含税价格*/
 	ctime datetime not null
 );
-alter table invoice add currency varchar(6) default 'EUR' null;
-alter table receipt add type varchar(6) default 'diajew' not null;
 drop table receipt;
-create table receipt(
+create table tranc_detail(
 	id bigint not null primary key auto_increment,
-	type varchar(6) default 'diajew' not null ;
-	invoice_id bigint not null,
+	type varchar(6) default 'diajew' not null,
+	tranc_id bigint not null,
 	report_no varchar(20) not null,
 	shape	varchar(20) null,
 	color	varchar(20) null,

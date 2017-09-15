@@ -13,12 +13,18 @@
     }
 /*图片与hover*/
 .addImg{
-    display: block;
-    width:32px;
-    height: 32px;
+    display: inline-block;
+    margin-right: 10px;
+    padding-top: 36px;
+    width: 48px;
+    height: 50px;
     vertical-align: middle;
+    background-position: center top;
+    background-repeat: no-repeat;
     background-size: 32px auto;
     cursor: pointer;
+    font-size: 12px;
+    text-align: center;
     }
 .fotterBtn{
     display: block;
@@ -28,11 +34,19 @@
     background-size: 95px auto;
     cursor: pointer;
     }
+.zj-form,.ss-form { padding: 8px 0 0 0; margin: -60px 15px 0; /*border-bottom: 1px dashed #3a3838;*/}
+.ss-form { border-top: 0;}
+.zj-form:nth-of-type(1) { border-top: 0; }
+.jt-form { padding: 20px 0 0; margin: 0 15px; position: relative;  border-bottom: 1px dashed #3a3838; min-height:70px; }
+.jt-form .col-sm-10,.jt-form.col-xs-9,.zj-form .col-sm-10,.zj-form.col-xs-9,.ss-form .col-sm-10,.ss-form.col-xs-9 {
+    padding-right: 0;
+}
+.returnData { display: inline-block;}
+.d-refresh span,.d-delete span { margin: 0; height: 0; }
+.d-delete,.d-refresh { width: auto; }
 /*减号*/
 .delete{
-    margin-left: 15px;
     background-image: url("../images/icon/delete.png");
-    margin-bottom: 10px;
     }
 .delete:hover{
     background-image: url("../images/icon/activeDelete.png");
@@ -49,6 +63,22 @@
     }
 .activeAdd:active{
     background-image: url("../images/icon/activeAdd.png");
+    }
+.add-two {
+    background-image: url("../images/icon/Add1.png");
+    }
+.add-two:hover{
+    background-image: url("../images/icon/add1Active.png");
+    }
+.add-thr {
+    position: absolute;
+    left: -8px;
+    top: 18px;
+    background-image: url("../images/icon/Add2.png");
+    z-index: 2;
+    }
+.add-thr:hover{
+    background-image: url("../images/icon/active2Add.png");
     }
 /*return*/
 .return{
@@ -75,7 +105,7 @@
     background-image: url("../images/icon/activeRemove.png");
     }
 .currency>img{width: 20px;height: 20px;vertical-align: middle;}
-.currency .selected{border: 2px solid #bd8165;border-radius: 4px;}
+.currency .selected{margin-bottom: 3px;border: 2px solid #bd8165;border-radius: 4px;}
    
 /*save*/
 .save{
@@ -114,10 +144,15 @@
     }
 /*form*/
 .form-login {
-    margin: 20px 0 30px 0;
+    padding-bottom: 2px;
+    margin: 12px 0 10px 0;
     }
+.date-form {
+    margin-bottom: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #231815;
+}
 .form-login label {
-    padding-top: 7px;
     text-align: left !important;
     font-weight: 100;
     color: #3a3838;
@@ -127,28 +162,38 @@
     }
 /*Add*/
 .Add{
-    line-height: 60px;
-    height:60px;
+    margin: 0 15px;
+    padding: 12px 0;
+    border-top: 1px dashed #3a3838;
     border-bottom: 2px solid #3a3838;
-
     }
+.Add:nth-child(1) {
+    padding-top: 6px;
+}
 .activeAdd{
-    position: relative;
-    top: 14px;
     }
 /*addApend*/
 .addContent{
     width:100%;
     }
 .addApend{
-    padding: 10px 0;
-    border-bottom: 1px dashed #3a3838;
+    display: inline-block;
+    margin: 6px;
+    padding: 6px 0;
     position: relative;
+    top: 16px;
+    z-index: 2;
     }
 .addApend .pdNone{
     padding: 0;
     position: static;
     }
+.zj-form .col-md-offset-1.pdNone,.jt-form .col-md-offset-1.pdNone,.ss-form .col-md-offset-1.pdNone{
+    padding: 0 0 0 35px;
+}
+.jt-box {
+    display: none;
+}
 .formBorder{
     height: 1px;
     border-top:1px dashed #3a3838;
@@ -162,34 +207,36 @@
 .delete-content{
     position: absolute;
     width:100%;
+    left: 80px;
     top:0;
-    height:100%;
-    padding-top: 10px;
+    width: 120px;
+    padding: 10px 0;
     background:rgba(204,204,204,.5);
+    border-radius: 4px;
     z-index: 100;
     display: none;
     }
 
 /*工作人员*/
 .staff {
-    height: 80px;
-    line-height: 50px;
+    padding: 8px 0;
     border-top: 2px solid #3a3838;
-    border-bottom: 1px dashed #3a3838;
+    border-bottom: 1px dashed #231815;
+    font-size: 18px;
     }
+.staff span { color: #b6b6b6; font-size: 13px;}
 /*总计*/
-.Total{
-    margin-top: 30px;
 
-    }
 .Total h1{
-    font-size: 31px;
-    margin-bottom: 15px;
+    font-size: 26px;
+    margin: 15px 0;
+    text-align: right;
     }
+.Total h1 span { display: inline-block; width: 120px; text-align: right;}
 /*fotter*/
 .fotter{
-    margin-bottom: 65px;
-    margin-top: 25px;
+    padding: 0;
+    margin: 0 0 25px;
     }
 /*平板*/
 @media (min-width: 768px ) and (max-width: 992px) {
