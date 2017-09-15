@@ -51,14 +51,8 @@ function to_print(){
         	 '<p>Carat Weight <span class="pull-right"><span class="pull-left">'+$(this).find("#form_weight").val()+'</span></span></p>'+
 	         '<p>Colour Grade <span class="pull-right"><span  class="pull-left">'+$(this).find('#form_colourGrade option:selected').val()+'</span></span></p>'+
 	         '<p>Clarity Grade <span class="pull-right"><span class="pull-left">'+$(this).find('#form_clarity option:selected').val()+'</span></span></p>';
-	        //'<table><tr><th>Carat Weight </th><td>'+$(this).find("#form_weight").val()+'</td><td></td></tr>'+
-	        //'<tr><th>Colour Grade </th><td>'+$(this).find('#form_colourGrade option:selected').val()+'</td><td></td></tr>'+
-	        //'<tr><th>Clarity Grade </th><td>'+$(this).find('#form_clarity option:selected').val()+'</td><td></td></tr></table>';
-	        // '<p>Carat Weight <span class="pull-right"><span class="pull-left">'+$(this).find("#form_weight").val()+'</span></span></p>'+
-	        // '<p>Colour Grade <span class="pull-right"><span  class="pull-left">'+$(this).find('#form_colourGrade option:selected').val()+'</span></span></p>'+
-	        // '<p>Clarity Grade <span class="pull-right"><span class="pull-left">'+$(this).find('#form_clarity option:selected').val()+'</span></span></p>';
         if($(this).hasClass("jew"))
-        	html +='<p>'+$(this).find('#form_material option:selected').val()+' White Gold '+$(this).find('#form_jewerly option:selected').val()+'</p>';
+        	html +='<p style="margin-top: 10px;">'+$(this).find('#form_material option:selected').val()+' White Gold '+$(this).find('#form_jewerly option:selected').val()+'</p>';
         html+='</div>'+
         '<div class="col-xs-3 clearfix">';
         if($(this).hasClass("dia"))
@@ -151,7 +145,8 @@ function saveOrUpdate(type){
     	var url = "../action.php?action=addTranc";
         if(trancId>0)
         	url = "../action.php?action=updateTranc";
-    	$.post(url,{transaction:JSON.stringify(data)},function(data){
+    	console.log(data);
+        $.post(url,{transaction:JSON.stringify(data)},function(data){
             console.log(data);
         	if(data >0){
                 alert('保存成功')
@@ -179,8 +174,7 @@ function ht(type){
 function diaContent() {
 	var html ="<div class='addApend clearfix dia'>\
 		<div class='col-lg-1 pdNone col-md-1 col-sm-12 col-xs-12'>\
-		<span class='delete addImg J_editimg ' onclick='deleteDate(this)'>\
-		</span><div class='col-lg-1 pdNone returnData d-delete col-md-1 col-sm-12 col-xs-12'>\
+		<div class='col-lg-1 pdNone returnData d-delete col-md-1 col-sm-12 col-xs-12'>\
 		<span class='remove addImg' onclick='removeData(this)'></span>\
 		</div></div></div>";
 		html += "<div class='zj-form clearfix'><div class='col-lg-5 col-md-offset-1 pdNone col-md-4 col-sm-12 col-xs-12'>";
@@ -347,8 +341,7 @@ function diaContent() {
 function jewelryContent() {
 	var html ="<div class='addApend clearfix dia'>\
 		<div class='col-lg-1 pdNone col-md-1 col-sm-12 col-xs-12'>\
-		<span class='delete addImg add-two J_editimg ' onclick='deleteDate(this)'>\
-		</span><div class='col-lg-1 pdNone returnData d-delete col-md-1 col-sm-12 col-xs-12'>\
+		<div class='col-lg-1 pdNone returnData d-delete col-md-1 col-sm-12 col-xs-12'>\
 		<span class='remove addImg' onclick='removeData(this)'></span>\
 		</div></div></div>";
 	html +="<div class='jt-form clearfix'>\
