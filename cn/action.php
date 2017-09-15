@@ -364,36 +364,46 @@ if($_REQUEST['action']) {
 			break;
 		case "updateTranc":
 			$obj=json_decode($_REQUEST['transaction'],TRUE);
-			$sql = 'update transaction set name=?,passport=?,street=?,city=?,postcode=?,country=?,tranc_date=?,invoice_no=?,currency=?,vat_price=?,total_price=? where id=?';
+			$sql = 'update transaction set type=?,name=?,passport=?,street=?,city=?,postcode=?,country=?,tranc_date=?,invoice_no=?,currency=?,vat_price=?,total_price=? where id=?';
 			$stmt=$conn->prepare($sql);
-			$stmt->execute(array($obj['name'],
+			$stmt->execute(array($obj['type'],$obj['name'],
 					$obj['passport'],
 					$obj['street'],$obj['city'],
 					$obj['postcode'],
 					$obj['country'],
 					$obj['tranc_date'],
 					$obj['invoice_no'],$obj['currency'],$obj['vat_price'],$obj['total_price'],$obj['id']));
-			$OK=$stmt->rowCount();
+			//删除原有纪录
+			$sql_delete='delete from tranc_detail WHERE tranc_id = '.$obj['id'];
+			$conn->query($sql_delete);
 			$num=count($obj["list"]);
 			//--遍历数组，将对应信息添加入数据库
 			for ($i=0;$i<$num;$i++) {
 				$item = $obj["list"][$i];
-				$insert_order_product_sql="update tranc_detail set report_no=?,shape=?,color=?,fancy=?,grading_lab=?,carat=?,
-						clarity=?,cut_grade=?,polish=?,symmetry=?,price=?,jewerly=?,material=?,jewerly_price=?,type=? where id=?";
-				$result = $conn -> prepare($insert_order_product_sql);
-				$result -> execute(array( $item["report_no"],$item["shape"],$item["color"],
-						$item["fancy"],$item["grading_lab"],$item["carat"],
-						$item["clarity"],$item["cut_grade"],$item["polish"],
-						$item["symmetry"],$item["price"],$item["jewerly"],
-						$item["material"],$item["jewerly_price"],$item["type"],$item["id"]
-				));
-				$OK=$result->rowCount();
+				if($item["type"]=='jew') {
+					$insert_sql="INSERT INTO tranc_detail (tranc_id,type,jewerly,material,jewerly_price,ctime)
+						VALUES (?,?,?,?,?,now())";
+					$result = $conn -> prepare($insert_sql);
+					$result -> execute(array( $obj['id'],$item["type"],$item["jewerly"], $item["material"],
+							$item["jewerly_price"]
+					));
+				}
+				else{
+					$insert_sql="INSERT INTO tranc_detail (tranc_id,type,report_no,shape,color,fancy,grading_lab,carat,
+						clarity,cut_grade,polish,symmetry,price,jewerly,material,jewerly_price,ctime)
+						VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())";
+					$result = $conn -> prepare($insert_sql);
+					$result -> execute(array( $obj['id'],$item["type"],$item["report_no"],$item["shape"],$item["color"],
+							$item["fancy"],$item["grading_lab"],$item["carat"], $item["clarity"],$item["cut_grade"],
+							$item["polish"], $item["symmetry"],$item["price"],$item["jewerly"], $item["material"],
+							$item["jewerly_price"]
+					));
+				}
 			}
 			echo $obj['id'];
 			break;
 		case "addTranc":
-			$obj=json_decode($_REQUEST['transaction'],TRUE);
-			logger('tranc:'.$_REQUEST['transaction']);
+			$obj=json_decode($_REQUEST['transaction'],TRUE);logger($_REQUEST['transaction']);
 			$sql = 'insert into transaction(name,passport,street,city,postcode,country,type,tranc_date,invoice_no,currency,vat_price,total_price,ctime) 
 					values(:name,:passport,:street,:city,:postcode,:country,:type,:tranc_date,:invoice_no,:currency,:vat_price,:total_price,now())';
 			$stmt=$conn->prepare($sql);
@@ -410,15 +420,25 @@ if($_REQUEST['action']) {
 			//--遍历数组，将对应信息添加入数据库
 			for ($i=0;$i<$num;$i++) {
 				$item = $obj["list"][$i];
-				$insert_order_product_sql="INSERT INTO tranc_detail (tranc_id,type,report_no,shape,color,fancy,grading_lab,carat,
+				if($item["type"]=='jew') {
+					$insert_sql="INSERT INTO tranc_detail (tranc_id,type,jewerly,material,jewerly_price,ctime)
+						VALUES (?,?,?,?,?,now())";
+					$result = $conn -> prepare($insert_sql);
+					$result -> execute(array( $transactionId,$item["type"],$item["jewerly"], $item["material"],
+							$item["jewerly_price"]
+					));
+				}
+				else{
+					$insert_sql="INSERT INTO tranc_detail (tranc_id,type,report_no,shape,color,fancy,grading_lab,carat,
 						clarity,cut_grade,polish,symmetry,price,jewerly,material,jewerly_price,ctime)
 						VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())";
-				$result = $conn -> prepare($insert_order_product_sql);
-				$result -> execute(array( $transactionId,$item["type"],$item["report_no"],$item["shape"],$item["color"],
-						$item["fancy"],$item["grading_lab"],$item["carat"], $item["clarity"],$item["cut_grade"],
-						$item["polish"], $item["symmetry"],$item["price"],$item["jewerly"], $item["material"],
-						$item["jewerly_price"]
-				));
+					$result = $conn -> prepare($insert_sql);
+					$result -> execute(array( $transactionId,$item["type"],$item["report_no"],$item["shape"],$item["color"],
+							$item["fancy"],$item["grading_lab"],$item["carat"], $item["clarity"],$item["cut_grade"],
+							$item["polish"], $item["symmetry"],$item["price"],$item["jewerly"], $item["material"],
+							$item["jewerly_price"]
+					));
+				}
 			}
 			echo $transactionId;
 			break;

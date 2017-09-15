@@ -16,12 +16,12 @@ create table transaction(
   	total_price float null,/*不含税价格*/
 	ctime datetime not null
 );
-drop table receipt;
+drop table tranc_detail;
 create table tranc_detail(
 	id bigint not null primary key auto_increment,
 	type varchar(6) default 'diajew' not null,
 	tranc_id bigint not null,
-	report_no varchar(20) not null,
+	report_no varchar(20) null,
 	shape	varchar(20) null,
 	color	varchar(20) null,
 	fancy	varchar(20) null,

@@ -124,7 +124,7 @@ function saveOrUpdate(type){
         'list':[]
         };
     $('.addContent').each(function(){	
-    	data.list.push({'id':0,'type':$(this).attr('type'),'tranc_id':trancId,
+    	data.list.push({'type':$(this).attr('type'),
             'report_no':$(this).find('.report_no').val(),
             'shape':$(this).find('.shape').find('option:selected').val(),
             'carat':$(this).find('.carat').val(),
@@ -145,7 +145,6 @@ function saveOrUpdate(type){
     	var url = "../action.php?action=addTranc";
         if(trancId>0)
         	url = "../action.php?action=updateTranc";
-    	console.log(data);
         $.post(url,{transaction:JSON.stringify(data)},function(data){
             console.log(data);
         	if(data >0){
@@ -231,7 +230,7 @@ function diaContent() {
 	    html += "<div class='form-group clearfix'>";
 	    html += "<label class='col-sm-2 col-xs-3  control-label'>Price</label>";
 	    html += "<div class='col-sm-10 col-xs-9'>";
-	    html += " <input onblur='total()' value='' id='form_price' class='price form-control' type='text' placeholder='0.00'>";
+	    html += " <input onblur='total()' value='0.00' id='form_price' class='price form-control' type='text' placeholder='0.00'>";
 	    html += "</div>";
 	    html += "</div>";
 
@@ -241,7 +240,7 @@ function diaContent() {
 	    html += "<div class='form-group clearfix'>";
 	    html += "<label class='col-sm-2 col-xs-3  control-label'>Carat Weight</label>";
 	    html += "<div class='col-sm-10 col-xs-9'>";
-	    html += " <input id='form_weight' class='carat form-control' type='text' placeholder='0.00'>";
+	    html += " <input id='form_weight' class='carat form-control' type='text' value='0.00' placeholder='0.00'>";
 	    html += "</div>";
 	    html += "</div>";
 
@@ -330,7 +329,7 @@ function diaContent() {
 	    </div></div><div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Price</label>\
 	    <div class='col-sm-10 col-xs-9'> \
-	    <input onblur='total()' class='jewerly_price form-control' id='form_price2' value='' type='text' placeholder='0.00'>\
+	    <input onblur='total()' class='jewerly_price form-control' id='form_price2' value='0.00' type='text' placeholder='0.00'>\
 	    </div></div></div><div class='col-lg-5  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
 	    <div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Material</label><div class='col-sm-10 col-xs-9'>\
@@ -356,7 +355,7 @@ function jewelryContent() {
 	    </div></div><div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Price</label>\
 	    <div class='col-sm-10 col-xs-9'> \
-	    <input onblur='total()' class='jewerly_price form-control' id='form_price2' value='' type='text' placeholder='0.00'>\
+	    <input onblur='total()' class='jewerly_price form-control' id='form_price2' value='0.00' type='text' placeholder='0.00'>\
 	    </div></div></div><div class='col-lg-5  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
 	    <div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Material</label><div class='col-sm-10 col-xs-9'>\

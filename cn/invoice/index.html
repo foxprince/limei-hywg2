@@ -179,7 +179,7 @@
 	<script>
 		/*发票*/
 		$('.lnvoice').click(function() {
-			//saveOrUpdate('invoice');
+			saveOrUpdate('invoice');
 			to_print();
             total_invoice();
             $('.to_invoice').html('INVOICE：  '+ $('#invoice_no').val());
@@ -188,7 +188,7 @@
 		});
 		/*收据*/
 		$('.receipt').click(function() {
-			//saveOrUpdate('receipt');
+			saveOrUpdate('receipt');
 			to_print();
             total_receipt();
             $('.to_invoice').html('');

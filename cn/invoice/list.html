@@ -27,6 +27,12 @@
         <main>
             <form action="" class="c_form">
                 <p class="item">
+                    <label for="" class="field">类型</label>
+                    <select id="type" name="type">
+                    	<option value="">全部</option><option value="invoice">发票</option><option value="receipt">收据</option>
+                    </select>
+                </p>
+                <p class="item">
                     <label for="" class="field">日期选择</label>
                     <input type="date" id="start" class="i_text i_date" placeholder="请输入起始日期"> 至 <input type="date" id="end" class="i_text i_date ml0" placeholder="请输入结束日期">
                 </p>
@@ -43,10 +49,13 @@
             <table class="t_data">
             	<thead>
             		<tr>
-            			<th>订单编号</th>
             			<th>日期</th>
             			<th>客户姓名</th>
+            			<th>类型</th>
+            			<th>发票编号</th>
+            			<th>货币</th>
             			<th>金额</th>
+            			<th>VAT</th>
             			<th>修改</th>
             		</tr>
             	</thead>
@@ -54,7 +63,7 @@
             	</tbody>
             	<tfoot>
             		<tr>
-            			<td colspan="3"></td>
+            			<td colspan="7"></td>
             			<td>合计：</td>
             			<td>&yen;<span id='totalprice'>0.00</span></td>
             		</tr>
@@ -67,7 +76,7 @@
     <script>
     var pageflag = true;
     	$(function(){
-    		// 点击展开数据
+    		/* // 点击展开数据
     		function fnDataToggle(){
     			$('body').on('click','.J_databody tr', function(){
     				var 
@@ -87,18 +96,14 @@
     			});
     		}
     		fnDataToggle();
-
+ */
 			query(1);
             $(".J_lookfor").click(function(){
                pageflag = true;
                $('.page').empty();
                query(1);
             });
-
-
     	});
-
-
         function listpage(total,total_pages){
             $.pageInit({
                 container:'.page',//容器：默认page
@@ -119,12 +124,16 @@
 
 
         function query(page){
-            let query ='../action.php?action=invoiceList';
+            let query ='../action.php?action=trancList';
+            let type = $('#type').val();
             let name = $('#custom').val();
             let start = $('#start').val();
             let end = $('#end').val();
             let invoice_no = $('#num').val();
             let url = query +'&page=' + page;
+            if(''!==type){
+                url += '&type=' + type;
+            }
             if(''!==name){
                 url += '&name=' + name;
             }
@@ -150,12 +159,14 @@
                     total = json.total;
                     total_pages = json.total_pages;
                     for(var i=0;i<json.list.length;i++){
-                        var temp = '<tr><td><span class="J_toggle"></span>'+json.list[i].invoice_no+'</td><td>'+json.list[i].invoice_date+'</td><td>'+json.list[i].name+'</td><td>&yen;'+ json.list[i].total_price +'</td><td><div class="pl"><a href="" class="modify J_modify">修改</a><p class="o_box J_o_box"><a href="" class="t_operate">Invoice</a><a href="" class="t_operate">Receipt</a></p></div></td></tr>';
+                        var temp = '<tr><td><span class="J_toggle"></span>'+json.list[i].tranc_date+'</td><td>'+json.list[i].name
+                        +'</td><td><a href="../action.php?action=trancDetail&id='+json.list[i].id+'" class="t_operate">' +json.list[i].type+'</a></td><td>'+ json.list[i].invoice_no +'</td><td>'
+                        + json.list[i].currency +'</td><td>'+ json.list[i].total_price +'</td><td>'
+                        + json.list[i].vat_price +'</td><td><div class="pl"><a href="../action.php?action=trancDetail&id='+json.list[i].id+'" class="modify J_modify">修改</a></div></td></tr>';
                         totalprice += parseInt(json.list[i].total_price);
                         $('.J_databody').append(temp);
                         $('#totalprice').html(totalprice);
                     }
-
                     if(pageflag){
                        listpage(total,total_pages);
                     }
