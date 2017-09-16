@@ -63,7 +63,7 @@
             	</tbody>
             	<tfoot>
             		<tr>
-            			<td colspan="7"></td>
+            			<td colspan="6"></td>
             			<td>合计：</td>
             			<td>&yen;<span id='totalprice'>0.00</span></td>
             		</tr>
@@ -76,32 +76,35 @@
     <script>
     var pageflag = true;
     	$(function(){
-    		/* // 点击展开数据
-    		function fnDataToggle(){
-    			$('body').on('click','.J_databody tr', function(){
-    				var 
-                        self = $(this),
-    					obox = self.find('.J_o_box');
-
-    				if(obox.is(':hidden')){
-    					self.css({'height': '2rem'});
-    					obox.fadeIn(200);
-    					self.find('.J_toggle').addClass('rotate');
-    				} else {
-    					self.css({'height': 'auto'});
-    					obox.hide();
-    					self.find('.J_toggle').removeClass('rotate');
-    				}
-    				return false;
-    			});
-    		}
-    		fnDataToggle();
- */
 			query(1);
             $(".J_lookfor").click(function(){
                pageflag = true;
                $('.page').empty();
                query(1);
+            });
+            $(".printTranc").click(function(){
+            	var html = '';
+            	$.ajax({
+                    async:false,
+                    url: '../action.php?action=trancDetail&id='+$(this).attr("trancId"),
+                    type: "GET",
+                    dataType: 'json',
+                    success: function (json) {
+                    	alert('读出内容调用打印接口：'+JSON.stringify(json));
+            		}
+            	});
+            });
+            $(".modify").click(function(){
+            	var html = '';
+            	$.ajax({
+                    async:false,
+                    url: '../action.php?action=trancDetail&id='+$(this).attr("trancId"),
+                    type: "GET",
+                    dataType: 'json',
+                    success: function (json) {
+                    	alert('读出内容输出到页面里：'+JSON.stringify(json));
+            		}
+            	});
             });
     	});
         function listpage(total,total_pages){
@@ -121,7 +124,6 @@
             });
             pageflag = false;
         }
-
 
         function query(page){
             let query ='../action.php?action=trancList';
@@ -160,9 +162,9 @@
                     total_pages = json.total_pages;
                     for(var i=0;i<json.list.length;i++){
                         var temp = '<tr><td><span class="J_toggle"></span>'+json.list[i].tranc_date+'</td><td>'+json.list[i].name
-                        +'</td><td><a href="../action.php?action=trancDetail&id='+json.list[i].id+'" class="t_operate">' +json.list[i].type+'</a></td><td>'+ json.list[i].invoice_no +'</td><td>'
+                        +'</td><td><a trancId="'+json.list[i].id+'"  class="printTranc t_operate">' +json.list[i].type+'</a></td><td>'+ json.list[i].invoice_no +'</td><td>'
                         + json.list[i].currency +'</td><td>'+ json.list[i].total_price +'</td><td>'
-                        + json.list[i].vat_price +'</td><td><div class="pl"><a href="../action.php?action=trancDetail&id='+json.list[i].id+'" class="modify J_modify">修改</a></div></td></tr>';
+                        + json.list[i].vat_price +'</td><td><div class="pl"><a trancId="'+json.list[i].id+'" href="../action.php?action=trancDetail&id='+json.list[i].id+'" class="modify J_modify">修改</a></div></td></tr>';
                         totalprice += parseInt(json.list[i].total_price);
                         $('.J_databody').append(temp);
                         $('#totalprice').html(totalprice);

@@ -38,7 +38,6 @@ function to_port(e){
 }
 
 function to_print(){
-    var countCont = $('.addContent').length;
     var html = '';
     var address = $('#street').val()+'　'+$('#postcode').val()+'　'+$('#city').val()+'　'+$('#country').val()
     $('#to_address').html(address)
@@ -73,16 +72,6 @@ function to_print(){
         if($(this).hasClass("jew"))
             html+='<p>'+currencyHint+$(this).find("#form_price2").val()+'</p>';
         html+='</div></div>';
-
-
-//html += '<div class="del_items items clearfix">'+
-//        '<div class="col-xs-3 clearfix">';
-//        html +='<p>'+$(this).find('#form_jewerly option:selected').val()+' White Gold '+$(this).find('#form_material option:selected').val()+'</p>';
-//        html+='</div>'+'<div class="col-xs-2 clearfix">';
-//            html+='<p>'+currencyHint+$(this).find("#form_price2").val()+'</p>';
-//        html+='</div></div>';
-//}
-
     })
     $('#items').after(html);
 }

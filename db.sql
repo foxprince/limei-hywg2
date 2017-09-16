@@ -16,7 +16,7 @@ create table transaction(
   	total_price float null,/*不含税价格*/
 	ctime datetime not null
 );
-drop table tranc_detail;
+drop table receipt;
 create table tranc_detail(
 	id bigint not null primary key auto_increment,
 	type varchar(6) default 'diajew' not null,
