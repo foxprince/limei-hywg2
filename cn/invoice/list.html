@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +29,7 @@
             <form action="" class="c_form">
                 <p class="item">
                     <label for="" class="field">类型</label>
-                    <select id="type" name="type">
+                    <select id="type" name="type" class="i_text">
                     	<option value="">全部</option><option value="invoice">发票</option><option value="receipt">收据</option>
                     </select>
                 </p>
@@ -72,11 +73,90 @@
             </table>
         </main>
     </div>
+
+
+
+                <!--print 打印-->
+            <div class="row lnvoice-row" style="display: none">
+                <!--logo-->
+                <div class="col-xs-12 text-center">
+                    <img src="images/Logo.png" class="logo" alt="">
+                </div>
+                <!--抬头-->
+                <div class="col-xs-12 rise clearfix">
+                    <p>LUMIA JEWELRY</p>
+                    <p class="rise-vat print_none">VAT：0599.972.516</p>
+                    <p>PELIKAANSTRAAT 62 BUS 314</p>
+                    <div class="clearfix">
+                        <span class="pull-left" id="corp">2017   ANTWERPEN</span>
+                        <span class="pull-right to_time"></span>
+                    </div>
+                    <div class="clearfix" style="margin-bottom: 5px">
+                        <span class="pull-left">Tel:  0032 3 689 73 94 </span>
+                        <span class="pull-right  to_invoice"></span>
+                    </div>
+                </div>
+                <!--ITEMS-->
+                <header id="items" class="col-xs-12 clearfix header_items">
+                    ITEMS
+                </header>
+                <!--价格-->
+                <div class="prices clearfix">
+                    <!--内容-->
+                    <div class="col-xs-3 clearfix"></div>
+                    <div class="col-xs-6 clearfix"></div>
+                    <div class="col-xs-1 clearfix">
+                        <p class="print_none print_none">21%VAT:</p>
+                        <p class="">Total:</p>
+                    </div>
+                    <div class="col-xs-2  clearfix">
+                        <p class="vat_price print_none">€0</p>
+                        <p id="print_price"class="total_price">€0</p>
+                    </div>
+                </div>
+                <!--客户信息-->
+                <div class="client clearfix">
+                    <div class="col-xs-2  client-cli">
+                        <p>Name</p>
+                        <p>Passport No. </p>
+                        <p>Address </p>
+                    </div>
+                    <!--信息-->
+                    <div class="col-xs-10 client-cli">
+                        <p id="to_name"></p>
+                        <p id="to_port"></p>
+                        <p id="to_address"></p>
+                    </div>
+                </div>
+            </div>
     <script src="dist/js/jquery-2.1.3.min.js"></script>
     <script src="dist/js/pageInit.js"></script>
     <script>
     var pageflag = true;
     	$(function(){
+
+            // 点击展开数据
+            function fnDataToggle(){
+                $('body').on('click','.J_databody tr .J_toggle', function(){
+                    var 
+                        self = $(this),
+                        obox = self.find('.J_o_box');
+
+                    if(obox.is(':hidden')){
+                        self.css({'height': '2rem'});
+                        obox.fadeIn(200);
+                        //self.find('.J_toggle').addClass('rotate');
+                    } else {
+                        self.css({'height': 'auto'});
+                        obox.hide();
+                        self.find('.J_toggle').removeClass('rotate');
+                    }
+                    return false;
+                });
+            }
+            //fnDataToggle();//点击展开事件
+
+
 			query(1);
             $(".J_lookfor").click(function(){
                pageflag = true;
@@ -91,7 +171,13 @@
                     type: "GET",
                     dataType: 'json',
                     success: function (json) {
-                    	alert('读出内容调用打印接口：'+JSON.stringify(json));
+                    	//alert('读出内容调用打印接口：'+JSON.stringify(json));
+           alert('把值table绑定到ITEMS就行了。。')
+            $('.order_look').hide();
+            $('.lnvoice-row').show();
+            window.print();
+     
+
             		}
             	});
             });
@@ -103,9 +189,11 @@
                     type: "GET",
                     dataType: 'json',
                     success: function (json) {
-                    	alert('读出内容输出到页面里：'+JSON.stringify(json));
+                         window.location.href="index.html?id="+json.trancDetail.invoice_no;
+                    	//alert('读出内容输出到页面里：'+JSON.stringify(json));
             		}
             	});
+
             });
     	});
         function listpage(total,total_pages){
@@ -165,7 +253,7 @@
                         var temp = '<tr><td><span class="J_toggle"></span>'+json.list[i].tranc_date+'</td><td>'+json.list[i].name
                         +'</td><td><a trancId="'+json.list[i].id+'"  class="printTranc t_operate">' +json.list[i].type+'</a></td><td>'+ json.list[i].invoice_no +'</td><td>'
                         + json.list[i].currency +'</td><td>'+ json.list[i].total_price +'</td><td>'
-                        + json.list[i].vat_price +'</td><td><div class="pl"><a trancId="'+json.list[i].id+'" href="../action.php?action=trancDetail&id='+json.list[i].id+'" class="modify J_modify">修改</a></div></td></tr>';
+                        + json.list[i].vat_price +'</td><td><div class="pl"><a trancId="'+json.list[i].id+'" href="../action.php?action=trancDetail&id='+json.list[i].id+'" class="modify J_modify">修改</a><p class="o_box J_o_box"><a href="" class="t_operate">Invoice</a><a href="" class="t_operate">Receipt</a></p></div></td></tr>';
                         totalprice += parseInt(json.list[i].total_price);
                         $('.J_databody').append(temp);
                         $('#totalprice').html(totalprice);

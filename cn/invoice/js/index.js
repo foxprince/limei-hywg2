@@ -10,7 +10,6 @@ $(document).ready(function(){
         var content = '<div type='+obj+' class="addContent clearfix '+obj+'">'+ht(obj)+'</div>';
         $('.Add').before(content);
     });
-    /*减号*/
     var time = new Date();
     var to_time = String(time.getFullYear())+String(PrefixInteger(time.getMonth()+1))+String(PrefixInteger(time.getDate()));
     $('#tranc_date').val(to_time);
@@ -170,6 +169,7 @@ function diaContent() {
 	    html += "<label class='col-sm-2 col-xs-3  control-label'>Model</label>";
 	    html += "<div class='col-sm-10 col-xs-9'>";
 	    html += "<select id='form_model' class='shape form-control'>";
+	    html += "<option value='-'>-</option>";
 	    html += "<option value='BR'>Round Brilliant</option>";
 	    html += "<option value='PR'>Pear</option>";
 	    html += "<option value='PS'>Princess</option>";
@@ -187,7 +187,7 @@ function diaContent() {
 	    html += "<label class='col-sm-2 col-xs-3  control-label'>Colour</label>";
 	    html += "<div class='col-sm-10 col-xs-9'>";
 	    html += "<select id='form_color' class='fancy form-control'>";
-	    html += "<option value=''></option>";
+	    html += "<option value='-'>-</option>";
 	    html += "<option value='Yellow'>Yellow</option>";
 	    html += "<option value='Pink'>Pink</option>";
 	    html += "<option value='Green'>Green</option>";
@@ -201,6 +201,7 @@ function diaContent() {
 	    html += "<label class='col-sm-2 col-xs-3  control-label'>Certification</label>";
 	    html += "<div class='col-sm-10 col-xs-9'>";
 	    html += "<select id='form_gia' class='grading_lab form-control'>";
+	    html += "<option value='-'>-</option>";
 	    html += "<option value='GIA'>GIA</option>";
 	    html += "<option value='HRD'>HRD</option>";
 	    html += "<option value='IGI'>IGI</option>";
@@ -237,6 +238,7 @@ function diaContent() {
 	    html += "<label class='col-sm-2 col-xs-3  control-label'>Colour Grade</label>";
 	    html += "<div class='col-sm-10 col-xs-9'>";
 	    html += "<select id='form_colourGrade' class='color form-control'>";
+	    html += "<option value='-'>-</option>";
 	    html += "<option value='D'>D</option>";
 	    html += "<option value='E'>E</option>";
 	    html += "<option value='F'>F</option>";
@@ -255,6 +257,7 @@ function diaContent() {
 	    html += "<label class='col-sm-2 col-xs-3  control-label'>Clarity Grade</label>";
 	    html += "<div class='col-sm-10 col-xs-9'>";
 	    html += "<select id='form_clarity' class='clarity form-control'>";
+	    html += "<option value='-'>-</option>";
 	    html += "<option value='FL'>FL</option>";
 	    html += "<option value='IF'>IF</option>";
 	    html += "<option value='VVS1'>VVS1</option>";
@@ -271,6 +274,7 @@ function diaContent() {
 	    html += "<label class='col-sm-2 col-xs-3  control-label'>Cut Grade</label>";
 	    html += "<div class='col-sm-10 col-xs-9'>";
 	    html += "<select id='form_cutGrade' class='cut_grade form-control'>";
+	    html += "<option value='-'>-</option>";
 	    html += "<option value='EX'>EX</option>";
 	    html += "<option value='VG'>VG</option>";
 	    html += "<option value='G'>G</option>";
@@ -283,6 +287,7 @@ function diaContent() {
 	    html += "<label class='col-sm-2 col-xs-3  control-label'>Polish</label>";
 	    html += "<div class='col-sm-10 col-xs-9'>";
 	    html += "<select id='form_polish' class='polish form-control'>";
+	    html += "<option value='-'>-</option>";
 	    html += "<option value='EX'>EX</option>";
 	    html += "<option value='VG'>VG</option>";
 	    html += "<option value='G'>G</option>";
@@ -295,6 +300,7 @@ function diaContent() {
 	    html += "<label class='col-sm-2 col-xs-3  control-label'>Symmetry</label>";
 	    html += "<div class='col-sm-10 col-xs-9'>";
 	    html += "<select id='form_symmetry' class='symmetry form-control'>";
+	    html += "<option value='-'>-</option>";
 	    html += "<option value='EX'>EX</option>";
 	    html += "<option value='VG'>VG</option>";
 	    html += "<option value='G'>G</option>";
