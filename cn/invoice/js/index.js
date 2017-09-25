@@ -1,7 +1,6 @@
 ﻿var currency='EUR';
 var currencyHint = '€';
 var trancId = 0;
-var kind=1;
 $(document).ready(function(){
     //html内容
     /*add list*/
@@ -152,7 +151,7 @@ function saveOrUpdate(type){
 function ht(type){
     var html = "";
     if(type=='dia'){
-        html += diaContent();kind=1}
+        html += diaContent();}
     /*边线*/
     if(type=='jew')
     	html += jewelryContent();

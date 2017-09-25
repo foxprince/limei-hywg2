@@ -177,6 +177,45 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/index.js"></script>
 	<script>
+	function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+        if (r != null) return unescape(r[2]); return null; //返回参数值
+    }
+	var no = getUrlParam('id');
+    if(no){console.log('sss:'+no);
+    	var obj = $(this).attr('obj');
+        var content = '<div type='+obj+' class="addContent clearfix '+obj+'">'+ht(obj)+'</div>';
+        $.ajax({
+            async:false,
+            url: '../action.php?action=trancDetail&id='+no,
+            type: "GET",
+            dataType: 'json',
+            success: function (data) {console.log(data);
+            	var json=eval(data),to=json.trancDetail.currency,currencyHint='€';
+   				var html = '';
+   				if(to=='CNY'){
+   					currencyHint = '￥';
+   				}else if(to=='EUR'){
+   					currencyHint = '€';
+   				}else if(to=='USD'){
+   					currencyHint = '$';
+   				}
+   				var address = json.trancDetail.street+'　'+json.trancDetail.postcode+'　'+json.trancDetail.city+'　'+json.trancDetail.country;
+   				$('#name').val(json.trancDetail.name);$('#street').val(json.trancDetail.street);
+   				$('#passport').val(json.trancDetail.passport);$('#postcode').val(json.trancDetail.postcode);
+   				$('#city').val(json.trancDetail.city);$('#country').val(json.trancDetail.country);
+   				$('#tranc_date').val(json.trancDetail.tranc_date);$('#invoice_no').val(json.trancDetail.invoice_no);
+   				$('.total_price').html(currencyHint+json.trancDetail.total_price);
+   				$('.vat_price').html(currencyHint+json.trancDetail.vat_price);
+   				$.each(json.list, function (n, j) {
+            		
+   					//$('.Add').before(content);
+   				});
+    		}
+    	});
+        
+    }
 		/*发票*/
 		$('.lnvoice').click(function() {
 			saveOrUpdate('invoice');
@@ -184,7 +223,7 @@
             total_invoice();
             $('.to_invoice').html('INVOICE：  '+ $('#invoice_no').val());
 			$('.print_none').show();
-			//window.print();
+			window.print();
 		});
 		/*收据*/
 		$('.receipt').click(function() {
@@ -193,7 +232,7 @@
             total_receipt();
             $('.to_invoice').html('');
 			$('.print_none').hide();
-			//window.print();
+			window.print();
 		});
     </script>
 </html>
