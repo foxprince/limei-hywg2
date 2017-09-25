@@ -178,13 +178,18 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/index.js"></script>
 	<script>
+	var time = new Date();
+    var to_time = String(time.getFullYear())+String(PrefixInteger(time.getMonth()+1))+String(PrefixInteger(time.getDate()));
+    $('#corp').html(String(time.getFullYear())+'   ANTWERPEN');
+    $('.to_time').html('DATE：  '+ to_time);$('#tranc_date').val(to_time);
+    $('#invoice_no').val(invoiceNo());
 	function getUrlParam(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
         var r = window.location.search.substr(1).match(reg);  //匹配目标参数
         if (r != null) return unescape(r[2]); return null; //返回参数值
     }
 	var no = getUrlParam('id');
-    if(no){console.log('sss:'+no);
+    if(no){
     	var obj = $(this).attr('obj');
         var content = '<div type='+obj+' class="addContent clearfix '+obj+'">'+ht(obj)+'</div>';
         $.ajax({
@@ -192,7 +197,7 @@
             url: '../action.php?action=trancDetail&id='+no,
             type: "GET",
             dataType: 'json',
-            success: function (data) {console.log(data);
+            success: function (data) {
             	var json=eval(data),to=json.trancDetail.currency,currencyHint='€';
    				var html = '';
    				if(to=='CNY'){
@@ -210,8 +215,213 @@
    				$('.total_price').html(currencyHint+json.trancDetail.total_price);
    				$('.vat_price').html(currencyHint+json.trancDetail.vat_price);
    				$.each(json.list, function (n, j) {
-            		
-   					//$('.Add').before(content);
+   			        var content = '<div type='+j.type+' class="addContent clearfix '+j.type+'">';
+   			        if(j.type=='jew') {
+   			        	content +="<div class='addApend clearfix dia'>\
+   			     		<div class='col-lg-1 pdNone col-md-1 col-sm-12 col-xs-12'>\
+   			     		<div class='col-lg-1 pdNone returnData d-delete col-md-1 col-sm-12 col-xs-12'>\
+   			     		<span class='remove addImg' onclick='removeData(this)'></span>\
+   			     		</div></div></div>";
+   			     		content +="<div class='jt-form clearfix'>\
+   			     	    <div class='J_jtBox jt-box' style='display:block;'>\
+   			     	    <div class='col-lg-5  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
+   			     	    <div class='form-group clearfix'>\
+   			     	    <label class='col-sm-2 col-xs-3  control-label'>Jewelry</label>\
+   			     	    <div class='col-sm-10 col-xs-9'>\
+   			     	    <select id='form_jewerly' class='jewerly form-control'>\
+   			     	    <option value='Ring'>Ring</option><option value='Necklace'>Necklace</option><option value='Earring'>Earring</option>\
+   			     	    </select>\
+   			     	    </div></div><div class='form-group clearfix'>\
+   			     	    <label class='col-sm-2 col-xs-3  control-label'>Price</label>\
+   			     	    <div class='col-sm-10 col-xs-9'> \
+   			     	    <input onblur='total()' class='jewerly_price form-control' id='form_price2' value=";
+   			     	    content += j.jewerly_price+" type='text' placeholder='0.00'>\
+   			     	    </div></div></div><div class='col-lg-5  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
+   			     	    <div class='form-group clearfix'>\
+   			     	    <label class='col-sm-2 col-xs-3  control-label'>Material</label><div class='col-sm-10 col-xs-9'>\
+   			     	    <select id='form_material' class='material form-control'><option value='18K'>18K</option><option value='Pt'>Pt</option></select>\
+   			     	    </div></div></div></div></div>";
+   			        }
+   			        if(j.type=='dia'||j.type=='diajew') {
+   			        	content +="<div class='addApend clearfix dia'>\
+   			     		<div class='col-lg-1 pdNone col-md-1 col-sm-12 col-xs-12'>\
+   			     		<div class='col-lg-1 pdNone returnData d-delete col-md-1 col-sm-12 col-xs-12'>\
+   			     		<span class='remove addImg' onclick='removeData(this)'></span>\
+   			     		</div></div></div>";
+   			     		var html = "<div class='zj-form clearfix'><div class='col-lg-5 col-md-offset-1 pdNone col-md-4 col-sm-12 col-xs-12'>";
+   			     	    html += "<div class='form-group clearfix'>";
+   			     	    html += "<label class='col-sm-2 col-xs-3  control-label'>Model</label>";
+   			     	    html += "<div class='col-sm-10 col-xs-9'>";
+   			     	    html += "<select id='form_model' class='shape form-control'>";console.log(j.shape);
+   			     	    html += "<option value='-'  "+(j.shape=='-' ? 'selected':'')+">-</option>";
+   			     	    html += "<option value='BR' "+(j.shape=='BR'? 'selected':'')+">Round Brilliant</option>";
+   			     	    html += "<option value='PR' "+(j.shape=='PR'? 'selected':'')+">Pear</option>";
+   			     	    html += "<option value='PS' "+(j.shape=='PS'? 'selected':'')+">Princess</option>";
+   			     	    html += "<option value='HS' "+(j.shape=='HS'? 'selected':'')+">Heart</option>";
+   			     	    html += "<option value='MQ' "+(j.shape=='MQ'? 'selected':'')+">Marquise</option>";
+   			     	    html += "<option value='OV' "+(j.shape=='OV'? 'selected':'')+">Oval</option>";
+   			     	    html += "<option value='EM' "+(j.shape=='EM'? 'selected':'')+">Emerald</option>";
+   			     	    html += "<option value='RAD'"+(j.shape=='RAD'?'selected':'')+">Radiant</option>";
+   			     	    html += "<option value='CU' "+(j.shape=='CU'?'selected':'')+">Cushion</option>";
+   			     	    html += "</select>";
+   			     	    html += "</div>";
+   			     	    html += "</div>";
+
+   			     	    html += "<div class='form-group clearfix'>";
+   			     	    html += "<label class='col-sm-2 col-xs-3  control-label'>Colour</label>";
+   			     	    html += "<div class='col-sm-10 col-xs-9'>";
+   			     	    html += "<select id='form_color' class='fancy form-control'>";
+   			     	    html += "<option value='-' "+(j.fancy=='-' ? 'selected':'')+">-</option>";
+   			     	    html += "<option value='Yellow' "+(j.fancy=='Yellow' ? 'selected':'')+">Yellow</option>";
+   			     	    html += "<option value='Pink' "+(j.fancy=='Pink' ? 'selected':'')+">Pink</option>";
+   			     	    html += "<option value='Green' "+(j.fancy=='Green' ? 'selected':'')+">Green</option>";
+   			     	    html += "<option value='Red' "+(j.fancy=='Red' ? 'selected':'')+">Red</option>";
+   			     	    html += "<option value='Blue' "+(j.fancy=='Blue' ? 'selected':'')+">Blue</option>";
+   			     	    html += "</select>";
+   			     	    html += "</div>";
+   			     	    html += "</div>";
+
+   			     	    html += "<div class='form-group clearfix'>";
+   			     	    html += "<label class='col-sm-2 col-xs-3  control-label'>Certification</label>";
+   			     	    html += "<div class='col-sm-10 col-xs-9'>";
+   			     	    html += "<select id='form_gia' class='grading_lab form-control'>";
+   			     	    html += "<option value='-' "+(j.grading_lab=='-' ? 'selected':'')+">-</option>";
+   			     	    html += "<option value='GIA' "+(j.grading_lab=='GIA' ? 'selected':'')+">GIA</option>";
+   			     	    html += "<option value='HRD' "+(j.grading_lab=='HRD' ? 'selected':'')+">HRD</option>";
+   			     	    html += "<option value='IGI' "+(j.grading_lab=='IGI' ? 'selected':'')+">IGI</option>";
+   			     	    html += "</select>";
+   			     	    html += "</div>";
+   			     	    html += "</div>";
+
+   			     	    html += "<div class='form-group clearfix'>";
+   			     	    html += "<label class='col-sm-2 col-xs-3  control-label'>Report No.</label>";
+   			     	    html += "<div class='col-sm-10 col-xs-9'>";
+   			     	    html += " <input id='ref' onblur='ref(this,$(this).val())' class='report_no form-control' value='"+j.report_no+"' type='text' placeholder='000000'>";
+   			     	    html += "</div>";
+   			     	    html += "</div>";
+
+
+   			     	    html += "<div class='form-group clearfix'>";
+   			     	    html += "<label class='col-sm-2 col-xs-3  control-label'>Price</label>";
+   			     	    html += "<div class='col-sm-10 col-xs-9'>";
+   			     	    html += " <input onblur='total()' value='"+j.price+"' id='form_price' class='price form-control' type='text' placeholder='0.00'>";
+   			     	    html += "</div>";
+   			     	    html += "</div>";
+
+   			     	    html += "</div>";
+   			     	    html += "<div class='col-lg-5  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>";
+
+   			     	    html += "<div class='form-group clearfix'>";
+   			     	    html += "<label class='col-sm-2 col-xs-3  control-label'>Carat Weight</label>";
+   			     	    html += "<div class='col-sm-10 col-xs-9'>";
+   			     	    html += " <input id='form_weight' class='carat form-control' type='text' value='"+j.carat+"' placeholder='0.00'>";
+   			     	    html += "</div>";
+   			     	    html += "</div>";
+
+   			     	    html += "<div class='form-group clearfix'>";
+   			     	    html += "<label class='col-sm-2 col-xs-3  control-label'>Colour Grade</label>";
+   			     	    html += "<div class='col-sm-10 col-xs-9'>";
+   			     	    html += "<select id='form_colourGrade' class='color form-control'>";
+   			     	    html += "<option value='-' "+(j.color=='-' ? 'selected':'')+">-</option>";
+   			     	    html += "<option value='D' "+(j.color=='D' ? 'selected':'')+">D</option>";
+   			     	    html += "<option value='E' "+(j.color=='E' ? 'selected':'')+">E</option>";
+   			     	    html += "<option value='F' "+(j.color=='F' ? 'selected':'')+">F</option>";
+   			     	    html += "<option value='G' "+(j.color=='G' ? 'selected':'')+">G</option>";
+   			     	    html += "<option value='H' "+(j.color=='H' ? 'selected':'')+">H</option>";
+   			     	    html += "<option value='I' "+(j.color=='I' ? 'selected':'')+">I</option>";
+   			     	    html += "<option value='J' "+(j.color=='J' ? 'selected':'')+">J</option>";
+   			     	    html += "<option value='K' "+(j.color=='K' ? 'selected':'')+">K</option>";
+   			     	    html += "<option value='L' "+(j.color=='L' ? 'selected':'')+">L</option>";
+   			     	    html += "<option value='M' "+(j.color=='M' ? 'selected':'')+">M</option>";
+   			     	    html += "</select>";
+   			     	    html += "</div>";
+   			     	    html += "</div>";
+
+   			     	    html += "<div class='form-group clearfix'>";
+   			     	    html += "<label class='col-sm-2 col-xs-3  control-label'>Clarity Grade</label>";
+   			     	    html += "<div class='col-sm-10 col-xs-9'>";
+   			     	    html += "<select id='form_clarity' class='clarity form-control'>";
+   			     	    html += "<option value='-' "+(j.clarity=='-' ? 'selected':'')+">-</option>";
+   			     	    html += "<option value='FL' "+(j.clarity=='FL' ? 'selected':'')+">FL</option>";
+   			     	    html += "<option value='IF' "+(j.clarity=='IF' ? 'selected':'')+">IF</option>";
+   			     	    html += "<option value='VVS1' "+(j.clarity=='VVS1' ? 'selected':'')+">VVS1</option>";
+   			     	    html += "<option value='VVS2' "+(j.clarity=='VVS2' ? 'selected':'')+">VVS2</option>";
+   			     	    html += "<option value='VS1' "+(j.clarity=='VS1' ? 'selected':'')+">VS1</option>";
+   			     	    html += "<option value='VS2' "+(j.clarity=='VS2' ? 'selected':'')+">VS2</option>";
+   			     	    html += "<option value='SI1' "+(j.clarity=='SI1' ? 'selected':'')+">SI1</option>";
+   			     	    html += "<option value='SI2' "+(j.clarity=='SI2' ? 'selected':'')+">SI2</option>";
+   			     	    html += "</select>";
+   			     	    html += "</div>";
+   			     	    html += "</div>";
+
+   			     	    html += "<div class='form-group clearfix'>";
+   			     	    html += "<label class='col-sm-2 col-xs-3  control-label'>Cut Grade</label>";
+   			     	    html += "<div class='col-sm-10 col-xs-9'>";
+   			     	    html += "<select id='form_cutGrade' class='cut_grade form-control'>";
+   			     	    html += "<option value='-'  "+(j.cut_grade=='-' ? 'selected':'')+">-</option>";
+   			     	    html += "<option value='EX' "+(j.cut_grade=='EX' ? 'selected':'')+">EX</option>";
+   			     	    html += "<option value='VG' "+(j.cut_grade=='VG' ? 'selected':'')+">VG</option>";
+   			     	    html += "<option value='G'  "+(j.cut_grade=='G' ? 'selected':'')+">G</option>";
+   			     	    html += "<option value='F'  "+(j.cut_grade=='F' ? 'selected':'')+">F</option>";
+   			     	    html += "</select>";
+   			     	    html += "</div>";
+   			     	    html += "</div>";
+
+   			     	    html += "<div class='form-group clearfix'>";
+   			     	    html += "<label class='col-sm-2 col-xs-3  control-label'>Polish</label>";
+   			     	    html += "<div class='col-sm-10 col-xs-9'>";
+   			     	    html += "<select id='form_polish' class='polish form-control'>";
+   			     	    html += "<option value='-'  "+(j.polish=='-' ? 'selected':'')+">-</option>";
+   			     	    html += "<option value='EX' "+(j.polish=='EX' ? 'selected':'')+">EX</option>";
+   			     	    html += "<option value='VG' "+(j.polish=='VG' ? 'selected':'')+">VG</option>";
+   			     	    html += "<option value='G'  "+(j.polish=='G' ? 'selected':'')+">G</option>";
+   			     	    html += "<option value='F'  "+(j.polish=='F' ? 'selected':'')+">F</option>";
+   			     	    html += "</select>";
+   			     	    html += "</div>";
+   			     	    html += "</div>";
+
+   			     	    html += "<div class='form-group clearfix'>";
+   			     	    html += "<label class='col-sm-2 col-xs-3  control-label'>Symmetry</label>";
+   			     	    html += "<div class='col-sm-10 col-xs-9'>";
+   			     	    html += "<select id='form_symmetry' class='symmetry form-control'>";
+   			     	    html += "<option value='-'  "+(j.symmetry=='-' ? 'selected':'')+">-</option>";
+   			     	    html += "<option value='EX' "+(j.symmetry=='EX' ? 'selected':'')+">EX</option>";
+   			     	    html += "<option value='VG' "+(j.symmetry=='VG' ? 'selected':'')>+">VG</option>";
+   			     	    html += "<option value='G'  "+(j.symmetry=='G' ? 'selected':'')+">G</option>";
+   			     	    html += "<option value='F'  "+(j.symmetry=='F' ? 'selected':'')+">F</option>";
+   			     	    html += "</select>";
+   			     	    html += "</div>";
+   			     	    html += "</div>";
+
+   			     	    html += "</div></div>";
+   			     	    if(j.type=='diajew') {
+   			     	    html +="<div class='jt-form clearfix'>\
+   			     	    <span class='addImg add-thr toggJew' onclick='toggJew(this);' ></span>\
+   			     	    <div class='J_jtBox jt-box' style='display:block;'>\
+   			     	    <div class='col-lg-5  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
+   			     	    <div class='form-group clearfix'>\
+   			     	    <label class='col-sm-2 col-xs-3  control-label'>Jewelry</label>\
+   			     	    <div class='col-sm-10 col-xs-9'>\
+   			     	    <select id='form_jewerly' class='jewerly form-control'>\
+   			     	    <option value='Ring'"+(j.jewerly=='Ring' ? 'selected':'')+">Ring</option>\
+   			     	    <option value='Necklace'"+(j.jewerly=='Necklace' ? 'selected':'')+">Necklace</option>\
+   			     	    <option value='Earring'"+(j.jewerly=='Earring' ? 'selected':'')+">Earring</option>\
+   			     	    </select>\
+   			     	    </div></div><div class='form-group clearfix'>\
+   			     	    <label class='col-sm-2 col-xs-3  control-label'>Price</label>\
+   			     	    <div class='col-sm-10 col-xs-9'> \
+   			     	    <input onblur='total()' class='jewerly_price form-control' id='form_price2' value='"+j.jewerly_price+"' type='text' placeholder='0.00'>\
+   			     	    </div></div></div><div class='col-lg-5  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
+   			     	    <div class='form-group clearfix'>\
+   			     	    <label class='col-sm-2 col-xs-3  control-label'>Material</label><div class='col-sm-10 col-xs-9'>\
+   			     	    <select id='form_material' class='material form-control'><option value='18K'>18K</option></select>\
+   			     	    </div></div></div></div></div>";
+   			     	    }
+   			     	    content += html;
+   			        }
+   			        content +='</div>';
+   			        $('.Add').before(content);
+   					
    				});
     		}
     	});

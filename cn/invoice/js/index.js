@@ -9,12 +9,7 @@ $(document).ready(function(){
         var content = '<div type='+obj+' class="addContent clearfix '+obj+'">'+ht(obj)+'</div>';
         $('.Add').before(content);
     });
-    var time = new Date();
-    var to_time = String(time.getFullYear())+String(PrefixInteger(time.getMonth()+1))+String(PrefixInteger(time.getDate()));
-    $('#tranc_date').val(to_time);
-    $('#invoice_no').val(invoiceNo());
-    $('#corp').html(String(time.getFullYear())+'   ANTWERPEN');
-    $('.to_time').html('DATE：  '+ to_time);
+    
     //$('.to_invoice').html('INVOICE：  '+ to_time);
 });
 function toggJew(item){
