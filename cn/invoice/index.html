@@ -429,12 +429,12 @@
     }
 		/*发票*/
 		$('.lnvoice').click(function() {
-			//saveOrUpdate('invoice');
+			saveOrUpdate('invoice');
 			to_print();
             total_invoice();
             $('.to_invoice').html('INVOICE：  '+ $('#invoice_no').val());
 			$('.print_none').show();
-			//window.print();
+			window.print();
 		});
 		/*收据*/
 		$('.receipt').click(function() {
@@ -443,7 +443,7 @@
             total_receipt();
             $('.to_invoice').html('');
 			$('.print_none').hide();
-			//window.print();
+			window.print();
 		});
     </script>
 </html>

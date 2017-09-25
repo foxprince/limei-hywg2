@@ -382,7 +382,7 @@ body {
     position: relative; }
   .order_look .t_data tbody td:first-child {
     position: relative;
-    padding-left: .7rem; }
+    /* padding-left: .7rem; */ }
     .order_look .t_data tbody td:first-child span {
       position: absolute;
       left: .2rem;
@@ -407,11 +407,8 @@ body {
     .order_look .t_data .modify ~ a {
       display: inline-block; }
   .order_look .t_data .o_box {
-    display: none;
-    position: absolute;
-    right: -0.5rem;
-    bottom: -0.7rem;
-    width: 5rem; }
+    display: inline-block;margin-top:0.8em;
+    }
   .order_look .t_data .t_operate {
     display: inline-block;
     margin-left: .2rem;

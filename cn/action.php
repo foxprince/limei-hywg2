@@ -310,6 +310,13 @@ if($_REQUEST['action']) {
 			}
 			echo $t;
 			break;
+		case "deleteTranc":
+			$sql_delete='delete from transaction WHERE id = '.$_REQUEST['id'];
+			$conn->query($sql_delete);
+			$sql_delete='delete from tranc_detail WHERE tranc_id = '.$_REQUEST['id'];
+			$conn->query($sql_delete);
+			echo "OK";
+			break;
 		case "trancDetail":
 			$stmt=$conn->prepare('select * from transaction where id=:id');
 			$stmt->execute(array('id'=>$_REQUEST['id']));
