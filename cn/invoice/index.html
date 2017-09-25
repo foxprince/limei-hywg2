@@ -12,7 +12,8 @@
 		<style>
 			.lnvoice-row {
 				position: fixed;
-				top: -9999px;
+				top: -9999px; 
+				background-color:white;
 			}
 			input[type="text"],select.form-control {
 				background: #f9f9f9;
@@ -218,12 +219,12 @@
     }
 		/*发票*/
 		$('.lnvoice').click(function() {
-			saveOrUpdate('invoice');
+			//saveOrUpdate('invoice');
 			to_print();
             total_invoice();
             $('.to_invoice').html('INVOICE：  '+ $('#invoice_no').val());
 			$('.print_none').show();
-			window.print();
+			//window.print();
 		});
 		/*收据*/
 		$('.receipt').click(function() {
@@ -232,7 +233,7 @@
             total_receipt();
             $('.to_invoice').html('');
 			$('.print_none').hide();
-			window.print();
+			//window.print();
 		});
     </script>
 </html>
