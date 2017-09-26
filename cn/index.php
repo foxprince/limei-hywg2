@@ -192,8 +192,8 @@ foreach($conn->query($user_info) as $r_u){
 		 $(".pic .pic_k li a").click(function () {
 			  var bkgUrl=$(this).attr("bgurl");
 			  var link = $(this).attr("link");
-            //$(".datu").css("background-image","url("+bkgUrl+")");
-            $(".datu").html("<a href='"+link+"' target='"+$(this).attr("target")+"'><img src='"+bkgUrl+"'/></a>");
+            $(".datu").css("background-image","url("+bkgUrl+")");
+            //$(".datu").html("<a href='"+link+"' target='"+$(this).attr("target")+"'><img src='"+bkgUrl+"'/></a>");
         })
       $(".tuijian .x-cenk li").click(function () {
             $(this).addClass("on").siblings().removeClass("on");
