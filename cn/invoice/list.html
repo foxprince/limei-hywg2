@@ -248,7 +248,8 @@
                         type: "GET",
                         dataType: 'json',
                         success: function (json) {
-                        	window.location.href="list.html";
+                        	location.reload(true) ;	
+                        	//window.location.href="list.html";
                 		}
                 	});
             	}
@@ -308,9 +309,9 @@
                     total_pages = json.total_pages;
                     for(var i=0;i<json.list.length;i++){
                         var temp = '<tr><td>'+json.list[i].tranc_date+'</td><td>'+json.list[i].name
-                        +'</td><td><a trancId="'+json.list[i].id+'"  class="printTranc t_operate">' +json.list[i].type+'</a></td><td>'+ json.list[i].invoice_no +'</td><td>'
+                        +'</td><td><a trancId="'+json.list[i].id+'"  class="printTranc t_operate">' +json.list[i].type+'</a></td><td>'+ (json.list[i].type=='invoice'?json.list[i].invoice_no:"--") +'</td><td>'
                         + json.list[i].currency +'</td><td>'+ json.list[i].total_price +'</td><td>'
-                        + json.list[i].vat_price +'</td><td><div class="pl"><a trancId="'+json.list[i].id+'" href="index.html?id='+json.list[i].id+'" class="modify J_modify">修改</a></div></td><td><p class="o_box J_o_box"><a trancId="'+json.list[i].id+'"  class="deleteTranc t_operate">删除</a></p></td></tr>';
+                        + json.list[i].vat_price +'</td><td><div class="pl"><a trancId="'+json.list[i].id+'" href="index.html?id='+json.list[i].id+'" class="modify J_modify">修改</a></div></td><td><p class="o_box J_o_box"><a href="list.html" trancId="'+json.list[i].id+'"  class="deleteTranc t_operate">删除</a></p></td></tr>';
                         totalprice += parseInt(json.list[i].total_price);
                         $('.J_databody').append(temp);
                         $('#totalprice').html(totalprice);

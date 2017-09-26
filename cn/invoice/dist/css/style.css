@@ -381,8 +381,7 @@ body {
   .order_look .t_data tr {
     position: relative; }
   .order_look .t_data tbody td:first-child {
-    position: relative;
-    /* padding-left: .7rem; */ }
+    position: relative; }
     .order_look .t_data tbody td:first-child span {
       position: absolute;
       left: .2rem;
