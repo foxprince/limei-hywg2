@@ -7,7 +7,7 @@
   <?php
 	include_once('topbar.php');
   ?>
-  <div class="datu">
+  <div class="datu" onmouseover="this.style.cursor='pointer'" >
   </div>
   
   
@@ -193,6 +193,8 @@ foreach($conn->query($user_info) as $r_u){
 			  var bkgUrl=$(this).attr("bgurl");
 			  var link = $(this).attr("link");
             $(".datu").css("background-image","url("+bkgUrl+")");
+			if(link)
+            	$(".datu").attr("onclick","window.open('"+link+"');");
             //$(".datu").html("<a href='"+link+"' target='"+$(this).attr("target")+"'><img src='"+bkgUrl+"'/></a>");
         })
       $(".tuijian .x-cenk li").click(function () {
