@@ -177,7 +177,7 @@ switch ($sorting){
 		$query_sorting =' ORDER BY grading_lab '.$sorting_direction;
 		break;
 	default:
-	$query_sorting =' ORDER BY price '.$sorting_direction;
+	$query_sorting =' ORDER BY retail_price '.$sorting_direction;
 	break;
 }
 $ref=$_REQUEST['ref'];
