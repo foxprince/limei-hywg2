@@ -1,6 +1,6 @@
-@charset "utf=8";
+@charset "utf-8";
 .page{
-    font-size: 0.38rem;
+    font-size: 0.3rem;
     text-align: right;
 }
 .page .page_to{

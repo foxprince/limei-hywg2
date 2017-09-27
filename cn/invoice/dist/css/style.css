@@ -245,7 +245,7 @@ body {
   border-radius: 0.1rem;
   border: 1px solid;
   color: #4a4a4a;
-  font-size: 0.375rem;
+  /* font-size: 0.375rem; */
   box-sizing: border-box; }
 
 .vc {
@@ -302,7 +302,7 @@ body {
   .c_form .item {
     position: relative;
     margin-left: 0.2rem;
-    padding: .1rem 0; }
+    /* padding: .1rem 0; */ }
   .c_form .i_text {
     margin-left: .27rem;
     padding-left: .1rem;
@@ -314,7 +314,7 @@ body {
     line-height: normal;
     box-sizing: border-box;
     border-radius: 0.125rem;
-    font-size: .38rem; }
+    /* font-size: .38rem; */ }
   .c_form .i_date {
     width: 33.2%; }
   .c_form .field {
@@ -370,10 +370,10 @@ body {
   .order_look .t_data th, .order_look .t_data td {
     padding: .24rem;
     font-size: 0.28rem;
-    vertical-align: top; }
+    /* vertical-align: top; */ }
     .order_look .t_data tr { cursor: pointer;}
   .order_look .t_data td {
-    padding: 0.3rem .2rem;
+    /* padding: 0.3rem .2rem; */
     border-bottom: 1px dashed #666; }
   .order_look .t_data th {
     background: #666;
@@ -398,10 +398,10 @@ body {
     padding: 0; }
   .order_look .t_data .modify {
     display: inline-block;
-    width: 1rem;
-    height: 1rem;
+    width: 0.8rem;
+    height: 0.8rem;
     background: url(ico-edit.png) no-repeat center center;
-    background-size: 60% auto;
+    background-size: 40% auto;
     text-indent: -9999px; }
     .order_look .t_data .modify ~ a {
       display: inline-block; }
