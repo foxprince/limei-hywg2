@@ -312,7 +312,7 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .detail-r p{margin:20px 0; font-size: 14px; color: #333；}
 .jewDetail p{margin:5px 0; font-size: 14px; color: #333；}
 .detail-r span{font-size: 16px;}
-.detail-r select{width: 86px; height: 32px; background-color: #f7f1e5; border-color:#c89600; border-radius: 4px; font-size: 14px;}
+.detail-r select{width: 99px; height: 32px; background-color: #f7f1e5; border-color:#c89600; border-radius: 4px; font-size: 14px;}
 .detail-s{margin:10px 0;}
 .detail-buy p{display: inline-block; font-size: 16px;}
 .detail-buy i{font-style: normal; color: #bd8167; font-size: 18px;}
