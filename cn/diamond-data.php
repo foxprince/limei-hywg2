@@ -1,32 +1,32 @@
 <?php
 session_start();
-if(!isset($_POST['shape'])){
-	exit('no data posted - shape');
-}
-if(!isset($_POST['color'])){
-	exit('no data posted - color');
-}
-if(!isset($_POST['clarity'])){
-	exit('no data posted - clarity');
-}
-if(!isset($_POST['weight_from'])){
-	exit('no data posted - weightfrom');
-}
-if(!isset($_POST['weight_to'])){
-	exit('no data posted -weightto');
-}
-if(!isset($_POST['price_from'])){
-	exit('no data posted - pricefrom');
-}
-if(!isset($_POST['price_to'])){
-	exit('no data posted - priceto');
-}
-if(!isset($_POST['featured'])){
-	exit('no data posted - featured');
-}
-if(!isset($_POST['sorting'])){
-	exit('no data posted - sorting');
-}
+// if(!isset($_POST['shape'])){
+// 	exit('no data posted - shape');
+// }
+// if(!isset($_POST['color'])){
+// 	exit('no data posted - color');
+// }
+// if(!isset($_POST['clarity'])){
+// 	exit('no data posted - clarity');
+// }
+// if(!isset($_POST['weight_from'])){
+// 	exit('no data posted - weightfrom');
+// }
+// if(!isset($_POST['weight_to'])){
+// 	exit('no data posted -weightto');
+// }
+// if(!isset($_POST['price_from'])){
+// 	exit('no data posted - pricefrom');
+// }
+// if(!isset($_POST['price_to'])){
+// 	exit('no data posted - priceto');
+// }
+// if(!isset($_POST['featured'])){
+// 	exit('no data posted - featured');
+// }
+// if(!isset($_POST['sorting'])){
+// 	exit('no data posted - sorting');
+// }
 
 if($_POST || $_GET){include('nuke_magic_quotes.php');}
 $and='';
@@ -292,7 +292,7 @@ foreach($stmt as $row){
 	else if(trim($row["grading_lab"])=='IGI')
 		$certi_linker="http://www.igiworldwide.com/igi/verify.php?r=".$row['certificate_number'];
 	?>
-				<div class="dia-piece-box">
+				<div class="dia-piece-box" onclick="showDetail('<?php echo $row['id']; ?>')">
                     <div class="1 generalinfobox">
                         <span class="valuetxt shapedesc-box">
                           <img class="shapeicon" id="<?php echo $row['id'];?>_shapeicon" src="./images/<?php echo $pic_where; ?>" alt="<?php echo $shape_TXT; ?>"/>
