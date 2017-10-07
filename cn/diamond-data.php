@@ -310,7 +310,7 @@ foreach($stmt as $row){
                         <span class="valuetxt" id="<?php echo $row['id'];?>_symmetry"><?php echo $row['symmetry']; ?></span>
                         <span class="valuetxt" id="<?php echo $row['id'];?>_grading_lab"><?php echo $row['grading_lab']; ?></span>
                         <span class="valuetxt" id="<?php echo $row['id'];?>_price"><?php echo $singlePrice ?></span>
-                        <span class="detail-btn" onclick="showDetail('<?php echo $row['id']; ?>')">详情</span>
+                        <span class="detail-btn" >详情</span>
                     </div><!-- end generalinfobox -->
                     <div id="detail-<?php echo $row['id']; ?>" class="details">
                         <p class="details_txt">
