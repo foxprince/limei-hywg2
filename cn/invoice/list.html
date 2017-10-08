@@ -108,6 +108,7 @@
                 <header id="items" class="col-xs-12 clearfix header_items">
                     ITEMS
                 </header>
+                <div id="itemList"></div>
                 <!--价格-->
                 <div class="prices clearfix">
                     <!--内容-->
@@ -171,7 +172,6 @@
                query(1);
             });
             $(".printTranc").click(function(){
-            	var html = '';
             	$.ajax({
                     async:false,
                     url: '../action.php?action=trancDetail&id='+$(this).attr("trancId"),
@@ -225,7 +225,8 @@
            				        html+='<p>'+currencyHint+j.jewerly_price+'</p>';
            				    html+='</div></div>';
            				})
-           				$('#items').after(html);
+           				$('#itemList').html(html);
+           				html = "";
            				$('.page').hide();
             			//$('.lnvoice-row').show();
             				$("#fade").fadeToggle();

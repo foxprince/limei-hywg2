@@ -92,6 +92,9 @@
   position:fixed;
   left: 50%;
   top: 50%;
+  width : 80%;
+  height : 80%;
+  overflow:scroll;
   -ms-transform: translate(-50%,-50%);
   -moz-transform:translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
