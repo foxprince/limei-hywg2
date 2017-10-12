@@ -500,7 +500,7 @@ if($_REQUEST['action']) {
 				$transactionNo=$r_r['t']+1;
 			}
 			//$transactionStr=  date('Y').sprintf('%04s', $transactionNo);
-			echo $transactionStr;
+			echo $transactionNo;
 			break;
 		case "appointmentMake":
 			$diaId=$_REQUEST['diaId'];
