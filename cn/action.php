@@ -499,7 +499,7 @@ if($_REQUEST['action']) {
 			foreach($conn->query($sql_dia) as $r_r){
 				$transactionNo=$r_r['t']+1;
 			}
-			$transactionStr=  date('Y').sprintf('%04s', $transactionNo);
+			//$transactionStr=  date('Y').sprintf('%04s', $transactionNo);
 			echo $transactionStr;
 			break;
 		case "appointmentMake":
