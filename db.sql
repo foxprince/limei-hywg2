@@ -39,10 +39,11 @@ create table tranc_detail(
 );
 
 --库存表
+drop table inventory;
 create table inventory (
 	id bigint not null primary key auto_increment,
-	type varchar(6) null,/*类型分为戒托，项链，耳钉，成品*/
-	no varchar(30)	null,/*--编号*/
+	ivt_type varchar(6) null,/*类型分为戒托，项链，耳钉，成品*/
+	ivt_no varchar(30)	null,/*--编号*/
 	title varchar(50) null,/*--名称*/
 	logo  varchar(100) null,/*--款式图*/
 	price03 float null,

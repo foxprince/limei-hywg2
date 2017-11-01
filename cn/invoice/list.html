@@ -21,9 +21,10 @@
     <script src="dist/js/jquery-2.1.3.min.js"></script>
     <script src="dist/js/pageInit.js"></script>
     <script type="text/javascript" src="../js/jquery.fancybox.min.js"></script>
-    
     <script src="dist/js/flexible.js"></script>
-    
+    <style>
+    th {text-align: center;}
+    </style>
 </head>
 
 <body>
@@ -36,8 +37,12 @@
             <form action="" class="c_form">
                 <p class="item">
                     <label for="" class="field">类型</label>
-                    <select id="type" name="type" class="i_text">
+                    <select id="type" name="type" class="i_text" style="width:3.6rem;">
                     	<option value="">全部</option><option value="invoice">发票</option><option value="receipt">收据</option>
+                    </select>
+                    <label for="" class="field">货币</label>
+                    <select id="currency" name="currency" class="i_text" style="width:3.6rem;">
+                    	<option value="">全部</option><option value="EUR">EUR</option><option value="CNY">CNY</option><option value="USD">USD</option>
                     </select>
                 </p>
                 <p class="item">
@@ -277,6 +282,9 @@
             let url = query +'&page=' + page;
             if(''!==type){
                 url += '&type=' + type;
+            }
+            if(''!==$('#currency').val()){
+                url += '&currency=' + $('#currency').val();
             }
             if(''!==name){
                 url += '&name=' + name;

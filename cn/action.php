@@ -334,10 +334,12 @@ if($_REQUEST['action']) {
 			break;
 		case "trancList":
 			$totalSql = 'select count(*) as t from transaction';
-			$sql='select id,type,invoice_no,tranc_date,name,currency,vat_price,total_price from transaction ';
+			$sql='select id,type,invoice_no,tranc_date,name,currency,vat_price,(total_price-vat_price) as total_price from transaction ';
 			$clause = ' where 1=1 ';
 			if($_REQUEST['type']!=null)
 				$clause .= ' and type ="'.$_REQUEST['type'].'"';
+			if($_REQUEST['currency']!=null)
+				$clause .= ' and currency ="'.$_REQUEST['currency'].'"';
 			if($_REQUEST['name']!=null)
 				$clause .= ' and name like "%'.$_REQUEST['name'].'%"';
 			if($_REQUEST['invoice_no']!=null)
