@@ -120,11 +120,11 @@
                     <div class="col-xs-3 clearfix"></div>
                     <div class="col-xs-6 clearfix"></div>
                     <div class="col-xs-1 clearfix">
-                        <p class="print_none print_none">21%VAT:</p>
+                        <p class="vat_price">21%VAT:</p>
                         <p class="">Total:</p>
                     </div>
                     <div class="col-xs-2  clearfix">
-                        <p id="vat_price" class="vat_price print_none">€0</p>
+                        <p id="vat_price" class="vat_price">€0</p>
                         <p id="print_price"class="total_price">€0</p>
                     </div>
                 </div>
@@ -198,9 +198,11 @@
            				$('#to_address').html(address)
            				$('#print_price').html(currencyHint+json.trancDetail.total_price);
            				if(json.trancDetail.type=='receipt')
-           					$('.print_none').hide();
-           				else
-           					$('#vat_price').html(currencyHint+json.trancDetail.vat_price);
+           					$('.vat_price').hide();
+           				else {
+           					$('.vat_price').show();$('#vat_price').html(currencyHint+json.trancDetail.vat_price);
+           				}
+           					
            				$.each(json.list, function (n, j) {
            					html += '<div class="del_items items clearfix">'+
            				    '<div class="col-xs-3 clearfix">';

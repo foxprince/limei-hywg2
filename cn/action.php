@@ -334,7 +334,7 @@ if($_REQUEST['action']) {
 			break;
 		case "trancList":
 			$totalSql = 'select count(*) as t from transaction';
-			$sql='select id,type,invoice_no,tranc_date,name,currency,vat_price,(total_price-vat_price) as total_price from transaction ';
+			$sql='select id,type,invoice_no,tranc_date,name,currency,vat_price,total_price as total_price from transaction ';
 			$clause = ' where 1=1 ';
 			if($_REQUEST['type']!=null)
 				$clause .= ' and type ="'.$_REQUEST['type'].'"';
@@ -412,7 +412,7 @@ if($_REQUEST['action']) {
 			echo $obj['id'];
 			break;
 		case "addTranc":
-			$obj=json_decode($_REQUEST['transaction'],TRUE);logger($_REQUEST['transaction']);
+			$obj=json_decode($_REQUEST['transaction'],TRUE);
 			$sql = 'insert into transaction(name,passport,street,city,postcode,country,type,tranc_date,invoice_no,currency,vat_price,total_price,ctime) 
 					values(:name,:passport,:street,:city,:postcode,:country,:type,:tranc_date,:invoice_no,:currency,:vat_price,:total_price,now())';
 			$stmt=$conn->prepare($sql);
