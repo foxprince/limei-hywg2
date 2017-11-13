@@ -6,6 +6,8 @@
     <title>order</title>
     <link rel="stylesheet" href="css/index.css">
     <script src="js/vendor/jquery-1.9.1.min.js"></script>
+
+
 </head>
 <body>
 
@@ -21,13 +23,13 @@
             </div>
             <div class="add-order">
                 <a href="#">
-                    <img src="img/add.png">
+                    <input type="file">
                     <span>添加戒托图片</span>
                 </a>
             </div>
             <div class="add-order">
                 <a href="#">
-                    <img src="img/add.png">
+                    <input type="file">
                     <span>添加戒托图片</span>
                 </a>
             </div>
@@ -108,13 +110,13 @@
         <div class="add-cont">
             <p class="add-name">下单日期</p>
             <p class="add-input">
-                <input type="text" placeholder="name">
+                <input type="date" placeholder="name">
             </p>
         </div>
         <div class="add-cont">
             <p class="add-name">出货日期</p>
             <p class="add-input">
-                <input type="text" placeholder="name">
+                <input type="date" placeholder="name">
             </p>
         </div>
         <div class="add-cont">
@@ -164,9 +166,16 @@
         </ul>
     </div>
 
-
-
 </div>
 
+<div class="all">
+    <div class="update">
+        <img src="img/img.png">
+        <input type="file" id="fil">
+        <a href="javascript:void(0)" id="ok">确定</a>
+
+    </div>
+</div>
+<script src="js/index.js"></script>
 </body>
 </html>

@@ -1,836 +1,337 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <title>order</title>
-    <link rel="stylesheet" href="css/index.css">
-    <script src="js/vendor/jquery-1.9.1.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<title>order</title>
+<link rel="stylesheet" href="css/index.css">
+<script src="js/vendor/jquery-1.9.1.min.js"></script>
 </head>
 <body>
+	<div class="container">
+		<div class="logo">
+			<img src="img/logo.png">
+			<p>库存管理</p>
+		</div>
+		<div class="stock">
+			<p class="stock-l">类别：</p>
+			<p class="stock-r">
+				<select>
+					<option>全部</option>
+					<option>戒托</option>
+					<option>项链</option>
+					<option>耳钉</option>
+					<option>成品</option>
+				</select>
+			</p>
+		</div>
+		<div class="list-main">
+			<div class="mana-t">
+				<ul>
+					<li class="w1">编号/名称/类型</li>
+					<li class="w12">款式图</li>
+					<li class="w3">价格</li>
+					<li class="w05">主钻规格</li>
+					<li class="w1">库存</li>
+					<li class="w1">公司订单</li>
+					<li class="w1">出货日期</li>
+					<li class="w1">成本</li>
+					<li class="w1">备注</li>
+				</ul>
+			</div>
+			<div class="mana-c">
+				<ul>
+					<li class="w1"><input class="mn-1" type="text" name="ivt_no" value=""> <textarea name="title"class="mn-2">XXXXXXXXXXXX</textarea>
+						<select name="ivt_type" class="mn-1">
+							<option value="ring">戒托</option>
+							<option value="necklace">项链</option>
+							<option value="earring">耳钉</option>
+							<option value="endProduct">成品</option>
+						</select>
+						<div class="dele addIvtBtn" id="">保存</div>
+						<div class="dele dele2 delIvtBtn" id="">删除</div>
+					</li>
+					<li class="mn-add">
+					<img class="showImg" style="display: none" alt="" src=""/>  
+					<input class="ivtPic" id="file" name="file" type="file" > <span>添加图片</span>
+					</li>
+					<li class="w33">
+						<div class="jg">
+							<p class="jg-1">0.3ct-0.89ct</p>
+							<p class="jg-2">
+								<input type="text" name="price03" value="99999">
+							</p>
+							<p class="jg-3">€</p>
+						</div>
+						<div class="jg">
+							<p class="jg-1">0.9ct-1.99ct</p>
+							<p class="jg-2">
+								<input type="text" name="price09"value="99999">
+							</p>
+							<p class="jg-3">€</p>
+						</div>
+						<div class="jg">
+							<p class="jg-1">2ct-2.99ct</p>
+							<p class="jg-2">
+								<input type="text" name="price2"value="99999">
+							</p>
+							<p class="jg-3">€</p>
+						</div>
+						<div class="jg">
+							<p class="jg-1">>3ct</p>
+							<p class="jg-2">
+								<input type="text" name="price3"value="99999">
+							</p>
+							<p class="jg-3">€</p>
+						</div>
+					</li>
+					<div class="ivtSpec">
+					<li class="gg">
+						<p>0.4CT</p><input type="hidden" name="item" value="0.4CT"/>
+						<p>0.6CT</p><input type="hidden" name="item" value="0.6CT"/>
+						<p>0.8CT</p><input type="hidden" name="item" value="0.8CT"/>
+						<p>1.1CT</p><input type="hidden" name="item" value="1.1CT"/>
+						<p>1.5CT</p><input type="hidden" name="item" value="1.5CT"/>
+						<p>2CT</p><input type="hidden" name="item" value="2CT"/>
+						<p>3CT</p><input type="hidden" name="item" value="3CT"/>
+						<p>4CT</p><input type="hidden" name="item" value="4CT"/>
+					</li>
+					<li class="w-line">
+						<div class="kc">
+							<div class="kc-m">
+								<p class="kc-l">+</p>
+								<input type="text" name="stock" value="0"/>
+								<p class="kc-r">-</p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p class="kc-l">+</p>
+								<input type="text" name="stock" value="0"/>
+								<p class="kc-r">-</p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p class="kc-l">+</p>
+								<input type="text" name="stock" value="0"/>
+								<p class="kc-r">-</p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p class="kc-l">+</p>
+								<input type="text" name="stock" value="0"/>
+								<p class="kc-r">-</p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p class="kc-l">+</p>
+								<input type="text" name="stock" value="0"/>
+								<p class="kc-r">-</p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p class="kc-l">+</p>
+								<input type="text" name="stock" value="0"/>
+								<p class="kc-r">-</p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p class="kc-l">+</p>
+								<input type="text" name="stock" value="0"/>
+								<p class="kc-r">-</p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p class="kc-l">+</p>
+								<input type="text" name="stock" value="0"/>
+								<p class="kc-r">-</p>
+							</div>
+						</div>
+					</li>
+					<li class="w-line">
+						<div class="kc">
+							<div class="kc-m">
+								<p class="kc-l">+</p>
+								<input type="text" name="amount" value="0"/>
+								<p class="kc-r">-</p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p class="kc-l">+</p>
+								<input type="text" name="amount" value="0"/>
+								<p class="kc-r">-</p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p class="kc-l">+</p>
+								<input type="text" name="amount" value="0"/>
+								<p class="kc-r">-</p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p class="kc-l">+</p>
+								<input type="text" name="amount" value="0"/>
+								<p class="kc-r">-</p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p class="kc-l">+</p>
+								<input type="text" name="amount" value="0"/>
+								<p class="kc-r">-</p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p class="kc-l">+</p>
+								<input type="text" name="amount" value="0"/>
+								<p class="kc-r">-</p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p class="kc-l">+</p>
+								<input type="text" name="amount" value="0"/>
+								<p class="kc-r">-</p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p class="kc-l">+</p>
+								<input type="text" name="amount" value="0"/>
+								<p class="kc-r">-</p>
+							</div>
+						</div>
 
+					</li>
+					<li class="w-line">
+						<div class="kc">
+							<div class="kc-m">
+								<p> <input type="date" name="sale_time" > </p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p> <input type="date" name="sale_time" > </p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p> <input type="date" name="sale_time" > </p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p> <input type="date" name="sale_time" > </p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p> <input type="date" name="sale_time" > </p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p> <input type="date" name="sale_time" > </p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p> <input type="date" name="sale_time" > </p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p> <input type="date" name="sale_time" > </p>
+							</div>
+						</div>
+					</li>
+					<li class="w-line">
+						<div class="kc">
+							<div class="kc-m">
+								<p> <input name="cost" type="text"> </p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p> <input name="cost" type="text"> </p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p> <input name="cost" type="text"> </p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p> <input name="cost" type="text"> </p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p> <input name="cost" type="text"> </p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p> <input name="cost" type="text"> </p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p> <input name="cost" type="text"> </p>
+							</div>
+						</div>
+						<div class="kc">
+							<div class="kc-m">
+								<p> <input name="cost" type="text"> </p>
+							</div>
+						</div>
+					</li>
+					<li class="gt">
+						<p>€</p>
+						<p>€</p>
+						<p>€</p>
+						<p>€</p>
+						<p>€</p>
+						<p>€</p>
+						<p>€</p>
+						<p>€</p>
+					</li>
+					</div>
+					<li class="bz"><textarea name="note"></textarea></li>
+				</ul>
+			</div>
+		</div>
+		<div class="line2"></div>
 
-<div class="container">
+		<div class="page">
+			<div class="page-l">
+				<div class="save2">
+					<ul>
+						<li id="add">添加</li>
+						<li>生成公司订单</li>
+					</ul>
+				</div>
+			</div>
+			<div class="page-r">
+				<span>共87条记录，第1/9页</span> <a href="#">首页</a> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a
+					href="#">5</a> <span>第</span> <input type="text" value="10"> <span>页</span>
+			</div>
 
-    <div class="logo"><img src="img/logo.png"><p>库存管理</p></div>
+		</div>
+	</div>
 
-    <div class="stock">
-        <p class="stock-l">类别：</p>
-        <p class="stock-r">
-            <select>
-                <option>111</option>
-                <option>222</option>
-                <option>333</option>
-                <option>444</option>
-                <option>555</option>
-            </select>
-        </p>
-    </div>
-
-    <div class="mana-t">
-        <ul>
-            <li class="w1">编号/名称/类型</li>
-            <li class="w12">款式图</li>
-            <li class="w3">价格</li>
-            <li class="w05">主钻规格</li>
-            <li class="w1">库存</li>
-            <li class="w1">公司订单</li>
-            <li class="w1">出货日期</li>
-            <li class="w1">成本</li>
-            <li class="w1">备注</li>
-        </ul>
-    </div>
-
-    <div class="mana-c">
-        <ul>
-            <li class="w1">
-
-                <input class="mn-1" type="text" placeholder="0001">
-                <textarea class="mn-2" placeholder="XXXXXXXXXXXX"></textarea>
-                <select class="mn-1">
-                    <option>11111111111111</option>
-                    <option>11111111111111</option>
-                    <option>11111111111111</option>
-                    <option>11111111111111</option>
-                    <option>11111111111111</option>
-                </select>
-
-                <div class="dele">
-              删除
-                </div>
-
-            </li>
-            <li class="mn-add">
-                <a href="#">
-                    <img src="img/add.png">
-                    <span>添加图片</span>
-                </a>
-            </li>
-
-
-<li class="w33">
-<div class="jg">
-    <p class="jg-1">0.3ct-0.89ct</p>
-    <p class="jg-2"><input placeholder="11" type="text"></p>
-    <p class="jg-3">€</p>
-</div>
-    <div class="jg">
-        <p class="jg-1">0.3ct-0.89ct</p>
-        <p class="jg-2"><input placeholder="11" type="text"></p>
-        <p class="jg-3">€</p>
-    </div>
-    <div class="jg">
-        <p class="jg-1">0.3ct-0.89ct</p>
-        <p class="jg-2"><input placeholder="11" type="text"></p>
-        <p class="jg-3">€</p>
-    </div>
-    <div class="jg">
-        <p class="jg-1">0.3ct-0.89ct</p>
-        <p class="jg-2"><input placeholder="11" type="text"></p>
-        <p class="jg-3">€</p>
-    </div>
-    <div class="jg">
-        <p class="jg-1">0.3ct-0.89ct</p>
-        <p class="jg-2"><input placeholder="11" type="text"></p>
-        <p class="jg-3">€</p>
-    </div>
-
-</li>
-
-
-            <li class="gg">
-                <p>0.4CT</p>
-                <p>0.4CT</p>
-                <p>0.4CT</p>
-                <p>0.4CT</p>
-                <p>0.4CT</p>
-                <p>0.4CT</p>
-                <p>0.4CT</p>
-                <p>0.4CT</p>
-                <p>0.4CT</p>
-                <p>0.4CT</p>
-                <p>0.4CT</p>
-                <p>0.4CT</p>
-            </li>
-            <li class="w-line">
-                <div class="kc">
-                <div class="kc-m">
-                    <p class="kc-l">+</p>
-                    <p>999</p>
-                    <p class="kc-r">-</p>
-                </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-
-            </li>
-            <li class="w-line">
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p class="kc-l">+</p>
-                        <p>999</p>
-                        <p class="kc-r">-</p>
-                    </div>
-                </div>
-            </li>
-            <li class="w-line">
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-            </li>
-            <li class="w-line">
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-                <div class="kc">
-                    <div class="kc-m">
-                        <p>999</p>
-                    </div>
-                </div>
-            </li>
-            <li class="gt">
-                <p>€</p>
-                <p>€</p>
-                <p>€</p>
-                <p>€</p>
-                <p>€</p>
-                <p>€</p>
-                <p>€</p>
-                <p>€</p>
-                <p>€</p>
-                <p>€</p>
-                <p>€</p>
-                <p>€</p>
-            </li>
-            <li class="bz">
-
-            </li>
-        </ul>
-    </div>
-
-
-
-<div class="black-line"></div>
-
-    <div class="mana-c">
-    <ul>
-    <li class="w1">
-
-        <input class="mn-1" type="text" placeholder="0001">
-        <textarea class="mn-2" placeholder="XXXXXXXXXXXX"></textarea>
-        <select class="mn-1">
-            <option>11111111111111</option>
-            <option>11111111111111</option>
-            <option>11111111111111</option>
-            <option>11111111111111</option>
-            <option>11111111111111</option>
-        </select>
-
-        <div class="dele">
-            删除
-        </div>
-
-    </li>
-    <li class="mn-add">
-        <a href="#">
-            <img src="img/add.png">
-            <span>添加图片</span>
-        </a>
-    </li>
-
-
-    <li class="w33">
-        <div class="jg">
-            <p class="jg-1">0.3ct-0.89ct</p>
-            <p class="jg-2"><input placeholder="11" type="text"></p>
-            <p class="jg-3">€</p>
-        </div>
-        <div class="jg">
-            <p class="jg-1">0.3ct-0.89ct</p>
-            <p class="jg-2"><input placeholder="11" type="text"></p>
-            <p class="jg-3">€</p>
-        </div>
-        <div class="jg">
-            <p class="jg-1">0.3ct-0.89ct</p>
-            <p class="jg-2"><input placeholder="11" type="text"></p>
-            <p class="jg-3">€</p>
-        </div>
-        <div class="jg">
-            <p class="jg-1">0.3ct-0.89ct</p>
-            <p class="jg-2"><input placeholder="11" type="text"></p>
-            <p class="jg-3">€</p>
-        </div>
-        <div class="jg">
-            <p class="jg-1">0.3ct-0.89ct</p>
-            <p class="jg-2"><input placeholder="11" type="text"></p>
-            <p class="jg-3">€</p>
-        </div>
-
-    </li>
-
-
-    <li class="gg">
-        <p>0.4CT</p>
-        <p>0.4CT</p>
-        <p>0.4CT</p>
-        <p>0.4CT</p>
-        <p>0.4CT</p>
-        <p>0.4CT</p>
-        <p>0.4CT</p>
-        <p>0.4CT</p>
-        <p>0.4CT</p>
-        <p>0.4CT</p>
-        <p>0.4CT</p>
-        <p>0.4CT</p>
-    </li>
-    <li class="w-line">
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-
-    </li>
-    <li class="w-line">
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p class="kc-l">+</p>
-                <p>999</p>
-                <p class="kc-r">-</p>
-            </div>
-        </div>
-    </li>
-    <li class="w-line">
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-    </li>
-    <li class="w-line">
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-        <div class="kc">
-            <div class="kc-m">
-                <p>999</p>
-            </div>
-        </div>
-    </li>
-    <li class="gt">
-        <p>€</p>
-        <p>€</p>
-        <p>€</p>
-        <p>€</p>
-        <p>€</p>
-        <p>€</p>
-        <p>€</p>
-        <p>€</p>
-        <p>€</p>
-        <p>€</p>
-        <p>€</p>
-        <p>€</p>
-    </li>
-    <li class="bz">
-
-    </li>
-    </ul>
-    </div>
-    <div class="line2"></div>
-    <div class="save">
-        <ul>
-            <li>添加</li>
-            <li>生成公司订单</li>
-        </ul>
-    </div>
-
-
-
-</div>
+	<script src="js/index.js"></script>
 
 </body>
 </html>

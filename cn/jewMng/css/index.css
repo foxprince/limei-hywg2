@@ -234,6 +234,30 @@ li {
     color: #ffffff;
 }
 
+.save2{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.save2 li{
+    width: 20%;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    float: left;
+    border: #424040 solid 1px;
+    margin-right: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    cursor: pointer;
+}
+.save2 li:hover{
+    background: #424040;
+    color: #ffffff;
+}
+
 .dele{
     width: 99%;
     height: 35px;
@@ -246,11 +270,14 @@ li {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     cursor: pointer;
-    margin-top: 125px;
+    margin-top: 50px;
 }
 .dele:hover{
     background: #424040;
     color: #ffffff;
+}
+.dele2{
+    margin-top: 10px;
 }
 
 /*客户订单*/
@@ -285,6 +312,7 @@ li {
     vertical-align: middle;
     width: 130px;
     height: 130px;
+    cursor: pointer;
 
 }
 
@@ -311,8 +339,8 @@ li {
     text-decoration: none;
 
 }
-.add-order img{
-    width: 34px;
+.add-order input{
+    width: 100px;
     height: 34px;
     display: block;
     margin: 0 auto;
@@ -481,6 +509,7 @@ li {
     margin-top: 5px;
 
 }
+
 .mn-add>a{
     height: 60px;
     display: inline-block;
@@ -490,8 +519,8 @@ li {
     text-decoration: none;
 
 }
-.mn-add img{
-    width: 34px;
+.mn-add input{
+    width: 100px;
     height: 34px;
     display: block;
     margin: 0 auto;
@@ -549,6 +578,7 @@ li {
     height: 37px;
     line-height: 37px;
     margin-top: 5px;
+
 }
 .jg-1{
     float: left;
@@ -556,6 +586,7 @@ li {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    text-align: left;
 }
 .jg-2{
     float: left;
@@ -601,6 +632,15 @@ li {
     color: #b6b6b6;
     margin-top: 5px;
     margin-left: 5%;
+
+}
+.kc-m input{
+    width: 100%;
+    height: 35px;
+    background: #f9f9f9;
+    outline: none;
+    border: none;
+    text-align: center;
 }
 .kc-l{
     width: 10px;
@@ -639,18 +679,126 @@ li {
 
 .bz{
     width: 8%;
-    height: 500px;
+    height: 330px;
     background: #f9f9f9;
     float: left;
     margin-left: 1%;
     border: #dddddd solid 1px;
     margin-top: 5px;
+    overflow: hidden;
+}
+.bz textarea{
+    width: 100%;
+    height: 100%;
+    background: #f9f9f9;
+    outline: none;
+    border: none;
+
 }
 .bz-l{float: left}
 
 .black-line{
     height: 1px;
     border-bottom: #000000 dashed 1px;
+}
+.page{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.page-l{
+    float: left;
+    width: 50%;
+}
+.page-r{
+    width: auto;
+    height: 50px;
+    overflow: hidden;
+    float: right;
+    text-align: right;
+    padding-bottom: 20px;
+
+}
+.page-r span{
+    padding: 5px 10px;
+
+    margin-top: 20px;
+    display: block;
+    float: left;
+    margin-left: 5px;
+
+}
+.page-r a{
+    padding: 5px 10px;
+    border: #dddddd solid 1px;
+    margin-top: 20px;
+    display: block;
+    float: left;
+    margin-left: 5px;
+    color: #333333;
+    text-decoration: none;
+
+}
+.page-r a:hover{
+    background: #424040;
+    color: #ffffff;
+}
+.page-r input{
+    float: left;
+    width: 30px;
+    height: 28px;
+    margin-top: 20px;
+
+    border: #dddddd solid 1px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.all{
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    display: none;
+}
+
+.update{
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: #ffffff;
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -200px;
+    text-align: center;
+
+}
+.update img{
+    width: 250px;
+    height: 250px;
+    border: #dddddd solid 1px;
+    margin-top: 20px;
+}
+.update input{
+    margin-top: 5px;
+}
+
+.update a{
+    width: 160px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: #333333 solid 1px;
+    margin: 0 auto;
+    margin-top: 40px;
+    display: block;
+    text-decoration: none;
+    color: #333333;
+
 }
 
 @media screen and (max-width: 1024px) {

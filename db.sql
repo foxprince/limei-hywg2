@@ -42,7 +42,7 @@ create table tranc_detail(
 drop table inventory;
 create table inventory (
 	id bigint not null primary key auto_increment,
-	ivt_type varchar(6) null,/*类型分为戒托，项链，耳钉，成品*/
+	ivt_type varchar(10) null,/*类型分为戒托，项链，耳钉，成品*/
 	ivt_no varchar(30)	null,/*--编号*/
 	title varchar(50) null,/*--名称*/
 	logo  varchar(100) null,/*--款式图*/
@@ -60,8 +60,8 @@ create table inventory_spec (
 	item varchar(20) null,/*主钻规格*/
 	stock int(6) null,/*库存*/
 	amount int(6) null,/*--订单数*/
-	sale_time datetime  null,/*--出货日期*/
-	cost float null,/*--成本*/
+	sale_time varchar(20)  null,/*--出货日期*/
+	cost varchar(10) null,/*--成本*/
 	ctime datetime not null
 );
 --客户订单

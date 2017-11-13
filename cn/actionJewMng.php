@@ -22,7 +22,7 @@ if($_REQUEST['action']) {
 				$clause .= ' and id in (select distinct inventory_id from inventory_spec)';
 			if($_REQUEST['ivt_type']!=null)
 				$clause .= ' and ivt_type ="'.$_REQUEST['ivt_type'].'"';
-			$pagesize = 10;
+			$total =0;$pagesize = 10;
 			if(isset($_REQUEST['size'])&&$_REQUEST['size']!=null){ $pagesize=$_REQUEST['size'];
 			}
 			if(isset($_REQUEST['page'])&&$_REQUEST['page']!=null){ $crr_page=$_REQUEST['page'];
@@ -41,13 +41,13 @@ if($_REQUEST['action']) {
 					foreach($conn->query($specSql) as $rowSpec){
 						$specList = array();
 						$specList[]=$rowSpec;
-						$inventoryList["spec_list"]=$specList;
+						$inventoryList[]["spec_list"]=$specList;
 					}
 					$i++;
 				}
 			}
 			$tpages = ceil ( $total / $pagesize );
-			$result = array('total'=>$total,'page'=>$crr_page,'total_pages'=>$tpages,'list'=>$inventoryList);
+			$result = array('total'=>$total,'page'=>$crr_page,'total_pages'=>$tpages,'l'=>$inventoryList);
 			echo json_encode($result);
 			break;
 		case "addIvt" :
@@ -59,6 +59,7 @@ if($_REQUEST['action']) {
 					$obj['ivt_no'], $obj['title'],$obj['logo'],
 					$obj['price03'], $obj['price09'],$obj['price2'],
 					$obj['price3'], $obj['note']));
+			//var_dump( $stmt->queryString, $stmt->_debugQuery() );
 			$inventoryId = $conn->lastInsertId();
 			//--得到Json_list数组长度
 			$num=count($obj["list"]);
@@ -75,7 +76,7 @@ if($_REQUEST['action']) {
 			}}
 			echo $inventoryId;
 			break;
-		case "updateTranc":
+		case "updateIvt":
 			$obj=json_decode($_REQUEST['inventory'],TRUE);
 			$sql = 'update inventory set ivt_type=?,ivt_no=?,title=?,logo=?,price03=?,price09=?,price2=?,price3=?,note=? where id=?';
 			$stmt=$conn->prepare($sql);
@@ -93,7 +94,7 @@ if($_REQUEST['action']) {
 				$insert_sql="INSERT INTO inventory_spec (inventory_id,item,stock,amount,sale_time,cost,ctime)
 						VALUES (?,?,?,?,?,?,now())";
 				$result = $conn -> prepare($insert_sql);
-				$result -> execute(array( $inventoryId,$item["item"],$item["stock"], $item["amount"],
+				$result -> execute(array( $obj['id'],$item["item"],$item["stock"], $item["amount"],
 						$item["sale_time"],$item["cost"]
 				));
 			}
@@ -143,7 +144,7 @@ if($_REQUEST['action']) {
 			break;
 		case "upload":
 			require_once('./upload/Upload.php');
-			$destination='./siteImgs/';
+			$destination='siteImgs/';
 			try{
 				$upload = new img_Upload($destination);
 				$upload->move();
