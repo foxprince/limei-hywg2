@@ -80,9 +80,9 @@ create table customer_order (
 	detail varchar(20) null,/*(--成色)*/
 	inscription varchar(20) null,/*(--字印)*/
 	diamond_price float null,/*--钻石金额*/
-	order_time datetime not null,/*--下单日期*/
+	order_time varchar(20) not null,/*--下单日期*/
 	ring_price float null,/*--戒托金额*/
-	ready_time datetime not null,/*--出货日期*/
+	ready_time varchar(20) not null,/*--出货日期*/
 	fetch_place varchar(50) null,/*--取货地点*/
 	package varchar(30) null,/*--配包装*/
 	customer_name varchar(30) null,/*--客户姓名*/

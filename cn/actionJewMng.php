@@ -48,7 +48,11 @@ if($_REQUEST['action']) {
 			}
 			$tpages = ceil ( $total / $pagesize );
 			$result = array('total'=>$total,'page'=>$crr_page,'total_pages'=>$tpages,'l'=>$inventoryList);
-			echo json_encode($result);
+			$callback = $_GET['callback'];
+			if($callback)
+				echo $callback.'('.json_encode($result).')';
+			else 
+				echo json_encode($result);
 			break;
 		case "addIvt" :
 			$obj=json_decode($_REQUEST['inventory'],TRUE);
