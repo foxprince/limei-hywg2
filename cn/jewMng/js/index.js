@@ -17,7 +17,7 @@ function delIvt(item){
 }
 //$(".addIvtBtn").on("click", function (e) {
 function addIvt(item){
-	var e = $(item).parents().find(".mana-c");
+	var e = $(item).parent().parent().parent();
 	var ivtId = $(this).attr("id");
 	var data = {
 			'id':ivtId,'ivt_type':$(e).find("[name='ivt_type']").val(),'ivt_no':$(e).find("[name='ivt_no']").val(),
