@@ -1,8 +1,4 @@
-pic();
-add();
-$(document).ready(function(){
-    list();
-});
+//pic();
 
 //$(".delIvtBtn").on("click", function (e) {
 function delIvt(item){
@@ -115,6 +111,37 @@ function count(item) {
 		c++;
 		$(item).next("input").val(c);
 	}
+}
+function listOrder(size,page) {
+	var url = '../actionJewMng.php?action=ivtList';
+	if(size)
+		url += '&size='+size;
+	if(page)
+		url += '&page='+page;
+	$.ajax({
+		url : url,dataType:'json',
+	    success : function(json) {
+	    	total = json.total;
+            total_pages = json.total_pages;
+            if(json.l)
+            $.each(json.l, function (n, v) {console.log(v);
+            	var t = '<div class="list">\
+                <ul>\
+                    <li class="w1" style="border: none; background: #ffffff;">\
+                        <p class="w1a">'+v.ivt_no+'</p>\
+                        <a class="w1b" href="#">删除</a>\
+                    </li>\
+                    <li class="w2"><img src="'+v.logo+'"></li>\
+                    <li class="w3"><span>0.4ct X 2<br>0.8ct X 1</span></li>\
+                    <li class="w4">'+v.ctime+'</li>\
+                    <li class="w4">'+v.sale_time+'</li>\
+                    <li class="w6">'+v.note+'</li>\
+                </ul>\
+                </div>';
+            	$('.itmes').append(t);
+            })
+        }
+	});
 }
 function list(ivt_type,order,size,page) {
 	var e = $(".mana-t");
@@ -415,7 +442,7 @@ function list(ivt_type,order,size,page) {
 /**
  * @returns
  */
-function add() {
+//function add() {
 	$("#add").on("click",function() {
 		var result = '<div class="mana-c"><div class="black-line"></div>\
 		<ul>\
@@ -689,5 +716,5 @@ function add() {
 		</ul>\
 	</div>';
 		$(".list-main").append(result);
-	})
-}
+	});
+//}
