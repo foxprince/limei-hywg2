@@ -417,7 +417,7 @@ function list(ivt_type,order,size,page) {
  */
 function add() {
 	$("#add").on("click",function() {
-		var result = '<div class="mana-c">\
+		var result = '<div class="mana-c"><div class="black-line"></div>\
 		<ul>\
 			<li class="w1"><input class="mn-1" type="text" name="ivt_no" value=""> <textarea name="title"class="mn-2">XXXXXXXXXXXX</textarea>\
 				<select name="ivt_type" class="mn-1">\
