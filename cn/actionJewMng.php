@@ -36,13 +36,13 @@ if($_REQUEST['action']) {
 			if($total>0) {
 				$inventoryList=array();$i=0;
 				foreach($conn->query($sql) as $row){
-					$inventoryList[]=$row;
+					$inventoryList[$i]=$row;
 					$specSql = 'select * from inventory_spec where inventory_id='.$row['id'];
+					$specList = array();
 					foreach($conn->query($specSql) as $rowSpec){
-						$specList = array();
 						$specList[]=$rowSpec;
-						$inventoryList[]["spec_list"]=$specList;
 					}
+					$inventoryList[$i]["spec_list"]=$specList;
 					$i++;
 				}
 			}
@@ -180,7 +180,7 @@ if($_REQUEST['action']) {
 				if($imageWidth>2000 || $imageHeight>2000){
 					echo "<p class='message'>ERROR_DIMENSION</p>";
 				}
-				else echo $image;
+				else echo '/cn/'.$image;
 				/*
 				$ratio=$imageWidth/$imageHeight;
 				if($imageWidth>1280 || $imageHeight>1280){
