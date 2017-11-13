@@ -65,10 +65,11 @@ create table inventory_spec (
 	ctime datetime not null
 );
 --客户订单
+drop table customer_order;
 create table customer_order (
 	id bigint not null primary key auto_increment,
 	cert_no varchar(20) null,/*--钻石证书号*/
-	amount int(4) null,/*--钻石数量*/
+	amount varchar(6) null,/*--钻石数量*/
 	main_stone varchar(20) null,/*--主石*/
 	side_stone varchar(20) null,/*--副石*/
 	diamond_pic varchar(50) null,
@@ -79,10 +80,10 @@ create table customer_order (
 	model varchar(50) null,/*--版况*/
 	detail varchar(20) null,/*(--成色)*/
 	inscription varchar(20) null,/*(--字印)*/
-	diamond_price float null,/*--钻石金额*/
-	order_time varchar(20) not null,/*--下单日期*/
-	ring_price float null,/*--戒托金额*/
-	ready_time varchar(20) not null,/*--出货日期*/
+	diamond_price varchar(10) null,/*--钻石金额*/
+	order_time varchar(20)  null,/*--下单日期*/
+	ring_price varchar(10) null,/*--戒托金额*/
+	ready_time varchar(20)  null,/*--出货日期*/
 	fetch_place varchar(50) null,/*--取货地点*/
 	package varchar(30) null,/*--配包装*/
 	customer_name varchar(30) null,/*--客户姓名*/

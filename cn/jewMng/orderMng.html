@@ -3,166 +3,162 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <title>order</title>
+    <title>客户订单</title>
     <link rel="stylesheet" href="css/index.css">
     <script src="js/vendor/jquery-1.9.1.min.js"></script>
-
-
 </head>
 <body>
-
-
 <div class="container">
-
-    <div class="logo"><img src="img/logo.png"><p>客户订单</p></div>
+    <div class="logo"><img src="img/logo.png"><p><a href="ivtMng.html">库存管理</a> | <a href="ivtOrder.html">公司订单</a> | <a href="orderMng.html">客户订单</a></p></div>
 
     <div class="order">
         <div class="order-pic">
             <div class="order-1">
-               <img src="img/img.png">
+               <img class="showImg" src="img/img.png">
+               <input type="hidden" name="ring_pic1">
             </div>
             <div class="add-order">
-                <a href="#">
-                    <input type="file">
-                    <span>添加戒托图片</span>
-                </a>
+            	<img class="showImg" style="display:none;" src="">
+            	<input type="file" onchange="addPic(this)">
+                <input type="hidden" name="ring_pic2">
+                <span>添加戒托图片</span>
             </div>
             <div class="add-order">
-                <a href="#">
-                    <input type="file">
-                    <span>添加戒托图片</span>
-                </a>
+                 <img class="showImg" style="display:none;" src="">
+            	<input type="file" onchange="addPic(this)">
+                <input type="hidden" name="ring_pic3">
+                <span>添加戒托图片</span>
             </div>
         </div>
         <div class="order-pic">
             <div class="order-1">
-                <img src="img/img2.png">
+                <img class="showImg" src="img/img2.png"><input type="hidden" name="diamond_pic">
             </div>
         </div>
         <div class="add-cont">
             <p class="add-name">钻石证书号</p>
             <p class="add-input">
-                <input type="text" placeholder="name">
+                <input type="text" name="cert_no" >
             </p>
         </div>
         <div class="add-cont">
             <p class="add-name">戒托号</p>
             <p class="add-input">
-                <input type="text" placeholder="name">
+                <input type="text" name="ring_no">
             </p>
         </div>
         <div class="add-cont">
             <p class="add-name">数量</p>
             <p class="add-input">
-                <input type="text" placeholder="name">
+                <input type="text" name="amount">
             </p>
         </div>
         <div class="add-cont">
             <p class="add-name">版况</p>
             <p class="add-input">
-                <input type="text" placeholder="name">
+                <input type="text" name="model">
             </p>
         </div>
         <div class="add-cont">
             <p class="add-name">主石</p>
             <p class="add-input">
-                <input type="text" placeholder="name">
+                <input type="text" name="main_stone">
             </p>
         </div>
         <div class="add-cont">
             <p class="add-name">成色</p>
             <p class="add-input">
-                <input type="text" placeholder="name">
+                <input type="text" name="detail">
             </p>
         </div>
         <div class="add-cont">
             <p class="add-name">副石</p>
             <p class="add-input">
-                <input type="text" placeholder="name">
+                <input type="text" name="side_stone">
             </p>
         </div>
         <div class="add-cont">
             <p class="add-name">字印</p>
             <p class="add-input">
-                <input type="text" placeholder="name">
+                <input type="text" name="inscription">
             </p>
         </div>
     </div>
-    <div class="save">
+    <!-- <div class="save">
         <ul>
             <li>打印</li>
         </ul>
-    </div>
+    </div> -->
     <div class="add-line"></div>
     <div class="order">
         <div class="add-cont">
             <p class="add-name">钻石金额</p>
             <p class="add-input">
-                <input type="text" placeholder="name">
+                <input type="text" name="diamond_price">
             </p>
         </div>
         <div class="add-cont">
             <p class="add-name">戒托金额</p>
             <p class="add-input">
-                <input type="text" placeholder="name">
+                <input type="text" name="ring_price">
             </p>
         </div>
         <div class="add-cont">
             <p class="add-name">下单日期</p>
             <p class="add-input">
-                <input type="date" placeholder="name">
+                <input type="date" name="order_time">
             </p>
         </div>
         <div class="add-cont">
             <p class="add-name">出货日期</p>
             <p class="add-input">
-                <input type="date" placeholder="name">
+                <input type="date" name="ready_time">
             </p>
         </div>
         <div class="add-cont">
             <p class="add-name">取货地点</p>
             <p class="add-input">
-                <input type="text" placeholder="name">
+                <input type="text" name="fetch_place">
             </p>
         </div>
         <div class="add-cont">
             <p class="add-name">配包装</p>
             <p class="add-input">
-                <input type="text" placeholder="name">
+                <input type="text" name="package">
             </p>
         </div>
         <div class="add-cont">
             <p class="add-name">客户姓名</p>
             <p class="add-input">
-                <input type="text" placeholder="name">
+                <input type="text" name="customer_name">
             </p>
         </div>
 
         <div class="add-cont">
             <p class="add-name">客户微信号</p>
             <p class="add-input">
-                <input type="text" placeholder="name">
+                <input type="text" name="wechat">
             </p>
         </div>
 
         <div class="add-tel">
             <p class="add-name">联系电话</p>
             <p class="add-input">
-                <input type="text" placeholder="name">
+                <input type="text" name="phone">
             </p>
         </div>
         <div class="add-address">
             <p class="add-name">联系地址</p>
             <p class="add-input">
-                <input type="text" placeholder="name">
+                <input type="text" name="address">
             </p>
         </div>
 
     </div>
     <div class="save">
         <ul>
-            <li>保存</li>
-            <li>打印</li>
+            <li class="addOrderBtn" onclick="addOrder(this);">保存</li>
+            <!-- <li>打印</li> -->
         </ul>
     </div>
 
@@ -177,5 +173,27 @@
     </div>
 </div>
 <script src="js/index.js"></script>
+<script>
+$(document).ready(function(){
+	var $img = $(".showImg");
+	var str;
+	var my;
+	$img.on("click", function() {
+		var $src = $(this).attr("src");
+		$(".update img").attr("src", $src);
+		$(".all").show();
+		console.log($src);
+	});
+	$('#fil').change(function() {
+		str = $(this).val();
+		var arr = str.split('\\');
+		my = arr[arr.length - 1];
+		$(".update img").attr("src", "img/" + my);
+	});
+	$("#ok").on("click", function() {
+		$(".all").hide();
+	})
+});
+</script>
 </body>
 </html>

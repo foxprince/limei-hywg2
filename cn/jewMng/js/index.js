@@ -1,4 +1,3 @@
-//pic();
 
 //$(".delIvtBtn").on("click", function (e) {
 function delIvt(item){
@@ -12,6 +11,31 @@ function delIvt(item){
 	});
 }
 //$(".addIvtBtn").on("click", function (e) {
+function addOrder(item) {
+	var e = $('.order');
+	var data = {
+			'cert_no':$(e).find("[name='cert_no']").val(),'amount':$(e).find("[name='amount']").val(),'main_stone':$(e).find("[name='main_stone']").val(),
+			'side_stone':$(e).find("[name='side_stone']").val(),'diamond_pic':$(e).find("[name='diamond_pic']").val(),
+			'ring_no':$(e).find("[name='ring_no']").val(),'ring_pic1':$(e).find("[name='ring_pic1']").val(),'ring_pic2':$(e).find("[name='ring_pic2']").val(),'ring_pic3':$(e).find("[name='ring_pic3']").val(),
+			'model':$(e).find("[name='model']").val(),'detail':$(e).find("[name='detail']").val(),
+			'inscription':$(e).find("[name='inscription']").val(),'diamond_price':$(e).find("[name='diamond_price']").val(),
+			'ring_price':$(e).find("[name='ring_price']").val(),'diamond_price':$(e).find("[name='diamond_price']").val(),
+			'order_time':$(e).find("[name='order_time']").val(),'ready_time':$(e).find("[name='ready_time']").val(),
+			'fetch_place':$(e).find("[name='fetch_place']").val(),'package':$(e).find("[name='package']").val(),
+			'customer_name':$(e).find("[name='customer_name']").val(),'wechat':$(e).find("[name='wechat']").val(),
+			'phone':$(e).find("[name='phone']").val(),'address':$(e).find("[name='address']").val()
+	};
+	var url = "../actionJewMng.php?action=addOrder";
+    $.post(url,{order:JSON.stringify(data)},function(data){
+        console.log(data);
+    	if(data >0){
+            alert('保存成功')
+            $('.addOrderBtn').text("修改");
+        }else{
+            alert('网络错误，请检查信息并重试')
+        }
+    })
+}
 function addIvt(item){
 	var e = $(item).parent().parent().parent();
 	var ivtId = $(item).attr("id");
@@ -75,25 +99,23 @@ function chgPic(item){
 	       }
 	});
 }
-function pic() {
-	var $img = $(".order-1 img");
-	var str;
-	var my;
-	$img.on("click", function() {
-		var $src = $(this).attr("src");
-		$(".update img").attr("src", $src);
-		$(".all").show();
-		console.log($src);
+function addPic(item){
+	var file = $(item)[0].files[0];
+    var formData = new FormData();
+	formData.append('file', file);
+	var element = item; 
+	$.ajax({
+	       url : '../actionJewMng.php?action=upload',
+	       type : 'POST',
+	       data : formData,
+	       processData: false,  // tell jQuery not to process the data
+	       contentType: false,  // tell jQuery not to set contentType
+	       success : function(data) {
+	           $(element).parent().children(".showImg").show();   //待上传成功后 显示  
+	           $(element).parent().children("img").attr("src",data);  
+	           $(element).next('input[type=hidden]').val(data);
+	       }
 	});
-	$('#fil').change(function() {
-		str = $(this).val();
-		var arr = str.split('\\');
-		my = arr[arr.length - 1];
-		$(".update img").attr("src", "img/" + my);
-	});
-	$("#ok").on("click", function() {
-		$(".all").hide();
-	})
 }
 function count(item) {
 	var jj = $(".kc-r");
@@ -135,7 +157,7 @@ function listOrder(size,page) {
                     <li class="w3"><span>';
                 var sale_time;
             	for(var i=0;i<v.spec_list.length;i++){
-                	if(v.spec_list[i].amount>"0"){sale_time=v.spec_list[i].sale_time;
+                	if(v.spec_list[i].amount>"0"){if(v.spec_list[i].sale_time) sale_time=v.spec_list[i].sale_time;
                 		t+= v.spec_list[i].item+' X '+v.spec_list[i].amount+'<br>';}
                 }
                 t +='</span></li>\

@@ -116,12 +116,12 @@ if($_REQUEST['action']) {
 			$sql = 'insert into customer_order(cert_no,amount,main_stone,side_stone,diamond_pic,
 					ring_no,ring_pic1,ring_pic2,ring_pic3,model,detail,inscription,diamond_price,
 					order_time,ring_price,ready_time,fetch_place,package,customer_name,wechat,phone,address,ctime)
-					values(?,?,?,?,?,?,?,?,?,now())';
+					values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())';
 			$stmt=$conn->prepare($sql);
 			$stmt->execute(array($obj['cert_no'],$obj['amount'],$obj['main_stone'],$obj['side_stone'],$obj['diamond_pic'],
 					$obj[' ring_no'],$obj['ring_pic1'],$obj['ring_pic2'],$obj['ring_pic3'],$obj['model'],$obj['detail'],
 					$obj['inscription'],$obj['diamond_price'],$obj[' order_time'],$obj['ring_price'],$obj['ready_time'],
-					$obj['fetch_place'],$obj['package'],$obj['customer_name'],$obj['wechat'],$obj['phone'],$obj['address'],now()));
+					$obj['fetch_place'],$obj['package'],$obj['customer_name'],$obj['wechat'],$obj['phone'],$obj['address']));
 			$orderId = $conn->lastInsertId();
 			echo $orderId;
 			break;
