@@ -14,7 +14,7 @@ function delIvt(item){
 //$(".addIvtBtn").on("click", function (e) {
 function addIvt(item){
 	var e = $(item).parent().parent().parent();
-	var ivtId = $(this).attr("id");
+	var ivtId = $(item).attr("id");
 	var data = {
 			'id':ivtId,'ivt_type':$(e).find("[name='ivt_type']").val(),'ivt_no':$(e).find("[name='ivt_no']").val(),
 			'title':$(e).find("[name='title']").val(),'logo':$(e).find(".showImg").attr("src"),
@@ -124,7 +124,7 @@ function listOrder(size,page) {
 	    	total = json.total;
             total_pages = json.total_pages;
             if(json.l)
-            $.each(json.l, function (n, v) {console.log(v);
+            $.each(json.l, function (n, v) {
             	var t = '<div class="list">\
                 <ul>\
                     <li class="w1" style="border: none; background: #ffffff;">\
@@ -132,9 +132,15 @@ function listOrder(size,page) {
                         <a class="w1b" href="#">删除</a>\
                     </li>\
                     <li class="w2"><img src="'+v.logo+'"></li>\
-                    <li class="w3"><span>0.4ct X 2<br>0.8ct X 1</span></li>\
+                    <li class="w3"><span>';
+                var sale_time;
+            	for(var i=0;i<v.spec_list.length;i++){
+                	if(v.spec_list[i].amount>"0"){sale_time=v.spec_list[i].sale_time;
+                		t+= v.spec_list[i].item+' X '+v.spec_list[i].amount+'<br>';}
+                }
+                t +='</span></li>\
                     <li class="w4">'+v.ctime+'</li>\
-                    <li class="w4">'+v.sale_time+'</li>\
+                    <li class="w4">'+sale_time+'</li>\
                     <li class="w6">'+v.note+'</li>\
                 </ul>\
                 </div>';
