@@ -142,6 +142,12 @@ if($_REQUEST['action']) {
 			foreach($conn->query($totalSql) as $row){
 				$total=$row['t'];
 			}
+			if($total>0) {
+				$inventoryList=array();
+				foreach($conn->query($sql) as $row){
+					$inventoryList[]=$row;
+				}
+			}
 			$tpages = ceil ( $total / $pagesize );
 			$result = array('total'=>$total,'page'=>$crr_page,'total_pages'=>$tpages,'list'=>$inventoryList);
 			echo json_encode($result);

@@ -134,6 +134,37 @@ function count(item) {
 		$(item).next("input").val(c);
 	}
 }
+function listCustomerOrder(size,page) {
+	var url = '../actionJewMng.php?action=orderList';
+	if(size)
+		url += '&size='+size;
+	if(page)
+		url += '&page='+page;
+	$.ajax({
+		url : url,dataType:'json',
+	    success : function(json) {
+	    	total = json.total;
+            total_pages = json.total_pages;
+            if(json.list)
+            	$.each(json.list, function (n, v) {
+            		var t = '<div class="list">\
+		                    <ul>\
+		                        <li class="w1">'+v.id+'</li>\
+		                        <li class="w1">'+v.customer_name+'</li>\
+		                        <li class="w2">'+v.wechat+'</li>\
+		                        <li class="w1">'+v.wechat+'</li>\
+		                        <li class="w1">'+v.cert_no+'</li>\
+		                        <li class="w1">'+v.amount+'</li>\
+		                        <li class="w1">'+v.main_stone+'</li>\
+		                        <li class="w1">'+v.diamond_price+'</li>\
+		                        <li class="w1">'+v.ready_time+'</li>\
+		                    </ul>\
+		                </div>';
+            		$('.itmes').append(t);
+            	});
+        }
+	});
+}
 function listOrder(size,page) {
 	var url = '../actionJewMng.php?action=ivtList';
 	if(size)
