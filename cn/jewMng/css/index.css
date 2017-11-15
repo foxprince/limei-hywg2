@@ -47,6 +47,8 @@ li {
     margin-left: 10px;
 
 }
+.logo a{ color: #323232; font-size: 14px;}
+.active { font-size: 18px;}
 .tb-t{
     width: 100%;
     margin-top: 50px;
@@ -700,6 +702,21 @@ li {
 .black-line{
     height: 1px;
     border-bottom: #000000 dashed 1px;
+}
+.page {
+    font-size: 16px;
+    text-align: right;
+}
+.page .page_to li {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-left-width: 0;
+    color: #323232;
+    cursor: pointer;
+    margin-left: 15px;
 }
 .page-ivt{
     width: 100%;
