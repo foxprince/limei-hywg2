@@ -701,7 +701,7 @@ li {
     height: 1px;
     border-bottom: #000000 dashed 1px;
 }
-.page{
+.page-ivt{
     width: 100%;
     height: auto;
     overflow: hidden;
@@ -719,9 +719,9 @@ li {
     padding-bottom: 20px;
 
 }
+.page-index {margin-top: 20px;}
 .page-r span{
     padding: 5px 10px;
-
     margin-top: 20px;
     display: block;
     float: left;

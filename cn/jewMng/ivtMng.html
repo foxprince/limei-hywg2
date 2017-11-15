@@ -5,7 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 <title>库存管理</title>
 <link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="../css/page.init.css">
 <script src="js/vendor/jquery-1.9.1.min.js"></script>
+<script src="../js/pageInit.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -16,12 +18,12 @@
 		<div class="stock">
 			<p class="stock-l">类别：</p>
 			<p class="stock-r">
-				<select>
-					<option>全部</option>
-					<option>戒托</option>
-					<option>项链</option>
-					<option>耳钉</option>
-					<option>成品</option>
+				<select class="typeSelect">
+					<option value="all">全部</option>
+					<option value="ring">戒托</option>
+					<option value="necklace">项链</option>
+					<option value="earring">耳钉</option>
+					<option value="endProduct">成品</option>
 				</select>
 			</p>
 		</div>
@@ -39,9 +41,10 @@
 					<li class="w1">备注</li>
 				</ul>
 			</div>
+			<div id="ivtList"></div>
 		</div>
 		<div class="line2"></div>
-		<div class="page">
+		<div class="page-ivt">
 			<div class="page-l">
 				<div class="save2">
 					<ul>
@@ -50,18 +53,21 @@
 					</ul>
 				</div>
 			</div>
-			<div class="page-r">
-				<span>共87条记录，第1/9页</span> <a href="#">首页</a> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a
-					href="#">5</a> <span>第</span> <input type="text" value="10"> <span>页</span>
+			<div class="page-index">
+				<!-- <span>共87条记录，第1/9页</span> <a href="#">首页</a> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a
+					href="#">5</a> <span>第</span> <input type="text" value="10"> <span>页</span> -->
 			</div>
 
 		</div>
+		<div class=""></div>
 	</div>
 
 <script src="js/index.js"></script>
 <script>
+var size = 1,total = 0,total_pages = 0, page = 1;
 $(document).ready(function(){
-    list();
+    list(ivt_type,size,page);
+    listpage(total,total_pages,list);
 });
 </script>
 </body>

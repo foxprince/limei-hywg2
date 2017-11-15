@@ -5,26 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <title>客户订单</title>
     <link rel="stylesheet" href="css/index.css">
-    <script src="js/vendor/jquery-1.9.1.min.js"></script>
+    <link rel="stylesheet" href="../css/page.init.css">
+	<script src="js/vendor/jquery-1.9.1.min.js"></script>
+	<script src="../js/pageInit.js"></script>
 </head>
 <body>
 <div class="container">
-    <div class="logo"><img src="img/logo.png"><p><a href="ivtMng.html">库存管理</a> | <a href="ivtOrder.html">公司订单</a> | <a href="orderMng.html">客户订单</a></p></div>
+    <div class="logo"><img src="img/logo.png">
+    <p><a href="ivtMng.html">库存管理</a> | <a href="ivtOrder.html">公司订单</a> | <a href="orderMng.html">客户订单</a> | <a href="orderList.html">订单查询</a></p>
+    </div>
 
     <div class="order">
         <div class="order-pic">
             <div class="order-1">
-               <img class="showImg" src="img/img.png">
+               <img class="showImg" src="img/img.png" name="ring_pic1">
                <input type="hidden" name="ring_pic1">
             </div>
             <div class="add-order">
-            	<img class="showImg" style="display:none;" src="">
+            	<img class="showImg" style="display:none;" src="" name="ring_pic1">
             	<input type="file" onchange="addPic(this)">
                 <input type="hidden" name="ring_pic2">
                 <span>添加戒托图片</span>
             </div>
             <div class="add-order">
-                 <img class="showImg" style="display:none;" src="">
+                 <img class="showImg" style="display:none;" src="" name="ring_pic1">
             	<input type="file" onchange="addPic(this)">
                 <input type="hidden" name="ring_pic3">
                 <span>添加戒托图片</span>
@@ -32,7 +36,7 @@
         </div>
         <div class="order-pic">
             <div class="order-1">
-                <img class="showImg" src="img/img2.png"><input type="hidden" name="diamond_pic">
+                <img class="showImg" src="img/img2.png" name="diamond_pic"><input type="hidden" name="diamond_pic">
             </div>
         </div>
         <div class="add-cont">
@@ -167,7 +171,7 @@
 <div class="all">
     <div class="update">
         <img src="img/img.png">
-        <input type="file" id="fil">
+        <input type="file" id="file" name="file">
         <a href="javascript:void(0)" id="ok">确定</a>
 
     </div>
@@ -182,15 +186,15 @@ $(document).ready(function(){
 		var $src = $(this).attr("src");
 		$(".update img").attr("src", $src);
 		$(".all").show();
-		console.log($src);
 	});
-	$('#fil').change(function() {
+	$('#file').change(function() {
 		str = $(this).val();
 		var arr = str.split('\\');
 		my = arr[arr.length - 1];
 		$(".update img").attr("src", "img/" + my);
 	});
 	$("#ok").on("click", function() {
+		//上传更换图片
 		$(".all").hide();
 	})
 });

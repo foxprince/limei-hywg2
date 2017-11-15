@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <title>公司订单</title>
     <link rel="stylesheet" href="css/index.css">
-    <script src="js/vendor/jquery-1.9.1.min.js"></script>
+    <link rel="stylesheet" href="../css/page.init.css">
+	<script src="js/vendor/jquery-1.9.1.min.js"></script>
+	<script src="../js/pageInit.js"></script>
 </head>
 <body>
-
-
 <div class="container">
-
-    <div class="logo"><img src="img/logo.png"><p><a href="ivtMng.html">库存管理</a> | <a href="ivtOrder.html">公司订单</a> | <a href="orderMng.html">客户订单</a></p></div>
-
+    <div class="logo"><img src="img/logo.png">
+    <p><a href="ivtMng.html">库存管理</a> | <a href="ivtOrder.html">公司订单</a> | <a href="orderMng.html">客户订单</a> | <a href="orderList.html">订单查询</a></p>
+    </div>
     <div class="tb-t">
         <ul>
             <li class="w1">编号</li>
@@ -24,61 +24,29 @@
             <li class="w6">备注</li>
         </ul>
     </div>
-
     <div class="itmes">
         <div class="itmes-p"></div>
-        <!-- <div class="list">
-            <ul>
-                <li class="w1" style="border: none; background: #ffffff;">
-                    <p class="w1a">1</p>
-                    <a class="w1b" href="#">删除</a>
-                </li>
-                <li class="w2"><img src="img/pic.png"></li>
-                <li class="w3"><span>0.4ct X 2<br>0.8ct X 1</span></li>
-                <li class="w4">2017.10.19</li>
-                <li class="w4">2017.10.19</li>
-                <li class="w6">一二三四</li>
-            </ul>
-        </div> -->
     </div>
-
-
 <div class="line"></div>
-
-
-
-
-    <div class="page">
-
+    <div class="page-ivt">
         <div class="page-l">
-            <div class="save2">
+            <!-- <div class="save2">
                 <ul>
                     <li>保存</li>
                     <li>添加</li>
                 </ul>
-            </div>
+            </div> -->
         </div>
-        <div class="page-r">
-            <span>共87条记录，第1/9页</span>
-            <a href="#">首页</a>
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <span>第</span>
-            <input type="text" value="10">
-            <span>页</span>
+        <div class="page-index">
         </div>
-
     </div>
-
-
 </div>
 <script src="js/index.js"></script>
 <script>
+var size = 1,total = 0,total_pages = 0, page = 1;
 $(document).ready(function(){
     listOrder();
+    listpage(total,total_pages,listOrder);
 });
 </script>
 </body>

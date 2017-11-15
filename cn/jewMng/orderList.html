@@ -3,13 +3,17 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <title>订单列表</title>
+    <title>订单查询</title>
     <link rel="stylesheet" href="css/index.css">
-    <script src="js/vendor/jquery-1.9.1.min.js"></script>
+    <link rel="stylesheet" href="../css/page.init.css">
+	<script src="js/vendor/jquery-1.9.1.min.js"></script>
+	<script src="../js/pageInit.js"></script>
 </head>
 <body>
 <div class="container">
-    <div class="logo"><img src="img/logo.png"><p><a href="ivtMng.html">库存管理</a> | <a href="ivtOrder.html">公司订单</a> | <a href="orderMng.html">客户订单</a></p></div>
+    <div class="logo"><img src="img/logo.png">
+    <p><a href="ivtMng.html">库存管理</a> | <a href="ivtOrder.html">公司订单</a> | <a href="orderMng.html">客户订单</a> | <a href="orderList.html">订单查询</a></p>
+    </p></div>
     <div class="tb-t">
         <ul>
             <li class="w1">编号</li>
@@ -40,44 +44,18 @@
             </ul>
         </div> -->
     </div>
-
-
 <div class="line"></div>
-
-
-
-
-    <div class="page">
-
-        <!-- <div class="page-l">
-            <div class="save2">
-                <ul>
-                    <li>保存</li>
-                    <li>添加</li>
-                </ul>
-            </div>
-        </div> -->
-        <div class="page-r">
-            <span>共87条记录，第1/9页</span>
-            <a href="#">首页</a>
-            <a href="#">1</a>
-            <a href="#">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <span>第</span>
-            <input type="text" value="10">
-            <span>页</span>
+    <div class="page-ivt">
+        <div class="page-index">
         </div>
-
     </div>
-
-
 </div>
 <script src="js/index.js"></script>
 <script>
+var size = 10,total = 0,total_pages = 0, page = 1;
 $(document).ready(function(){
     listCustomerOrder();
+    listpage(total,total_pages,listCustomerOrder);
 });
 </script>
 </body>

@@ -20,7 +20,7 @@ if($_REQUEST['action']) {
 			$clause = ' where 1=1 ';
 			if($_REQUEST['order']!=null)
 				$clause .= ' and id in (select distinct inventory_id from inventory_spec)';
-			if($_REQUEST['ivt_type']!=null)
+			if($_REQUEST['ivt_type']!=null&&$_REQUEST['ivt_type']!="all")
 				$clause .= ' and ivt_type ="'.$_REQUEST['ivt_type'].'"';
 			$total =0;$pagesize = 10;
 			if(isset($_REQUEST['size'])&&$_REQUEST['size']!=null){ $pagesize=$_REQUEST['size'];

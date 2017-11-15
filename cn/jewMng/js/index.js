@@ -1,5 +1,9 @@
-
-//$(".delIvtBtn").on("click", function (e) {
+var ivt_type = null;
+var size = 1,total = 0,total_pages = 0, page = 1;
+$(".typeSelect").on("change", function (e) {
+	list(this.value,size,page);
+	listpage(total,total_pages);
+});
 function delIvt(item){
 	var e = $(item).parent().parent().parent();
 	$.ajax({
@@ -141,7 +145,7 @@ function listCustomerOrder(size,page) {
 	if(page)
 		url += '&page='+page;
 	$.ajax({
-		url : url,dataType:'json',
+		url : url,dataType:'json',async:false,
 	    success : function(json) {
 	    	total = json.total;
             total_pages = json.total_pages;
@@ -172,7 +176,7 @@ function listOrder(size,page) {
 	if(page)
 		url += '&page='+page;
 	$.ajax({
-		url : url,dataType:'json',
+		url : url,dataType:'json',async:false,
 	    success : function(json) {
 	    	total = json.total;
             total_pages = json.total_pages;
@@ -202,26 +206,25 @@ function listOrder(size,page) {
         }
 	});
 }
-function list(ivt_type,order,size,page) {
-	var e = $(".mana-t");
+function list(ivt_type,size,page) {
+	var e = $("#ivtList");
 	var url = '../actionJewMng.php?action=ivtList';
 	if(ivt_type)
 		url += '&ivt_type='+ivt_type;
-	if(order)
-		url += '&order='+order;
 	if(size)
 		url += '&size='+size;
 	if(page)
 		url += '&page='+page;
 	$.ajax({
-		url : url,dataType:'json',
+		url : url,dataType:'json',async:false,
 	    success : function(json) {
+	    	$("#ivtList").html('');
 	    	total = json.total;
             total_pages = json.total_pages;
             if(json.l)
             $.each(json.l, function (n, v) {
                 var temp = '\
-                	<div class="mana-c"><div class="black-line"></div>\
+                	<div class="mana-c">\
     				<ul>\
     					<li class="w1"><input class="mn-1" type="text" name="ivt_no" value="'+v.ivt_no+'"> <textarea name="title"class="mn-2">'+v.title+'</textarea>\
     						<select name="ivt_type" class="mn-1">\
@@ -491,12 +494,29 @@ function list(ivt_type,order,size,page) {
     					</div>\
     					<li class="bz"><textarea name="note"></textarea></li>\
     				</ul>\
-    			</div>\
+    			</div><div class="black-line"></div>\
                 ';
                 $(e).append(temp);
             });
 	    }
 	});
+}
+function listpage(total,total_pages,callback){
+    $('.page-index').html('');
+	$.pageInit({
+        //container:'.page',//容器：默认page
+        setPos:'.page-index',//放置位置：默认body
+        totalPages:total_pages,//总页数：必填
+        totalLists:total,//数据总数：必填
+        initPage:1,//初始页码：默认1
+        inputVal:1,//设置跳转的input值：默认1
+        //要执行的函数：默认null，必须为fn且返回true则可执行分页，false则不执行
+        callBack:function(n){
+            var flag = true;
+            callback(ivt_type,size,n);
+            return flag;
+        }
+    });
 }
 /**
  * @returns
