@@ -18,17 +18,17 @@
     <div class="order">
         <div class="order-pic">
             <div class="order-1">
-               <img class="showImg" src="img/img.png" name="ring_pic1">
+               <img class="showImg" src="img/img.png" id="ring_pic1">
                <input type="hidden" name="ring_pic1">
             </div>
             <div class="add-order">
-            	<img class="showImg" style="display:none;" src="" name="ring_pic1">
+            	<img class="showImg" style="display:none;" src="" id="ring_pic2">
             	<input type="file" onchange="addPic(this)">
                 <input type="hidden" name="ring_pic2">
                 <span>添加戒托图片</span>
             </div>
             <div class="add-order">
-                 <img class="showImg" style="display:none;" src="" name="ring_pic1">
+                 <img class="showImg" style="display:none;" src="" id="ring_pic3">
             	<input type="file" onchange="addPic(this)">
                 <input type="hidden" name="ring_pic3">
                 <span>添加戒托图片</span>
@@ -36,7 +36,7 @@
         </div>
         <div class="order-pic">
             <div class="order-1">
-                <img class="showImg" src="img/img2.png" name="diamond_pic"><input type="hidden" name="diamond_pic">
+                <img class="showImg" src="img/img2.png" id="diamond_pic"><input type="hidden" name="diamond_pic">
             </div>
         </div>
         <div class="add-cont">
@@ -173,7 +173,6 @@
         <img src="img/img.png">
         <input type="file" id="file" name="file">
         <a href="javascript:void(0)" id="ok">确定</a>
-
     </div>
 </div>
 <script src="js/index.js"></script>
@@ -185,6 +184,7 @@ $(document).ready(function(){
 	$img.on("click", function() {
 		var $src = $(this).attr("src");
 		$(".update img").attr("src", $src);
+		$(".update a").attr("from", $(this).attr("id"));
 		$(".all").show();
 	});
 	$('#file').change(function() {
@@ -194,6 +194,24 @@ $(document).ready(function(){
 		$(".update img").attr("src", "img/" + my);
 	});
 	$("#ok").on("click", function() {
+		var from = $(this).attr("from");
+		var item = $(this).parent().children("input");
+		var file = $(item)[0].files[0];
+	    var formData = new FormData();
+		formData.append('file', file);
+		var element = $("#"+from); 
+		$.ajax({
+		       url : '../actionJewMng.php?action=upload',
+		       type : 'POST',
+		       data : formData,
+		       processData: false,  // tell jQuery not to process the data
+		       contentType: false,  // tell jQuery not to set contentType
+		       success : function(data) {
+		           $(element).show();   //待上传成功后 显示  
+		           $(element).attr("src",data);  
+		           $(element).next('input[type=hidden]').val(data);
+		       }
+		});
 		//上传更换图片
 		$(".all").hide();
 	})
