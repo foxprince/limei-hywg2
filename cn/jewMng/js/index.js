@@ -155,13 +155,16 @@ function listCustomerOrder(size,page) {
 		                    <ul>\
 		                        <li class="w1">'+v.id+'</li>\
 		                        <li class="w1">'+v.customer_name+'</li>\
-		                        <li class="w2">'+v.wechat+'</li>\
+		                        <li class="w1">'+v.wechat+'</li>\
 		                        <li class="w1">'+v.wechat+'</li>\
 		                        <li class="w1">'+v.cert_no+'</li>\
 		                        <li class="w1">'+v.amount+'</li>\
 		                        <li class="w1">'+v.main_stone+'</li>\
 		                        <li class="w1">'+v.diamond_price+'</li>\
 		                        <li class="w1">'+v.ready_time+'</li>\
+		                        <li class="w1">\
+		                        <div class="dele addBtn" id="'+v.id+'" onclick="modiCustomerOrder(this);">修改</div>\
+	    						<div class="dele delBtn" id="'+v.id+'" onclick="delCustomerOrer(this);">删除</div>\
 		                    </ul>\
 		                </div>';
             		$('.itmes').append(t);
