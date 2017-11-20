@@ -163,8 +163,6 @@ function listCustomerOrder(size,page) {
 		                        <li class="w1">'+v.diamond_price+'</li>\
 		                        <li class="w1">'+v.ready_time+'</li>\
 		                        <li class="w1">\
-		                        <div class="dele addBtn" id="'+v.id+'" onclick="modiCustomerOrder(this);">修改</div>\
-	    						<div class="dele delBtn" id="'+v.id+'" onclick="delCustomerOrer(this);">删除</div>\
 		                    </ul>\
 		                </div>';
             		$('.itmes').append(t);
