@@ -19,7 +19,7 @@ if($_REQUEST['action']) {
 			$sql='select * from inventory ';
 			$clause = ' where 1=1 ';
 			if($_REQUEST['order']!=null)
-				$clause .= ' and id in (select distinct inventory_id from inventory_spec)';
+				$clause .= ' and order_status=1';
 			if($_REQUEST['ivt_type']!=null&&$_REQUEST['ivt_type']!="all")
 				$clause .= ' and ivt_type ="'.$_REQUEST['ivt_type'].'"';
 			$total =0;$pagesize = 10;
@@ -82,7 +82,7 @@ if($_REQUEST['action']) {
 			break;
 		case "updateIvt":
 			$obj=json_decode($_REQUEST['inventory'],TRUE);
-			$sql = 'update inventory set ivt_type=?,ivt_no=?,title=?,logo=?,price03=?,price09=?,price2=?,price3=?,note=? where id=?';
+			$sql = 'update inventory set order_status=1,ivt_type=?,ivt_no=?,title=?,logo=?,price03=?,price09=?,price2=?,price3=?,note=? where id=?';
 			$stmt=$conn->prepare($sql);
 			$stmt->execute(array($obj['ivt_type'],
 					$obj['ivt_no'], $obj['title'],$obj['logo'],
@@ -103,6 +103,11 @@ if($_REQUEST['action']) {
 				));
 			}
 			echo $obj['id'];
+			break;
+		case "removeOrder":
+			$sql_delete='update inventory set order_status=0 WHERE id = '.$_REQUEST['id'];
+			$conn->query($sql_delete);
+			echo "OK";
 			break;
 		case "deleteIvt":
 			$sql_delete='delete from inventory WHERE id = '.$_REQUEST['id'];

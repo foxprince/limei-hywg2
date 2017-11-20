@@ -173,7 +173,7 @@ function listCustomerOrder(size,page) {
 	});
 }
 function removeOrder(item, id) {
-	var e = item;
+	var e = $(item).parent().parent();
 	$.ajax({
 	       url : '../actionJewMng.php?action=removeOrder&id='+id,
 	       type : 'POST',
@@ -183,7 +183,7 @@ function removeOrder(item, id) {
 	});
 }
 function listOrder(size,page) {
-	var url = '../actionJewMng.php?action=ivtList';
+	var url = '../actionJewMng.php?action=ivtList&order=1';
 	if(size)
 		url += '&size='+size;
 	if(page)
