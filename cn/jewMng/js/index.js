@@ -154,9 +154,10 @@ function listCustomerOrder(size,page) {
             		var t = '<div class="list">\
 		                    <ul>\
 		                        <li class="w1">'+v.id+'</li>\
+		                        <li class="w1"><img class="showImg"  alt="" src="'+v.diamond_pic+'"/></li>\
 		                        <li class="w1">'+v.customer_name+'</li>\
 		                        <li class="w1">'+v.wechat+'</li>\
-		                        <li class="w1">'+v.wechat+'</li>\
+		                        <li class="w1">'+v.phone+'</li>\
 		                        <li class="w1">'+v.cert_no+'</li>\
 		                        <li class="w1">'+v.amount+'</li>\
 		                        <li class="w1">'+v.main_stone+'</li>\
