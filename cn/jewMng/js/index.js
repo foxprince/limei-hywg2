@@ -172,6 +172,16 @@ function listCustomerOrder(size,page) {
         }
 	});
 }
+function removeOrder(item, id) {
+	var e = item;
+	$.ajax({
+	       url : '../actionJewMng.php?action=removeOrder&id='+id,
+	       type : 'POST',
+	       success : function(data) {
+	    	   $(e).remove();
+	       }
+	});
+}
 function listOrder(size,page) {
 	var url = '../actionJewMng.php?action=ivtList';
 	if(size)
@@ -189,7 +199,7 @@ function listOrder(size,page) {
                 <ul>\
                     <li class="w1" style="border: none; background: #ffffff;">\
                         <p class="w1a">'+v.ivt_no+'</p>\
-                        <a class="w1b" href="#">删除</a>\
+                        <a class="w1b" href="javascript:;" onclick="removeOrder(this,'+v.id+')">删除</a>\
                     </li>\
                     <li class="w2"><img src="'+v.logo+'"></li>\
                     <li class="w3"><span>';

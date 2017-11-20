@@ -51,8 +51,10 @@ create table inventory (
 	price2 float null,
 	price3 float null,
 	note  varchar(255) null,
-	ctime datetime not null
+	ctime datetime not null,
+	order_status tinyint(1) default 1 null
 );
+alter table inventory add order_status tinyint(1) default 1 null;
 --库存规格表
 create table inventory_spec (
 	id bigint not null primary key auto_increment,
