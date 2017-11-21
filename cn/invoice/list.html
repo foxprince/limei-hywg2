@@ -242,20 +242,27 @@
             		}
             	});
             });
-            $(".deleteTranc").click(function(){
-            	if(confirm('您确认删除吗？')){
-            		var id = $(this).attr("trancId");
-            		$.ajax({
-                        async:false,
-                        url: "../action.php?action=deleteTranc&id="+$(this).attr("trancId"),
-                        type: "GET",
-                        success: function (json) {
-                        	$('.trancLine [trancId='+id+']').remove();
-                		}
-                	});
-            	}
-            });
+            //$(".deleteTranc").click(function(){
+            
     	});
+    	function deleteTranc(item,id){
+        	var e = item;
+        	if(confirm('您确认删除吗？')){
+        		//var id = $(this).attr("trancId");
+        		$.ajax({
+                    async:false,
+                    url: "../action.php?action=deleteTranc&id="+id,
+                    type: "GET",
+                    success: function (json) {
+                    	//$('.trancLine [trancId='+id+']').remove();
+                    	$(e).parent().parent().parent().remove();
+                    	pageflag = true;
+                    	//listpage(total,total_pages);
+                    	query(1);
+            		}
+            	});
+        	}
+        }
         function listpage(total,total_pages){
             $.pageInit({
                 container:'.page',//容器：默认page
@@ -315,7 +322,7 @@
                         var temp = '<tr trancId="'+json.list[i].id+'" class="trancLine"><td>'+json.list[i].tranc_date+'</td><td>'+json.list[i].name
                         +'</td><td><a trancId="'+json.list[i].id+'"  class="printTranc t_operate">'  +json.list[i].type+'</a></td><td>'+ (json.list[i].type=='invoice'?json.list[i].invoice_no:"--") +'</td><td>'
                         + json.list[i].currency +'</td><td>'+ json.list[i].total_price +'</td><td>'
-                        + (json.list[i].type=='invoice'?json.list[i].vat_price:"--") +'</td><td><div class="pl"><a trancId="'+json.list[i].id+'" href="index.html?id='+json.list[i].id+'" target="_blank"class="modify J_modify">修改</a></div></td><td><p class="o_box J_o_box"><button trancId="'+json.list[i].id+'"  class="deleteTranc t_operate">删除</button></p></td></tr>';
+                        + (json.list[i].type=='invoice'?json.list[i].vat_price:"--") +'</td><td><div class="pl"><a trancId="'+json.list[i].id+'" href="index.html?id='+json.list[i].id+'" target="_blank"class="modify J_modify">修改</a></div></td><td><p class="o_box J_o_box"><button trancId="'+json.list[i].id+'"  class="deleteTranc t_operate" onclick="deleteTranc(this,'+json.list[i].id+')">删除</button></p></td></tr>';
                         totalprice += parseInt(json.list[i].total_price);
                         $('.J_databody').append(temp);
                         $('#totalprice').html(totalprice);
@@ -323,7 +330,6 @@
                     if(pageflag){
                        listpage(total,total_pages);
                     }
-
                 },
                 error: function(xhr){
                     alert("请求出错(请检查相关度网络状况.)");

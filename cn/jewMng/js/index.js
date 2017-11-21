@@ -162,7 +162,7 @@ function listCustomerOrder(size,page) {
 		                        <li class="w1">'+v.amount+'</li>\
 		                        <li class="w1">'+v.main_stone+'</li>\
 		                        <li class="w1">'+v.diamond_price+'</li>\
-		                        <li class="w1">'+v.ready_time+'</li>\
+		                        <li class="">'+v.ready_time+'</li>\
 		                    </ul>\
 		                </div>';
             		$('.itmes').append(t);
