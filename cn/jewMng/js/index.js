@@ -248,7 +248,7 @@ function list(ivt_type,size,page) {
     						<div class="dele dele2 delIvtBtn" id="'+v.id+'" onclick="delIvt(this);">删除</div>\
     					</li>\
     					<li class="mn-add">\
-                		<img class="showImg"  width=130 height=130 alt="" src="'+v.logo+'"/> \
+                		<img class="showImg"  width="130" height="130" alt="pic" src="'+v.logo+'"/> \
     					<input class="ivtPic" id="file" name="file" type="file" onchange="chgPic(this)"> <span>添加图片</span>\
     					</li>\
     					<li class="w33">\
