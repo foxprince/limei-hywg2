@@ -154,7 +154,7 @@ function listCustomerOrder(size,page) {
             		var t = '<div class="list">\
 		                    <ul>\
 		                        <li class="w1">'+v.id+'</li>\
-		                        <li class="w1"><img class="showImg" width=130 height=130 src="'+v.diamond_pic+'"/></li>\
+		                        <li class="w1"><img class="showImg" width="98" src="'+v.diamond_pic+'"/></li>\
 		                        <li class="w1">'+v.customer_name+'</li>\
 		                        <li class="w1">'+v.wechat+'</li>\
 		                        <li class="w1">'+v.phone+'</li>\
@@ -199,7 +199,7 @@ function listOrder(size,page) {
                         <p class="w1a">'+v.ivt_no+'</p>\
                         <a class="w1b" href="javascript:;" onclick="removeOrder(this,'+v.id+')">删除</a>\
                     </li>\
-                    <li class="w2"><img src="'+v.logo+'"></li>\
+                    <li class="w2"><img width="160" src="'+v.logo+'"></li>\
                     <li class="w3"><span>';
                 var sale_time;
             	for(var i=0;i<v.spec_list.length;i++){
@@ -248,7 +248,7 @@ function list(ivt_type,size,page) {
     						<div class="dele dele2 delIvtBtn" id="'+v.id+'" onclick="delIvt(this);">删除</div>\
     					</li>\
     					<li class="mn-add">\
-                		<img class="showImg"  width="160" height="160" alt="pic" src="'+v.logo+'"/> \
+                		<img class="showImg"  width="160" alt="pic" src="'+v.logo+'"/> \
     					<input class="ivtPic" id="file" name="file" type="file" onchange="chgPic(this)"> <span>添加图片</span>\
     					</li>\
     					<li class="w33">\
