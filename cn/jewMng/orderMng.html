@@ -171,8 +171,8 @@
 <div class="all">
     <div class="update">
         <img src="img/img.png">
-        <input type="file" id="file" name="file">
-        <a href="javascript:void(0)" id="ok">确定</a>
+        <input type="file" id="file" from=""name="file">
+        <a href="javascript:void(0)" from="" id="ok">确定</a>
     </div>
 </div>
 <script src="js/index.js"></script>
@@ -185,15 +185,10 @@ $(document).ready(function(){
 		var $src = $(this).attr("src");
 		$(".update img").attr("src", $src);
 		$(".update a").attr("from", $(this).attr("id"));
+		$("#file").attr("from", $(this).attr("id"));
 		$(".all").show();
 	});
 	$('#file').change(function() {
-		str = $(this).val();
-		var arr = str.split('\\');
-		my = arr[arr.length - 1];
-		$(".update img").attr("src", "img/" + my);
-	});
-	$("#ok").on("click", function() {
 		var from = $(this).attr("from");
 		var item = $(this).parent().children("input");
 		var file = $(item)[0].files[0];
@@ -209,9 +204,12 @@ $(document).ready(function(){
 		       success : function(data) {
 		           $(element).show();   //待上传成功后 显示  
 		           $(element).attr("src",data);  
+		           $(".update img").attr("src",data);
 		           $(element).next('input[type=hidden]').val(data);
 		       }
 		});
+	});
+	$("#ok").on("click", function() {
 		//上传更换图片
 		$(".all").hide();
 	})

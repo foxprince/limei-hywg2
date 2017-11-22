@@ -168,7 +168,7 @@ if($_REQUEST['action']) {
 			}catch (Exception $e){
 				$error=$e->getMessage();
 				$errormessage='<p class="message">ERROR_UNKNOWN</p>';
-				echo($errormessage);
+				logger($errormessage);
 			}
 			//echo "uploading done<br>";
 			if(!$success){
