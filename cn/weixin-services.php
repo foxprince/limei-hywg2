@@ -203,7 +203,8 @@ class wechatCallbackapiTest {
 						"Title" => "动态二维码",
 						"Description" => "您在利美钻石的专属动态二维码，可以发给您的朋友共享",
 						"PicUrl" => "http://www.lumiagem.com/luAdmin/qrcode/" . $r_u ['id'] . "_200x200.jpg",
-						"Url" => "http://www.lumiagem.com/luAdmin/qrcode/" . $r_u ['qrcode']
+						"Url" => "http://www.lumiagem.com/luAdmin/cn/myQrcode.php?id=" . $r_u ['id']
+						//"Url" => "http://www.lumiagem.com/luAdmin/qrcode/" . $r_u ['qrcode']
 				);
 				$result = $this->transmitNews ( $postObj, $content );
 				echo $result;
