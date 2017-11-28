@@ -3,7 +3,7 @@ date_default_timezone_set("Asia/Shanghai");
 include_once 'log.php';
 if(!isset($conn)){
 	require_once('connection.php');
-	$conn=dbConnect('write','pdo');
+	$conn=dbConnect('write','pdoption');
 	$conn->query("SET NAMES 'utf8'");
 }
 $userid = $_COOKIE["userId"];

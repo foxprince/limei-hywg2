@@ -6,7 +6,7 @@ require("mail/class.phpmailer.php");
 require("mail/class.smtp.php");
 if(!isset($conn)){
 	require_once('connection.php');
-	$conn=dbConnect('write','pdo');
+	$conn=dbConnect('write','pdoption');
 	$conn->query("SET NAMES 'utf8'");
 }
 $userid = $_COOKIE["userId"];
