@@ -1,7 +1,7 @@
 <?php
 require_once ('../cn/log.php');
 if (isset ( $_POST ['id'] )) {
-	require_once ('../manage/getaccesstoken2015.php');
+	require_once ('./getaccesstoken2015.php');
 	require_once ('../cn/connection.php');
 	require_once ('./imgTools.php');
 	$conn = dbConnect ( 'write', 'pdo' );
