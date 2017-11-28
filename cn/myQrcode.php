@@ -13,57 +13,24 @@ foreach ( $conn->query ( $user_info ) as $r_u ) {
 	$website_password = $r_u ['website_password'];
 }
 ?>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
-<meta http-equiv="X-UA-Compatible" content="IE=9" />
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8" />
+	<meta content="比利时钻石,安特卫普钻石,钻石购买,钻交所,钻石交易所，比利时钻交所，比利时钻石交易所" name="keywords" />
+	<meta name="description" content="利美钻石主营产品：比利时钻石，安特卫普钻石，利美钻石婚戒定制专家，为您专业定制独一无二的钻戒，每颗钻石都配有国际钻石证书，清晰的解释，贴心的建议和优惠的价格是利美对您的承诺，作为华人的购钻渠道，利美钻石将竭诚为您的选择提供最专业的服务。"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<link rel="stylesheet" type="text/css" href="./css/public.css">
+	<link rel="stylesheet" type="text/css" href="./css/text.css">
+	<link rel="stylesheet" type="text/css" href="./css/css.css">
 <title>利美钻石 - 我的二维码</title>
-<style type="text/css">
-div.history-choice {
-	border-bottom-style: solid;
-	border-width: 1px;
-	border-color: #999;
-	padding: 20px 0;
-}
-
-img.demo-pic {
-	display: block;
-	float: left;
-	width: 228px;
-	margin: 25px 25px 0 0;
-}
-
-div.dia-para-box {
-	float: left;
-	width: 358px;
-	font-size: 14px;
-}
-
-.dia-para-box h3 {
-	font-size: 18px;
-}
-
-.dia-para-box p {
-	font-size: 14px;
-	margin: 0 0 3px 0;
-}
-
-div#account-setting-form-box {
-	position: relative;
-	width: 288px;
-	padding: 15px;
-	background-color: #FFF;
-	border-style: solid;
-	border-width: 1px;
-	border-color: #999;
-	margin-left: 158px;
-	margin-top: 25px;
-	margin-bottom: 50px;
-}
-
-p.feedbackmessage, p.errormessage {
-	font-size: 24px;
-	color: #C30;
-}
-</style>
 </head>
 <body>
   <!--div  home-visual-box-->
@@ -113,3 +80,4 @@ if ($r_u ['qrcode']) {
     </div>
   </div>
 </body>
+</html>
