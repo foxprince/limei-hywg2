@@ -1,1 +1,0 @@
-2017-07-16 16:08:18 select count(*) as t from clients_list where 1=1
