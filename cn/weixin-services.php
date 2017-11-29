@@ -56,9 +56,10 @@ class wechatCallbackapiTest {
 				}
 				else if ($theevent == 'subscribe') {
 					$contentStr = "感谢您关注比利时利美珠宝首饰公司!" ;
+					$contentStr .= $this->subscribe($fromUsername,$postObj);
 					$resultStr = sprintf ( $textTpl, $fromUsername, $toUsername, time(), "text", $contentStr );
 					echo $resultStr;
-					$this->pushMsg($fromUsername, $this->subscribe($fromUsername,$postObj));
+					//$this->pushMsg($fromUsername, $this->subscribe($fromUsername,$postObj));
 				}
 				exit ();
 			}
