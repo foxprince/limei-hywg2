@@ -181,7 +181,7 @@
 	var time = new Date();
     var to_time = String(time.getFullYear())+String(PrefixInteger(time.getMonth()+1))+String(PrefixInteger(time.getDate()));
     $('#corp').html(String(time.getFullYear())+'   ANTWERPEN');
-    $('.to_time').html('DATE：  '+ to_time);$('#tranc_date').val(to_time);
+    $('#tranc_date').val(to_time);
     $('#invoice_no').val(invoiceNo());
 	function getUrlParam(name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象

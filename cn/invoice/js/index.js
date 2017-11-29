@@ -31,7 +31,8 @@ function to_port(e){
 }
 
 function to_print(){
-    var html = '';
+	$('.to_time').html('DATE：  '+ $('#tranc_date').val());
+	var html = '';
     var address = $('#street').val()+'　'+$('#postcode').val()+'　'+$('#city').val()+'　'+$('#country').val()
     $('#to_address').html(address)
     $('.del_items').remove();
