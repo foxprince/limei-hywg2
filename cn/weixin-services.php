@@ -234,6 +234,20 @@ class wechatCallbackapiTest {
 		}
 		return false;
 	}
+	function isSubscribe($fromUsername) {
+		$conn = dbConnect ( 'write', 'pdo' );
+		$conn->query ( "SET NAMES 'utf8'" );
+		$sql_check_user = 'SELECT suscribe_status FROM clients_list WHERE wechat_open_id = "' . $fromUsername . '"';
+		$stmt_user = $conn->query ( $sql_check_user );
+		$found_user = $stmt_user->rowCount ();
+		if ($found_user) {
+			foreach ( $stmt_user as $r_user ) {
+				if($r_user ['suscribe_status']=='subscribe');
+					return true;
+			}
+		}
+		return false;
+	}
 	function updateUser($fromUsername) {
 		$conn = dbConnect ( 'write', 'pdo' );
 		$conn->query ( "SET NAMES 'utf8'" );
@@ -285,11 +299,26 @@ class wechatCallbackapiTest {
 		logger("unsubscribe :".$stmt->rowCount ());
 		return ;
 	}
+	function reSubscribe($fromUsername) {
+		$conn = dbConnect ( 'write', 'pdo' );
+		$conn->query ( "SET NAMES 'utf8'" );
+		$sql = 'UPDATE clients_list SET suscribe_status = "subscribe",subscribed_time=now(),last_update_time=now() WHERE wechat_open_id = :wechat_open_id'; // $fromUsername
+		$stmt = $conn->prepare ( $sql );
+		$stmt->execute(array(
+				'wechat_open_id'=> $fromUsername
+		));
+		logger("resubscribe :".$stmt->rowCount ());
+		return ;
+	}
 	function subscribe($fromUsername,$postObj) {
 		//<EventKey><![CDATA[qrscene_8001]]></EventKey>
 		$conn = dbConnect ( 'write', 'pdo' );
 		$conn->query ( "SET NAMES 'utf8'" );
-			$referee = substr ( $postObj->EventKey, 8 );
+		if($this->checkUser($fromUsername)){
+			$this->reSubscribe($fromUsername);
+			$OK = true;
+		}
+		else{	$referee = substr ( $postObj->EventKey, 8 );
 			logger ( "referee" . $referee );
 			$more_info = '';
 			if($referee=='8001')
@@ -329,21 +358,11 @@ class wechatCallbackapiTest {
 			$feedbackwebpass = '';
 			$sql = 'INSERT INTO clients_list (wechat_open_id, wechat_name, website_username, website_password, name, sex, reference, address, subscribed_time, suscribe_status, icon,referee,more_info,last_update_time) VALUES("'.$fromUsername.'", "'.$wechat_name.'", "'.$website_username.'", "'.$website_password.'", "'.$name.'", "'.$sex.'", "'.$reference.'", "'.$address.'", NOW(), "'.$suscribe_status.'", "'.$usericon.'","'.$referee.'","'.$more_info.'",now())';
 			$stmt = $conn->prepare ( $sql );
-// 			$stmt->bindParam ( ':wechat_open_id', $fromUsername, PDO::PARAM_STR );
-// 			$stmt->bindParam ( ':wechat_name', $wechat_name, PDO::PARAM_STR );
-// 			$stmt->bindParam ( ':website_username', $website_username, PDO::PARAM_STR );
-// 			$stmt->bindParam ( ':website_password', $website_password, PDO::PARAM_STR );
-// 			$stmt->bindParam ( ':name', $name, PDO::PARAM_STR );
-// 			$stmt->bindParam ( ':sex', $sex, PDO::PARAM_STR );
-// 			$stmt->bindParam ( ':reference', $reference, PDO::PARAM_STR );
-// 			$stmt->bindParam ( ':address', $address, PDO::PARAM_STR );
-// 			$stmt->bindParam ( ':suscribe_status', $suscribe_status, PDO::PARAM_STR );
-// 			$stmt->bindParam ( ':icon', $usericon, PDO::PARAM_STR );
-// 			$stmt->bindParam ( ':referee', $referee, PDO::PARAM_STR );
 			$stmt->execute ();
 			$OK = $stmt->rowCount ();
 			logger ( "inert result:" . $OK );
 			logger ( $sql . "\n" . mysql_errno () . ": " . mysql_error () . "\n" );
+		}	
 			if ($OK) {
 				$thelastinsertedid = $conn->lastInsertId ();
 				$website_username = 'lm' . $thelastinsertedid;
