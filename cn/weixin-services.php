@@ -35,10 +35,10 @@ class wechatCallbackapiTest {
 				exit();
 			}
 			else {
-				if($this->checkUser($fromUsername))
+				if($this->checkUser($fromUsername)>0)
 					$this->updateUser($fromUsername);
-				//else
-					//$this->subscribe($fromUsername,$postObj);
+				else
+					$this->subscribe($fromUsername,$postObj);
 			}
 			$textTpl = "<xml> <ToUserName><![CDATA[%s]]></ToUserName> <FromUserName><![CDATA[%s]]></FromUserName> <CreateTime>%s</CreateTime> <MsgType><![CDATA[%s]]></MsgType> <Content><![CDATA[%s]]></Content> </xml>";
 			if ($MsgType == 'event') {
@@ -230,9 +230,9 @@ class wechatCallbackapiTest {
 				$this->website_username = $r_user ['website_username'];
 				$this->website_password = $r_user ['website_password'];
 			}
-			return true;
+			return $r_user ['id'];
 		}
-		return false;
+		return 0;
 	}
 	function isSubscribe($fromUsername) {
 		$conn = dbConnect ( 'write', 'pdo' );
@@ -314,7 +314,8 @@ class wechatCallbackapiTest {
 		//<EventKey><![CDATA[qrscene_8001]]></EventKey>
 		$conn = dbConnect ( 'write', 'pdo' );
 		$conn->query ( "SET NAMES 'utf8'" );
-		if($this->checkUser($fromUsername)){
+		$thelastinsertedid=$this->checkUser($fromUsername);
+		if($thelastinsertedid>0){
 			$this->reSubscribe($fromUsername);
 			$OK = true;
 		}
@@ -360,11 +361,11 @@ class wechatCallbackapiTest {
 			$stmt = $conn->prepare ( $sql );
 			$stmt->execute ();
 			$OK = $stmt->rowCount ();
+			$thelastinsertedid = $conn->lastInsertId ();
 			logger ( "inert result:" . $OK );
 			logger ( $sql . "\n" . mysql_errno () . ": " . mysql_error () . "\n" );
 		}	
 			if ($OK) {
-				$thelastinsertedid = $conn->lastInsertId ();
 				$website_username = 'lm' . $thelastinsertedid;
 				$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 				$charactersLength = strlen ( $characters );
