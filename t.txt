@@ -1,2 +1,6 @@
-tttddd
-   
+DELETE clients_list FROM clients_list,
+   (
+       SELECT max(id) id, wechat_open_id FROM clients_list GROUP BY wechat_open_id HAVING count(*) > 1
+   ) t2
+WHERE clients_list.wechat_open_id = t2.wechat_open_id AND clients_list.id < t2.id;
+

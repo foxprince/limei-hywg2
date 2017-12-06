@@ -116,6 +116,11 @@ if($_REQUEST['action']) {
 			$conn->query($sql_delete);
 			echo "OK";
 			break;
+		case "deleteCustomerOrder":
+			$sql_delete='delete from customer_order WHERE id = '.$_REQUEST['id'];
+			$conn->query($sql_delete);
+			echo "OK";
+			break;
 		case "addOrder" :
 			$obj=json_decode($_REQUEST['order'],TRUE);
 			$sql = 'insert into customer_order(cert_no,amount,main_stone,side_stone,diamond_pic,

@@ -14,6 +14,16 @@ function delIvt(item){
 	       }
 	});
 }
+function delCustomerOrder(item,id){
+	var e = $(item).parent().parent().parent();
+	$.ajax({
+	       url : '../actionJewMng.php?action=deleteCustomerOrder&id='+id,
+	       type : 'POST',
+	       success : function(data) {
+	    	   $(e).remove();
+	       }
+	});
+}
 //$(".addIvtBtn").on("click", function (e) {
 function addOrder(item) {
 	var e = $('.order');
@@ -153,7 +163,10 @@ function listCustomerOrder(size,page) {
             	$.each(json.list, function (n, v) {
             		var t = '<div class="list">\
 		                    <ul>\
-		                        <li class="w1">'+v.id+'</li>\
+			            		<li class="w1" style="border: none; background: #ffffff;">\
+			                        <p class="w1a">'+v.id+'</p>\
+			                        <a class="w1b" href="javascript:;" onclick="delCustomerOrder(this,'+v.id+')">删除</a>\
+			                    </li>\
 		                        <li class="w1"><img class="showImg" width="98" src="'+v.diamond_pic+'"/></li>\
 		                        <li class="w1">'+v.customer_name+'</li>\
 		                        <li class="w1">'+v.wechat+'</li>\
@@ -185,7 +198,10 @@ function listCustomerOrderF(size,page) {
             	$.each(json.list, function (n, v) {
             		var t = '<div class="list">\
 		                    <ul>\
-		                        <li class="w1">'+v.id+'</li>\
+		            			<li class="w1" style="border: none; background: #ffffff;">\
+			                        <p class="w1a">'+v.id+'</p>\
+			                        <a class="w1b" href="javascript:;" onclick="delCustomerOrder(this,'+v.id+')">删除</a>\
+		                        </li>\
 		                        <li class="w1"><img class="showImg" width="98" src="'+v.diamond_pic+'"/></li>\
 		                        <li class="w1">'+v.cert_no+'</li>\
 		                        <li class="w1">'+v.amount+'</li>\
