@@ -64,6 +64,10 @@
             		<tr>
             			<th>日期</th>
             			<th>客户姓名</th>
+            			<!-- <th>重量</th>
+            			<th>颜色</th>
+            			<th>净度</th>
+            			<th>证书</th> -->
             			<th>类型</th>
             			<th>发票编号</th>
             			<th>货币</th>
@@ -77,7 +81,7 @@
             	</tbody>
             	<tfoot>
             		<tr>
-            			<td colspan="6"></td>
+            			<td colspan="10"></td>
             			<td>合计：</td>
             			<td>&yen;<span id='totalprice'>0.00</span></td>
             			<td></td>
@@ -147,9 +151,73 @@
     	<div class="black_overlay" id="fade" style="display:none;"></div>
     	
     <script>
+    function printTranc(trancId) {
+    	$.ajax({
+            async:false,
+            url: '../action.php?action=trancDetail&id='+trancId,
+            type: "GET",
+            dataType: 'json',
+            success: function (data) {
+   				var json=eval(data),to=json.trancDetail.currency,currencyHint='€';
+   				var html = '';
+   				if(to=='CNY'){
+   					currencyHint = '￥';
+   				}else if(to=='EUR'){
+   					currencyHint = '€';
+   				}else if(to=='USD'){
+   					currencyHint = '$';
+   				}
+   				var address = json.trancDetail.street+'　'+json.trancDetail.postcode+'　'+json.trancDetail.city+'　'+json.trancDetail.country;
+   				$('#to_name').html(json.trancDetail.name);
+   				$('#to_port').html(json.trancDetail.passport);
+   				$('#to_address').html(address)
+   				$('#print_price').html(currencyHint+json.trancDetail.total_price);
+   				if(json.trancDetail.type=='receipt')
+   					$('.vat_price').hide();
+   				else {
+   					$('.vat_price').show();$('#vat_price').html(currencyHint+json.trancDetail.vat_price);
+   				}
+   				$.each(json.list, function (n, j) {
+   					html += '<div class="del_items items clearfix">'+
+   				    '<div class="col-xs-3 clearfix">';
+   				    if(j.type=='dia'||j.type=='diajew')
+   				    	html += '<p id="model">'+j.shape+'</p>'+
+   				    	 '<p>Carat Weight <span class="pull-right"><span class="pull-left">'+j.carat+'</span></span></p>'+
+   			         '<p>Colour Grade <span class="pull-right"><span  class="pull-left">'+j.color+'</span></span></p>'+
+   			         '<p>Clarity Grade <span class="pull-right"><span class="pull-left">'+j.clarity+'</span></span></p>';
+   				    if(j.type=='diajew'||j.type=='jew')
+   				    	html +='<p style="margin-top: 10px;">'+j.material+' White Gold '+j.jewerly+'</p>';
+   				    html+='</div>'+
+   				    '<div class="col-xs-3 clearfix">';
+   				    if(j.type=='dia'||j.type=='diajew')
+   				    	html+='<p>'+j.grading_lab+'&nbsp;'+j.report_no+'</p>'+
+   			        '<p>Cut Grade <span class="pull-right">'+j.cut_grade+'</span></p>'+
+   			        '<p>Polish <span class="pull-right">'+j.polish+'</span></p>'+
+   			        '<p>Symmetry<span class="pull-right">'+j.symmetry+'</span></p>';
+   				    html+='</div>'+
+   				    '<div class="col-xs-4 clearfix">';
+   				 	if(j.type=='dia'||j.type=='diajew')
+   				    	html+='<p>'+j.fancy+'</p>';
+   				    html+='</div>'+ '<div class="col-xs-2 clearfix">';
+   				 	if(j.type=='dia'||j.type=='diajew')
+   				    	html+='<p>'+currencyHint+j.price+'</p>';
+   				    html+='<p>　</p><p>　</p><p>　</p>';
+   				    if(j.type=='jew'||j.type=='diajew')
+   				        html+='<p>'+currencyHint+j.jewerly_price+'</p>';
+   				    html+='</div></div>';
+   				})
+   				$('#itemList').html(html);
+   				html = "";
+   				$('.page').hide();
+    			//$('.lnvoice-row').show();
+    				$("#fade").fadeToggle();
+    				$(".lnvoice-row").fadeToggle("slow").focus();
+    			//window.print();
+    		}
+    	});
+    }
     var pageflag = true;
     	$(function(){
-
             // 点击展开数据
             function fnDataToggle(){
                 $('body').on('click','.J_databody tr .J_toggle', function(){
@@ -177,70 +245,7 @@
                query(1);
             });
             $(".printTranc").click(function(){
-            	$.ajax({
-                    async:false,
-                    url: '../action.php?action=trancDetail&id='+$(this).attr("trancId"),
-                    type: "GET",
-                    dataType: 'json',
-                    success: function (data) {
-           				var json=eval(data),to=json.trancDetail.currency,currencyHint='€';
-           				var html = '';
-           				if(to=='CNY'){
-           					currencyHint = '￥';
-           				}else if(to=='EUR'){
-           					currencyHint = '€';
-           				}else if(to=='USD'){
-           					currencyHint = '$';
-           				}
-           				var address = json.trancDetail.street+'　'+json.trancDetail.postcode+'　'+json.trancDetail.city+'　'+json.trancDetail.country;
-           				$('#to_name').html(json.trancDetail.name);
-           				$('#to_port').html(json.trancDetail.passport);
-           				$('#to_address').html(address)
-           				$('#print_price').html(currencyHint+json.trancDetail.total_price);
-           				if(json.trancDetail.type=='receipt')
-           					$('.vat_price').hide();
-           				else {
-           					$('.vat_price').show();$('#vat_price').html(currencyHint+json.trancDetail.vat_price);
-           				}
-           					
-           				$.each(json.list, function (n, j) {
-           					html += '<div class="del_items items clearfix">'+
-           				    '<div class="col-xs-3 clearfix">';
-           				    if(j.type=='dia'||j.type=='diajew')
-           				    	html += '<p id="model">'+j.shape+'</p>'+
-           				    	 '<p>Carat Weight <span class="pull-right"><span class="pull-left">'+j.carat+'</span></span></p>'+
-           			         '<p>Colour Grade <span class="pull-right"><span  class="pull-left">'+j.color+'</span></span></p>'+
-           			         '<p>Clarity Grade <span class="pull-right"><span class="pull-left">'+j.clarity+'</span></span></p>';
-           				    if(j.type=='diajew'||j.type=='jew')
-           				    	html +='<p style="margin-top: 10px;">'+j.material+' White Gold '+j.jewerly+'</p>';
-           				    html+='</div>'+
-           				    '<div class="col-xs-3 clearfix">';
-           				    if(j.type=='dia'||j.type=='diajew')
-           				    	html+='<p>'+j.grading_lab+'&nbsp;'+j.report_no+'</p>'+
-           			        '<p>Cut Grade <span class="pull-right">'+j.cut_grade+'</span></p>'+
-           			        '<p>Polish <span class="pull-right">'+j.polish+'</span></p>'+
-           			        '<p>Symmetry<span class="pull-right">'+j.symmetry+'</span></p>';
-           				    html+='</div>'+
-           				    '<div class="col-xs-4 clearfix">';
-           				 	if(j.type=='dia'||j.type=='diajew')
-           				    	html+='<p>'+j.fancy+'</p>';
-           				    html+='</div>'+ '<div class="col-xs-2 clearfix">';
-           				 	if(j.type=='dia'||j.type=='diajew')
-           				    	html+='<p>'+currencyHint+j.price+'</p>';
-           				    html+='<p>　</p><p>　</p><p>　</p>';
-           				    if(j.type=='jew'||j.type=='diajew')
-           				        html+='<p>'+currencyHint+j.jewerly_price+'</p>';
-           				    html+='</div></div>';
-           				})
-           				$('#itemList').html(html);
-           				html = "";
-           				$('.page').hide();
-            			//$('.lnvoice-row').show();
-            				$("#fade").fadeToggle();
-            				$(".lnvoice-row").fadeToggle("slow").focus();
-            			//window.print();
-            		}
-            	});
+            	
             });
             //$(".deleteTranc").click(function(){
             
@@ -318,9 +323,11 @@
                     $('.J_databody').html('');
                     total = json.total;
                     total_pages = json.total_pages;
+                    if(json.list)
                     for(var i=0;i<json.list.length;i++){
-                        var temp = '<tr trancId="'+json.list[i].id+'" class="trancLine"><td>'+json.list[i].tranc_date+'</td><td>'+json.list[i].name
-                        +'</td><td><a trancId="'+json.list[i].id+'"  class="printTranc t_operate">'  +json.list[i].type+'</a></td><td>'+ (json.list[i].type=='invoice'?json.list[i].invoice_no:"--") +'</td><td>'
+                        var temp = '<tr trancId="'+json.list[i].id+'" class="trancLine"><td>'+json.list[i].tranc_date+'</td><td>'+json.list[i].name+'</td>'
+                        //+'<td>'+json.list[i].carat+'</td><td>'+json.list[i].color+'</td><td>'+json.list[i].clarity+'</td><td>'+json.list[i].report_no+'</td>'
+                        +'<td><a trancId="'+json.list[i].id+'"  class="printTranc t_operate" onclick="printTranc('+json.list[i].id+')">'  +json.list[i].type+'</a></td><td>'+ (json.list[i].type=='invoice'?json.list[i].invoice_no:"--") +'</td><td>'
                         + json.list[i].currency +'</td><td>'+ json.list[i].total_price +'</td><td>'
                         + (json.list[i].type=='invoice'?json.list[i].vat_price:"--") +'</td><td><div class="pl"><a trancId="'+json.list[i].id+'" href="index.html?id='+json.list[i].id+'" target="_blank"class="modify J_modify">修改</a></div></td><td><p class="o_box J_o_box"><button trancId="'+json.list[i].id+'"  class="deleteTranc t_operate" onclick="deleteTranc(this,'+json.list[i].id+')">删除</button></p></td></tr>';
                         totalprice += parseInt(json.list[i].total_price);
