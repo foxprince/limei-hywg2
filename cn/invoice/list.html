@@ -64,10 +64,7 @@
             		<tr>
             			<th>日期</th>
             			<th>客户姓名</th>
-            			<!-- <th>重量</th>
-            			<th>颜色</th>
-            			<th>净度</th>
-            			<th>证书</th> -->
+            			<th>重量|颜色|净度|证书</th>
             			<th>类型</th>
             			<th>发票编号</th>
             			<th>货币</th>
@@ -326,7 +323,12 @@
                     if(json.list)
                     for(var i=0;i<json.list.length;i++){
                         var temp = '<tr trancId="'+json.list[i].id+'" class="trancLine"><td>'+json.list[i].tranc_date+'</td><td>'+json.list[i].name+'</td>'
-                        //+'<td>'+json.list[i].carat+'</td><td>'+json.list[i].color+'</td><td>'+json.list[i].clarity+'</td><td>'+json.list[i].report_no+'</td>'
+                        +'<td><ul>';
+                        for(var j=0;j<json.list[i].detail_list.length;j++){
+                        	var d = json.list[i].detail_list[j];
+                        	temp +='<li>'+d.carat+' | '+d.color+' | '+d.clarity+' | '+d.report_no+'</li>';
+                        }
+                        temp += '</ul></td>'
                         +'<td><a trancId="'+json.list[i].id+'"  class="printTranc t_operate" onclick="printTranc('+json.list[i].id+')">'  +json.list[i].type+'</a></td><td>'+ (json.list[i].type=='invoice'?json.list[i].invoice_no:"--") +'</td><td>'
                         + json.list[i].currency +'</td><td>'+ json.list[i].total_price +'</td><td>'
                         + (json.list[i].type=='invoice'?json.list[i].vat_price:"--") +'</td><td><div class="pl"><a trancId="'+json.list[i].id+'" href="index.html?id='+json.list[i].id+'" target="_blank"class="modify J_modify">修改</a></div></td><td><p class="o_box J_o_box"><button trancId="'+json.list[i].id+'"  class="deleteTranc t_operate" onclick="deleteTranc(this,'+json.list[i].id+')">删除</button></p></td></tr>';

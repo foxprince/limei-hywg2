@@ -363,7 +363,14 @@ if($_REQUEST['action']) {
 			if($total>0) {
 				$transactionList=array();$i=0;
 				foreach($conn->query($sql) as $row){
-					$transactionList[]=$row;
+					$transactionList[$i]=$row;
+					$stmt=$conn->prepare('select * from tranc_detail where tranc_id=:tranc_id');
+					$stmt->execute(array('tranc_id'=>$row['id']));
+					$tranc_detailList=array();
+					foreach($stmt as $rowDetail){
+						$tranc_detailList[]=$rowDetail;
+					}
+					$transactionList[$i]["detail_list"]=$tranc_detailList;
 					$i++;
 				}
 			}
