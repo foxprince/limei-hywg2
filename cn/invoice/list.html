@@ -165,13 +165,15 @@
    					currencyHint = '$';
    				}
    				var address = json.trancDetail.street+'　'+json.trancDetail.postcode+'　'+json.trancDetail.city+'　'+json.trancDetail.country;
+   				$('.to_time').html('DATE：  '+ json.trancDetail.tranc_date);
    				$('#to_name').html(json.trancDetail.name);
    				$('#to_port').html(json.trancDetail.passport);
    				$('#to_address').html(address)
    				$('#print_price').html(currencyHint+json.trancDetail.total_price);
-   				if(json.trancDetail.type=='receipt')
-   					$('.vat_price').hide();
+   				if(json.trancDetail.type=='receipt'){
+   					$('.vat_price').hide();$('.to_invoice').hide();}
    				else {
+   					$('.to_invoice').show();$('.to_invoice').html('INVOICE：  '+ json.trancDetail.invoice_no);
    					$('.vat_price').show();$('#vat_price').html(currencyHint+json.trancDetail.vat_price);
    				}
    				$.each(json.list, function (n, j) {
