@@ -167,7 +167,7 @@ function listCustomerOrder(size,page) {
 			                        <p class="w1a">'+v.id+'</p>\
 			                        <a class="w1b" href="javascript:;" onclick="delCustomerOrder(this,'+v.id+')">删除</a>\
 			                    </li>\
-		                        <li class="w1"><img class="showImg" width="98" src="'+v.diamond_pic+'"/></li>\
+		                        <li class="w1"><img class="showImg" width="98" src="'+v.ring_pic11+'"/></li>\
 		                        <li class="w1">'+v.customer_name+'</li>\
 		                        <li class="w1">'+v.wechat+'</li>\
 		                        <li class="w1">'+v.phone+'</li>\
@@ -202,7 +202,7 @@ function listCustomerOrderF(size,page) {
 			                        <p class="w1a">'+v.id+'</p>\
 			                        <a class="w1b" href="javascript:;" onclick="delCustomerOrder(this,'+v.id+')">删除</a>\
 		                        </li>\
-		                        <li class="w1"><img class="showImg" width="98" src="'+v.diamond_pic+'"/></li>\
+		                        <li class="w1"><img class="showImg" width="98" src="'+v.ring_pic1+'"/></li>\
 		                        <li class="w1">'+v.cert_no+'</li>\
 		                        <li class="w1">'+v.amount+'</li>\
 		                        <li class="w1">'+v.main_stone+'</li>\
