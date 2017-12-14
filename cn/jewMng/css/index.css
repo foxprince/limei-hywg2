@@ -126,8 +126,7 @@ li {
     height: 185px;
     overflow: hidden;
     background: url("../img/line.png") repeat-x left top;
-    font-size: 14px;
-    /* color: #b6b6b6; */
+    font-size: 14px; /* color: #b6b6b6; */
     vertical-align: middle;
     padding-top: 10px;
 }
