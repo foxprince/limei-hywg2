@@ -12,6 +12,11 @@ $(document).ready(function(){
     
     //$('.to_invoice').html('INVOICE：  '+ to_time);
 });
+function getUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+    var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+    if (r != null) return unescape(r[2]); return null; //返回参数值
+}
 function toggJew(item){
 	$(item).next('.jt-box').toggle();
 	if($(item).next('.jt-box').css("display")=='block'){
@@ -125,11 +130,10 @@ function saveOrUpdate(type){
         });
     });
     if(data){
-    	var url = "../action.php?action=addTranc";
-        if(trancId>0)
-        	url = "../action.php?action=updateTranc";
+    		var url = "../action.php?action=addTranc";
+    		if(trancId>0)
+    			url = "../action.php?action=updateTranc";
         $.post(url,{transaction:JSON.stringify(data)},function(data){
-            console.log(data);
         	if(data >0){
                 alert('保存成功')
                 trancId = data;
