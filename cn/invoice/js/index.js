@@ -45,7 +45,9 @@ function to_print(){
 	$('.to_time').html('DATE：  '+ $('#tranc_date').val());
 	var html = '';
     var address = $('#street').val()+'　'+$('#postcode').val()+'　'+$('#city').val()+'　'+$('#country').val()
-    $('#to_address').html(address)
+    $('#to_address').html(address);
+    to_name($('#name').val());
+    to_port($('#passport').val());
     $('.del_items').remove();
     $('.addContent').each(function(){
     		html += '<div class="del_items items clearfix">'+'<div class="col-xs-3 clearfix">';
@@ -74,7 +76,6 @@ function to_print(){
             html+='<p>'+currencyHint+$(this).find("#form_price2").val()+'</p>';
         html+='</div></div>';
     })
-    console.log(html);
     $('#items').after(html);
 }
 
