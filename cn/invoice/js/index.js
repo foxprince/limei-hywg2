@@ -74,7 +74,6 @@ function to_print(){
             html+='<p>'+currencyHint+$(this).find("#form_price2").val()+'</p>';
         html+='</div></div>';
     })
-    console.log(html);
     $('#items').after(html);
 }
 
