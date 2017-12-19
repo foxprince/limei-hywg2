@@ -114,8 +114,8 @@
 				</div>
 				</div>
 				<div class="col-xs-12 text-right fotter">
-					<span class="fotterBtn lnvoice pull-right"></span>
-					<span class="fotterBtn receipt pull-right"></span>
+					<span class="fotterBtn lnvoice pull-right" onclick="invoice()"></span>
+					<span class="fotterBtn receipt pull-right" onclick="receipt()"></span>
 					<!--<span class="fotterBtn save pull-right" onclick="saves()"></span>-->
 				</div>
 			</div>
@@ -424,22 +424,22 @@
         
     }
 		/*发票*/
-		$('.lnvoice').click(function() {
+		function invoice() {
 			total_invoice();
             saveOrUpdate('invoice');
 			to_print();
             $('.to_invoice').html('INVOICE：  '+ $('#invoice_no').val());
 			$('.print_none').show();
 			window.print();
-		});
+		}
 		/*收据*/
-		$('.receipt').click(function() {
+		function receipt(){
 			total_receipt();
             saveOrUpdate('receipt');
 			to_print();
             $('.to_invoice').html('');
 			$('.print_none').hide();
 			window.print();
-		});
+		}
     </script>
 </html>

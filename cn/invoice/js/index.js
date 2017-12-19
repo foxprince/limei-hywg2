@@ -35,6 +35,12 @@ function to_port(e){
     $('#to_port').html(e)
 }
 
+/**
+ * @returns
+ */
+/**
+ * @returns
+ */
 function to_print(){
 	$('.to_time').html('DATE：  '+ $('#tranc_date').val());
 	var html = '';
@@ -42,36 +48,33 @@ function to_print(){
     $('#to_address').html(address)
     $('.del_items').remove();
     $('.addContent').each(function(){
-    	html += '<div class="del_items items clearfix">'+
-        '<div class="col-xs-3 clearfix">';
-        if($(this).hasClass("dia"))
-        	html += '<p id="model">'+$(this).find("#form_model").find("option:selected").val()+'</p>'+
-        	 '<p>Carat Weight <span class="pull-right"><span class="pull-left">'+$(this).find("#form_weight").val()+'</span></span></p>'+
+    		html += '<div class="del_items items clearfix">'+'<div class="col-xs-3 clearfix">';
+        if($(this).hasClass("dia")||$(this).hasClass("diajew"))
+	        	html += '<p id="model">'+$(this).find("#form_model").find("option:selected").val()+'</p>'+
+	        	 '<p>Carat Weight <span class="pull-right"><span class="pull-left">'+$(this).find("#form_weight").val()+'</span></span></p>'+
 	         '<p>Colour Grade <span class="pull-right"><span  class="pull-left">'+$(this).find('#form_colourGrade option:selected').val()+'</span></span></p>'+
 	         '<p>Clarity Grade <span class="pull-right"><span class="pull-left">'+$(this).find('#form_clarity option:selected').val()+'</span></span></p>';
-        if($(this).hasClass("jew"))
-        	html +='<p style="margin-top: 10px;">'+$(this).find('#form_material option:selected').val()+' White Gold '+$(this).find('#form_jewerly option:selected').val()+'</p>';
-        html+='</div>'+
-        '<div class="col-xs-3 clearfix">';
-        if($(this).hasClass("dia"))
-        	html+='<p>'+$(this).find('#form_gia option:selected').val()+'&nbsp;'+$(this).find('#ref').val()+'</p>'+
+        if($(this).hasClass("jew")||$(this).hasClass("diajew"))
+        		html +='<p style="margin-top: 10px;">'+$(this).find('#form_material option:selected').val()+' White Gold '+$(this).find('#form_jewerly option:selected').val()+'</p>';
+        html+='</div>'+'<div class="col-xs-3 clearfix">';
+        if($(this).hasClass("dia")||$(this).hasClass("diajew"))
+        		html+='<p>'+$(this).find('#form_gia option:selected').val()+'&nbsp;'+$(this).find('#ref').val()+'</p>'+
 	        '<p>Cut Grade <span class="pull-right">'+$(this).find('#form_cutGrade option:selected').val()+'</span></p>'+
 	        '<p>Polish <span class="pull-right">'+$(this).find('#form_polish option:selected').val()+'</span></p>'+
 	        '<p>Symmetry<span class="pull-right">'+$(this).find('#form_symmetry option:selected').val()+'</span></p>';
-        html+='</div>'+
-        '<div class="col-xs-4 clearfix">';
-        if($(this).hasClass("dia"))
-        	html+='<p>'+$(this).find('#form_color option:selected').val()+'</p>';
-        html+='</div>'+
-        '<div class="col-xs-2 clearfix">';
-        if($(this).hasClass("dia"))
-        	html+='<p>'+currencyHint+$(this).find("#form_price").val()+'</p>';
-        if($(this).hasClass("dia")&&$(this).hasClass("jew"))
-        	html+='<p>　</p><p>　</p><p>　</p>';
-        if($(this).hasClass("jew"))
+        html+='</div>'+'<div class="col-xs-4 clearfix">';
+        if($(this).hasClass("dia")||$(this).hasClass("diajew"))
+        		html+='<p>'+$(this).find('#form_color option:selected').val()+'</p>';
+        html+='</div>'+'<div class="col-xs-2 clearfix">';
+        if($(this).hasClass("dia")||$(this).hasClass("diajew"))
+        		html+='<p>'+currencyHint+$(this).find("#form_price").val()+'</p>';
+        if($(this).hasClass("diajew")||($(this).hasClass("dia")&&$(this).hasClass("jew")))
+        		html+='<p>　</p><p>　</p><p>　</p>';
+        if($(this).hasClass("jew")||$(this).hasClass("diajew"))
             html+='<p>'+currencyHint+$(this).find("#form_price2").val()+'</p>';
         html+='</div></div>';
     })
+    console.log(html);
     $('#items').after(html);
 }
 
