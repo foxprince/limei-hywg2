@@ -1,4 +1,8 @@
-﻿<?php include_once('header.php');?>
+﻿<?
+header("location: http://www.lumiagem.be/cn/intro.php?c=order");
+exit;
+?>
+<?php include_once('header.php');?>
 	<title>利美钻石 - 购买指南</title>
 	
 </head>
