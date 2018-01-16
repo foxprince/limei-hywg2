@@ -462,9 +462,9 @@ if($_REQUEST['action']) {
 			break;
 		case "invoiceNo":
 			$transactionNo = 1;
-			$sql_dia='select invoice_no from transaction where type="invoice" order by ctime desc limit 1';
+			$sql_dia='select convert(invoice_no,UNSIGNED INTEGER) as t from transaction where type="invoice" order by ctime desc limit 1';
 			foreach($conn->query($sql_dia) as $r_r){
-				$transactionNo=((int)$r_r['t'])+1;
+				$transactionNo=$r_r['t']+1;
 			}
 			//$transactionStr=  date('Y').sprintf('%04s', $transactionNo);
 			echo $transactionNo;
