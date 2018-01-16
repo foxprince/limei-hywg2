@@ -462,7 +462,7 @@ if($_REQUEST['action']) {
 			break;
 		case "invoiceNo":
 			$transactionNo = 1;
-			$sql_dia='select max(invoice_no) as t from transaction';
+			$sql_dia='select invoice_no from transaction where type="invoice" order by ctime desc limit 1';
 			foreach($conn->query($sql_dia) as $r_r){
 				$transactionNo=$r_r['t']+1;
 			}
