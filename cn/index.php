@@ -7,7 +7,7 @@
   <?php
 	include_once('topbar.php');
   ?>
-  <div class="datu" onmouseover="this.style.cursor='pointer'" >
+  <div class="datu" id="datu" onmouseover="this.style.cursor='pointer'" >
   </div>
   
   
@@ -304,6 +304,25 @@ foreach($conn->query($user_info) as $r_u){
 			}
 		});
 	}
+</script>
+<script language =javascript >
+var curIndex=0;
+//时间间隔(单位毫秒)，每秒钟显示一张，数组共有5张图片放在Photos文件夹下。
+var timeInterval=5000;
+var arr=new Array();
+var obj=$(".pic .pic_k li a");  
+$.each(obj,function(index,value){
+	  arr.push($(this).attr("bgurl"));
+});
+setInterval(changeImg,timeInterval);
+function changeImg()
+{
+    if (curIndex==arr.length-1) 
+    { curIndex=0; }
+    else
+    { curIndex+=1; }
+    $(".datu").css("background-image","url("+arr[curIndex]+")");
+}
 </script>
 </body>
 
