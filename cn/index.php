@@ -14,9 +14,9 @@
   <div class="pic">
     <div class="pic_k">
       <ul>
+        <li><a href="javascript:;" bgurl="images/top2.jpg"target="_self"><img src="images/top2s.jpg"></a></li>
         <li><a href="javascript:;" bgurl="images/top4.jpg" target="_blank" link="http://www.chinanews.com/hr/2017/08-15/8305216.shtml"><img src="images/top4s.jpg"></a></li>
       	<li><a href="javascript:;" bgurl="images/top1.jpg" target="_self"><img src="images/top1s.jpg"></a></li>
-        <li><a href="javascript:;" bgurl="images/top2.jpg"target="_self"><img src="images/top2s.jpg"></a></li>
       </ul>
     </div>
   </div>
