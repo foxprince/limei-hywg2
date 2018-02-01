@@ -107,7 +107,7 @@ function PrefixInteger(num) {
  */
 function saveOrUpdate(type){
     var data = {
-        'id':trancId,'name':$('#name').val(),
+        'id':trancId,'name':$('#name').val(),'notes':$('#notes').val(),
         'passport':$('#passport').val(),
         'street':$('#street').val(),
         'city':$('#city').val(),'currency':currency,'type':type,
