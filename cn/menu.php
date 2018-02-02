@@ -103,6 +103,17 @@
             </ul>
           </div>
         </li>
-				
+		
+		<li class="li_1">
+					<a href="#" class="a_menu1">相关信息</a>
+					<div class="div1" <?php if(strstr($_SERVER['REQUEST_URI'],'about.php?p=brandstory#antwerp')||strstr($_SERVER['REQUEST_URI'],'about.php?p=brandstory#chineseantwerp')||strstr($_SERVER['REQUEST_URI'],'about.php?p=brandstory#chaunsstory')){ echo 'style="display:block;"';} ?> >
+						<ul class="ul_2">
+							<li class="li_2" style="position: relative;">
+								<a href="about.php?p=laxs" onclick="document.getElementById('antwerp').scrollIntoView(true);return false;" class="a_menu2">《恋爱先生》</a>
+							</li>
+							
+						</ul>
+					</div>
+				</li>	
 			</ul>
 		</div>
