@@ -1,5 +1,6 @@
 <?php
 include_once ('log.php');
+include_once ('autoreply.php');
 include_once('./lib/emoji.php');
 require_once ('connection.php');
 define ( "TOKEN", "lumia123weixin" );
@@ -99,19 +100,13 @@ class wechatCallbackapiTest {
 			
 			// ################# END second of all, if it's not an event, save the message to the database message table END ##################################
 			if ($keywordisTXT) {
-				$urltopost = 'http://happyeurope.eu/autoreply.php';
+				//$urltopost = 'http://www.lumiagem.com/cn/autoreply.php';
 				// $messageToPost=iconv('UTF-16', 'UTF-8', $crr_message);
 				// $trans_sentence = iconv('UTF-8', 'ASCII//TRANSLIT', $utf8_sentence);
 				// $data = array("touser" => $wechatopenidofuser, "msgtype" => "text", "text" => array("content"=>$crr_message));
-				$data = '{ "user_open_id":"' . $fromUsername . '", "content":"' . $keyword . '" }';
-				$ch = curl_init ( $urltopost );
-				curl_setopt ( $ch, CURLOPT_SSL_VERIFYPEER, FALSE );
-				curl_setopt ( $ch, CURLOPT_SSL_VERIFYHOST, FALSE );
-				curl_setopt ( $ch, CURLOPT_POST, 1 );
-				curl_setopt ( $ch, CURLOPT_POSTFIELDS, $data );
-				curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, 1 );
-				$msgType = "text";
-				$result = curl_exec ( $ch );
+				//$data = '{ "user_open_id":"' . $fromUsername . '", "content":"' . $keyword . '" }';
+				
+				$result = autoreply ( $fromUsername, $keyword);
 				$resultStr = sprintf ( $textTpl, $fromUsername, $toUsername, time(), $msgType, $result );
 				logger ( $resultStr );
 				echo $resultStr;
