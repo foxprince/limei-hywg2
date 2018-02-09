@@ -107,8 +107,8 @@ class wechatCallbackapiTest {
 				//$data = '{ "user_open_id":"' . $fromUsername . '", "content":"' . $keyword . '" }';
 				logger("autoreply....");
 				$result = autoreply( $fromUsername, $keyword);
-				$resultStr = sprintf( $textTpl, $fromUsername, $toUsername, time(), $msgType, $result );
-				logger ( "result".$resultStr );
+				$resultStr = sprintf( $textTpl, $fromUsername, $toUsername, time(), "text", $result );
+				logger ( "result:".$resultStr );
 				echo $resultStr;
 				exit ();
 			} else {
