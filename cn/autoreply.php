@@ -1,9 +1,14 @@
 <?php
+// include_once ('log.php');
+// include_once ('autoreply.php');
+// require_once ('connection.php');
+// echo autoreply($_REQUEST['u'],$_REQUEST['m']);
 function autoreply($crr_c_o_id,$crr_message){
-logger($crr_c_o_id.':'.$crr_message);
 //$holidaymessage='温馨提示：我公司于7月29日至8月16日放假。查询系统照常工作。如有任何问题，请给我们的客服微信留言：limeikefu 我们会在8月16日以后尽快联系您。 \n\n';
 $holidaymessage='';
 $pattern_ref = '/^[Kk]*[0-9]+$/';
+$conn = dbConnect ( 'write', 'pdo' );
+$conn->query ( "SET NAMES 'utf8'" );
 if(preg_match($pattern_ref, $crr_message)){
 	$sql='SELECT * FROM diamonds WHERE stock_ref = "'.$crr_message.'" AND status = "AVAILABLE"';
 	$stmt_dia=$conn->query($sql);
@@ -735,7 +740,7 @@ if(preg_match($pattern_ref, $crr_message)){
 		//exit();
 	}	
 }
-//logger($thefeedbackcontentforwechatuser);
+logger($thefeedbackcontentforwechatuser);
 $sql_w_openid='SELECT id, wechat_name FROM clients_list WHERE wechat_open_id = "'.$crr_c_o_id.'"';
 foreach($conn->query($sql_w_openid) as $row_check){
 	$crr_c_id=$row_check['id'];
