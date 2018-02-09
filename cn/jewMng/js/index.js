@@ -4,6 +4,14 @@ $(".typeSelect").on("change", function (e) {
 	list(this.value,size,page);
 	listpage(total,total_pages);
 });
+function getParams(key) {
+	var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+	var r = window.location.search.substr(1).match(reg);
+	if (r != null) {
+		return unescape(r[2]);
+	}
+	return null;
+}
 function delIvt(item){
 	var e = $(item).parent().parent().parent();
 	$.ajax({
@@ -55,7 +63,7 @@ function addIvt(item){
 	var ivtId = $(item).attr("id");
 	var data = {
 			'id':ivtId,'ivt_type':$(e).find("[name='ivt_type']").val(),'ivt_no':$(e).find("[name='ivt_no']").val(),
-			'title':$(e).find("[name='title']").val(),'logo':$(e).find(".showImg").attr("src"),
+			'title':$(e).find("[name='title']").val(),'logo':$(e).find("[name='logo']").val(),'logo2':$(e).find("[name='logo2']").val(),
 			'price03':$(e).find("[name='price03']").val(),'price09':$(e).find("[name='price09']").val(),
 			'price2':$(e).find("[name='price2']").val(),'price3':$(e).find("[name='price3']").val(),
 			'note':$(e).find("[name='note']").val(),
@@ -95,6 +103,26 @@ function addIvt(item){
         })
     }
 };
+function updateLogo(item) {console.log('aaaaaa');
+	var from = $(item).attr("from");
+	var item = $(item).parent().children("input[type=file]");
+	var file = $(item)[0].files[0];
+	var formData = new FormData();
+	formData.append('file', file);
+	var element = $("#"+from); 
+	$.ajax({
+		url : '../actionJewMng.php?action=upload',
+		type : 'POST',
+		data : formData,
+		processData: false,  // tell jQuery not to process the data
+		contentType: false,  // tell jQuery not to set contentType
+		success : function(data) {console.log(from);
+			$(".update img").attr("src",data);
+	   		$(element).attr("src",data);
+	   		$(element).parent().children("input[type=hidden]").val(data);
+		}
+	});
+}
 //$(".ivtPic").on("change", function (e) {
 function chgPic(item){
 	var file = $(item)[0].files[0];
@@ -108,8 +136,10 @@ function chgPic(item){
 	       processData: false,  // tell jQuery not to process the data
 	       contentType: false,  // tell jQuery not to set contentType
 	       success : function(data) {
-	           $(element).parent().children(".showImg").show();   //待上传成功后 显示  
+	    	   	$(element).hide();   $(element).parent().children("span").hide();
+	    	   	$(element).parent().children("img").removeClass("hidden");   //待上传成功后 显示  
 	           $(element).parent().children("img").attr("src",data);  
+	           $(element).parent().children("input[type=hidden]").val(data);
 	       }
 	});
 }
@@ -228,6 +258,13 @@ function removeOrder(item, id) {
 	       }
 	});
 }
+function showImg(item) {
+	var $src = $(item).attr("src");
+	$(".update img").attr("src", $src);
+	$(".update a").attr("from", $(item).attr("id"));
+	$(".update input").attr("from", $(item).attr("id"));
+	$(".all").show();
+}
 function listOrder(size,page) {
 	var url = '../actionJewMng.php?action=ivtList&order=1';
 	if(size)
@@ -245,6 +282,7 @@ function listOrder(size,page) {
                 <ul>\
                     <li class="w1" style="border: none; background: #ffffff;">\
                         <p class="w1a">'+v.ivt_no+'</p>\
+                        <a class="w1b" href="ivtMng.html?id='+v.id+'" >修改</a>\
                         <a class="w1b" href="javascript:;" onclick="removeOrder(this,'+v.id+')">删除</a>\
                     </li>\
                     <li class="w2"><img width="160" src="'+v.logo+'"></li>\
@@ -265,9 +303,11 @@ function listOrder(size,page) {
         }
 	});
 }
-function list(ivt_type,size,page) {
+function list(id,ivt_type,size,page) {
 	var e = $("#ivtList");
 	var url = '../actionJewMng.php?action=ivtList';
+	if(id)
+		url += '&id='+id;
 	if(ivt_type)
 		url += '&ivt_type='+ivt_type;
 	if(size)
@@ -295,10 +335,16 @@ function list(ivt_type,size,page) {
     						<div class="dele addIvtBtn" id="'+v.id+'" onclick="addIvt(this);">修改</div>\
     						<div class="dele dele2 delIvtBtn" id="'+v.id+'" onclick="delIvt(this);">删除</div>\
     					</li>\
-    					<li class="mn-add">\
-                		<img class="showImg"  width="160" alt="pic" src="'+v.logo+'"/> \
-    					<input class="ivtPic" id="file" name="file" type="file" onchange="chgPic(this)"> <span>添加图片</span>\
-    					</li>\
+    					<li class="mn-add">';
+                	temp +='<div><img class="showImg '+(v.logo?'':'hidden')+'" id="logoImg1_'+v.id+'" width="160" alt="pic" '+(v.logo?'src="'+v.logo+'"':'')+' onclick="showImg(this)"/>';
+                	if(!v.logo)	
+            			temp +='<input class="ivtPic" id="file" name="file" type="file" index="1" onchange="chgPic(this)"> <span>添加图片</span>';
+                temp +='<input type="hidden" id="logoInput1_'+v.id+'" name="logo" '+(v.logo?'value="'+v.logo+'"':'')+' /></div>';
+                temp +='<div><img class="showImg '+(v.logo2?'':'hidden')+'" id="logoImg2_'+v.id+'" width="160" alt="pic" '+(v.logo2?'src="'+v.logo2+'"':'')+' onclick="showImg(this)"/>';
+                if(!v.logo2)
+	        			temp +='<input class="ivtPic" id="file" name="file" type="file" index="2" onchange="chgPic(this)"> <span>添加图片</span>';
+	            temp +='<input type="hidden" id="logoInput2_'+v.id+'" name="logo2" '+(v.logo2?'value="'+v.logo2+'"':'')+' /></div>';
+    				temp +='</li>\
     					<li class="w33">\
     						<div class="jg">\
     							<p class="jg-1">0.3ct-0.89ct</p>\
@@ -595,9 +641,14 @@ function listpage(total,total_pages,callback){
 				<div class="dele dele2 delIvtBtn" id="" onclick="delIvt(this);">删除</div>\
 			</li>\
 			<li class="mn-add">\
-			<img class="showImg" style="display: none" alt="" src=""/>\
+			<img class="showImg" style="display: none" alt="" src="" onclick="showImg(this)"/>\
+			<div><img class="showImg hidden" id="logoImg1" width="160" alt="pic" src="" onclick="showImg(this)"/>\
 			<input class="ivtPic" id="file" name="file" type="file" onchange="chgPic(this)"> <span>添加图片</span>\
-			</li>\
+			<input type="hidden" id="logoInput1" name="logo" value="" /></div>\
+			<div><img class="showImg hidden" id="logoImg2" width="160" alt="pic" src="" onclick="showImg(this)"/>\
+			<input class="ivtPic" id="file" name="file" type="file" onchange="chgPic(this)"> <span>添加图片</span>\
+			<input type="hidden" id="logoInput2" name="logo" value="" /></div>\
+	        </li>\
 			<li class="w33">\
 				<div class="jg">\
 					<p class="jg-1">0.3ct-0.89ct</p>\

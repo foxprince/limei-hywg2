@@ -46,6 +46,7 @@ create table inventory (
 	ivt_no varchar(30)	null,/*--编号*/
 	title varchar(50) null,/*--名称*/
 	logo  varchar(100) null,/*--款式图*/
+	logo2  varchar(100) null,/*--款式图*/
 	price03 float null,
 	price09 float null,
 	price2 float null,
@@ -55,6 +56,7 @@ create table inventory (
 	order_status tinyint(1) default 1 null
 );
 alter table inventory add order_status tinyint(1) default 1 null;
+alter table inventory add logo2 varchar(100) null;
 --库存规格表
 create table inventory_spec (
 	id bigint not null primary key auto_increment,

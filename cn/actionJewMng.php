@@ -18,6 +18,8 @@ if($_REQUEST['action']) {
 			$totalSql = 'select count(*) as t from inventory';
 			$sql='select * from inventory ';
 			$clause = ' where 1=1 ';
+			if($_REQUEST['id']!=null&&$_REQUEST['id']>0)
+				$clause .= ' and id='.$_REQUEST['id'];
 			if($_REQUEST['order']!=null)
 				$clause .= ' and order_status=1';
 			if($_REQUEST['ivt_type']!=null&&$_REQUEST['ivt_type']!="all")
@@ -56,11 +58,11 @@ if($_REQUEST['action']) {
 			break;
 		case "addIvt" :
 			$obj=json_decode($_REQUEST['inventory'],TRUE);
-			$sql = 'insert into inventory(ivt_type,ivt_no,title,logo,price03,price09,price2,price3,note,ctime)
+			$sql = 'insert into inventory(ivt_type,ivt_no,title,logo,logo2,price03,price09,price2,price3,note,ctime)
 					values(?,?,?,?,?,?,?,?,?,now())';
 			$stmt=$conn->prepare($sql);
 			$stmt->execute(array($obj['ivt_type'],
-					$obj['ivt_no'], $obj['title'],$obj['logo'],
+					$obj['ivt_no'], $obj['title'],$obj['logo'],$obj['logo2'],
 					$obj['price03'], $obj['price09'],$obj['price2'],
 					$obj['price3'], $obj['note']));
 			//var_dump( $stmt->queryString, $stmt->_debugQuery() );
@@ -82,10 +84,10 @@ if($_REQUEST['action']) {
 			break;
 		case "updateIvt":
 			$obj=json_decode($_REQUEST['inventory'],TRUE);
-			$sql = 'update inventory set order_status=1,ivt_type=?,ivt_no=?,title=?,logo=?,price03=?,price09=?,price2=?,price3=?,note=? where id=?';
+			$sql = 'update inventory set order_status=1,ivt_type=?,ivt_no=?,title=?,logo=?,logo2=?,price03=?,price09=?,price2=?,price3=?,note=? where id=?';
 			$stmt=$conn->prepare($sql);
 			$stmt->execute(array($obj['ivt_type'],
-					$obj['ivt_no'], $obj['title'],$obj['logo'],
+					$obj['ivt_no'], $obj['title'],$obj['logo'],$obj['logo2'],
 					$obj['price03'], $obj['price09'],$obj['price2'],
 					$obj['price3'], $obj['note'],$obj['id']));
 			//删除原有纪录

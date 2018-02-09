@@ -144,12 +144,12 @@ li {
     display: inline-block;
     vertical-align: middle;
 }
-
+.hidden {display:none;}
 
 .w1a{
     width: 99%;
     border: #dddddd solid 1px;
-    height: 135px;
+    height: 91px;
     line-height: 135px;
     background: #f9f9f9;
 }
