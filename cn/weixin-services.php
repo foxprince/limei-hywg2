@@ -19,7 +19,7 @@ class wechatCallbackapiTest {
 	
 	public function responseMsg() {
 		// get post data, May be due to the different environments
-		$postStr = $GLOBALS ["HTTP_RAW_POST_DATA"];
+		$postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
 		$reference = 'FINAL-WECHAT';
 		logger ( "post:" . $postStr );
 		if (! empty ( $postStr )) {
@@ -105,10 +105,10 @@ class wechatCallbackapiTest {
 				// $trans_sentence = iconv('UTF-8', 'ASCII//TRANSLIT', $utf8_sentence);
 				// $data = array("touser" => $wechatopenidofuser, "msgtype" => "text", "text" => array("content"=>$crr_message));
 				//$data = '{ "user_open_id":"' . $fromUsername . '", "content":"' . $keyword . '" }';
-				
-				$result = autoreply ( $fromUsername, $keyword);
-				$resultStr = sprintf ( $textTpl, $fromUsername, $toUsername, time(), $msgType, $result );
-				logger ( $resultStr );
+				logger("autoreply....");
+				$result = autoreply( $fromUsername, $keyword);
+				$resultStr = sprintf( $textTpl, $fromUsername, $toUsername, time(), $msgType, $result );
+				logger ( "result".$resultStr );
 				echo $resultStr;
 				exit ();
 			} else {
