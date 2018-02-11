@@ -17,6 +17,8 @@ if (isset($_GET['c'])) {
 	    $title = "HRD认证";
 	} else if ($c == 'igi') {
 	    $title = "IGI认证";
+	} else if ($c == 'article') {
+		$title = "文章列表";
 	}
 }
 ?>
@@ -45,6 +47,7 @@ if (isset($_GET['c'])) {
 										<?php if ($c == 'gia') {?><IFRAME ID="Frame1" style="background-color=transparent" title="test" frameborder="0"  width="100%" height="1500" scrolling="yes" SRC="gia.html" allowTransparency="true"></IFRAME> 
 										<?php }elseif ($c == 'hrd') {?><IFRAME ID="Frame1" style="background-color=transparent" title="test" frameborder="0"  width="100%" height="1500" scrolling="yes" SRC="hrd.html" allowTransparency="true"></IFRAME> 
 										<?php }elseif ($c == 'igi') {?><IFRAME ID="Frame1" style="background-color=transparent" title="test" frameborder="0"  width="100%" height="1500" scrolling="yes" SRC="igi.html" allowTransparency="true"></IFRAME> 
+										<?php }elseif ($c == 'article') {?><IFRAME ID="Frame1" style="background-color=transparent" title="test" frameborder="0"  width="100%" height="1500" scrolling="yes" SRC="articles/index.html" allowTransparency="true"></IFRAME> 
 										<?php }else if ($c == 'tochina') {?>
 										<img src="images/toChina.jpg" style="max-width: 590px;" alt="直邮中国"/>
 										<?php }else if ($c == 'order') {?>
