@@ -1,9 +1,9 @@
 var ivt_type = null;
 var size = 1,total = 0,total_pages = 0, page = 1;
-$(".typeSelect").on("change", function (e) {
-	list(this.value,size,page);
-	listpage(total,total_pages);
-});
+//$(".typeSelect").on("change", function (e) {
+//	list(this.value,size,page);
+//	listpage(total,total_pages);
+//});
 function getParams(key) {
 	var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
 	var r = window.location.search.substr(1).match(reg);
@@ -618,7 +618,7 @@ function listpage(total,total_pages,callback){
         //要执行的函数：默认null，必须为fn且返回true则可执行分页，false则不执行
         callBack:function(n){
             var flag = true;
-            callback(ivt_type,size,n);
+            callback(id,ivt_type,size,n);
             return flag;
         }
     });
