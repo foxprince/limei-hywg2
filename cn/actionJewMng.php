@@ -59,7 +59,7 @@ if($_REQUEST['action']) {
 		case "addIvt" :
 			$obj=json_decode($_REQUEST['inventory'],TRUE);
 			$sql = 'insert into inventory(ivt_type,ivt_no,title,logo,logo2,price03,price09,price2,price3,note,ctime)
-					values(?,?,?,?,?,?,?,?,?,now())';
+					values(?,?,?,?,?,?,?,?,?,?,now())';
 			$stmt=$conn->prepare($sql);
 			$stmt->execute(array($obj['ivt_type'],
 					$obj['ivt_no'], $obj['title'],$obj['logo'],$obj['logo2'],

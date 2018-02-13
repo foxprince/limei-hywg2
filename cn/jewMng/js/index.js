@@ -647,7 +647,7 @@ function listpage(total,total_pages,callback){
 			<input type="hidden" id="logoInput1" name="logo" value="" /></div>\
 			<div><img class="showImg hidden" id="logoImg2" width="160" alt="pic" src="" onclick="showImg(this)"/>\
 			<input class="ivtPic" id="file" name="file" type="file" onchange="chgPic(this)"> <span>添加图片</span>\
-			<input type="hidden" id="logoInput2" name="logo" value="" /></div>\
+			<input type="hidden" id="logoInput2" name="logo2" value="" /></div>\
 	        </li>\
 			<li class="w33">\
 				<div class="jg">\
