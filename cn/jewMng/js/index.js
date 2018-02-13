@@ -1,5 +1,5 @@
 var ivt_type = null;
-var size = 10,total = 0,total_pages = 0, page = 1;
+var size = 5,total = 0,total_pages = 0, page = 1;
 //$(".typeSelect").on("change", function (e) {
 //	list(this.value,size,page);
 //	listpage(total,total_pages);
