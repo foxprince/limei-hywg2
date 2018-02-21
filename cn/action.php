@@ -338,7 +338,7 @@ if($_REQUEST['action']) {
 			break;
 		case "updateTranc":
 			$obj=json_decode($_REQUEST['transaction'],TRUE);
-			$sql = 'update transaction set type=?,name=?,passport=?,street=?,city=?,postcode=?,country=?,tranc_date=?,invoice_no=?,currency=?,vat_price=?,total_price=?,notes=? where id=?';
+			$sql = 'update transaction set type=?,name=?,passport=?,street=?,city=?,postcode=?,country=?,tranc_date=?,invoice_no=?,currency=?,vat_price=?,total_price=?,tax_rebate=?,notes=? where id=?';
 			$stmt=$conn->prepare($sql);
 			$stmt->execute(array($obj['type'],$obj['name'],
 					$obj['passport'],
@@ -346,7 +346,7 @@ if($_REQUEST['action']) {
 					$obj['postcode'],
 					$obj['country'],
 					$obj['tranc_date'],
-					$obj['invoice_no'],$obj['currency'],$obj['vat_price'],$obj['total_price'],$obj['notes'],$obj['id']));
+					$obj['invoice_no'],$obj['currency'],$obj['vat_price'],$obj['total_price'],$obj['tax_rebate'],$obj['notes'],$obj['id']));
 			//删除原有纪录
 			$sql_delete='delete from tranc_detail WHERE tranc_id = '.$obj['id'];
 			$conn->query($sql_delete);
@@ -378,15 +378,15 @@ if($_REQUEST['action']) {
 			break;
 		case "addTranc":
 			$obj=json_decode($_REQUEST['transaction'],TRUE);
-			$sql = 'insert into transaction(name,passport,street,city,postcode,country,type,tranc_date,invoice_no,currency,vat_price,total_price,notes,ctime) 
-					values(:name,:passport,:street,:city,:postcode,:country,:type,:tranc_date,:invoice_no,:currency,:vat_price,:total_price,:notes,now())';
+			$sql = 'insert into transaction(name,passport,street,city,postcode,country,type,tranc_date,invoice_no,currency,vat_price,total_price,tax_rebate,notes,ctime) 
+					values(:name,:passport,:street,:city,:postcode,:country,:type,:tranc_date,:invoice_no,:currency,:vat_price,:total_price,:tax_rebate,:notes,now())';
 			$stmt=$conn->prepare($sql);
 			$stmt->execute(array('name'=>$obj['name'],
 					'passport'=>$obj['passport'],
 					'street'=>$obj['street'],'city'=>$obj['city'],
 					'postcode'=>$obj['postcode'],
 					'country'=>$obj['country'],'type'=>$obj['type'],
-					'tranc_date'=>$obj['tranc_date'],
+					'tranc_date'=>$obj['tranc_date'],'tax_rebate'=>$obj['tax_rebate'],
 					'invoice_no'=>$obj['invoice_no'],'currency'=>$obj['currency'],'vat_price'=>$obj['vat_price'],'total_price'=>$obj['total_price'],'notes'=>$obj['notes']));
 			$transactionId = $conn->lastInsertId();
 			//--得到Json_list数组长度

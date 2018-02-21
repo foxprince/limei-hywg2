@@ -14,6 +14,8 @@ create table transaction(
 	currency varchar(6) null,
 	vat_price float null,
   	total_price float null,/*不含税价格*/
+  	tax_rebate varchar(10) null,
+  	notes	varchar(255) null,
 	ctime datetime not null
 );
 drop table receipt;
