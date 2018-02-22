@@ -239,7 +239,7 @@ if($_REQUEST['action']) {
 				$Mail->Subject = '已经收到您的预约-利美钻石'; //邮件标题
 				$content="<b>您的预约信息</b><br/>姓名：".$name." 联系电话：".$tel." 电子邮件：".$email;
 				$content .= "<br/>预约时间：".$viewTime;
-				$content .='您的预约已经保存，我们会尽快联系您。';
+				$content .='您的预约已经保存。为了您的预约能得到及时准确的确认，请您加我们的客服微信：LIMEIKEFU; 或者致电003236897394，在得到客服的确认之后，您的预约即可生效。LUMIA利美钻石期待您的光临！';
 				$Mail->Body = $content; //邮件内容
 				$Mail->AltBody = "This is the body in plain text for non-HTML mail clients"; //附加信息，可以省略
  				$Mail->Send();
