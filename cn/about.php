@@ -64,6 +64,11 @@
 						$title='《恋爱先生》开播！跟着靳东新剧逛比利时啦！';
 						$keyword='恋爱先生，比利时，安特卫普，钻石，啤酒，巧克力，利美钻石';
 						break;
+					case 'laxs2':
+						$the_page='../cn/articles/laxs.html';
+						$title='《恋爱先生》开播！跟着靳东新剧逛比利时啦！';
+						$keyword='恋爱先生，比利时，安特卫普，钻石，啤酒，巧克力，利美钻石';
+						break;
 					case 'tax':
 						$the_page='../cn/articles/tax.html';
 						$title='在Lumia购买钻石如何退21%全税？ ';

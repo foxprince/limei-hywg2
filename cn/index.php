@@ -15,7 +15,7 @@
     <div class="pic_k">
       <ul>
         <li><a href="javascript:;" bgurl="images/top2.jpg"target="_self"><img src="images/top2s.jpg"></a></li>
-        <li><a href="javascript:;" bgurl="images/top4.jpg" target="_blank" link="http://www.chinanews.com/hr/2017/08-15/8305216.shtml" alt="比利时钻交所里的“中国梦”"><img alt="比利时钻交所里的“中国梦”" src="images/top4s.jpg"></a></li>
+        <li><a href="javascript:;" bgurl="images/top4.jpg" target="_blank" link="/cn/about.php?p=laxs2" alt="《恋爱先生》开播！跟着靳东新剧逛比利时啦"><img alt="《恋爱先生》开播！跟着靳东新剧逛比利时啦" src="images/top4s.jpg"></a></li>
       	<li><a href="javascript:;" bgurl="images/top1.jpg" target="_self" link="/cn/about.php?p=tax" alt="比利时钻交所里的“中国梦”"><img src="images/top1s.jpg" alt="在Lumia购买钻石如何退21%全税？"></a></li>
       </ul>
     </div>
