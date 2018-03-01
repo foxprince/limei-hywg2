@@ -256,7 +256,7 @@ if($_REQUEST['action']) {
 				$apikey='ec315b55a76455ddd6789e192b8b670a';  //apikey秘钥（请登录 http://m.5c.com.cn 短信平台-->账号管理-->我的信息 中复制apikey）
 				$content=str_replace("<b>", "", $content);$content=str_replace("</b>", "", $content);
 				$content=str_replace("<br/>", "", $content);
-				$content='您好，您的验证码是：12345【美联】';  //要发送的短信内容，特别注意：签名必须设置，网页验证码应用需要加添加【图形识别码】。
+				$content='【lumia】'.$content;  //要发送的短信内容，特别注意：签名必须设置，网页验证码应用需要加添加【图形识别码】。
 				$content = iconv("GBK","UTF-8",$content);
 				$contentUrlEncode = urlencode($content);//执行URLencode编码  ，$content = urldecode($content);解码
 				$result = sendSMS($username,$password_md5,$apikey,$tel,$contentUrlEncode,$encode);  //进行发送
