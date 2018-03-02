@@ -19,6 +19,8 @@ if (isset($_GET['c'])) {
 	    $title = "IGI认证";
 	} else if ($c == 'article') {
 		$title = "文章列表";
+	} else if ($c == 'lumia') {
+		$title = "利美品牌";
 	}
 }
 ?>
@@ -74,6 +76,16 @@ if (isset($_GET['c'])) {
 											<p>您可以选择从大门 <img src="images/traffic-02.png" style="max-width: 20px;" alt="利美钻石交通指引"/>  Pelikaanstraat 62, 2018 Antwerp 进入</p><p> (周一至周五开放）</p>
 											<p>或大门 <img src="images/traffic-03.png" style="max-width: 20px;" alt="利美钻石交通指引"/> Hovenierstraat 35, 2018 Antwerp 进入</p><p> （周一至周日开放）</p>
 											<p>钻石街停车场地址 <img src="images/traffic-04.png" style="max-width: 20px;" alt="利美钻石交通指引"/>：Vestingstraat 38, 2018 Antwerp Belgium</p>
+										</div>
+										<?php }else if ($c == 'lumia') {?>
+										<div>
+											<p>LUMIA利美钻石品牌</p>
+<p>是首个获得欧洲最权威钻石交易所 Diamantclub席位的中国公司。</p>
+<p>安特卫普钻交所的信誉保障，让LUMIA利美钻石和世界顶级珠宝品牌一样成为少数可以直接从比利时选钻的珠宝品牌。这意味着利美钻石拥有比利时最优质钻石的优先选择权。</p>
+<br/>
+<p>从这里走出的每一颗钻石都配有美国GIA或欧洲HRD鉴定证书，以确保每一个产品都能从源头查清身世同时利美钻石有着完善的售后服务，从运输安全保障，到重新打磨抛光，甚至私人定制，利美都能完美实现。</p>
+<br/>
+<p>LUMIA利美愿自己的产品能够经得起时间的考验，从而见证每一个拥有者的幸福。</p>
 										</div>
 										<?php }?>
 									</div>

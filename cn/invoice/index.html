@@ -136,7 +136,7 @@
 				<div class="col-xs-12 text-right fotter">
 					<span class="fotterBtn lnvoice pull-right" onclick="invoice()"></span>
 					<span class="fotterBtn receipt pull-right" onclick="receipt()"></span>
-					<!--<span class="fotterBtn save pull-right" onclick="saves()"></span>-->
+					<span class="fotterBtn save pull-right" onclick="saves()"></span>
 				</div>
 			</div>
 			</div>
@@ -444,6 +444,9 @@
     	});
         
     }
+    		function saves() {
+    			saveOrUpdate();
+    		}
 		/*发票*/
 		function invoice() {
 			total_invoice();
