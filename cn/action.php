@@ -1,4 +1,7 @@
 <?php
+//namespace Aliyun\DySDKLite\Sms;
+require_once "AliyunSignatureHelper.php";
+//use Aliyun\DySDKLite\SignatureHelper;
 date_default_timezone_set("Asia/Shanghai");
 include_once 'log.php';
 require 'mail/PHPMailerAutoload.php';
@@ -149,7 +152,7 @@ if($_REQUEST['action']) {
 						'tel'=> $tel,
 						'id'=> $userid
 				));
-				//var_dump( $stmt->queryString, $stmt->_debugQuery() );
+				
 				$OK=$stmt->rowCount();
 			}
 			$viewTime=$_POST['viewTime'];
@@ -162,9 +165,24 @@ if($_REQUEST['action']) {
 					'viewTime'=> $viewTime,
 					'userid'=> $userid
 			));
+			//var_dump( $stmt->queryString, $stmt->_debugQuery() );
 			$OK=$stmt->rowCount();
 			if($OK){
 				$feedbackwords='非常感谢您的预订。您的预约已经保存，我们会尽快联系您。';
+				//发短信
+				ini_set("display_errors", "on"); // 显示错误提示，仅用于测试时排查问题
+				set_time_limit(0); // 防止脚本超时，仅用于测试使用，生产环境请按实际情况设置
+				header("Content-Type: text/plain; charset=utf-8"); // 输出为utf-8的文本格式，仅用于测试
+				
+				// 验证发送短信(SendSms)接口
+				$contentArray = Array (
+						"name" => $name,
+						"phone" => $tel,"time" => $viewTime
+						);
+				$result=sendSms($tel,$contentArray);
+				print_r($result);
+				//echo $result;  //输出result内容，查看返回值，成功为success，错误为error，（错误内容在上面有显示）
+				/*
 				//发送邮件
 				$Mail = new PHPMailer(); //建立邮件发送类
 				$Mail->IsSMTP(); // Use SMTP
@@ -248,27 +266,8 @@ if($_REQUEST['action']) {
 					logger( 'Mailer Error: ' . $mail->ErrorInfo);
 				} else {
 					logger( 'Message has been sent');
-				}
-				//发短信
-				$encode='UTF-8';  //页面编码和短信内容编码为GBK。重要说明：如提交短信后收到乱码，请将GBK改为UTF-8测试。如本程序页面为编码格式为：ASCII/GB2312/GBK则该处为GBK。如本页面编码为UTF-8或需要支持繁体，阿拉伯文等Unicode，请将此处写为：UTF-8
-				$username='yhhd';  //用户名
-				$password_md5='7240835ee7502289c76f5e9bd4cddb8d';  //32位MD5密码加密，不区分大小写
-				$apikey='ec315b55a76455ddd6789e192b8b670a';  //apikey秘钥（请登录 http://m.5c.com.cn 短信平台-->账号管理-->我的信息 中复制apikey）
-				$content=str_replace("<b>", "", $content);$content=str_replace("</b>", "", $content);
-				$content=str_replace("<br/>", "", $content);
-				$content='【lumia】'.$content;  //要发送的短信内容，特别注意：签名必须设置，网页验证码应用需要加添加【图形识别码】。
-				$content = iconv("GBK","UTF-8",$content);
-				$contentUrlEncode = urlencode($content);//执行URLencode编码  ，$content = urldecode($content);解码
-				$result = sendSMS($username,$password_md5,$apikey,$tel,$contentUrlEncode,$encode);  //进行发送
+				}*/
 				
-				if(strpos($result,"success")>-1) {
-					//提交成功
-					//逻辑代码
-				} else {
-					//提交失败
-					//逻辑代码
-				}
-				echo $result;  //输出result内容，查看返回值，成功为success，错误为error，（错误内容在上面有显示）
 			}else{
 				$feedbackwords='请检查您输入的数据。如果还存在问题请联系我们客服微信号limeikefu。';
 			}
@@ -555,7 +554,6 @@ if($_REQUEST['action']) {
 					'chosenby'=> $chosenby
 			));
 			$OK=$stmt->rowCount();
-			logger($OK);
 			if($OK){
 				setcookie("orderDiaId",NULL);
 				setcookie("orderJewId",NULL);
@@ -657,36 +655,48 @@ function diamondShapeDesc($shape) {
 	}
 	return $shape_TXT;	
 }
-//发送接口
-function sendSMS($username,$password_md5,$apikey,$mobile,$contentUrlEncode,$encode)
-{
-	//发送链接（用户名，密码，apikey，手机号，内容）
-	$url = "http://m.5c.com.cn/api/send/index.php?";  //如连接超时，可能是您服务器不支持域名解析，请将下面连接中的：【m.5c.com.cn】修改为IP：【115.28.23.78】
-	$data=array
-	(
-			'username'=>$username,
-			'password_md5'=>$password_md5,
-			'apikey'=>$apikey,
-			'mobile'=>$mobile,
-			'content'=>$contentUrlEncode,
-			'encode'=>$encode,
-	);
-	$result = curlSMS($url,$data);
-	//print_r($data); //测试
-	return $result;
+
+
+/**
+ * 发送短信
+ */
+function sendSms($phone,$contentArray) {
+	$params = array ();
+	// *** 需用户填写部分 ***
+	// fixme 必填: 请参阅 https://ak-console.aliyun.com/ 取得您的AK信息
+	$accessKeyId = "LTAIuWe4Bh21K8TD";
+	$accessKeySecret = "R23yUOJRhkqmgGVPIjaRRkY6S5rLxi";
+	// fixme 必填: 短信接收号码
+	$params["PhoneNumbers"] = $phone;
+	// fixme 必填: 短信签名，应严格按"签名名称"填写，请参考: https://dysms.console.aliyun.com/dysms.htm#/develop/sign
+	$params["SignName"] = "利美钻石";
+	// fixme 必填: 短信模板Code，应严格按"模板CODE"填写, 请参考: https://dysms.console.aliyun.com/dysms.htm#/develop/template
+	$params["TemplateCode"] = "SMS_126362370";
+	// fixme 可选: 设置模板参数, 假如模板中存在变量需要替换则为必填项
+	$params['TemplateParam'] = $contentArray;
+	// fixme 可选: 设置发送短信流水号
+	//$params['OutId'] = "12345";
+	// fixme 可选: 上行短信扩展码, 扩展码字段控制在7位或以下，无特殊需求用户请忽略此字段
+	//$params['SmsUpExtendCode'] = "1234567";
+	// *** 需用户填写部分结束, 以下代码若无必要无需更改 ***
+	if(!empty($params["TemplateParam"]) && is_array($params["TemplateParam"])) {
+		$params["TemplateParam"] = json_encode($params["TemplateParam"], JSON_UNESCAPED_UNICODE);
+	}
+	// 初始化SignatureHelper实例用于设置参数，签名以及发送请求
+	$helper = new SignatureHelper();
+	// 此处可能会抛出异常，注意catch
+	$content = $helper->request(
+			$accessKeyId,
+			$accessKeySecret,
+			"dysmsapi.aliyuncs.com",
+			array_merge($params, array(
+					"RegionId" => "cn-hangzhou",
+					"Action" => "SendSms",
+					"Version" => "2017-05-25",
+			))
+			);
+
+	return $content;
 }
-function curlSMS($url,$post_fields=array())
-{
-	$ch=curl_init();
-	curl_setopt($ch,CURLOPT_URL,$url);//用PHP取回的URL地址（值将被作为字符串）
-	curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);//使用curl_setopt获取页面内容或提交数据，有时候希望返回的内容作为变量存储，而不是直接输出，这时候希望返回的内容作为变量
-	curl_setopt($ch,CURLOPT_TIMEOUT,30);//30秒超时限制
-	curl_setopt($ch,CURLOPT_HEADER,1);//将文件头输出直接可见。
-	curl_setopt($ch,CURLOPT_POST,1);//设置这个选项为一个零非值，这个post是普通的application/x-www-from-urlencoded类型，多数被HTTP表调用。
-	curl_setopt($ch,CURLOPT_POSTFIELDS,$post_fields);//post操作的所有数据的字符串。
-	$data = curl_exec($ch);//抓取URL并把他传递给浏览器
-	curl_close($ch);//释放资源
-	$res = explode("\r\n\r\n",$data);//explode把他打散成为数组
-	return $res[2]; //然后在这里返回数组。
-}
+
 ?>
