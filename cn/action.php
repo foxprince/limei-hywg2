@@ -1,6 +1,12 @@
 <?php
+@header('Content-type: text/html;charset=UTF-8');
+?>
+<?php
 //namespace Aliyun\DySDKLite\Sms;
 require_once "AliyunSignatureHelper.php";
+require_once "tencentSms/SmsSingleSender.php";
+require_once "tencentSms/SmsSenderUtil.php";
+use Qcloud\Sms\SmsSingleSender;
 //use Aliyun\DySDKLite\SignatureHelper;
 date_default_timezone_set("Asia/Shanghai");
 include_once 'log.php';
@@ -170,17 +176,20 @@ if($_REQUEST['action']) {
 			if($OK){
 				$feedbackwords='非常感谢您的预订。您的预约已经保存，我们会尽快联系您。';
 				//发短信
+				$msg = '[利美钻石]您的预约信息 姓名：'.$name.' 联系电话：'.$tel.' 电子邮件：'.$email.' 预约时间：'.$viewTime.'您的预约已经保存。 为了您的预约能得到及时准确的确认，请您致电003236897394，在得到客服的确认之后，您的预约即可生效。 LUMIA利美钻石期待您的光临！';
+				//$msg = '【利美钻石】您的预约信息 姓名：'.$name.' 联系电话：'.$tel.' 电子邮件：'.$email.' 预约时间：'.$viewTime.'您的预约已经保存。 为了您的预约能得到及时准确的确认，请您致电003236897394，在得到客服的确认之后，您的预约即可生效。 LUMIA利美钻石期待您的光临！';
+				tencentSms($tel,$msg);
+				/*
 				ini_set("display_errors", "on"); // 显示错误提示，仅用于测试时排查问题
 				set_time_limit(0); // 防止脚本超时，仅用于测试使用，生产环境请按实际情况设置
 				header("Content-Type: text/plain; charset=utf-8"); // 输出为utf-8的文本格式，仅用于测试
-				
 				// 验证发送短信(SendSms)接口
 				$contentArray = Array (
 						"name" => $name,
 						"phone" => $tel,"time" => $viewTime
 						);
 				$result=sendSms($tel,$contentArray);
-				print_r($result);
+				print_r($result);*/
 				//echo $result;  //输出result内容，查看返回值，成功为success，错误为error，（错误内容在上面有显示）
 				/*
 				//发送邮件
@@ -605,6 +614,9 @@ if($_REQUEST['action']) {
 			$stmt->execute ();
 			echo "OK";
 			break;
+		case "smstest":
+			tencentSms($_REQUEST['phone'],"您的预约信息 姓名：aaaa 联系电话：bbb 电子邮件：{3} 预约时间：{4}您的预约已经保存。 为了您的预约能得到及时准确的确认，请您致电003236897394，在得到客服的确认之后，您的预约即可生效。 LUMIA利美钻石期待您的光临！");
+			break;
 		default:
 			echo "wrong action";
 			break;
@@ -699,4 +711,32 @@ function sendSms($phone,$contentArray) {
 	return $content;
 }
 
+function tencentSms($phoneNumber,$msg) {
+	// 短信应用SDK AppID
+	$appid = 1400071400; // 1400开头
+	// 短信应用SDK AppKey
+	$appkey = "cef4b6e3255fd2306c218c26a0dd581a";
+	// 短信模板ID，需要在短信应用中申请
+	//$templateId = 7839;  // NOTE: 这里的模板ID`7839`只是一个示例，真实的模板ID需要在短信控制台中申请
+	// 签名
+	//$smsSign = "腾讯云"; // NOTE: 这里的签名只是示例，请使用真实的已申请的签名，签名参数使用的是`签名内容`，而不是`签名ID`
+	// 单发短信
+	try {
+		$ssender = new SmsSingleSender($appid, $appkey);
+		if(strpos($phonenumber,"+")==0)
+			$phoneNumber = substr($phoneNumber,1);
+		//如果是国内短信
+		if(strpos($phoneNumber,"86")==0) {
+			$phoneNumber = substr($phoneNumber,2);
+			$result = $ssender->send(0, "86", $phoneNumber,$msg, "", "");
+		}
+		else {
+			$result = $ssender->sendi(0, "", "+".$phoneNumber,$msg, "", "");
+		}
+		$rsp = json_decode($result);
+		//echo $result;
+	} catch(\Exception $e) {
+		echo var_dump($e);
+	}
+}
 ?>

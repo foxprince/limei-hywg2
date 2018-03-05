@@ -27,7 +27,7 @@ foreach($conn->query($user_info) as $r_u){
             <div class="rinputs"><label>电子邮件：</label><input id="email" type="text" name="email" value="<?php echo $email;?>"/></div>
         </div>
         <div>
-            <div class="linputs"><label>电话：</label><input type="text" id="tel" name="tel" value="<?php echo $tel;?>"/></div>
+            <div class="linputs"><label>电话：</label><input type="text" id="tel" name="tel" placeholder="需填写国家代码" value="<?php echo $tel;?>"/></div>
             <div class="rinputs"><label>预约时间：</label><input type="text" name="viewTime"  placeholder="点击选择" id="datetimepicker"  value="">
             </div>
         </div>
