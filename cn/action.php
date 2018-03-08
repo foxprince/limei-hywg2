@@ -176,7 +176,7 @@ if($_REQUEST['action']) {
 			if($OK){
 				$feedbackwords='非常感谢您的预订。您的预约已经保存，我们会尽快联系您。';
 				//发短信
-				$msg = '您的预约信息 姓名：'.$name.' 联系电话：'.$tel.' 电子邮件：'.$email.' 预约时间：'.$viewTime.' 为了您的预约能得到及时准确的确认，请您致电003236897394，在得到客服的确认之后，您的预约即可生效。LUMIA利美钻石期待您的光临！';
+				$msg = '您的预约信息 姓名：'.$name.' 联系电话：'.$tel.' 电子邮件：'.$email.' 预约时间：'.$viewTime.' 为了您的预约能得到及时准确的确认，请您致电003236897394，在得到客服(LIMEIKEFU)的确认之后，您的预约即可生效。LUMIA利美钻石期待您的光临！';
 				//$msg = '【利美钻石】您的预约信息 姓名：'.$name.' 联系电话：'.$tel.' 电子邮件：'.$email.' 预约时间：'.$viewTime.'您的预约已经保存。 为了您的预约能得到及时准确的确认，请您致电003236897394，在得到客服的确认之后，您的预约即可生效。 LUMIA利美钻石期待您的光临！';
 				tencentSms($tel,$msg);
 				/*
@@ -341,7 +341,8 @@ if($_REQUEST['action']) {
 			}
 			$startfrom=($crr_page-1)*$pagesize;
 			$totalSql .= $clause;
-			$sql .= $clause.' order by id desc limit '.$startfrom.','.$pagesize;
+			$sql .= $clause.' order by '.$_REQUEST['sort'].' '.$_REQUEST['sortDirection'].' limit '.$startfrom.','.$pagesize;
+			logger($sql);
 			foreach($conn->query($totalSql) as $r_r){
 				$total=$r_r['t'];
 			}

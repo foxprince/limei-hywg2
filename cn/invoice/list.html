@@ -62,13 +62,13 @@
             <table class="t_data">
             	<thead>
             		<tr>
-            			<th>日期</th>
-            			<th>客户姓名</th>
+            			<th>日期<img class="sortImg" onclick="clickSort(this)" sort="tranc_date" src="../images/selebom.png"/></th>
+            			<th>客户姓名<img class="sortImg" onclick="clickSort(this)" sort="name" src="../images/selebom.png"/></th>
             			<th>重量|颜色|净度|证书</th>
             			<th>类型</th>
-            			<th>发票编号</th>
+            			<th>发票编号<img class="sortImg" onclick="clickSort(this)" sort="invoice_no" src="../images/selebom.png"/></th>
             			<th>货币</th>
-            			<th>金额</th>
+            			<th>金额<img class="sortImg" onclick="clickSort(this)" sort="total_price" src="../images/selebom.png"/></th>
             			<th>VAT</th>
             			<th>修改</th>
             			<th>删除</th>
@@ -215,6 +215,7 @@
     	});
     }
     var pageflag = true;
+    var $sorting="id";var $sorting_direction = "asc";
     	$(function(){
             // 点击展开数据
             function fnDataToggle(){
@@ -285,7 +286,7 @@
         }
 
         function query(page){
-            let query ='../action.php?action=trancList';
+            let query ='../action.php?action=trancList&sort='+$sorting+"&sortDirection="+$sorting_direction;
             let type = $('#type').val();
             let name = $('#custom').val();
             let start = $('#start').val();
@@ -352,6 +353,18 @@
         	$("#fade").fadeToggle();
         	$("#makeOrder").fadeToggle("slow").focus();
         }
+        function clickSort(item){
+			if($(item).attr("src")=="../images/selebom.png") {
+				$sorting_direction="asc";
+				$(item).attr("src","../images/seletop.png");
+			}
+			else {
+				$sorting_direction="desc";
+				$(item).attr("src","../images/selebom.png");
+			}
+			$sorting = $(item).attr("sort");
+    			query(1);
+		}
     </script>
 </body>
 </html>
