@@ -67,6 +67,7 @@
             			<th>重量|颜色|净度|证书</th>
             			<th>类型</th>
             			<th>发票编号<img class="sortImg" onclick="clickSort(this)" sort="invoice_no" src="../images/selebom.png"/></th>
+            			<th>退税<img class="sortImg" onclick="clickSort(this)" sort="tax_rebate" src="../images/selebom.png"/></th>
             			<th>货币</th>
             			<th>金额<img class="sortImg" onclick="clickSort(this)" sort="total_price" src="../images/selebom.png"/></th>
             			<th>VAT</th>
@@ -332,9 +333,14 @@
                         	temp +='<li>'+d.carat+' | '+d.color+' | '+d.clarity+' | '+d.report_no+'</li>';
                         }
                         temp += '</ul></td>'
-                        +'<td><a trancId="'+json.list[i].id+'"  class="printTranc t_operate" onclick="printTranc('+json.list[i].id+')">'  +json.list[i].type+'</a></td><td>'+ (json.list[i].type=='invoice'?json.list[i].invoice_no:"--") +'</td><td>'
-                        + json.list[i].currency +'</td><td>'+ (tprice) +'</td><td>'
-                        + (json.list[i].type=='invoice'?json.list[i].vat_price:"--") +'</td><td><div class="pl"><a trancId="'+json.list[i].id+'" href="index.html?id='+json.list[i].id+'" target="_blank"class="modify J_modify">修改</a></div></td><td><p class="o_box J_o_box"><button trancId="'+json.list[i].id+'"  class="deleteTranc t_operate" onclick="deleteTranc(this,'+json.list[i].id+')">删除</button></p></td></tr>';
+                        +'<td><a trancId="'+json.list[i].id+'"  class="printTranc t_operate" onclick="printTranc('+json.list[i].id+')">'  +json.list[i].type+'</a></td><td>'+ (json.list[i].type=='invoice'?json.list[i].invoice_no:"--") +'</td>'
+                        +'<td>';
+                        if(json.list[i].tax_rebate!=null)
+                        		temp+='<input type="checkbox" name="taxCheck" '+ (json.list[i].tax_confirm==1?"checked":"")+' onclick="taxConfirm(this)"/><button class="t_operate  '+ (json.list[i].tax_confirm==1?"b_blue":"")+'">' + json.list[i].tax_rebate +'</button>';
+                        temp +='</td>'
+                        +'<td>' + json.list[i].currency +'</td>'
+                        +'<td>'+ (tprice) +'</td>'
+                        +'<td>' + (json.list[i].type=='invoice'?json.list[i].vat_price:"--") +'</td><td><div class="pl"><a trancId="'+json.list[i].id+'" href="index.html?id='+json.list[i].id+'" target="_blank"class="modify J_modify">修改</a></div></td><td><p class="o_box J_o_box"><button trancId="'+json.list[i].id+'"  class="deleteTranc t_operate" onclick="deleteTranc(this,'+json.list[i].id+')">删除</button></p></td></tr>';
                         totalprice += parseInt(tprice);
                         $('.J_databody').append(temp);
                         $('#totalprice').html(totalprice);
@@ -350,8 +356,8 @@
         }
            
         function popToggle(id) {
-        	$("#fade").fadeToggle();
-        	$("#makeOrder").fadeToggle("slow").focus();
+	        	$("#fade").fadeToggle();
+	        	$("#makeOrder").fadeToggle("slow").focus();
         }
         function clickSort(item){
 			if($(item).attr("src")=="../images/selebom.png") {
@@ -365,6 +371,23 @@
 			$sorting = $(item).attr("sort");
     			query(1);
 		}
+	function taxConfirm(item) {
+	    	var e = $(item).parent();
+	    	var tax_confirm = 0;
+	    	if(item.checked) {
+	    		$(item).next("button").addClass("b_blue");
+	    		tax_confirm = 1;
+	    	}
+	    	else
+	    		$(item).next("button").removeClass("b_blue");
+	    	var id = $(e).parent().attr("trancId");
+	    	var url = "../action.php?action=confirmTax&id="+id+"&tax_confirm="+tax_confirm;
+        $.get(url,function(data){
+        		alert(data);
+        }
+        )
+    }
+
     </script>
 </body>
 </html>

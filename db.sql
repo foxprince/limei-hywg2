@@ -15,9 +15,11 @@ create table transaction(
 	vat_price float null,
   	total_price float null,/*不含税价格*/
   	tax_rebate varchar(10) null,
+  	tax_confirm int(1) default 0 null,
   	notes	varchar(255) null,
 	ctime datetime not null
 );
+alter table transaction add tax_confirm int(1) default 0 null;
 drop table receipt;
 create table tranc_detail(
 	id bigint not null primary key auto_increment,

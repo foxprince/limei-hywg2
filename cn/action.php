@@ -319,7 +319,7 @@ if($_REQUEST['action']) {
 			break;
 		case "trancList":
 			$totalSql = 'select count(*) as t from transaction';
-			$sql='select id,type,invoice_no,tranc_date,name,currency,vat_price,total_price as total_price from transaction ';
+			$sql='select id,type,invoice_no,tranc_date,name,currency,vat_price,total_price as total_price,tax_rebate,tax_confirm from transaction ';
 			$clause = ' where 1=1 ';
 			if($_REQUEST['type']!=null)
 				$clause .= ' and type ="'.$_REQUEST['type'].'"';
@@ -328,7 +328,7 @@ if($_REQUEST['action']) {
 			if($_REQUEST['name']!=null)
 				$clause .= ' and name like "%'.$_REQUEST['name'].'%"';
 			if($_REQUEST['invoice_no']!=null)
-				$clause .= ' and invoice_no like "%'.$_REQUEST['invoice_no'].'%"';
+				$clause .= ' and type="invoice" invoice_no like "%'.$_REQUEST['invoice_no'].'%"';
 			if($_REQUEST['start']!=null)
 				$clause .= ' and tranc_date>='.$_REQUEST['start'];
 			if($_REQUEST['end']!=null)
@@ -363,6 +363,14 @@ if($_REQUEST['action']) {
 			$tpages = ceil ( $total / $pagesize );
 			$result = array('total'=>$total,'page'=>$crr_page,'total_pages'=>$tpages,'list'=>$transactionList);
 			echo json_encode($result);
+			break;
+		case "confirmTax":
+			$sql='update transaction set tax_confirm='.$_REQUEST['tax_confirm'].' where id='.$_REQUEST['id'];
+			$stmt = $conn->prepare( $sql );$stmt->execute();
+			if($stmt->rowCount()>0)
+				echo '设置成功';
+			else
+				echo '设置失败';
 			break;
 		case "updateTranc":
 			$obj=json_decode($_REQUEST['transaction'],TRUE);
@@ -734,6 +742,7 @@ function tencentSms($phoneNumber,$msg) {
 			$result = $ssender->sendi(0, "", "+".$phoneNumber,$msg, "", "");
 		}
 		$rsp = json_decode($result);
+		logger($phoneNumber."--".$msg."--".$rsp);
 		//echo $result;
 	} catch(\Exception $e) {
 		echo var_dump($e);
