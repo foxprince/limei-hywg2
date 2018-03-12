@@ -335,7 +335,7 @@
                         temp += '</ul></td>'
                         +'<td><a trancId="'+json.list[i].id+'"  class="printTranc t_operate" onclick="printTranc('+json.list[i].id+')">'  +json.list[i].type+'</a></td><td>'+ (json.list[i].type=='invoice'?json.list[i].invoice_no:"--") +'</td>'
                         +'<td>';
-                        if(json.list[i].type='invoice'&&json.list[i].tax_rebate!=null)
+                        if(json.list[i].type=='invoice'&&json.list[i].tax_rebate!=null)
                         		temp+='<input type="checkbox" name="taxCheck" '+ (json.list[i].tax_confirm==1?"checked":"")+' onclick="taxConfirm(this)"/><button class="t_operate  '+ (json.list[i].tax_confirm==1?"b_blue":"")+'">' + json.list[i].tax_rebate +'</button>';
                         temp +='</td>'
                         +'<td>' + json.list[i].currency +'</td>'
