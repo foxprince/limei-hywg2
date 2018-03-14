@@ -731,18 +731,20 @@ function tencentSms($phoneNumber,$msg) {
 	// 单发短信
 	try {
 		$ssender = new SmsSingleSender($appid, $appkey);
-		if(strpos($phonenumber,"+")==0)
+		if(strpos($phonenumber,"+")===0)
 			$phoneNumber = substr($phoneNumber,1);
 		//如果是国内短信
-		if(strpos($phoneNumber,"86")==0) {
+		if(strpos($phoneNumber,"86")===0) {
+			logger("send sms:".$phoneNumber);
 			$phoneNumber = substr($phoneNumber,2);
 			$result = $ssender->send(0, "86", $phoneNumber,$msg, "", "");
 		}
 		else {
+			logger("send isms:".$phoneNumber);
 			$result = $ssender->sendi(0, "", "+".$phoneNumber,$msg, "", "");
+			logger($result);
 		}
 		$rsp = json_decode($result);
-		logger($phoneNumber."--".$msg."--".$rsp);
 		//echo $result;
 	} catch(\Exception $e) {
 		echo var_dump($e);
