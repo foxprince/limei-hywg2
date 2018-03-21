@@ -317,7 +317,23 @@ if($_REQUEST['action']) {
 			$result = array('trancDetail'=>$transactionDetail,'list'=>$tranc_detailList);
 			echo json_encode($result);
 			break;
+		case "invoiceLogin":
+			if($_REQUEST['invoiceAdmin']!=null&&$_REQUEST['invoiceAdmin']=='1qsxzse$') {
+				$_SESSION['invoiceAdmin'] = 'true';
+				setcookie('invoiceAdmin', 'true');
+				echo "登录成功";
+			}
+			else 
+				echo "密码错误";
+			break;
+		case "invoiceQuit":
+			unset($_SESSION['invoiceAdmin']);
+			setcookie('invoiceAdmin', NULL);
+			echo "退出登录成功".$_COOKIE['inviceDamin'];;
+			break;
 		case "trancList":
+			logger("invoiceLogin:".$_SESSION['invoiceAdmin']);
+			//if($_SESSION['invoiceAdmin']) {
 			$totalSql = 'select count(*) as t from transaction';
 			$sql='select id,type,invoice_no,tranc_date,name,currency,vat_price,total_price as total_price,tax_rebate,tax_confirm from transaction ';
 			$clause = ' where 1=1 ';
@@ -363,6 +379,9 @@ if($_REQUEST['action']) {
 			$tpages = ceil ( $total / $pagesize );
 			$result = array('total'=>$total,'page'=>$crr_page,'total_pages'=>$tpages,'list'=>$transactionList);
 			echo json_encode($result);
+			//}
+			//else 
+				//echo "您无权查看当前页面";
 			break;
 		case "confirmTax":
 			$sql='update transaction set tax_confirm='.$_REQUEST['tax_confirm'].' where id='.$_REQUEST['id'];

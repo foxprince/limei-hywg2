@@ -1,4 +1,13 @@
+<?php
+/*===================session========================*/
+session_start();
+// if session variable not set, redirect to login page
+if(!isset($_SESSION['invoiceAdmin'])) {
+  header('Location: login.php');
+  exit;
+}
 
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,7 +67,7 @@
                     <label for="" class="field">客户姓名</label>
                     <input type="text" id="custom" class="i_text" placeholder="请输入客户姓名">
                 </p>
-                <p class="item pc_btn"><button type="button" class="c_btn look_btn J_lookfor">查询</button></p>
+                <p class="item pc_btn"><button type="button" class="c_btn look_btn J_lookfor">查询</button><a href="login.php?quit=quit">退出登录</a></p>
             </form>
             <table class="t_data">
             	<thead>
@@ -230,19 +239,20 @@
 	        url: "../action.php?action=invoiceLogin&invoiceAdmin="+$('#invoiceAdmin').val(),
 	        type: "GET",
 	        success: function (json) {alert(json);
-	        setCookie('invoiceAdmin','true',1/24/12);
+	        setCookie('invoiceAdmin','true',1);
 	        	document.getElementById("win").style.display="none";
 	        	query(1);
 			}
 		});
 	}
     $(function(){
-    		if(getCookie('invoiceAdmin')) {
-    			query(1);
+    		query(1);
+    		/* if(getCookie('invoiceAdmin')) {
+    			
     		}else {
     			alert("请登录");
     			document.getElementById("win").style.display=""; 
-    		}
+    		} */
     		// 点击展开数据
             function fnDataToggle(){
                 $('body').on('click','.J_databody tr .J_toggle', function(){
