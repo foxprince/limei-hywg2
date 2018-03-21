@@ -291,6 +291,7 @@ foreach($stmt as $row){
 		$certi_linker="https://www.gia.edu/otmm_wcs_int/proxy-pdf/?url=https://myapps.gia.edu/RptChkClient/reportClient.do?ReportNumber=55D341284A617F73B46866D227152ECE&ReportNumber=".$row['certificate_number'];
 	else if(trim($row["grading_lab"])=='IGI')
 		$certi_linker="http://global.igiworldwide.com/viewpdf.php?r=".$row['certificate_number'];
+		$certi_linker='./pdf/v.php?lab='.$row["grading_lab"].'&certNo='.$row["certificate_number"];
 	?>
 				<div class="dia-piece-box" onclick="showDetail('<?php echo $row['id']; ?>')">
                     <div class="1 generalinfobox">
