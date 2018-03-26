@@ -1,13 +1,28 @@
 ﻿<?php
 include_once('../log.php');
+include_once('../phpQuery.php');
+function getHTTPS($url) {
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+	curl_setopt($ch, CURLOPT_HEADER, false);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_REFERER, $url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	$result = curl_exec($ch);
+	curl_close($ch);
+	return $result;
+}
 $lab = $_REQUEST['lab'];
 $certNo = $_REQUEST['certNo'];
 $destination = '../../labpdf/'.$lab.'_'.$certNo.'.pdf';
 if(!file_exists($destination)) {
 	if($lab=='HRD')
 		$certi_linker="http://ws2.hrdantwerp.com/HRD.CertificateService.WebAPI/certificate?certificateType=MCRT&certificateNumber=". $certNo;
-	else if($lab=='GIA')
-		$certi_linker="https://www.gia.edu/otmm_wcs_int/proxy-pdf/?url=https://myapps.gia.edu/RptChkClient/reportClient.do?ReportNumber=55D341284A617F73B46866D227152ECE&ReportNumber=".$certNo;
+	else if($lab=='GIA') {
+		$url="https://www.gia.edu/report-check?reportno=".$certNo;
+		logger(getHTTPS($url));
+	}
 	else if($lab=='IGI')
 		$certi_linker="http://global.igiworldwide.com/viewpdf.php?r=".$certNo;
 		$ch = curl_init();//初始化一个cURL会话
@@ -48,13 +63,13 @@ if(!file_exists($destination)) {
         </meta>
     </head>
     <body>
-        <div style="margin-top:50px;padding-bottom:85px;">
+        <div>
             <iframe frameborder="0" scrolling="yes" src="pdf/web/viewer.html?file=../../<?php echo $destination;?>" width="100%">
             </iframe>
         </div>
         <script>
             $(function () {
-            var _height = $(window).height() - 20;
+            var _height = $(window).height();
             $("iframe").attr("height", _height + "px");
             $("iframe").attr("width", $(window).width() + "px");
         })

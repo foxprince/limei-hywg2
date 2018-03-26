@@ -285,13 +285,10 @@ foreach($stmt as $row){
 			$morePrice = $euro_price.' <br/>'.$dollar_price;
 		}
 	}
-	if(trim($row["grading_lab"])=='HRD')
-		$certi_linker="http://ws2.hrdantwerp.com/HRD.CertificateService.WebAPI/certificate?certificateType=MCRT&certificateNumber=". $row['certificate_number'];
-	else if(trim($row["grading_lab"])=='GIA')
-		$certi_linker="https://www.gia.edu/otmm_wcs_int/proxy-pdf/?url=https://myapps.gia.edu/RptChkClient/reportClient.do?ReportNumber=55D341284A617F73B46866D227152ECE&ReportNumber=".$row['certificate_number'];
-	else if(trim($row["grading_lab"])=='IGI')
-		$certi_linker="http://global.igiworldwide.com/viewpdf.php?r=".$row['certificate_number'];
-		$certi_linker='./pdf/v.php?lab='.$row["grading_lab"].'&certNo='.$row["certificate_number"];
+	$certi_linker='./pdf/v.php?lab='.$row["grading_lab"].'&certNo='.$row["certificate_number"];
+	if($row["grading_lab"]=='GIA') {
+		$certi_linker="https://www.gia.edu/report-check?reportno=".$certNo;
+	}
 	?>
 				<div class="dia-piece-box" onclick="showDetail('<?php echo $row['id']; ?>')">
                     <div class="1 generalinfobox">
