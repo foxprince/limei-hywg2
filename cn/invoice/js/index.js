@@ -393,16 +393,16 @@ function ref(to,ref){
         success:function(data){
         if(data){
         	var p = $(to).parents('.zj-form');
-        	p.find(".shape option[value='"+data.shape+"']").attr('selected','selected'); 
-        	p.find(".fancy option[value='"+data.fancy_color+"']").attr('selected','selected'); 
-        	p.find(".grading_lab option[value='"+data.grading_lab+"']").attr('selected','selected'); 
+        	p.find(".shape option[value='"+data.shape+"']").attr('selected',true).prop('selected',true); 
+        	p.find(".fancy option[value='"+data.fancy_color+"']").attr('selected',true).prop('selected',true); 
+        	p.find(".grading_lab option[value='"+data.grading_lab+"']").attr('selected',true).prop('selected',true); 
         	p.find(".price").val(data.retail_price); 
         	p.find(".carat").val(data.carat); 
-        	p.find(".color option[value='"+data.color+"']").attr('selected','selected'); 
-        	p.find(".clarity option[value='"+data.clarity+"']").attr('selected','selected'); 
-        	p.find(".cut_grade option[value='"+data.cut_grade+"']").attr('selected','selected'); 
-        	p.find(".polish option[value='"+data.polish+"']").attr('selected','selected'); 
-        	p.find(".symmetry option[value='"+data.symmetry+"']").attr('selected','selected'); 
+        	p.find(".color option[value='"+data.color+"']").attr('selected',true).prop('selected',true); 
+        	p.find(".clarity option[value='"+data.clarity+"']").attr('selected',true).prop('selected',true); 
+        	p.find(".cut_grade option[value='"+data.cut_grade+"']").attr('selected',true).prop('selected',true); 
+        	p.find(".polish option[value='"+data.polish+"']").attr('selected',true).prop('selected',true); 
+        	p.find(".symmetry option[value='"+data.symmetry+"']").attr('selected',true).prop('selected',true); 
         }
     }})
     total();
