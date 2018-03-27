@@ -1,6 +1,5 @@
 ﻿<?php
 include_once('../log.php');
-include_once('../phpQuery.php');
 function getHTTPS($url) {
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
