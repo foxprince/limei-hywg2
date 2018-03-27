@@ -287,7 +287,7 @@ foreach($stmt as $row){
 	}
 	$certi_linker='./pdf/v.php?lab='.$row["grading_lab"].'&certNo='.$row["certificate_number"];
 	if($row["grading_lab"]=='GIA') {
-		$certi_linker="https://www.gia.edu/report-check?reportno=".$certNo;
+		$certi_linker="https://www.gia.edu/report-check?reportno=".$row["certificate_number"];
 	}
 	?>
 				<div class="dia-piece-box" onclick="showDetail('<?php echo $row['id']; ?>')">
