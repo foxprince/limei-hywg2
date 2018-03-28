@@ -100,3 +100,5 @@ create table customer_order (
 	address varchar(100) null, /*--联系地址*/
 	ctime datetime not null
 );
+
+alter table jewelry add jclass varchar(10) null;

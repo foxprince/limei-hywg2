@@ -123,16 +123,27 @@ $ooh=$conn->query($sql);
 <table>
 
 <tr>
-<td width="90" align="center" style="font-size:14px; background-color:#CC6699; color:#FFF;">类别</td>
-<td width="220" align="center" style="font-size:14px; background-color:#CC6699; color:#FFF;">名称</td>
-<td width="390" align="center" style="font-size:14px; background-color:#CC6699; color:#FFF;">图片</td>
+<td width="80" align="center" style="font-size:14px; background-color:#CC6699; color:#FFF;">类别</td>
+<td width="80" align="center" style="font-size:14px; background-color:#CC6699; color:#FFF;">子类</td>
+<td width="200" align="center" style="font-size:14px; background-color:#CC6699; color:#FFF;">名称</td>
+<td width="360" align="center" style="font-size:14px; background-color:#CC6699; color:#FFF;">图片</td>
 <td width="160" colspan="2" align="center" style="font-size:14px; background-color:#CC6699; color:#FFF;">操作</td>
 </tr>
 <?php
 foreach($ooh as $row){
+	if($row['jclass']=='jy')
+		$jclassName = "简约独钻";
+	else if($row['jclass']=='sh')
+		$jclassName = "奢华群镶";
+	else if($row['jclass']=='yx')
+		$jclassName = "异形美钻";
+	else 
+		$jclassName = "";
+		
 ?>
 <tr id="record<?php echo $row['id']; ?>">
 <td align="center"><?php echo $row['category']; ?></td>
+<td align="center"><?php echo $jclassName; ?></td>
 <td align="center"><?php echo $row['name_en']; ?><br /><?php echo $row['name_ch']; ?></td>
 <td align="center">
 <?php

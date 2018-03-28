@@ -45,6 +45,7 @@ $conn->query("SET NAMES 'utf8'");
 $sql_get='SELECT * FROM jewelry WHERE id = "'.$id.'"';
 foreach($conn->query($sql_get) as $row){
 	$category = $row['category'];
+	$jclass = $row['jclass'];
 	$brand = $row['brand'];
 	$name_en = $row['name_en'];
 	$name_ch = $row['name_ch'];
@@ -75,7 +76,7 @@ if(isset($_POST['category']) && isset($_POST['name_ch'])){
 	
 	//    videolink  
 	$category = $_POST['category'];
-	
+	$jclass = $_REQUEST['jclass'];
 	$brand = $_POST['brand'];
 	
 	$name_en = $_POST['name_en'];
@@ -112,20 +113,10 @@ if(isset($_POST['category']) && isset($_POST['name_ch'])){
 	}else{
 		$price=NULL;
 	}
-	
-	
-	
-	$sql_update='UPDATE jewelry SET category = ?, brand = ?, name_en = ?, name_ch = ?, image1 = ?, image2 = ?, image3 = ?, image4 = ?, image5 = ?, image6 = ?, image7 = ?, image8 = ?, videolink = ?, text_en = ?, text_ch = ?, online_retail = ?, online_agency = ?, online_wholesale = ?, price = ? WHERE id = ?';
-
-	
+	$sql_update='UPDATE jewelry SET category = ?, jclass=?,brand = ?, name_en = ?, name_ch = ?, image1 = ?, image2 = ?, image3 = ?, image4 = ?, image5 = ?, image6 = ?, image7 = ?, image8 = ?, videolink = ?, text_en = ?, text_ch = ?, online_retail = ?, online_agency = ?, online_wholesale = ?, price = ? WHERE id = ?';
 	$stmt=$conn->prepare($sql_update);	  
-	
-	
-	$stmt->execute(array($category, $brand, $name_en, $name_ch, $image1, $image2, $image3, $image4, $image5, $image6, $image7, $image8, $videolink, $text_en, $text_ch, $online_retail, $online_agency, $online_wholesale, $price, $id));
-	
+	$stmt->execute(array($category,$jclass,$brand, $name_en, $name_ch, $image1, $image2, $image3, $image4, $image5, $image6, $image7, $image8, $videolink, $text_en, $text_ch, $online_retail, $online_agency, $online_wholesale, $price, $id));
 	$OK=$stmt->rowCount();
-	
-	
 	if($OK){
 		$message_db="更新成功";
 		//echo "db ok";
@@ -138,12 +129,7 @@ if(isset($_POST['category']) && isset($_POST['name_ch'])){
 		}
 	}	
 }
-
 ?>
-
-
-
-
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -363,16 +349,7 @@ if(isset($message_db)){
 
 ?>
 
-
-
-
-
-
-
-
 <form action="" method="post" id="addnewjewelry">
-
-
 <p>
 <label>类别</label><span>(必填)</span>
 <select name="category" id="cate" style="font-size:18px;">
@@ -389,6 +366,14 @@ foreach($conn->query($sql_cate) as $row_c){
 <?php
 }
 ?>
+</select>
+
+<label>子类</label>
+<select name="jclass"  style="font-size:16px;">
+<option value="undefined">请选择...</option>
+<option value="jy" <?php if(strcmp($jclass,'jy')==0) echo 'selected="selected"';?>>简约独钻</option>
+<option value="sh" <?php if(strcmp($jclass,'sh')==0) echo 'selected="selected"';?>>奢华群镶</option>
+<option value="yx" <?php if(strcmp($jclass,'yx')==0) echo 'selected="selected"';?>>异形美钻</option>
 </select>
 
 <a href="list_jewelrycates.php" style="position:relative; display:inline-block; background-color:#FC0; padding:2px 8px; text-decoration:none; margin-left:20px; color:#FFF;">编辑类别</a>
