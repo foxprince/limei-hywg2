@@ -337,6 +337,8 @@ if($_REQUEST['action']) {
 			$totalSql = 'select count(*) as t from transaction';
 			$sql='select id,type,invoice_no,tranc_date,name,currency,vat_price,total_price as total_price,tax_rebate,tax_confirm from transaction ';
 			$clause = ' where 1=1 ';
+			if($_REQUEST['reportNo']!=null)
+				$clause .= ' and id in (select tranc_id from tranc_detail where report_no like "'.$_REQUEST['reportNo'].'%")';
 			if($_REQUEST['type']!=null)
 				$clause .= ' and type ="'.$_REQUEST['type'].'"';
 			if($_REQUEST['currency']!=null)
