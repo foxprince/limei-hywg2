@@ -102,7 +102,22 @@ if($error){
         <input name="login" type="submit" id="login" value="Login">
     </p>
 
+</form>
+
+<form id="giaform" method="get" onsubmit="openPdf()" >
+
+    <p style="text-align:center;">
+        <label for="pwd">GIA编号:</label>
+        <input type="text" name="diamondid" id="diamondid">
+        <button name="login" type="submit" >查询</button>
+    </p>
 
 </form>
+<script type="">
+function openPdf() {
+	id = document.getElementById("diamondid");
+	window.open("https://api.checkgems.com/api/v2/certs/GIA/"+id.value+".pdf","_blank");
+}
+</script>
 </body>
 </html>
