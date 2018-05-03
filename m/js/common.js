@@ -17,23 +17,31 @@
     },
     comHtml:function(index){
         var html = '<div class="asideMenu hide"><div class="opacity"></div><aside>';
-        html += '<a href="index.html">加入LUMIA</a>';
-        html += '<a href="prodlist.html">首页</a>';
-        html += '<dl><dt><a href="prodlist.html">品牌文化</a></dt><dd class="hide">';
-        html += '<a href="prodlist.html">品牌故事</a>';
-        html += '<a href="prodlist.html">利美优势</a>';
-        html += '<a href="prodlist.html">媒体报道</a>';
-        html += '<a href="prodlist.html">购买指南</a>';
-        html += '<a href="prodlist.html">钻石知识</a>';
+        html += '<a>加入LUMIA</a>';
+        html += '<a href="index.html">首页</a>';
+        html += '<dl><dt><a>品牌文化</a></dt><dd class="' + (index != 1 ? 'hide':'') + '">';
+        html += '<a href="brandStory.html">品牌故事</a>';
+        html += '<a href="advantage.html">利美优势</a>';
+        html += '<a href="mediaCoverage.html">媒体报道</a>';
+        html += '<a href="purchaseGuide.html">购买指南</a>';
+        html += '<a href="services.html">售后服务</a>';
+        html += '<a href="knowledge.html">钻石知识</a>';
         html +='</dd></dl>';
         html += '<a href="prodlist.html">首饰</a>';
         html += '<a href="prodlist.html">裸钻</a>';
         html += '<a href="prodlist.html">社区</a>';
-        html += '<a href="prodlist.html">联系我们</a>';
+        html += '<a href="contact.html">联系我们</a>';
         html += '<a href="prodlist.html">购物车</a>';
         html += '</aside></div>';
         
         document.writeln(html);
+        $(".asideMenu dt").click(function () {
+            if ($(this).next().is(":hidden")) {
+                $(this).next().show();
+            } else {
+                $(this).next().hide();
+            }
+        })
     },
     getQueryString: function (name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
