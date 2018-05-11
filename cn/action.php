@@ -245,12 +245,17 @@ if($_REQUEST['action']) {
 						$content .= '<p>证书：'.$row_history['grading_lab'].'</p>';
 						$content .= '<p>编号：'.$row_history['stock_ref'].'</p>';
 						$content .= '<p>价格：'.round($row_history['diamond_price']).'美元</p>';
+						$certi_linker='./pdf/v.php?lab='.$row_history["grading_lab"].'&certNo='.$row_history["certificate_number"];
+						if($row["grading_lab"]=='GIA') {
+							//$certi_linker="https://www.gia.edu/report-check?reportno=".$row["certificate_number"];
+							$certi_linker="https://api.checkgems.com/api/v2/certs/GIA/".$row["certificate_number"].".pdf";
+						}
 						if($row_history['grading_lab']=="HRD"){
-							$content .= '<a class="certi_linker" target="_black" href="http://www.hrdantwerplink.be/index.php?record_number='.$row_history['certificate_number'].'&weight=&L="><img id="gradinglabicon" src="http://www.lumiagem.com/cn/images/HRD.png" width="98" height="37" /></a>';
+							$content .= '<a class="certi_linker" target="_black" href="'.$certi_linker.'" src="http://www.lumiagem.com/cn/images/HRD.png" width="98" height="37" /></a>';
 						}else if($row_history['grading_lab']=='GIA'){
-							$content .= '<a class="certi_linker" target="_black" href="http://www.gia.edu/cs/Satellite?pagename=GST%2FDispatcher&childpagename=GIA%2FPage%2FReportCheck&c=Page&cid=1355954554547&reportno='.$row_history['certificate_number'].'"><img id="gradinglabicon" src="http://www.lumiagem.com/cn/images/GIA.png" width="98" height="37"/></a>';
+							$content .= '<a class="certi_linker" target="_black" href="'.$certi_linker.'"><img id="gradinglabicon" src="http://www.lumiagem.com/cn/images/GIA.png" width="98" height="37"/></a>';
 						} else if($row_history['grading_lab']=='IGI'){
-							$content .= '<a class="certi_linker" target="_black" href="http://www.igiworldwide.com/igi/verify.php?r='.$row_history['certificate_number'].'"><img id="gradinglabicon" src="http://www.lumiagem.com/cn/images/IGI.png" width="98" height="37"/></a>';
+							$content .= '<a class="certi_linker" target="_black" href="'.$certi_linker.'"><img id="gradinglabicon" src="http://www.lumiagem.com/cn/images/IGI.png" width="98" height="37"/></a>';
 						}
 						$content .= '<p>点击查看证书</p>';
 						$content .= '</div></div><hr>';
