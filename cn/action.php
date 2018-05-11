@@ -337,7 +337,6 @@ if($_REQUEST['action']) {
 			echo "退出登录成功".$_COOKIE['inviceDamin'];;
 			break;
 		case "trancList":
-			logger("invoiceLogin:".$_SESSION['invoiceAdmin']);
 			//if($_SESSION['invoiceAdmin']) {
 			$totalSql = 'select count(*) as t from transaction';
 			$sql='select id,type,invoice_no,tranc_date,name,currency,vat_price,total_price as total_price,tax_rebate,tax_confirm from transaction ';
@@ -365,20 +364,30 @@ if($_REQUEST['action']) {
 			$startfrom=($crr_page-1)*$pagesize;
 			$totalSql .= $clause;
 			$sql .= $clause.' order by '.$_REQUEST['sort'].' '.$_REQUEST['sortDirection'].' limit '.$startfrom.','.$pagesize;
-			logger($sql);
 			foreach($conn->query($totalSql) as $r_r){
 				$total=$r_r['t'];
 			}
+			logger($sql.':'.$total);
 			if($total>0) {
 				$transactionList=array();$i=0;
 				foreach($conn->query($sql) as $row){
 					$transactionList[$i]=$row;
-					$stmt=$conn->prepare('select * from tranc_detail where tranc_id=:tranc_id');
+					$sql = 'select a.* from tranc_detail a where a.tranc_id=:tranc_id ';
+					logger($sql);
+					$stmt=$conn->prepare($sql);
 					$stmt->execute(array('tranc_id'=>$row['id']));
 					$tranc_detailList=array();
 					foreach($stmt as $rowDetail){
-						$tranc_detailList[]=$rowDetail;
+						//$tranc_detailList[]=$rowDetail;
 					}
+					$sql = 'select raw_price from diamonds where certificate_number="'.$rowDetail['report_no'].'"';
+					$stmt = $conn->query($sql);
+					foreach($stmt as $rowDetail2){
+						$raw_price=$rowDetail2['raw_price'];
+					}
+					$rowDetail['raw_price']=$raw_price;
+					$tranc_detailList[]=$rowDetail;
+					//array_push($tranc_detailList,$raw_price);
 					$transactionList[$i]["detail_list"]=$tranc_detailList;
 					$i++;
 				}

@@ -15,7 +15,7 @@
     <div class="pic_k">
       <ul>
         <li><a href="javascript:;" bgurl="images/top4.jpg" target="_blank" link="/cn/about.php?p=laxs2" alt="《恋爱先生》开播！跟着靳东新剧逛比利时啦"><img alt="《恋爱先生》开播！跟着靳东新剧逛比利时啦" src="images/top4s.jpg"></a></li>
-      	<li><a href="javascript:;" bgurl="images/top2.jpg"target="_self" link="/cn/intro.php?c=lumia"><img src="images/top2s.jpg"></a></li>
+      	<li><a href="javascript:;" bgurl="images/top2.jpg" target="_self" link="/cn/intro.php?c=lumia"><img src="images/top2s.jpg"></a></li>
         <li><a href="javascript:;" bgurl="images/top1.jpg" target="_self" link="/cn/about.php?p=tax" alt="比利时钻交所里的“中国梦”"><img src="images/top1s.jpg" alt="在Lumia购买钻石如何退21%全税？"></a></li>
       </ul>
     </div>
@@ -306,9 +306,11 @@ var curIndex=0;
 //时间间隔(单位毫秒)，每秒钟显示一张，数组共有5张图片放在Photos文件夹下。
 var timeInterval=5000;
 var arr=new Array();
+var linkArr = new Array();
 var obj=$(".pic .pic_k li a");  
 $.each(obj,function(index,value){
 	  arr.push($(this).attr("bgurl"));
+	  linkArr.push($(this).attr("link"));
 });
 setInterval(changeImg,timeInterval);
 function changeImg()
@@ -318,7 +320,9 @@ function changeImg()
     else
     { curIndex+=1; }
     $(".datu").css("background-image","url("+arr[curIndex]+")");
+    	$(".datu").attr("onclick","window.open('"+linkArr[curIndex]+"');");
 }
+
 </script>
 </body>
 
