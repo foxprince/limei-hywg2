@@ -304,7 +304,7 @@ foreach($conn->query($user_info) as $r_u){
 <script language =javascript >
 var curIndex=0;
 //时间间隔(单位毫秒)，每秒钟显示一张，数组共有5张图片放在Photos文件夹下。
-var timeInterval=5000;
+var timeInterval=3000;
 var arr=new Array();
 var linkArr = new Array();
 var obj=$(".pic .pic_k li a");  
