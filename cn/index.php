@@ -211,10 +211,6 @@ foreach($conn->query($user_info) as $r_u){
         popToggle()
         <?php }?>
     }
-    function popToggle() {
-		$("#fade").fadeToggle();
-		$("#makeOrder").fadeToggle("slow").focus();
-    }
     function appointment(type,id) {
 		//获得已经预约的钻石
 		$.ajax({
@@ -265,7 +261,7 @@ foreach($conn->query($user_info) as $r_u){
 			            item += '<p>价格：'+j.price+'欧元</p>';
 			            item += '</div></div>';
 			            item += '<div class="l-bottom">';
-			            item += '<ul><li class="on" onclick="checkLogin(\'dia\','+j.id+')">预约</li></ul>';
+			            item += '<ul><li class="on" onclick="popup(\''+j.id+'\',\'index\')">预约</li></ul>';
 			            item += '</div></div>';
 					$("#recommWrapper").html(item).fadeIn('slow');
 				});

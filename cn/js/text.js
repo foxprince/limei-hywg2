@@ -79,7 +79,7 @@ function appointmentList(id) {
  * @param id
  * @returns
  */
-function popup(id) {
+function popup(id,from) {
 	if(id==0)
 		appointmentList(id);
 	else {
@@ -90,8 +90,12 @@ function popup(id) {
 		} else if (appointmentMake("dia",id,0)) {
 			var $haveChoose = false;
 			appointmentList(id);
-			$('#appointmentId').val(id);
-			popToggle($('#appointmentId').val());
+			if(from=='index')
+				alert('预约成功，请在购物车里复查预约登记。');
+			else {
+				$('#appointmentId').val(id);
+				popToggle($('#appointmentId').val());
+			}
 		} else
 			alert('预约失败，请联系我们的客服微信号limeikefu');
 	}
