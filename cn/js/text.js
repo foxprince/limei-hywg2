@@ -56,13 +56,17 @@ function appointmentList(id) {
                 item += '<p>编号：'+j.stock_ref+'</p>';
                 item += '<p>价格：'+Math.round(j.diamond_price)+'美元</p>';
                 if(j.grading_lab=="HRD"){
-                	item += '<a class="certi_linker" target="_black" href="http://www.hrdantwerplink.be/index.php?record_number='+j.certificate_number+'&weight=&L="><img id="gradinglabicon" src="./images/HRD.png" width="98" height="37" /></a>';
-                }else if(j.grading_lab=='GIA'){
-                	item += '<a class="certi_linker" target="_black" href="http://www.gia.edu/cs/Satellite?pagename=GST%2FDispatcher&childpagename=GIA%2FPage%2FReportCheck&c=Page&cid=1355954554547&reportno='+j.certificate_number+'"><img id="gradinglabicon" src="./images/GIA.png" width="98" height="37"/></a>';
-                } else if(j.grading_lab=='IGI'){
-                	item += '<a class="certi_linker" target="_black" href="http://www.igiworldwide.com/igi/verify.php?r='+j.certificate_number+'"><img id="gradinglabicon" src="./images/IGI.png" width="98" height="37"/></a>';
-                }
-                item += '<p>点击查看证书</p>';
+	            		item += '<a class="certi_linker" target="_blank" href="./pdf/v.php?lab='+j.grading_lab+'&certNo='+j.certificate_number+'" data-fancybox ><img id="gradinglabicon" src="./images/hrd.gif" /></a>';
+	            }else if(j.grading_lab=='GIA'){
+	            		item += '<a class="certi_linker" target="_blank" href="https://api.checkgems.com/api/v2/certs/GIA/'+j.certificate_number+'.pdf" data-fancybox ><img id="gradinglabicon" src="./images/gia.gif" /></a>';
+	            } else if(j.grading_lab=='IGI'){
+	            		item += '<a class="certi_linker" target="_blank" href="./pdf/v.php?lab='+j.grading_lab+'&certNo='+j.certificate_number+'" data-fancybox ><img id="gradinglabicon" src="./images/igi.gif" /></a>';
+	            }
+	            if(j.grading_lab=='GIA'){
+	            		item += '<a class="certi_linker" target="_blank" href="https://api.checkgems.com/api/v2/certs/GIA/'+j.certificate_number+'.pdf" data-fancybox ><p>点击查看证书</p></a>';
+	            } else {
+	            		item += '<a class="certi_linker" target="_blank" href="./pdf/v.php?lab='+j.grading_lab+'&certNo='+j.certificate_number+'" data-fancybox ><p>点击查看证书</p></a>';
+	            }
                 item += '</div></div>';
                 i = i+1;
 				$("#appointmentList").prepend(item);
