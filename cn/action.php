@@ -257,7 +257,7 @@ if($_REQUEST['action']) {
 						} else if($row_history['grading_lab']=='IGI'){
 							$content .= '<a class="certi_linker" target="_black" href="'.$certi_linker.'"><img id="gradinglabicon" src="http://www.lumiagem.com/cn/images/IGI.png" width="98" height="37"/></a>';
 						}
-						$content .= '<p>点击查看证书</p>';
+						$content .= '<a class="certi_linker" target="_black" href="'.$certi_linker.'"><p>点击查看证书</p></a>';
 						$content .= '</div></div><hr>';
 						$i++;
 					}
