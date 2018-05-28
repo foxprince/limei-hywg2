@@ -381,6 +381,7 @@ if($_REQUEST['action']) {
 						//$tranc_detailList[]=$rowDetail;
 					}
 					$sql = 'select raw_price from diamonds where certificate_number="'.$rowDetail['report_no'].'"';
+					logger($sql);
 					$stmt = $conn->query($sql);
 					foreach($stmt as $rowDetail2){
 						$raw_price=$rowDetail2['raw_price'];

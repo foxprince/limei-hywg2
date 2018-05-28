@@ -19,26 +19,27 @@ if(!file_exists($destination)) {
 	if($lab=='HRD')
 		$certi_linker="http://ws2.hrdantwerp.com/HRD.CertificateService.WebAPI/certificate?certificateType=MCRT&certificateNumber=". $certNo;
 	else if($lab=='GIA') {
-		$url="https://www.gia.edu/report-check?reportno=".$certNo;
-		logger(getHTTPS($url));
+		$certi_linker="https://api.checkgems.com/api/v2/certs/GIA/".$certNo.".pdf";
+		//$url="https://www.gia.edu/report-check?reportno=".$certNo;
+		//logger(getHTTPS($url));
 	}
 	else if($lab=='IGI')
 		$certi_linker="http://global.igiworldwide.com/viewpdf.php?r=".$certNo;
-		$ch = curl_init();//初始化一个cURL会话
-		curl_setopt($ch,CURLOPT_URL,$certi_linker);//抓取url
-		curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);//是否显示头信息
-		//curl_setopt($ch,CURLOPT_SSLVERSION,3);//传递一个包含SSL版本的长参数
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-		$data = curl_exec($ch);// 执行一个cURL会话
-		if (!$data) {
-			logger("curl error:".curl_error($ch));
-		} else {
-			$file = fopen($destination,"w+");
-			fputs($file,$data);//写入文件
-			fclose($file);
-		}
-		curl_close($ch);//关闭一个cURL会话并且释放所有资源
+	$ch = curl_init();//初始化一个cURL会话
+	curl_setopt($ch,CURLOPT_URL,$certi_linker);//抓取url
+	curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);//是否显示头信息
+	//curl_setopt($ch,CURLOPT_SSLVERSION,3);//传递一个包含SSL版本的长参数
+	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+	$data = curl_exec($ch);// 执行一个cURL会话
+	if (!$data) {
+		logger("curl error:".curl_error($ch));
+	} else {
+		$file = fopen($destination,"w+");
+		fputs($file,$data);//写入文件
+		fclose($file);
+	}
+	curl_close($ch);//关闭一个cURL会话并且释放所有资源
 }	
 
 ?>
