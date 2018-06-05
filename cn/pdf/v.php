@@ -31,9 +31,10 @@ if(!file_exists($destination)) {
 	//curl_setopt($ch,CURLOPT_SSLVERSION,3);//传递一个包含SSL版本的长参数
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 	curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 	$data = curl_exec($ch);// 执行一个cURL会话
 	if (!$data) {
-		logger("curl error:".curl_error($ch));
+		logger("curl error:".$certi_linker.":".curl_error($ch));
 	} else {
 		$file = fopen($destination,"w+");
 		fputs($file,$data);//写入文件
