@@ -379,18 +379,20 @@ if($_REQUEST['action']) {
 					$tranc_detailList=array();
 					foreach($stmt as $rowDetail){
 						//$tranc_detailList[]=$rowDetail;
+					
+						$sql = 'select raw_price from diamonds where certificate_number="'.$rowDetail['report_no'].'"';
+						logger($sql);
+						$stmt = $conn->query($sql);
+						foreach($stmt as $rowDetail2){
+							$raw_price=$rowDetail2['raw_price'];
+						}
+						$rowDetail['raw_price']=$raw_price;
+						$tranc_detailList[]=$rowDetail;
+						//array_push($tranc_detailList,$raw_price);
+						$transactionList[$i]["detail_list"]=$tranc_detailList;
 					}
-					$sql = 'select raw_price from diamonds where certificate_number="'.$rowDetail['report_no'].'"';
-					logger($sql);
-					$stmt = $conn->query($sql);
-					foreach($stmt as $rowDetail2){
-						$raw_price=$rowDetail2['raw_price'];
-					}
-					$rowDetail['raw_price']=$raw_price;
-					$tranc_detailList[]=$rowDetail;
-					//array_push($tranc_detailList,$raw_price);
-					$transactionList[$i]["detail_list"]=$tranc_detailList;
 					$i++;
+					
 				}
 			}
 			$tpages = ceil ( $total / $pagesize );
