@@ -41,7 +41,7 @@ function to_port(e){
 /**
  * @returns
  */
-function to_print(){
+function to_print(type){
 	$('.to_time').html('DATE：  '+ $('#tranc_date').val());
 	var html = '';
     var address = $('#street').val()+'　'+$('#postcode').val()+'　'+$('#city').val()+'　'+$('#country').val()
