@@ -44,7 +44,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
         </header>
 
         <main>
-            <form action="" class="c_form">
+            <form action="" id="searchForm"class="c_form">
                 <p class="item">
                     <label for="" class="field">类型</label>
                     <select id="type" name="type" class="i_text" style="width:3.6rem;">
@@ -162,6 +162,15 @@ if(!isset($_SESSION['invoiceAdmin'])) {
     		</form>
     	</div> 
     <script>
+    document.onkeydown = function(e) {
+        e = e || window.event;
+        if(e.keyCode == 13) {
+        		pageflag = true;
+            $('.page').empty();
+            query(1);
+            return false;
+        }
+    }
     function printTranc(trancId) {
     	$.ajax({
             async:false,
