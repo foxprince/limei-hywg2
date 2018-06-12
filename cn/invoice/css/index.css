@@ -41,6 +41,16 @@
 .jt-form .col-sm-10,.jt-form.col-xs-9,.zj-form .col-sm-10,.zj-form.col-xs-9,.ss-form .col-sm-10,.ss-form.col-xs-9 {
     padding-right: 0;
 }
+.c_btn {
+  display: inline-block;
+  padding: 0.26rem 0.375rem;
+  border-radius: 0.3rem;
+  border: 1px solid;
+  color: #4a4a4a;
+  margin-left: 15px;
+  height: 34px;
+  box-sizing: border-box; }
+
 .returnData { display: inline-block;}
 .d-refresh span,.d-delete span { margin: 0; height: 0; }
 .d-delete,.d-refresh { width: auto; }
