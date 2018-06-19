@@ -41,7 +41,9 @@ create table tranc_detail(
   	jewerly_price float null,
   	ctime datetime not null
 );
-
+alter table tranc_detail add raw_price varchar(6) null comment '原价折扣';
+update tranc_detail a, diamonds b set a.raw_price= b.raw_price where a.report_no=b.certificate_number and a.report_no is not null and a.report_no<>'';
+select a.raw_price,b.raw_price,a.report_no,b.certificate_number from tranc_detail a, diamonds b where a.report_no=b.certificate_number and a.report_no is not null and a.report_no<>'';
 --库存表
 drop table inventory;
 create table inventory (
