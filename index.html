@@ -21,19 +21,21 @@
 				window.location.href = "/m/";
 			}
 		}
-		if (bIsIphoneOs || bIsAndroid) {
+		else if (bIsIphoneOs || bIsAndroid) {
+			var sUrl = location.href;
+			if (!bForcepc) {
+				window.location.href = "/m/";
+				return;
+			}
+		}
+		else if (bIsMidp || bIsUc7 || bIsUc || bIsCE || bIsWM) {
 			var sUrl = location.href;
 			if (!bForcepc) {
 				window.location.href = "/m/";
 			}
 		}
-		if (bIsMidp || bIsUc7 || bIsUc || bIsCE || bIsWM) {
-			var sUrl = location.href;
-			if (!bForcepc) {
-				window.location.href = "/m/";
-			}
-		}
-		window.location.href="/cn/index.php"
+		else
+			window.location.href="/cn/index.php"
 	}
 	function fGetQuery(name) {//获取参数值 
 		var sUrl = window.location.search.substr(1);
