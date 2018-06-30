@@ -370,6 +370,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                     for(var i=0;i<json.list.length;i++){
                         var temp = '<tr trancId="'+json.list[i].id+'" class="trancLine"><td>'+json.list[i].tranc_date+'</td><td>'+json.list[i].name+'</td>'
                         +'<td><ul>';
+						if(json.list[i].detail_list)
                         for(var j=0;j<json.list[i].detail_list.length;j++){
                         	var d = json.list[i].detail_list[j];
                         	var tprice = json.list[i].type=='invoice'?(json.list[i].total_price-json.list[i].vat_price).toFixed(2):json.list[i].total_price;
