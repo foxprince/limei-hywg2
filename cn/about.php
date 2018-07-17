@@ -7,29 +7,31 @@
 				}else{
 					$p='';
 				}
+				$title='比利时钻石,安特卫普钻石,钻石购买,钻交所,钻石交易所，比利时钻交所，比利时钻石交易所';
 				switch($p){
 					case 'brandstory':
 					$the_page='brandstory.php';
+					$title='品牌故事';
 					break;
-					
 					case 'whylumia':
 					$the_page='whylumia.php';
+					$title='利美优势';
 					break;
 					
 					case 'buyeasy':
-					$the_page='buyeasy.php';
+					$the_page='buyeasy.php';$title='轻松定制';
 					break;
 					
 					case 'publicmedia':
-					$the_page='publicmedia.php';
+					$the_page='publicmedia.php';$title='媒体报道';
 					break;
 					
 					case 'steps':
-						$the_page='steps.php';
+						$the_page='steps.php';$title='购买流程';
 						break;
 					
 					case 'choose-diamond':
-						$the_page='choose-diamond.php';
+						$the_page='choose-diamond.php';$title='如何挑选钻石';
 						break;
 					
 					case 'choose-jewelry':
@@ -37,19 +39,15 @@
 						break;
 					
 					case 'makeorder':
-						$the_page='makeorder.php';
-						break;
-					
-					case 'buyeasy':
-						$the_page='buyeasy.php';
+						$the_page='makeorder.php';$title='如何下单';
 						break;
 					
 					case 'service':
-						$the_page='service.php';
+						$the_page='service.php';$title='售后服务';
 						break;
 					
 					case 'knowledge':
-						$the_page='knowledge.php';
+						$the_page='knowledge.php';$title='钻石知识';
 						break;
 					
 					case 'industry':
@@ -57,7 +55,7 @@
 						break;
 					
 					case 'article':
-						$the_page='article.php';
+						$the_page='article.php';$title='钻石知识';
 						break;
 					case 'laxs':
 						$the_page='../cn/articles/020215255208.html';
