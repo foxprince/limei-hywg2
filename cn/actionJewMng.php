@@ -39,7 +39,7 @@ if($_REQUEST['action']) {
 				$inventoryList=array();$i=0;
 				foreach($conn->query($sql) as $row){
 					$inventoryList[$i]=$row;
-					$specSql = 'select * from inventory_spec where inventory_id='.$row['id'];
+					$specSql = 'select * from inventory_spec where inventory_id='.$row['id'].' order by item';
 					$specList = array();
 					foreach($conn->query($specSql) as $rowSpec){
 						$specList[]=$rowSpec;
