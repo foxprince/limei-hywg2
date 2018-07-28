@@ -420,19 +420,14 @@ if($_REQUEST['action']) {
 			for ($i=0;$i<$num;$i++) {
 				$item = $obj["list"][$i];
 				if($item["type"]=='jew') {
-					$insert_sql="INSERT INTO tranc_detail (tranc_id,type,jewerly,material,jewerly_price,ctime)
+					$insert_sql="INSERT INTO tranc_detail (tranc_id,type,jewerly,material,jewerly_price,raw_price,ctime)
 						VALUES (?,?,?,?,?,now())";
 					$result = $conn -> prepare($insert_sql);
 					$result -> execute(array( $obj['id'],$item["type"],$item["jewerly"], $item["material"],
-							$item["jewerly_price"]
+							$item["jewerly_price"],$item["raw_price"]
 					));
 				}
 				else{
-					$raw_price_sql = 'select raw_price from diamonds where certificate_number="'.$item["report_no"].'"';
-					$stmt = $conn->query($raw_price_sql);
-					foreach($stmt as $rowDetail2){
-						$raw_price=$rowDetail2['raw_price'];
-					}
 					$insert_sql="INSERT INTO tranc_detail (tranc_id,type,report_no,shape,color,fancy,grading_lab,carat,
 						clarity,cut_grade,polish,symmetry,price,jewerly,material,jewerly_price,raw_price,ctime)
 						VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())";
@@ -440,7 +435,7 @@ if($_REQUEST['action']) {
 					$result -> execute(array( $obj['id'],$item["type"],$item["report_no"],$item["shape"],$item["color"],
 							$item["fancy"],$item["grading_lab"],$item["carat"], $item["clarity"],$item["cut_grade"],
 							$item["polish"], $item["symmetry"],$item["price"],$item["jewerly"], $item["material"],
-							$item["jewerly_price"],$raw_price
+							$item["jewerly_price"],$item["raw_price"]
 					));
 				}
 			}

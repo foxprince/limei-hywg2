@@ -130,7 +130,8 @@ function saveOrUpdate(type){
             'price':$(this).find('.price').val(),
             'jewerly':$(this).find('.jewerly').find('option:selected').val(),
             'material':$(this).find('.material').find('option:selected').val(),
-            'jewerly_price':$(this).find('.jewerly_price').val()
+            'jewerly_price':$(this).find('.jewerly_price').val(),
+            'raw_price':$(this).find('.raw_price').val()
         });
     });
     if(data){
