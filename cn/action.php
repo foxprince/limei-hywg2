@@ -442,6 +442,12 @@ if($_REQUEST['action']) {
 			echo $obj['id'];
 			break;
 		case "addTranc":
+			//强制检查invoce_no不重复
+			$transactionNo = 1;
+			$sql_dia='select convert(invoice_no,UNSIGNED INTEGER) as t from transaction where type="invoice" order by ctime desc limit 1';
+			foreach($conn->query($sql_dia) as $r_r){
+				$transactionNo=$r_r['t']+1;
+			}
 			$obj=json_decode($_REQUEST['transaction'],TRUE);
 			$sql = 'insert into transaction(name,passport,street,city,postcode,country,type,tranc_date,invoice_no,currency,vat_price,total_price,tax_rebate,notes,ctime) 
 					values(:name,:passport,:street,:city,:postcode,:country,:type,:tranc_date,:invoice_no,:currency,:vat_price,:total_price,:tax_rebate,:notes,now())';
@@ -452,7 +458,7 @@ if($_REQUEST['action']) {
 					'postcode'=>$obj['postcode'],
 					'country'=>$obj['country'],'type'=>$obj['type'],
 					'tranc_date'=>$obj['tranc_date'],'tax_rebate'=>$obj['tax_rebate'],
-					'invoice_no'=>$obj['invoice_no'],'currency'=>$obj['currency'],'vat_price'=>$obj['vat_price'],'total_price'=>$obj['total_price'],'notes'=>$obj['notes']));
+					'invoice_no'=>$transactionNo,'currency'=>$obj['currency'],'vat_price'=>$obj['vat_price'],'total_price'=>$obj['total_price'],'notes'=>$obj['notes']));
 			$transactionId = $conn->lastInsertId();
 			//--得到Json_list数组长度
 			$num=count($obj["list"]);
@@ -484,7 +490,7 @@ if($_REQUEST['action']) {
 					));
 				}
 			}
-			echo $transactionId;
+			echo $transactionId.','.$transactionNo;
 			break;
 		case "currencyRate":
 			$from=$_REQUEST['from'];

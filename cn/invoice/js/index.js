@@ -138,14 +138,22 @@ function saveOrUpdate(type){
     		var url = "../action.php?action=addTranc";
     		if(trancId>0)
     			url = "../action.php?action=updateTranc";
-        $.post(url,{transaction:JSON.stringify(data)},function(data){
-        	if(data >0){
-                alert('保存成功')
-                trancId = data;
-            }else{
-                alert('网络错误，请检查信息并重试')
-            }
-        })
+    		$.ajax({  
+    	         type : "post",  
+    	          url : url,  
+    	          data : {transaction:JSON.stringify(data)},  
+    	          async : false,  
+    	          success : function(data){  
+    	        	  	if(data){
+    	                  alert('保存成功')
+    	                  strs=data.split(",")
+    	                  trancId = strs[0];
+    	                  $('#invoice_no').val(strs[1]);
+    	              }else{
+    	                  alert('网络错误，请检查信息并重试')
+    	              }
+    	          }  
+    	     }); 
     }
 }
 
