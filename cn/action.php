@@ -443,12 +443,20 @@ if($_REQUEST['action']) {
 			break;
 		case "addTranc":
 			//强制检查invoce_no不重复
-			$transactionNo = 1;
-			$sql_dia='select convert(invoice_no,UNSIGNED INTEGER) as t from transaction where type="invoice" order by ctime desc limit 1';
-			foreach($conn->query($sql_dia) as $r_r){
-				$transactionNo=$r_r['t']+1;
-			}
 			$obj=json_decode($_REQUEST['transaction'],TRUE);
+			$transactionNo = 1;
+			$sql_dia='select count(*) as t from transaction where type="invoice" and invoice_no="'.$obj['invoice_no'].'"';
+			foreach($conn->query($sql_dia) as $r_r){
+				$transactionNo=$r_r['t'];
+			}
+			if($transactionNo!=0) {
+				$sql_dia='select convert(invoice_no,UNSIGNED INTEGER) as t from transaction where type="invoice" order by ctime desc limit 1';
+				foreach($conn->query($sql_dia) as $r_r){
+					$transactionNo=$r_r['t']+1;
+				}
+			}
+			else 
+				$transactionNo=$obj['invoice_no'];
 			$sql = 'insert into transaction(name,passport,street,city,postcode,country,type,tranc_date,invoice_no,currency,vat_price,total_price,tax_rebate,notes,ctime) 
 					values(:name,:passport,:street,:city,:postcode,:country,:type,:tranc_date,:invoice_no,:currency,:vat_price,:total_price,:tax_rebate,:notes,now())';
 			$stmt=$conn->prepare($sql);
@@ -541,7 +549,7 @@ if($_REQUEST['action']) {
 			break;
 		case "invoiceNo":
 			$transactionNo = 1;
-			$sql_dia='select convert(invoice_no,UNSIGNED INTEGER) as t from transaction where type="invoice" order by ctime desc limit 1';
+			$sql_dia='select (convert(invoice_no,UNSIGNED INTEGER)) as t from transaction where type="invoice" order by ctime desc limit 1';
 			foreach($conn->query($sql_dia) as $r_r){
 				$transactionNo=$r_r['t']+1;
 			}
