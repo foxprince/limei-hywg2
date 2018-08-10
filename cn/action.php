@@ -479,6 +479,9 @@ if($_REQUEST['action']) {
 					foreach($stmt as $rowDetail2){
 						$raw_price=$rowDetail2['raw_price'];
 					}
+					//更改钻石为不可见，ordered_by，ordered_time
+					$off_sql = 'UPDATE diamonds SET visiable=0,status = "UNAVAILABLE",ordered_by = "'.$obj['name'].'",wholesale_ordered_by = "'.$obj['name'].'",ordered_time=now() WHERE certificate_number="'.$item["report_no"].'"';
+					$off_stmt = $conn->prepare ( $off_sql );$off_stmt->execute();
 					$insert_sql="INSERT INTO tranc_detail (tranc_id,type,report_no,shape,color,fancy,grading_lab,carat,
 						clarity,cut_grade,polish,symmetry,price,jewerly,material,jewerly_price,raw_price,ctime)
 						VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())";
@@ -524,7 +527,7 @@ if($_REQUEST['action']) {
 					$USD_GBP=$row_currency['USD_GBP'];
 					$USD_CNY=$row_currency['USD_CNY'];
 				}
-				$sql_dia='SELECT * FROM diamonds WHERE visiable=1 and stock_ref LIKE "'.$ref.'" OR certificate_number = "'.$ref.'"';
+				$sql_dia='SELECT * FROM diamonds WHERE visiable=1 and  certificate_number = "'.$ref.'"';
 				$stmt_dia=$conn->query($sql_dia);
 				foreach($stmt_dia as $r_d){
 					$item=$r_d;
