@@ -374,7 +374,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                         for(var j=0;j<json.list[i].detail_list.length;j++){
                         		var d = json.list[i].detail_list[j];
                         		var tprice = json.list[i].type=='invoice'?(json.list[i].total_price-json.list[i].vat_price):json.list[i].total_price;
-                        		if(tprice>0) tprice=tprice.toFixed(2);
+                        		if(tprice>0) tprice=Number(tprice).toFixed(2);
                           	temp +='<li>'+d.carat+' | '+d.color+' | '+d.clarity+' | '+d.report_no+' | '+(d.type!='jew'?'(原价'+d.raw_price+')':'')+'</li>';
                         }
                         temp += '</ul></td>'
