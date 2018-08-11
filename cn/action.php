@@ -439,7 +439,7 @@ if($_REQUEST['action']) {
 					));
 				}
 			}
-			echo $obj['id'];
+			echo $obj['id'].','.$obj['invoice_no'];
 			break;
 		case "addTranc":
 			//强制检查invoce_no不重复

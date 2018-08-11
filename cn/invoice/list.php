@@ -372,9 +372,10 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                         +'<td><ul>';
 						if(json.list[i].detail_list)
                         for(var j=0;j<json.list[i].detail_list.length;j++){
-                        	var d = json.list[i].detail_list[j];
-                        	var tprice = json.list[i].type=='invoice'?(json.list[i].total_price-json.list[i].vat_price).toFixed(2):json.list[i].total_price;
-                        	temp +='<li>'+d.carat+' | '+d.color+' | '+d.clarity+' | '+d.report_no+' | '+(d.type!='jew'?'(原价'+d.raw_price+')':'')+'</li>';
+                        		var d = json.list[i].detail_list[j];
+                        		var tprice = json.list[i].type=='invoice'?(json.list[i].total_price-json.list[i].vat_price):json.list[i].total_price;
+                        		if(tprice>0) tprice=tprice.toFixed(2);
+                          	temp +='<li>'+d.carat+' | '+d.color+' | '+d.clarity+' | '+d.report_no+' | '+(d.type!='jew'?'(原价'+d.raw_price+')':'')+'</li>';
                         }
                         temp += '</ul></td>'
                         +'<td><a trancId="'+json.list[i].id+'"  class="printTranc t_operate" onclick="printTranc('+json.list[i].id+')">'  +json.list[i].type+'</a></td><td>'+ (json.list[i].type=='invoice'?json.list[i].invoice_no:"--") +'</td>'
