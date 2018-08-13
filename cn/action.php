@@ -420,11 +420,11 @@ if($_REQUEST['action']) {
 			for ($i=0;$i<$num;$i++) {
 				$item = $obj["list"][$i];
 				if($item["type"]=='jew') {
-					$insert_sql="INSERT INTO tranc_detail (tranc_id,type,jewerly,material,jewerly_price,raw_price,ctime)
+					$insert_sql="INSERT INTO tranc_detail (tranc_id,type,jewerly,material,jewerly_price,ctime)
 						VALUES (?,?,?,?,?,now())";
 					$result = $conn -> prepare($insert_sql);
 					$result -> execute(array( $obj['id'],$item["type"],$item["jewerly"], $item["material"],
-							$item["jewerly_price"],$item["raw_price"]
+							$item["jewerly_price"]
 					));
 				}
 				else{
