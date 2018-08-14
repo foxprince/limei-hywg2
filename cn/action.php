@@ -61,7 +61,6 @@ if($_REQUEST['action']) {
 		case "appointmentList":
 			//$userhistory='SELECT a.*,b.stock_ref,b.grading_lab,b.certificate_number,c.name_ch,c.image1,c.price FROM viewing_record a,diamonds b,jewelry c WHERE a.viewer = "'.$appointmentOwner.'" and a.diamond=b.id and a.jewellery_id=c.id ORDER BY a.id DESC';
 			$userhistory='select  t.*,c.name_ch,c.image1,c.price from (SELECT a.*,b.stock_ref,b.grading_lab,b.certificate_number FROM viewing_record a,diamonds b WHERE a.viewer = "'.$userid.'" and a.diamond=b.id ) as t  left join jewelry c on t.jewellery_id=c.id ORDER BY t.id DESC';
-			logger($userhistory);
 			$stmt_history=$conn->query($userhistory);
 			$historyfound=$stmt_history->rowCount();
 			$appoinmentList=array();$i=0;
@@ -102,7 +101,6 @@ if($_REQUEST['action']) {
 			}
 			else if($passwordnewrepeat==$passwordnew && $passwordold==$website_password){
 				$sql_user_update='UPDATE clients_list SET website_username = "'.$usernamenew.'", website_password = "'.$passwordnew.'" WHERE id = '.$userid;
-				logger($sql_user_update);
 				$stmt_user_update=$conn->query($sql_user_update);
 				$userupdated=$stmt_user_update->rowCount();
 				if($userupdated){
@@ -135,7 +133,6 @@ if($_REQUEST['action']) {
 		case "makeOrder":
 			$_SESSION['orderDiaId'] = $_REQUEST['diaId'];
 			setcookie("orderDiaId",$_REQUEST['diaId'],time()+3600);
-			logger("orderDiaId:".$_SESSION['orderDiaId']);
 			echo '定制成功，请继续';
 			break;
 		case "makeOrderJew":
@@ -219,7 +216,6 @@ if($_REQUEST['action']) {
 				$content .= "<br/>预约时间：".$viewTime;
 				//预约钻石的详细信息
 				$userhistory='select  t.*,c.name_ch,c.image1,c.price from (SELECT a.*,b.stock_ref,b.grading_lab,b.certificate_number FROM viewing_record a,diamonds b WHERE a.viewer = "'.$userid.'" and a.diamond=b.id ) as t  left join jewelry c on t.jewellery_id=c.id ORDER BY t.id DESC';
-				logger($userhistory);
 				$stmt_history=$conn->query($userhistory);
 				$historyfound=$stmt_history->rowCount();
 				$appoinmentList=array();$i=0;
@@ -367,13 +363,11 @@ if($_REQUEST['action']) {
 			foreach($conn->query($totalSql) as $r_r){
 				$total=$r_r['t'];
 			}
-			logger($sql.':'.$total);
 			if($total>0) {
 				$transactionList=array();$i=0;
 				foreach($conn->query($sql) as $row){
 					$transactionList[$i]=$row;
 					$sql = 'select a.* from tranc_detail a where a.tranc_id=:tranc_id ';
-					logger($sql);
 					$stmt=$conn->prepare($sql);
 					$stmt->execute(array('tranc_id'=>$row['id']));
 					$tranc_detailList=array();
@@ -442,6 +436,7 @@ if($_REQUEST['action']) {
 			echo $obj['id'].','.$obj['invoice_no'];
 			break;
 		case "addTranc":
+			logger("addTranc".$_REQUEST['transaction']);
 			//强制检查invoce_no不重复
 			$obj=json_decode($_REQUEST['transaction'],TRUE);
 			$transactionNo = 1;
@@ -668,7 +663,6 @@ if($_REQUEST['action']) {
 			break;
 		case "event20170526Cancel"://取消获奖资格
 			$sql = 'UPDATE clients_list SET more_info = "20170526wenzhou_Cancel" WHERE id = '.$_REQUEST['id']; // $fromUsername
-			logger($sql);
 			$stmt = $conn->prepare ( $sql );
 			$stmt->execute ();
 			echo "OK";
