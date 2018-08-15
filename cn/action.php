@@ -396,6 +396,7 @@ if($_REQUEST['action']) {
 				echo '设置失败';
 			break;
 		case "updateTranc":
+			logger("updateTranc".$_REQUEST['transaction']);
 			$obj=json_decode($_REQUEST['transaction'],TRUE);
 			$sql = 'update transaction set type=?,name=?,passport=?,street=?,city=?,postcode=?,country=?,tranc_date=?,invoice_no=?,currency=?,vat_price=?,total_price=?,tax_rebate=?,notes=? where id=?';
 			$stmt=$conn->prepare($sql);
