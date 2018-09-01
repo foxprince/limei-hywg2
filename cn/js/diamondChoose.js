@@ -225,6 +225,7 @@ function filter_certi(thelab) {
 	update();
 }
 function filter_currency(currency) {
+	Cookies.set("DIA_CURRENCY", currency, { expires: 365,path: '/cn' }); 
 	$currency = currency;
 	update();
 }

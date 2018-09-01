@@ -23,7 +23,13 @@ if (isset($_COOKIE["userId"]))
 	$userid = $_COOKIE["userId"];
 else
 	$userid = $_COOKIE["everUserId"];
-
+	
+	$sql_currency='SELECT * FROM convert_currency';
+	foreach($conn->query($sql_currency) as $row_currency){
+		$USD_EUR=$row_currency['USD_EUR'];
+		$USD_GBP=$row_currency['USD_GBP'];
+		$USD_CNY=$row_currency['USD_CNY'];
+	}
 if($_REQUEST['action']) {
 	$action = $_REQUEST['action'];
 	switch($action) {
@@ -67,6 +73,10 @@ if($_REQUEST['action']) {
 			if($historyfound){
 				foreach($stmt_history as $row_history){
 					$appoinmentList[]=$row_history;
+					$price=$row_history['diamond_price'];
+					$appoinmentList[$i]['euro_price']=round($price*$USD_EUR).'欧元';
+					$appoinmentList[$i]['yuan_price']=round($price*$USD_CNY).'元人民币';
+					$appoinmentList[$i]['dollar_price']=round($price).'美元';
 					$appoinmentList[$i]['shapeTxt']=diamondShapeDesc($row_history['shape']);
 					/*
 					$demopiclink='./img-eles/goodprice.png';
@@ -502,11 +512,6 @@ if($_REQUEST['action']) {
 		case "currencyRate":
 			$from=$_REQUEST['from'];
 			$to=$_REQUEST['to'];
-			foreach($conn->query('SELECT * FROM convert_currency') as $row_currency){
-				$USD_EUR=$row_currency['USD_EUR'];
-				$USD_GBP=$row_currency['USD_GBP'];
-				$USD_CNY=$row_currency['USD_CNY'];
-			}
 			if($from=='EUR'&&$to=='CNY') 
 				$rate=($USD_CNY/$USD_EUR);
 			if($from=='EUR'&&$to=='USD')
@@ -526,11 +531,6 @@ if($_REQUEST['action']) {
 			$currency=$_REQUEST['currency'];
 			if($_REQUEST['ref']!=null){
 				$sql_currency='SELECT * FROM convert_currency';
-				foreach($conn->query($sql_currency) as $row_currency){
-					$USD_EUR=$row_currency['USD_EUR'];
-					$USD_GBP=$row_currency['USD_GBP'];
-					$USD_CNY=$row_currency['USD_CNY'];
-				}
 				$sql_dia='SELECT * FROM diamonds WHERE visiable=1 and  certificate_number = "'.$ref.'"';
 				$stmt_dia=$conn->query($sql_dia);
 				foreach($stmt_dia as $r_d){

@@ -54,7 +54,12 @@ function appointmentList(id) {
                 item += '<p>对称性：'+j.diamond_symmetry+'</p>';
                 item += '<p>证书：'+j.grading_lab+'</p>';
                 item += '<p>编号：'+j.stock_ref+'</p>';
-                item += '<p>价格：'+Math.round(j.diamond_price)+'美元</p>';
+                if(Cookies.get("DIA_CURRENCY")=='EUR')
+                		item += '<p>价格：'+(j.euro_price)+'</p>';
+                else if(Cookies.get("DIA_CURRENCY")=='CNY')
+            			item += '<p>价格：'+(j.yuan_price)+'</p>';
+                else if(Cookies.get("DIA_CURRENCY")=='USD')
+        				item += '<p>价格：'+(j.dollor_price)+'</p>';
                 if(j.grading_lab=="HRD"){
 	            		item += '<a class="certi_linker" target="_blank" href="./pdf/v.php?lab='+j.grading_lab+'&certNo='+j.certificate_number+'" data-fancybox ><img id="gradinglabicon" src="./images/hrd.gif" /></a>';
 	            }else if(j.grading_lab=='GIA'){
