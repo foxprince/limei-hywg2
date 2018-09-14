@@ -1,6 +1,12 @@
 $(document).ready(function(){
 	$("#skype").hover(function(){ $("#skype").attr("src","images/skype_on.gif"); },function(){ $("#skype").attr("src","images/skype.gif"); });
     $("#phone").hover(function(){ $("#phone").attr("src","images/phone_on.gif"); },function(){ $("#phone").attr("src","images/phone.gif"); });
+    if(Cookies.get("DIA_CURRENCY")=='EUR')
+		$(".currency_EUR").addClass("country");
+    else if(Cookies.get("DIA_CURRENCY")=='CNY')
+    		$(".currency_CNY").addClass("country");
+    else //if (Cookies.get("DIA_CURRENCY")=='USD')
+    		$(".currency_USD").addClass("country");
     $(".sewvtop img").click(function () {
     	$(this).addClass("country").siblings().removeClass("country");
     })
@@ -58,8 +64,8 @@ function appointmentList(id) {
                 		item += '<p>价格：'+(j.euro_price)+'</p>';
                 else if(Cookies.get("DIA_CURRENCY")=='CNY')
             			item += '<p>价格：'+(j.yuan_price)+'</p>';
-                else if(Cookies.get("DIA_CURRENCY")=='USD')
-        				item += '<p>价格：'+(j.dollor_price)+'</p>';
+                else //if (Cookies.get("DIA_CURRENCY")=='USD')
+        				item += '<p>价格：'+(j.dollar_price)+'</p>';
                 if(j.grading_lab=="HRD"){
 	            		item += '<a class="certi_linker" target="_blank" href="./pdf/v.php?lab='+j.grading_lab+'&certNo='+j.certificate_number+'" data-fancybox ><img id="gradinglabicon" src="./images/hrd.gif" /></a>';
 	            }else if(j.grading_lab=='GIA'){

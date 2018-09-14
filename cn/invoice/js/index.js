@@ -331,7 +331,7 @@ function diaContent() {
 	    <label class='col-sm-2 col-xs-3  control-label'>Jewelry</label>\
 	    <div class='col-sm-10 col-xs-9'>\
 	    <select id='form_jewerly' class='jewerly form-control'>\
-	    <option value='Ring'>Ring</option><option value='Necklace'>Necklace</option><option value='Earring'>Earring</option>\
+	    <option value='Ring'>Ring</option><option value='Necklace'>Necklace</option><option value='Earring'>Earring</option><option value='Diamond Ring'>Diamond Ring</option><option value='Diamond Necklace'>Diamond Necklace</option><option value='Diamond Earring'>Diamond Earring</option>\
 	    </select>\
 	    </div></div><div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Price</label>\
@@ -357,7 +357,7 @@ function jewelryContent() {
 	    <label class='col-sm-2 col-xs-3  control-label'>Jewelry</label>\
 	    <div class='col-sm-10 col-xs-9'>\
 	    <select id='form_jewerly' class='jewerly form-control'>\
-	    <option value='Ring'>Ring</option><option value='Necklace'>Necklace</option><option value='Earring'>Earring</option>\
+	    <option value='Ring'>Ring</option><option value='Necklace'>Necklace</option><option value='Earring'>Earring</option><option value='Diamond Ring'>Diamond Ring</option><option value='Diamond Necklace'>Diamond Necklace</option><option value='Diamond Earring'>Diamond Earring</option>\
 	    </select>\
 	    </div></div><div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Price</label>\
