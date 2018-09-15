@@ -55,16 +55,20 @@ if(strpos($_SERVER['PHP_SELF'], "jew")) {
             <?php if(isset($_COOKIE["orderDiaId"])){
         	$sql='SELECT * FROM diamonds WHERE id = '.$_COOKIE["orderDiaId"];
         	foreach($conn->query($sql) as $r){}
-        	if($_COOKIE["DIA_CURRENCY"]=='EUR')
-        		$priceDesc='€'.round($r['retail_price']*$USD_EUR);
-        	else if($_COOKIE["DIA_CURRENCY"]=='CNY')
-        		$priceDesc='¥'.round($r['retail_price']*$USD_CNY);
-        	else
-        		$priceDesc='$'.round($r['retail_price']);
+        	if($_COOKIE["DIA_CURRENCY"]=='EUR') {
+        		$priceDesc='€';
+        		$diaPrice = round($r['retail_price']*$USD_EUR);
+        	}	else if($_COOKIE["DIA_CURRENCY"]=='CNY') {
+        		$priceDesc='¥';
+        		$diaPrice = round($r['retail_price']*$USD_CNY);
+        	}	else {
+        		$priceDesc='$';
+        		$diaPrice = round($r['retail_price']);
+        	}
         	?>
             <p><?php echo $r['carat'].'ct '.$r['color'].'色 '.$r['clarity'].' '.$r['cut_grade'].' '.$r['polish'].' '.$r['symmetry']?></p>
             <p><?php echo $r['grading_lab']?> 钻石</p>
-            <p><?php echo $priceDesc?><i><a href="dia.php?action=resetOrderDia">重选</a></i></p>
+            <p><?php echo $priceDesc.$diaPrice ?><i><a href="dia.php?action=resetOrderDia">重选</a></i></p>
             <?php }else{ ?>
             <a class="link" href="dia.php"><span>选择裸钻</span></a><div class="icon"><img src="./images/step-three.png" alt=""></div><?php }?>
             </div>
@@ -77,14 +81,14 @@ if(strpos($_SERVER['PHP_SELF'], "jew")) {
         	$sql='SELECT * FROM jewelry WHERE id = '.$_COOKIE['orderJewId'];
         	foreach($conn->query($sql) as $r_jew){}
         	if($_COOKIE["DIA_CURRENCY"]=='USD')
-        		$jewPriceDesc='$'.round($r_jew['price']/$USD_EUR);
+        		$jewPrice=round($r_jew['price']/$USD_EUR);
         	else if($_COOKIE["DIA_CURRENCY"]=='CNY')
-        		$jewPriceDesc='¥'.round($r_jew['price']/$USD_EUR*$USD_CNY);
+        		$jewPrice=round($r_jew['price']/$USD_EUR*$USD_CNY);
         	else
-        		$jewPriceDesc='€'.round($r_jew['price']);
+        		$jewPrice=round($r_jew['price']);
         	?>
         	<p><?php echo $r_jew['name_ch']; ?></p>
-			<p><?php echo $jewPriceDesc ?> <a href="jewelry.php?action=resetOrderJew">重选</a></p>
+			<p><?php echo $priceDesc.$jewPrice ?> <a href="jewelry.php?action=resetOrderJew">重选</a></p>
         	<?php }else{ ?>
             <a class="link" href="jewelry.php"><span>选择款式</span></a><div class="icon"><img src="./images/step-two.png" alt=""></div><?php }?>
             </div>
@@ -92,7 +96,8 @@ if(strpos($_SERVER['PHP_SELF'], "jew")) {
         </li>
         <li class="tc four-box">
           <div id="step3">
-            <div class="four">完成定制</div>
+            <div class="four"><p id="totalPrice">总计:<?php echo $priceDesc.($jewPrice+$diaPrice) ?></p>
+            完成定制</div>
           </div>
         </li>
       </ul>

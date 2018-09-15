@@ -425,22 +425,22 @@ if($_REQUEST['action']) {
 			for ($i=0;$i<$num;$i++) {
 				$item = $obj["list"][$i];
 				if($item["type"]=='jew') {
-					$insert_sql="INSERT INTO tranc_detail (tranc_id,type,jewerly,material,jewerly_price,ctime)
-						VALUES (?,?,?,?,?,now())";
+					$insert_sql="INSERT INTO tranc_detail (tranc_id,type,jewerly,material,jewerly_price,jewerly_color,ctime)
+						VALUES (?,?,?,?,?,?,now())";
 					$result = $conn -> prepare($insert_sql);
 					$result -> execute(array( $obj['id'],$item["type"],$item["jewerly"], $item["material"],
-							$item["jewerly_price"]
+							$item["jewerly_price"],$item["jewerly_color"]
 					));
 				}
 				else{
 					$insert_sql="INSERT INTO tranc_detail (tranc_id,type,report_no,shape,color,fancy,grading_lab,carat,
-						clarity,cut_grade,polish,symmetry,price,jewerly,material,jewerly_price,raw_price,ctime)
-						VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())";
+						clarity,cut_grade,polish,symmetry,price,jewerly,material,jewerly_price,jewerly_color,raw_price,ctime)
+						VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())";
 					$result = $conn -> prepare($insert_sql);
 					$result -> execute(array( $obj['id'],$item["type"],$item["report_no"],$item["shape"],$item["color"],
 							$item["fancy"],$item["grading_lab"],$item["carat"], $item["clarity"],$item["cut_grade"],
 							$item["polish"], $item["symmetry"],$item["price"],$item["jewerly"], $item["material"],
-							$item["jewerly_price"],$item["raw_price"]
+							$item["jewerly_price"],$item["jewerly_color"],$item["raw_price"]
 					));
 				}
 			}
@@ -480,11 +480,11 @@ if($_REQUEST['action']) {
 			for ($i=0;$i<$num;$i++) {
 				$item = $obj["list"][$i];
 				if($item["type"]=='jew') {
-					$insert_sql="INSERT INTO tranc_detail (tranc_id,type,jewerly,material,jewerly_price,ctime)
-						VALUES (?,?,?,?,?,now())";
+					$insert_sql="INSERT INTO tranc_detail (tranc_id,type,jewerly,material,jewerly_price,jewerly_color,ctime)
+						VALUES (?,?,?,?,?,?,now())";
 					$result = $conn -> prepare($insert_sql);
 					$result -> execute(array( $transactionId,$item["type"],$item["jewerly"], $item["material"],
-							$item["jewerly_price"]
+							$item["jewerly_price"],$item["jewerly_color"]
 					));
 				}
 				else{

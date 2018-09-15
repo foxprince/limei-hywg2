@@ -57,7 +57,7 @@ function to_print(type){
 	         '<p>Colour Grade <span class="pull-right"><span  class="pull-left">'+$(this).find('#form_colourGrade option:selected').val()+'</span></span></p>'+
 	         '<p>Clarity Grade <span class="pull-right"><span class="pull-left">'+$(this).find('#form_clarity option:selected').val()+'</span></span></p>';
         if($(this).hasClass("jew")||$(this).hasClass("diajew"))
-        		html +='<p style="margin-top: 10px;">'+$(this).find('#form_material option:selected').val()+' White Gold '+$(this).find('#form_jewerly option:selected').val()+'</p>';
+        		html +='<p style="margin-top: 10px;">'+$(this).find('#form_material option:selected').val()+' '+$(this).find('#form_jew_color option:selected').val()+' Gold '+$(this).find('#form_jewerly option:selected').val()+'</p>';
         html+='</div>'+'<div class="col-xs-3 clearfix">';
         if($(this).hasClass("dia")||$(this).hasClass("diajew"))
         		html+='<p>'+$(this).find('#form_gia option:selected').val()+'&nbsp;'+$(this).find('#ref').val()+'</p>'+
@@ -131,6 +131,7 @@ function saveOrUpdate(type){
             'jewerly':$(this).find('.jewerly').find('option:selected').val(),
             'material':$(this).find('.material').find('option:selected').val(),
             'jewerly_price':$(this).find('.jewerly_price').val(),
+            'jewerly_color':$(this).find('.jewerly_color').val(),
             'raw_price':$(this).find('.raw_price').val()
         });
     });
@@ -352,7 +353,7 @@ function jewelryContent() {
 		</div></div></div>";
 	html +="<div class='jt-form clearfix'>\
 	    <div class='J_jtBox jt-box' style='display:block;'>\
-	    <div class='col-lg-5  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
+	    <div class='col-lg-4  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
 	    <div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Jewelry</label>\
 	    <div class='col-sm-10 col-xs-9'>\
@@ -363,11 +364,15 @@ function jewelryContent() {
 	    <label class='col-sm-2 col-xs-3  control-label'>Price</label>\
 	    <div class='col-sm-10 col-xs-9'> \
 	    <input onblur='total()' class='jewerly_price form-control' id='form_price2' value='0.00' type='text' placeholder='0.00'>\
-	    </div></div></div><div class='col-lg-5  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
+	    </div></div></div><div class='col-lg-4  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
 	    <div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Material</label><div class='col-sm-10 col-xs-9'>\
 	    <select id='form_material' class='material form-control'><option value='18K'>18K</option><option value='Pt'>Pt</option></select>\
-	    </div></div></div></div></div>";
+	    </div></div></div><div class='col-lg-4  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
+	    <div class='form-group clearfix'>\
+ 	    <label class='col-sm-2 col-xs-3  control-label'>Color</label><div class='col-sm-10 col-xs-9'>\
+ 	    <select id='form_jew_color' class='jewerly_color form-control'><option value='White'>White</option><option value='Yellow'>Yellow</option><option value='Rose'>Rose</option></select>\
+ 	    </div></div></div></div>";
     return html;
 }
 function invoiceNo(){

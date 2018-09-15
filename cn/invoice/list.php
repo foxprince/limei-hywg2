@@ -208,7 +208,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
    			         '<p>Colour Grade <span class="pull-right"><span  class="pull-left">'+j.color+'</span></span></p>'+
    			         '<p>Clarity Grade <span class="pull-right"><span class="pull-left">'+j.clarity+'</span></span></p>';
    				    if(j.type=='diajew'||j.type=='jew')
-   				    	html +='<p style="margin-top: 10px;">'+j.material+' White Gold '+j.jewerly+'</p>';
+   				    	html +='<p style="margin-top: 10px;">'+j.material+' '+j.jewerly_color+' White Gold '+j.jewerly+'</p>';
    				    html+='</div>'+
    				    '<div class="col-xs-3 clearfix">';
    				    if(j.type=='dia'||j.type=='diajew')
