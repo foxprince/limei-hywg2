@@ -19,6 +19,8 @@ if(!isset($conn)){
 	$conn->query("SET NAMES 'utf8'");
 }
 $userid = $_COOKIE["userId"];
+include 'ChromePhp.php';
+
 if (isset($_COOKIE["userId"]))
 	$userid = $_COOKIE["userId"];
 else
@@ -369,7 +371,8 @@ if($_REQUEST['action']) {
 			}
 			$startfrom=($crr_page-1)*$pagesize;
 			$totalSql .= $clause;
-			$sql .= $clause.' order by '.$_REQUEST['sort'].' '.$_REQUEST['sortDirection'].' limit '.$startfrom.','.$pagesize;
+			$sql .= $clause.' order by tranc_date desc,'.$_REQUEST['sort'].' '.$_REQUEST['sortDirection'].' limit '.$startfrom.','.$pagesize;
+			logger($sql);
 			foreach($conn->query($totalSql) as $r_r){
 				$total=$r_r['t'];
 			}
@@ -545,7 +548,7 @@ if($_REQUEST['action']) {
 			break;
 		case "invoiceNo":
 			$transactionNo = 1;
-			$sql_dia='select (convert(invoice_no,UNSIGNED INTEGER)) as t from transaction where type="invoice" order by ctime desc limit 1';
+			$sql_dia='select (convert(invoice_no,UNSIGNED INTEGER)) as t from transaction where type="invoice" order by tranc_date desc,ctime desc limit 1';
 			foreach($conn->query($sql_dia) as $r_r){
 				$transactionNo=$r_r['t']+1;
 			}
