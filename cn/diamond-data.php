@@ -286,10 +286,10 @@ foreach($stmt as $row){
 		}
 	}
 	$certi_linker='./pdf/v.php?lab='.$row["grading_lab"].'&certNo='.$row["certificate_number"];
-	//if($row["grading_lab"]=='GIA') {
-		//$certi_linker="https://www.gia.edu/report-check?reportno=".$row["certificate_number"];
+	if($row["grading_lab"]=='GIA') {
+		$certi_linker="https://www.gia.edu/report-check?reportno=".$row["certificate_number"];
 		//$certi_linker="https://api.checkgems.com/api/v2/certs/GIA/".$row["certificate_number"].".pdf";
-	//}
+	}
 	?>
 				<div class="dia-piece-box" onclick="showDetail('<?php echo $row['id']; ?>')">
                     <div class="1 generalinfobox">
