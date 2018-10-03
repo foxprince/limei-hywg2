@@ -6,7 +6,6 @@ if(!isset($_SESSION['invoiceAdmin'])) {
   header('Location: login.php');
   exit;
 }
-
 ?>
 <!DOCTYPE html>
 <html>

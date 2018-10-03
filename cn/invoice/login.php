@@ -3,8 +3,9 @@ session_start();
 $error='';
 if(isset($_POST['username'])){
     $password=$_POST['password'];
-	if($password=='1qsxzse$'){
-		    $_SESSION['invoiceAdmin']='true';
+	if(($_POST['username']=='admin'&&$password=='1qsxzse$')||($_POST['username']=='iadmin'&&$password=='1q2w#E$R')){
+		    $_SESSION['invoiceAdmin']=$_POST['username'];
+		    setcookie('invoiceAdmin', $_POST['username']);
 			session_regenerate_id();
 			header("Location: list.php");
 			exit('');
@@ -15,6 +16,7 @@ if(isset($_POST['username'])){
 }
 if(isset($_REQUEST['quit'])){
 	$_SESSION['invoiceAdmin']=null;
+	setcookie('invoiceAdmin', NULL);
 	session_destroy();
 }
 ?>
@@ -54,7 +56,7 @@ if(isset($_REQUEST['quit'])){
         </header>
 
         <main>
-            <form action="" class="c_form" method="post">
+            <form action="../action.php" class="c_form" method="post">
                 <p class="item">
                     <label for="" class="field">用户名</label>
                     <input type="text" id="num" class="i_text" name="username" placeholder="请输入用户名">
@@ -63,6 +65,7 @@ if(isset($_REQUEST['quit'])){
                     <label for="" class="field">密码</label>
                     <input type="password" id="custom" class="i_text" name="password" placeholder="请输入密码">
                 </p>
+                <input type="hidden" name="action" value="invoiceLogin"/>
                 <p class="item pc_btn"><button type="submit" id="login" value="Login" class="c_btn look_btn J_lookfor">登录</button></p>
             </form>
             

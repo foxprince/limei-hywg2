@@ -2,6 +2,7 @@
 @header('Content-type: text/html;charset=UTF-8');
 ?>
 <?php
+session_start();
 //namespace Aliyun\DySDKLite\Sms;
 require_once "AliyunSignatureHelper.php";
 require_once "tencentSms/SmsSingleSender.php";
@@ -331,13 +332,15 @@ if($_REQUEST['action']) {
 			echo json_encode($result);
 			break;
 		case "invoiceLogin":
-			if($_REQUEST['invoiceAdmin']!=null&&$_REQUEST['invoiceAdmin']=='1qsxzse$') {
-				$_SESSION['invoiceAdmin'] = 'true';
-				setcookie('invoiceAdmin', 'true');
-				echo "登录成功";
-			}
-			else 
+			$password=$_POST['password'];
+			if(($_POST['username']=='admin'&&$password=='1qsxzse$')||($_POST['username']=='iadmin'&&$password=='1q2w#E$R')){
+				$_SESSION['invoiceAdmin']=$_POST['username'];
+				session_regenerate_id();
+				header("Location: /cn/invoice/list.php");
+				exit('');
+			}else{
 				echo "密码错误";
+			}
 			break;
 		case "invoiceQuit":
 			unset($_SESSION['invoiceAdmin']);
@@ -371,10 +374,17 @@ if($_REQUEST['action']) {
 			}
 			$startfrom=($crr_page-1)*$pagesize;
 			$totalSql .= $clause;
-			$sql .= $clause.' order by tranc_date desc,'.$_REQUEST['sort'].' '.$_REQUEST['sortDirection'].' limit '.$startfrom.','.$pagesize;
-			logger($sql);
-			foreach($conn->query($totalSql) as $r_r){
-				$total=$r_r['t'];
+			$sql .= $clause.' order by tranc_date desc,'.$_REQUEST['sort'].' '.$_REQUEST['sortDirection'];
+			
+			if($_SESSION['invoiceAdmin']=='iadmin') {
+				$sql.=' limit 10';
+				$total = 10;
+			}
+			else {
+				$sql.=' limit '.$startfrom.','.$pagesize;
+				foreach($conn->query($totalSql) as $r_r){
+					$total=$r_r['t'];
+				}
 			}
 			if($total>0) {
 				$transactionList=array();$i=0;
