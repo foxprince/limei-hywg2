@@ -233,6 +233,7 @@
    				$('#passport').val(json.trancDetail.passport);$('#postcode').val(json.trancDetail.postcode); 
    				$('#city').val(json.trancDetail.city);$('#country').val(json.trancDetail.country);
    				$('#tranc_date').val(json.trancDetail.tranc_date);$('#invoice_no').val(json.trancDetail.invoice_no);
+   				$('#tax_rebate').val(json.trancDetail.tax_rebate);
    				$('.total_price').html(currencyHint+json.trancDetail.total_price);
    				$('.vat_price').html(currencyHint+json.trancDetail.vat_price);
    				$.each(json.list, function (n, j) {
