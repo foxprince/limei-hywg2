@@ -406,7 +406,7 @@ img.fa{width: 1.5em;text-align: center;}
     .two i,.three i{margin-left: 10px; font-style: normal; color:#bd8165; cursor: pointer;}
     .three .icon{     margin: -49px 20px auto 80px;}
     .two .icon{     margin: -40px auto auto 60px;}
-    .two img{ margin-left: 40px;}
+    .two img{ margin-left: 40px;position:relative;top:7px;}
     .three .link{top: -12px;}
     .step li .active{ width: 262px; height: 113px; margin-left: -3px; background: url(../images/step-hover-113.png) no-repeat left top;position :relative;top:-10px}
 	.step li .active > div{padding-top:30px}
