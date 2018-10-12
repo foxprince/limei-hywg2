@@ -411,12 +411,12 @@ img.fa{width: 1.5em;text-align: center;}
 	.step li .active > div{padding-top:36px}
 	.step .link span{background: #f0f0f0;padding: 5px 12px;border-radius: 20px;}
 	.step .link span:hover{background:#f9b5b2;color:white}
-	.step .link span:after{}
+	.step .link span:after{display:block;content:'';}
 	.step .one-box .link > span{background:#fff;color:#b2b2b2}
 	.step .one-box .link > span:hover{background:#f9b5b2;color:#fff}
 	.step .link{position:relative;}
 	.step .link span:after{}
-	.step .link.active2 span:after{} 
+	.step .link.active2 span:after{display:block;content:'';} 
 
 
 
