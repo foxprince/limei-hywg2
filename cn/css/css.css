@@ -408,7 +408,8 @@ img.fa{width: 1.5em;text-align: center;}
     .two .icon{     margin: -40px auto auto 60px;}
     .two img{ margin-left: 40px;}
     .step li .active{ width: 262px; height: 94px; margin-left: -3px; background: url(../images/step-hover.png) no-repeat left top;}
-
+	.step .link span{background: #f0f0f0;padding: 5px 12px;border-radius: 20px;}
+	.step .link span:hover{background:#f9b5b2;color:white}
 
 
 
