@@ -27,7 +27,7 @@ foreach($conn->query($sql_currency) as $row_currency){
 	$USD_GBP=$row_currency['USD_GBP'];
 	$USD_CNY=$row_currency['USD_CNY'];
 }
-logger("orderDiaId:".$_SESSION['orderDiaId']);
+//logger("orderDiaId:".$_SESSION['orderDiaId']);
 /*if($_COOKIE["orderDiaId"]||$_REQUEST['step']=="dia")
 	$diaFirst = true;
 else if($_COOKIE["orderJewId"])
