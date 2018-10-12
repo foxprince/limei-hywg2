@@ -401,22 +401,24 @@ img.fa{width: 1.5em;text-align: center;}
     .one{ line-height: 94px;}
     .two	{padding-left: 48px; margin-left: 32px; padding-top: 26px; height: 48px; background: url(../images/two.png) no-repeat left bottom;line-height: 48px;}
     .three	{padding-left: 48px; margin-left: 32px; padding-top: 26px; height: 48px; background: url(../images/three.png) no-repeat left bottom; line-height: 48px;text-align: left; }
-    .four	{padding-left: 48px; margin-left: 32px; padding-top: 26px; height: 48px; background: url(../images/four.png) no-repeat left bottom;line-height: 48px; text-align: left;}
+    .four	{padding-left: 48px; margin-left: 32px; padding-top: 20px; height: 48px; background: url(../images/four.png) no-repeat left bottom;line-height: 48px; text-align: left;}
     .two p,.three p,.four p{font-size: 12px; text-align: left;line-height: normal;}
     .two i,.three i{margin-left: 10px; font-style: normal; color:#bd8165; cursor: pointer;}
     .three .icon{     margin: -49px 20px auto 80px;}
     .two .icon{     margin: -40px auto auto 60px;}
     .two img{ margin-left: 40px;}
+    .three .link{top: -12px;}
     .step li .active{ width: 262px; height: 113px; margin-left: -3px; background: url(../images/step-hover-113.png) no-repeat left top;position :relative;top:-10px}
-	.step li .active > div{padding-top:36px}
+	.step li .active > div{padding-top:30px}
 	.step .link span{background: #f0f0f0;padding: 5px 12px;border-radius: 20px;}
-	.step .link span:hover{background:#f9b5b2;color:white}
+	.step .link span:hover{background:#f9b5b2;color:white;}
 	.step .link span:after{display:block;content:'';}
-	.step .one-box .link > span{background:#fff;color:#b2b2b2}
-	.step .one-box .link > span:hover{background:#f9b5b2;color:#fff}
-	.step .link{position:relative;}
-	.step .link span:after{}
 	.step .link.active2 span:after{display:block;content:'';} 
+	.step .one-box .link > span{background:#fff;color:#b2b2b2;}
+	.step .one-box .link > span:hover{background:#f9b5b2;color:#fff;}
+	.step .link{position:relative;}
+	.step .link.active2 span:after{display:block;content:'';} 
+	.step .two .link span,.step .three .link span{margin-left:10px;}
 
 
 
