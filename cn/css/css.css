@@ -400,7 +400,7 @@ img.fa{width: 1.5em;text-align: center;}
     .step .link {color:#b2b2b2;}
     .one{ line-height: 94px;}
     .two	{padding-left: 48px; margin-left: 32px; padding-top: 26px; height: 48px; background: url(../images/two.png) no-repeat left bottom;line-height: 48px;}
-    .three	{padding-left: 48px; margin-left: 32px; padding-top: 26px; height: 48px; background: url(../images/three.png) no-repeat left bottom; line-height: 48px;text-align: left; }
+    .three	{padding-left: 48px; margin-left: 32px; padding-top: 20px; height: 48px; background: url(../images/three.png) no-repeat left bottom; line-height: 48px;text-align: left; }
     .four	{padding-left: 48px; margin-left: 32px; padding-top: 20px; height: 48px; background: url(../images/four.png) no-repeat left bottom;line-height: 48px; text-align: left;}
     .two p,.three p,.four p{font-size: 12px; text-align: left;line-height: normal;}
     .two i,.three i{margin-left: 10px; font-style: normal; color:#bd8165; cursor: pointer;}
