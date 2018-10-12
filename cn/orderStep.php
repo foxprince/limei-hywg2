@@ -70,7 +70,7 @@ if(strpos($_SERVER['PHP_SELF'], "jew")) {
             <p><?php echo $r['grading_lab']?> 钻石</p>
             <p><?php echo $priceDesc.$diaPrice ?><i><a href="dia.php?action=resetOrderDia">重选</a></i></p>
             <?php }else{ ?>
-            <img src="./images/step-three.png" alt=""><a class="link <?php echo $firstClass;?>2" href="dia.php"><span>选择裸钻</span></a><div class="icon"></div><?php }?>
+            <img src="./images/step-three.png" alt=""><a class="link " href="dia.php"><span>选择裸钻</span></a><?php }?>
             </div>
           </div>
         </li>
@@ -90,7 +90,7 @@ if(strpos($_SERVER['PHP_SELF'], "jew")) {
         	<p><?php echo $r_jew['name_ch']; ?></p>
 			<p><?php echo $priceDesc.$jewPrice ?> <a href="jewelry.php?action=resetOrderJew">重选</a></p>
         	<?php }else{ ?>
-            <img src="./images/step-two.png" alt=""><a class="link <?php echo $firstClass;?>2" href="jewelry.php"><span>选择款式</span></a><div class="icon"></div><?php }?>
+            <img src="./images/step-two.png" alt=""><a class="link " href="jewelry.php"><span>选择款式</span></a><div class="icon"></div><?php }?>
             </div>
           </div>
         </li>
