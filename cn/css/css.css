@@ -379,7 +379,7 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
    transform: translate(-50%,-50%);
 }
 
-.chg-box{text-align: center;margin-bottom:1em;}
+.chg-box{text-align: center;margin-bottom:1em;clear:both;}
 .chg-box ul{display: inline-block;}
 .chg-box ul li{cursor: pointer; float: left;}
 .chg-box ul li a{margin:0 10px; background-color: #fff;}
@@ -394,8 +394,8 @@ img.fa{width: 1.5em;text-align: center;}
 
 <!-- 新增css20170620 -->
 	.step-box{height: 95px; font-size: 14px;}
-    .step{width: 940px; height: 95px; margin:0 auto; background: url(../images/step-bg.png) no-repeat;}
-    .step li{float: left; width: 235px; font-size: 16px; color:#b2b2b2;}
+    .step{width: 940px; height: 113px; margin:0 auto; background: url(../images/step-bg.png) left center no-repeat;}
+    .step li{float: left; width: 235px; font-size: 16px; color:#b2b2b2;padding:10px 0;}
     .step li h2{ line-height: 80px;}
     .step .link {color:#b2b2b2;}
     .one{ line-height: 94px;}
@@ -407,7 +407,7 @@ img.fa{width: 1.5em;text-align: center;}
     .three .icon{     margin: -49px 20px auto 80px;}
     .two .icon{     margin: -40px auto auto 60px;}
     .two img{ margin-left: 40px;}
-    .step li .active{ width: 262px; height: 94px; margin-left: -3px; background: url(../images/step-hover.png) no-repeat left top;}
+    .step li .active{ width: 262px; height: 94px; margin-left: -3px; background: url(../images/step-hover.png) no-repeat left top;position :relative;top:-10px}
 	.step .link span{background: #f0f0f0;padding: 5px 12px;border-radius: 20px;}
 	.step .link span:hover{background:#f9b5b2;color:white}
 

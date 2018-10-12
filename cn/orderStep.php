@@ -46,7 +46,7 @@ if(strpos($_SERVER['PHP_SELF'], "jew")) {
       <ul class="step">
         <li class="tc one-box">
           <div><!-- 此处为背景控件active -->
-            <div class="one">定制您的首饰</div>
+            <div class="one"><a class="link" href="#"><span>定制首饰步骤简介</span></a></div>
           </div>
         </li>
         <li class="two-box">
