@@ -407,9 +407,10 @@ img.fa{width: 1.5em;text-align: center;}
     .three .icon{     margin: -49px 20px auto 80px;}
     .two .icon{     margin: -40px auto auto 60px;}
     .two img{ margin-left: 40px;}
-    .step li .active{ width: 262px; height: 94px; margin-left: -3px; background: url(../images/step-hover.png) no-repeat left top;position :relative;top:-10px}
+    .step li .active{ width: 262px; height: 94px; margin-left: -3px; background: url(../images/step-hover-113.png) no-repeat left top;position :relative;top:-10px}
 	.step .link span{background: #f0f0f0;padding: 5px 12px;border-radius: 20px;}
 	.step .link span:hover{background:#f9b5b2;color:white}
+	.step .link span:after{}
 
 
 

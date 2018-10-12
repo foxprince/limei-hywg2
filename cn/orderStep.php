@@ -46,7 +46,7 @@ if(strpos($_SERVER['PHP_SELF'], "jew")) {
       <ul class="step">
         <li class="tc one-box">
           <div><!-- 此处为背景控件active -->
-            <div class="one"><a class="link" href="#"><span>定制首饰步骤简介</span></a></div>
+            <div class="one"><a class="link" href="#"><span style="backgroud:#fff;color:#b2b2b2;">定制首饰步骤简介</span></a></div>
           </div>
         </li>
         <li class="two-box">
@@ -70,7 +70,7 @@ if(strpos($_SERVER['PHP_SELF'], "jew")) {
             <p><?php echo $r['grading_lab']?> 钻石</p>
             <p><?php echo $priceDesc.$diaPrice ?><i><a href="dia.php?action=resetOrderDia">重选</a></i></p>
             <?php }else{ ?>
-            <a class="link" href="dia.php"><span>选择裸钻</span></a><div class="icon"><img src="./images/step-three.png" alt=""></div><?php }?>
+            <a class="link <?php echo $firstClass;?>" href="dia.php"><span>选择裸钻</span></a><div class="icon"><img src="./images/step-three.png" alt=""></div><?php }?>
             </div>
           </div>
         </li>
@@ -90,7 +90,7 @@ if(strpos($_SERVER['PHP_SELF'], "jew")) {
         	<p><?php echo $r_jew['name_ch']; ?></p>
 			<p><?php echo $priceDesc.$jewPrice ?> <a href="jewelry.php?action=resetOrderJew">重选</a></p>
         	<?php }else{ ?>
-            <a class="link" href="jewelry.php"><span>选择款式</span></a><div class="icon"><img src="./images/step-two.png" alt=""></div><?php }?>
+            <a class="link <?php echo $firstClass;?>" href="jewelry.php"><span>选择款式</span></a><div class="icon"><img src="./images/step-two.png" alt=""></div><?php }?>
             </div>
           </div>
         </li>
