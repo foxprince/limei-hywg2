@@ -236,9 +236,9 @@ if($_REQUEST['action']) {
 					foreach($stmt_history as $row_history){
 						$content .='<div class="pro_pics">';
 						if($row_history['jewellery_id']>0)
-							$content .='<div class="pic_00"><img width=122 height=122 src="http://www.lumiagem.com/images/sitepictures/'.$row_history['image1'].'"/>';
+							$content .='<div class="pic_00"><img width=122 height=122 src="/images/sitepictures/'.$row_history['image1'].'"/>';
 						else
-							$content .='<div class="pic_00"><img src="http://www.lumiagem.com/cn/images/pic_01.png"/>';
+							$content .='<div class="pic_00"><img src="/cn/images/pic_01.png"/>';
 						$content .='</div>';
 						$content .= '<div class="detail">';
 						if($row_history['jewellery_id']>0)
@@ -260,11 +260,11 @@ if($_REQUEST['action']) {
 							//$certi_linker="https://api.checkgems.com/api/v2/certs/GIA/".$row["certificate_number"].".pdf";
 						}
 						if($row_history['grading_lab']=="HRD"){
-							$content .= '<a class="certi_linker" target="_black" href="'.$certi_linker.'" src="http://www.lumiagem.com/cn/images/HRD.png" width="98" height="37" /></a>';
+							$content .= '<a class="certi_linker" target="_black" href="'.$certi_linker.'" src="/cn/images/HRD.png" width="98" height="37" /></a>';
 						}else if($row_history['grading_lab']=='GIA'){
-							$content .= '<a class="certi_linker" target="_black" href="'.$certi_linker.'"><img id="gradinglabicon" src="http://www.lumiagem.com/cn/images/GIA.png" width="98" height="37"/></a>';
+							$content .= '<a class="certi_linker" target="_black" href="'.$certi_linker.'"><img id="gradinglabicon" src="/cn/images/GIA.png" width="98" height="37"/></a>';
 						} else if($row_history['grading_lab']=='IGI'){
-							$content .= '<a class="certi_linker" target="_black" href="'.$certi_linker.'"><img id="gradinglabicon" src="http://www.lumiagem.com/cn/images/IGI.png" width="98" height="37"/></a>';
+							$content .= '<a class="certi_linker" target="_black" href="'.$certi_linker.'"><img id="gradinglabicon" src="/cn/images/IGI.png" width="98" height="37"/></a>';
 						}
 						$content .= '<a class="certi_linker" target="_black" href="'.$certi_linker.'"><p>点击查看证书</p></a>';
 						$content .= '</div></div><hr>';
