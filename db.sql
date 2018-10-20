@@ -19,7 +19,8 @@ create table transaction(
   	notes	varchar(255) null,
 	ctime datetime not null
 );
-alter table transaction add tax_confirm int(1) default 0 null;
+alter table transaction add tel varchar(21) null;
+alter table transaction add email varchar(50) null;
 drop table receipt;
 create table tranc_detail(
 	id bigint not null primary key auto_increment,

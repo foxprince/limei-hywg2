@@ -95,6 +95,18 @@
 								</select>
 							</div>
 					</div>
+						<div class="form-group">
+							<label class="col-sm-2 col-xs-3  control-label">Tel</label>
+							<div class="col-sm-9 col-xs-8">
+								<input  type="text" class="form-control" id="tel" name="tel" placeholder="tel">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 col-xs-3  control-label">Email</label>
+							<div class="col-sm-9 col-xs-8">
+								<input  type="text" class="form-control" id="email" name="email" placeholder="email">
+							</div>
+						</div>
 				</div>
 				</form>
 				</div>
@@ -229,6 +241,7 @@
    				}
    				var address = json.trancDetail.street+'　'+json.trancDetail.postcode+'　'+json.trancDetail.city+'　'+json.trancDetail.country;
    				$('#name').val(json.trancDetail.name);$('#street').val(json.trancDetail.street);
+   				$('#tel').val(json.trancDetail.tel);$('#email').val(json.trancDetail.email);
    				$('#notes').val(json.trancDetail.notes);
    				$('#passport').val(json.trancDetail.passport);$('#postcode').val(json.trancDetail.postcode); 
    				$('#city').val(json.trancDetail.city);$('#country').val(json.trancDetail.country);

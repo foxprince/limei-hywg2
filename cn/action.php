@@ -421,10 +421,11 @@ if($_REQUEST['action']) {
 		case "updateTranc":
 			logger("updateTranc".$_REQUEST['transaction']);
 			$obj=json_decode($_REQUEST['transaction'],TRUE);
-			$sql = 'update transaction set type=?,name=?,passport=?,street=?,city=?,postcode=?,country=?,tranc_date=?,invoice_no=?,currency=?,vat_price=?,total_price=?,tax_rebate=?,notes=? where id=?';
+			$sql = 'update transaction set type=?,name=?,passport=?,tel=?,email=?,street=?,city=?,postcode=?,country=?,tranc_date=?,invoice_no=?,currency=?,vat_price=?,total_price=?,tax_rebate=?,notes=? where id=?';
 			$stmt=$conn->prepare($sql);
 			$stmt->execute(array($obj['type'],$obj['name'],
 					$obj['passport'],
+					$obj['tel'],$obj[email],
 					$obj['street'],$obj['city'],
 					$obj['postcode'],
 					$obj['country'],
@@ -476,11 +477,13 @@ if($_REQUEST['action']) {
 			}
 			else 
 				$transactionNo=$obj['invoice_no'];
-			$sql = 'insert into transaction(name,passport,street,city,postcode,country,type,tranc_date,invoice_no,currency,vat_price,total_price,tax_rebate,notes,ctime) 
-					values(:name,:passport,:street,:city,:postcode,:country,:type,:tranc_date,:invoice_no,:currency,:vat_price,:total_price,:tax_rebate,:notes,now())';
+			$sql = 'insert into transaction(name,passport,tel,email,street,city,postcode,country,type,tranc_date,invoice_no,currency,vat_price,total_price,tax_rebate,notes,ctime) 
+					values(:name,:passport,:tel,:email,:street,:city,:postcode,:country,:type,:tranc_date,:invoice_no,:currency,:vat_price,:total_price,:tax_rebate,:notes,now())';
 			$stmt=$conn->prepare($sql);
 			$stmt->execute(array('name'=>$obj['name'],
 					'passport'=>$obj['passport'],
+					'tel'=>$obj['tel'],
+					'email'=>$obj['email'],
 					'street'=>$obj['street'],'city'=>$obj['city'],
 					'postcode'=>$obj['postcode'],
 					'country'=>$obj['country'],'type'=>$obj['type'],

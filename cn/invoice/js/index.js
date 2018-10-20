@@ -108,8 +108,8 @@ function PrefixInteger(num) {
 function saveOrUpdate(type){
     var data = {
         'id':trancId,'name':$('#name').val(),'tax_rebate':$('#tax_rebate').val(),'notes':$('#notes').val(),
-        'passport':$('#passport').val(),
-        'street':$('#street').val(),
+        'passport':$('#passport').val(),'tel':$('#tel').val(),
+        'street':$('#street').val(),'email':$('#email').val(),
         'city':$('#city').val(),'currency':currency,'type':type,
         'postcode':$('#postcode').val(),'vat_price':$('.vat_price').attr('data-price'),'total_price':$('.total_price').attr('data-price'),
         'country':$('#country').val(),'tranc_date':$('#tranc_date').val(),'invoice_no':$('#invoice_no').val(),
