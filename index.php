@@ -4,18 +4,17 @@ static $realip = NULL;
 $url='http://freeapi.ipip.net/'.get_ip();
 try{
 	$html = file_get_contents($url);
-	echo $html;
 	$arr = json_decode($html);
 	if($arr[0]=='中国') {
-		header("Location: http://cn.lumiagem.com/index.html");
+		header("Location: http://cn.lumiagem.com/cn/index.php");
 		exit;
 	}
 	else {
-		header("Location: http://www.lumiagem.com/index.html");
+		header("Location: http://www.lumiagem.com/cn/index.php");
 		exit;
 	}
 }catch(Exception $e){
-	header("Location: http://www.lumiagem.com/index.html");
+	header("Location: http://www.lumiagem.com/cn/index.php");
 	exit;
 }
 function get_ip(){
