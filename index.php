@@ -1,4 +1,5 @@
 <?php
+ob_start();
 header("Content-type: text/html; charset=utf-8");
 static $realip = NULL;
 $url='http://freeapi.ipip.net/'.get_ip();
@@ -10,7 +11,7 @@ try{
 		exit;
 	}
 	else {
-		header("Location: http://www.lumiagem.com/cn/index.php");
+		header("Location: http://www.lumiagem.com/index.html");
 		exit;
 	}
 }catch(Exception $e){
@@ -43,4 +44,5 @@ function get_ip(){
 
 	return $realip;
 }
+ob_end_flush();
 ?>
