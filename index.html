@@ -3,7 +3,19 @@
 <title>redirect</title>
 <meta name="baidu-site-verification" content="yCkRoevxFF" />
 <!-- <META http-equiv="refresh" content="0;URL=/cn/index.php"> -->
+<script type="text/javascript" src="./js/jquery.1.11.3.min.js"></script>
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
+<script type="text/javascript">  
+    var ip = returnCitySN["cip"];alert(ip);
+    $.ajaxSetup({ 
+    		async : false 
+	}); 
+    $.get("http://freeapi.ipip.net/"+ip+"?callback=jsonp", function(result){
+    		alert("result:"+result);
+  	});
+</script>
 <script type="text/javascript">
+	
 	var bForcepc = fGetQuery("dv") == "pc";
 	function fBrowserRedirect() {
 		var sUserAgent = navigator.userAgent.toLowerCase();
@@ -49,7 +61,7 @@
 			document.getElementByIdx_x("ad_block").style.display = "block";
 		}
 	}
-	fBrowserRedirect();
+	//fBrowserRedirect();
 </script>
 </head>
 <body bgcolor="#ffffff">
