@@ -72,7 +72,10 @@ textarea {
   resize: vertical; }
 
 button {
-  border: 0; }
+  border: 0; border-radius: 0.3rem;
+    border: 1px solid;
+    color: #4a4a4a;
+    }
 
 html {
   margin: 0 auto;
@@ -189,7 +192,6 @@ html {
 
 .b_blue {
   background: #64a0ff !important; }
-
 .b_orange {
   background: #fa694b !important; }
 

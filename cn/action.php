@@ -356,6 +356,8 @@ if($_REQUEST['action']) {
 				$clause .= ' and( notes like "'.$_REQUEST['reportNo'].'%" or id in (select tranc_id from tranc_detail where report_no like "'.$_REQUEST['reportNo'].'%"))';
 			if($_REQUEST['type']!=null)
 				$clause .= ' and type ="'.$_REQUEST['type'].'"';
+			if($_REQUEST['taxConfirm']!=null)
+				$clause .= ' and tax_confirm ="'.$_REQUEST['taxConfirm'].'"';
 			if($_REQUEST['currency']!=null)
 				$clause .= ' and currency ="'.$_REQUEST['currency'].'"';
 			if($_REQUEST['name']!=null)
@@ -411,12 +413,18 @@ if($_REQUEST['action']) {
 				//echo "您无权查看当前页面";
 			break;
 		case "confirmTax":
+			$hint = "未退税";
+			$taxConfirm = $_REQUEST['tax_confirm'];
+			if($taxConfirm=="2")
+				$hint = "退税异常";
+			else if($taxConfirm=="1")
+				$hint = "已退税";
 			$sql='update transaction set tax_confirm='.$_REQUEST['tax_confirm'].' where id='.$_REQUEST['id'];
 			$stmt = $conn->prepare( $sql );$stmt->execute();
 			if($stmt->rowCount()>0)
-				echo '设置成功';
+				echo '设置成功：'.$hint;
 			else
-				echo '设置失败';
+				echo '设置失败：'.$hint;
 			break;
 		case "updateTranc":
 			logger("updateTranc".$_REQUEST['transaction']);

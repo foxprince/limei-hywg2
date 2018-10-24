@@ -46,15 +46,18 @@ if(!isset($_SESSION['invoiceAdmin'])) {
             <form action="" id="searchForm"class="c_form">
                 <p class="item">
                     <label for="" class="field">类型</label>
-                    <select id="type" name="type" class="i_text" style="width:3.6rem;">
+                    <select id="type" name="type" class="i_text" style="width:2.6rem;">
                     	<option value="">全部</option><option value="invoice">发票</option><option value="receipt">收据</option>
                     </select>
                     <label for="" class="field">货币</label>
-                    <select id="currency" name="currency" class="i_text" style="width:3.6rem;">
+                    <select id="currency" name="currency" class="i_text" style="width:2.6rem;">
                     	<option value="">全部</option><option value="EUR">EUR</option><option value="CNY">CNY</option><option value="USD">USD</option>
                     </select>
                     <label for="" class="field">日期选择</label>
                     <input type="date" id="start" class="i_text i_date" placeholder="起始日期"> 至 <input type="date" id="end" class="i_text i_date ml0" placeholder="结束日期">
+                    <button class="button" onclick="filterTax(this,'0');return false;">未退税</button>
+                    <button class="button"  onclick="filterTax(this,'1');return false;">已退税</button>
+                    <button class="button" onclick="filterTax(this,'2');return false;">退税异常</button>
                 </p>
                 <p class="item">
                     <label for="" class="field">订单编号</label>
@@ -325,7 +328,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
             });
             pageflag = false;
         }
-
+		var taxConfirm=null;
         function query(page){
             let query ='../action.php?action=trancList&sort='+$sorting+"&sortDirection="+$sorting_direction;
             let type = $('#type').val();
@@ -334,6 +337,9 @@ if(!isset($_SESSION['invoiceAdmin'])) {
             let end = $('#end').val();
             let invoice_no = $('#num').val();
             let url = query +'&page=' + page;
+            if(null!==taxConfirm){
+                url += '&taxConfirm=' + taxConfirm;
+            }
             if(''!==type){
                 url += '&type=' + type;
             }
@@ -384,8 +390,11 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                         temp += '</ul></td>'
                         +'<td><a trancId="'+json.list[i].id+'"  class="printTranc t_operate" onclick="printTranc('+json.list[i].id+')">'  +json.list[i].type+'</a></td><td>'+ (json.list[i].type=='invoice'?json.list[i].invoice_no:"--") +'</td>'
                         +'<td>';
-                        if(json.list[i].type=='invoice'&&json.list[i].tax_rebate!=null)
-                        		temp+='<input type="checkbox" name="taxCheck" '+ (json.list[i].tax_confirm==1?"checked":"")+' onclick="taxConfirm(this)"/><button class="t_operate  '+ (json.list[i].tax_confirm==1?"b_blue":"")+'">' + json.list[i].tax_rebate +'</button>';
+                        if(json.list[i].type=='invoice'&&json.list[i].tax_rebate!=null) {
+                        		temp+='<input type="checkbox" name="taxCheck" '+ (json.list[i].tax_confirm==1?"checked":"")+' onclick="taxConfirm(this)"/><button class="t_operate  '+ (json.list[i].tax_confirm==1?"b_blue":(json.list[i].tax_confirm==2?"b_orange":""))+'">' + json.list[i].tax_rebate +'</button>';
+                        		temp+='<input type="checkbox" class="alertCheck" name="taxCheck" '+ (json.list[i].tax_confirm==2?"checked":"")+' onclick="taxConfirm(this,2)"/>';
+                        		temp+='<label for="Wrong" onclick="taxConfirm($(this).prev(\'input\'),2)"></label>';
+                        }
                         temp +='</td>'
                         +'<td>' + json.list[i].currency +'</td>'
                         +'<td>'+ (tprice) +'</td>'
@@ -420,17 +429,37 @@ if(!isset($_SESSION['invoiceAdmin'])) {
 			$sorting = $(item).attr("sort");
     			query(1);
 		}
-	function taxConfirm(item) {
+		function filterTax(item,filterTaxConfirm) {
+			$(item).siblings().removeClass("b_blue");
+			$(item).addClass("b_blue");
+			taxConfirm=filterTaxConfirm;
+			query(1);
+			return false;
+		}
+	function taxConfirm(item,taxConfirm) {
 	    	var e = $(item).parent();
 	    	var tax_confirm = 0;
 	    	if(item.checked) {
-	    		$(item).next("button").addClass("b_blue");
-	    		tax_confirm = 1;
+			if(taxConfirm=="2") {
+				$(item).addClass("b_orange");
+				$(item).prev("button").addClass("b_orange");
+				$(item).prev("checkbox").removeAttr("checked");
+				tax_confirm = 2;
+			}
+			else {
+				$(item).next("button").addClass("b_blue");
+	    			tax_confirm = 1;
+			}
 	    	}
-	    	else
-	    		$(item).next("button").removeClass("b_blue");
+	    	else {
+	    		if(taxConfirm=="2")
+	    			$(item).prev("button").removeClass("b_orange");
+	    		else 
+		    		$(item).next("button").removeClass("b_blue");
+	    	}
 	    	var id = $(e).parent().attr("trancId");
-	    	var url = "../action.php?action=confirmTax&id="+id+"&tax_confirm="+tax_confirm;
+
+		var url = "../action.php?action=confirmTax&id="+id+"&tax_confirm="+tax_confirm;
         $.get(url,function(data){ alert(data); } )
     }
 
