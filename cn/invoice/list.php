@@ -391,8 +391,8 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                         +'<td><a trancId="'+json.list[i].id+'"  class="printTranc t_operate" onclick="printTranc('+json.list[i].id+')">'  +json.list[i].type+'</a></td><td>'+ (json.list[i].type=='invoice'?json.list[i].invoice_no:"--") +'</td>'
                         +'<td>';
                         if(json.list[i].type=='invoice'&&json.list[i].tax_rebate!=null) {
-                        		temp+='<input type="checkbox" name="taxCheck" '+ (json.list[i].tax_confirm==1?"checked":"")+' onclick="taxConfirm(this)"/><button class="t_operate  '+ (json.list[i].tax_confirm==1?"b_blue":(json.list[i].tax_confirm==2?"b_orange":""))+'">' + json.list[i].tax_rebate +'</button>';
-                        		temp+='<input type="checkbox" class="alertCheck" name="taxCheck" '+ (json.list[i].tax_confirm==2?"checked":"")+' onclick="taxConfirm(this,2)"/>';
+                        		temp+='<input type="checkbox" name="taxCheck" '+ (json.list[i].tax_confirm==1?"checked":"")+' onclick="fun_taxConfirm(this)"/><button class="t_operate  '+ (json.list[i].tax_confirm==1?"b_blue":(json.list[i].tax_confirm==2?"b_orange":""))+'">' + json.list[i].tax_rebate +'</button>';
+                        		temp+='<input type="checkbox" class="alertCheck" name="taxCheck" '+ (json.list[i].tax_confirm==2?"checked":"")+' onclick="fun_taxConfirm(this,2)"/>';
                         		temp+='<label for="Wrong" onclick="taxConfirm($(this).prev(\'input\'),2)"></label>';
                         }
                         temp +='</td>'
@@ -436,7 +436,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
 			query(1);
 			return false;
 		}
-	function taxConfirm(item,taxConfirm) {
+	function fun_taxConfirm(item,taxConfirm) {
 	    	var e = $(item).parent();
 	    	var tax_confirm = 0;
 	    	if(item.checked) {
