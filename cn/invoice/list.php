@@ -431,8 +431,14 @@ if(!isset($_SESSION['invoiceAdmin'])) {
 		}
 		function filterTax(item,filterTaxConfirm) {
 			$(item).siblings().removeClass("b_blue");
-			$(item).addClass("b_blue");
-			taxConfirm=filterTaxConfirm;
+			if(!$(item).hasClass("b_blue")){
+				$(item).addClass("b_blue");
+				taxConfirm=filterTaxConfirm;
+			}
+			else {
+				$(item).removeClass("b_blue");
+				taxConfirm=null;
+			}
 			query(1);
 			return false;
 		}
