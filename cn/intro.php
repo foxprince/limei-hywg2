@@ -7,6 +7,8 @@ if (isset($_GET['c'])) {
         $title = "预约购买";
     } else if ($c == 'tochina') {
         $title = "直邮中国";
+	} else if ($c == 'orderStep') {
+        $title = "定制首饰步骤";
 	} else if ($c == 'route') {
 	    $title = "交通指示";
 	} else if ($c == 'maintain') {
@@ -49,6 +51,7 @@ if (isset($_GET['c'])) {
 										<?php if ($c == 'gia') {?><IFRAME ID="Frame1" style="background-color=transparent" title="test" frameborder="0"  width="100%" height="1500" scrolling="yes" SRC="gia.html" allowTransparency="true"></IFRAME> 
 										<?php }elseif ($c == 'hrd') {?><IFRAME ID="Frame1" style="background-color=transparent" title="test" frameborder="0"  width="100%" height="1500" scrolling="yes" SRC="hrd.html" allowTransparency="true"></IFRAME> 
 										<?php }elseif ($c == 'igi') {?><IFRAME ID="Frame1" style="background-color=transparent" title="test" frameborder="0"  width="100%" height="1500" scrolling="yes" SRC="igi.html" allowTransparency="true"></IFRAME> 
+										<?php }elseif ($c == 'orderStep') {?><IFRAME ID="Frame1" style="background-color=transparent" title="test" frameborder="0"  width="100%" height="1500" scrolling="yes" SRC="articles/ssdz.html" allowTransparency="true"></IFRAME> 
 										<?php }elseif ($c == 'article') {?><IFRAME ID="Frame1" style="background-color=transparent" title="test" frameborder="0"  width="100%" height="1500" scrolling="yes" SRC="articles/index.html" allowTransparency="true"></IFRAME> 
 										<?php }else if ($c == 'tochina') {?>
 										<img src="images/toChina.jpg" style="max-width: 590px;" alt="直邮中国"/>
