@@ -400,8 +400,7 @@ class wechatCallbackapiTest {
 				$sql_update_webpass = 'UPDATE clients_list SET website_username = "' . $website_username . '", website_password ="' . $website_password . '" WHERE wechat_open_id = "' . $fromUsername . '"';
 				$stmt_sql_webpass = $conn->query ( $sql_update_webpass );
 				if ($stmt_sql_webpass->rowCount ()) {
-					$feedbackwebpass = "\n您的利美网站登录用户名：" . $website_username . "\n密码：" . $website_password . "\n您可以登录以后自己进行修改。\n在这个公众号里您可以获取钻石相关小知识和咨询，以及比利时安特卫普的相关讯息：\n<a href=\"https://mp.weixin.qq.com/s?__biz=MzIyNzA2NjE1OQ==&mid=2653294074&idx=2&sn=ccfd7b99c12a7ea7beb596877c4842b0&chksm=f3b445bac4c3ccacaa1e7f8045558d1b6ba247ab94764614c2c6103efe2268df25022bb9c1e4\">Lumia利美公众号使用指南</a>\n如果您有任何疑问可以添加微信客服号：limeikefu
-\n我们将竭诚为您解决问题。";
+					$feedbackwebpass = "\n您的利美网站登录用户名：" . $website_username . "\n密码：" . $website_password . "\n您可以登录以后自己进行修改。\n在这个公众号里您可以获取钻石相关小知识和咨询，以及比利时安特卫普的相关讯息：\n<a href=\"https://mp.weixin.qq.com/s?__biz=MzIyNzA2NjE1OQ==&mid=2653294074&idx=2&sn=ccfd7b99c12a7ea7beb596877c4842b0&chksm=f3b445bac4c3ccacaa1e7f8045558d1b6ba247ab94764614c2c6103efe2268df25022bb9c1e4\">Lumia利美公众号使用指南</a>\n\n如果您有任何疑问可以添加微信客服号：limeikefu\n我们将竭诚为您解决问题。";
 				}
 			} else {
 				logger ( $sql . "\n" . mysql_errno () . ": " . mysql_error () . "\n" );
