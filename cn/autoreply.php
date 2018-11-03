@@ -735,7 +735,10 @@ if(preg_match($pattern_ref, $crr_message)){
 			$thefeedbackcontentforwechatuser='抱歉，我们无法找到符合您要求的钻石，请调整挑选条件并重试。'.'\n\n'.$holidaymessage;;
 		}
 	}else{
-		$thefeedbackcontentforwechatuser="欢迎关注利美钻石，我们有24小时客服随时为您提供服务，欢迎添加利美客服号:limeikefu或致电 +32 (0)3 689 73 94\n<a href=\"https://mp.weixin.qq.com/s?__biz=MzIyNzA2NjE1OQ==&mid=2653294074&idx=2&sn=ccfd7b99c12a7ea7beb596877c4842b0&chksm=f3b445bac4c3ccacaa1e7f8045558d1b6ba247ab94764614c2c6103efe2268df25022bb9c1e4\">Lumia利美公众号使用指南﻿</a>";
+		if($crr_message=="克拉")
+			$thefeedbackcontentforwechatuser="<a href='https://mp.weixin.qq.com/s?__biz=MzIyNzA2NjE1OQ==&mid=2653290756&idx=1&sn=719983acc8a03bd09b7a76f9c1edbb31&chksm=f3b44944c4c3c052e0645f1566632d95a0943584afebeb50e605bd4eee105c29863844271d2d&scene=21'>你所应该了解的关于4C的一切之克拉</a>";
+		else
+			$thefeedbackcontentforwechatuser="欢迎关注利美钻石，我们有24小时客服随时为您提供服务，欢迎添加利美客服号:limeikefu或致电 +32 (0)3 689 73 94\n<a href=\"https://mp.weixin.qq.com/s?__biz=MzIyNzA2NjE1OQ==&mid=2653294074&idx=2&sn=ccfd7b99c12a7ea7beb596877c4842b0&chksm=f3b445bac4c3ccacaa1e7f8045558d1b6ba247ab94764614c2c6103efe2268df25022bb9c1e4\">Lumia利美公众号使用指南﻿</a>";
 		//exit();
 	}	
 }

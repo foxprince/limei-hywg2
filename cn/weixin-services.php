@@ -107,13 +107,8 @@ class wechatCallbackapiTest {
 				// $data = array("touser" => $wechatopenidofuser, "msgtype" => "text", "text" => array("content"=>$crr_message));
 				//$data = '{ "user_open_id":"' . $fromUsername . '", "content":"' . $keyword . '" }';
 				logger("autoreply....");
-				if (in_array($keyword, $keyArray)) {
-					$resultStr = keywordReply($fromUsername, $toUsername,$keyword);
-				}
-				else {
-					$result = autoreply( $fromUsername, $keyword);
-					$resultStr = sprintf( $textTpl, $fromUsername, $toUsername, time(), "text", $result );
-				}
+				$result = autoreply( $fromUsername, $keyword);
+				$resultStr = sprintf( $textTpl, $fromUsername, $toUsername, time(), "text", $result );
 				logger ( "result:".$resultStr );
 				echo $resultStr;
 				exit ();
@@ -140,7 +135,7 @@ class wechatCallbackapiTest {
                 <Url><![CDATA[%s]]></Url>
                 </item>";
 		$newsTplFoot = "</Articles> <FuncFlag>0</FuncFlag> </xml>";
-		$header = sprintf($newsTplHead, $fromUsername, $toUserName, time());
+		$header = sprintf($newsTplHead, $fromUsername, $toUsername, time());
 		if($keyword=='克拉') {
 			$title = '你所应该了解的关于4C的一切之克拉';
 			$desc = '你所应该了解的关于4C的一切之克拉';
