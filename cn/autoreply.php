@@ -737,23 +737,22 @@ if(preg_match($pattern_ref, $crr_message)){
 	}else{
 		if($crr_message=="克拉")
 			$thefeedbackcontentforwechatuser="<a href='https://mp.weixin.qq.com/s?__biz=MzIyNzA2NjE1OQ==&mid=2653290756&idx=1&sn=719983acc8a03bd09b7a76f9c1edbb31&chksm=f3b44944c4c3c052e0645f1566632d95a0943584afebeb50e605bd4eee105c29863844271d2d&scene=21'>你所应该了解的关于4C的一切之克拉</a>";
-		if($crr_message=="切工")
+		else if($crr_message=="切工")
 			$thefeedbackcontentforwechatuser="<a href='https://mp.weixin.qq.com/s?__biz=MzIyNzA2NjE1OQ==&mid=2653291061&idx=1&sn=a32cd7a526efd8b726db761540024bdd&chksm=f3b44a75c4c3c363b89eb91db77918a819e2696c84610e76ef0f3037623c6365ba45ee568efc&scene=21'>你所应该了解的关于4C的一切之切工</a>";
-		if($crr_message=="净度")
+		else if($crr_message=="净度")
 			$thefeedbackcontentforwechatuser="<a href='https://mp.weixin.qq.com/s?__biz=MzIyNzA2NjE1OQ==&mid=2653290786&idx=1&sn=832277a1052176c5726acc87a1a9a4fe&chksm=f3b44962c4c3c074e439a0ffa8b1adfc55daaca3ceecf288ccd3fc5d6686176ca3d8b8d04b50&scene=21'>你所应该了解的关于4C的一切之净度</a>";
-		if($crr_message=="颜色")
+		else if($crr_message=="颜色")
 			$thefeedbackcontentforwechatuser="<a href='https://mp.weixin.qq.com/s?__biz=MzIyNzA2NjE1OQ==&mid=2653290834&idx=1&sn=feb3ba38f7511d41bc93c37398597870&chksm=f3b44912c4c3c0047f7f44cbdc956f75dff6ca8c4bfc3bbbdbc62d784c58c1933bab79f5b149&scene=21'>你所应该了解的关于4C的一切之颜色</a>";
-		if($crr_message=="证书")
+		else if($crr_message=="证书")
 			$thefeedbackcontentforwechatuser="<a href='https://mp.weixin.qq.com/s?__biz=MzIyNzA2NjE1OQ==&mid=2653291192&idx=1&sn=72f8cf48631380fbf013650952a1b78e&chksm=f3b44af8c4c3c3ee23d82eb433212388940094c206c9d33ca3656aa0014fb3e523c6d4c2f8cc&scene=21'>来来来，教你看GIA证书了！</a>
 					\n<a href='https://mp.weixin.qq.com/s?__biz=MzIyNzA2NjE1OQ==&mid=2653291232&idx=1&sn=9508d708f9c75cd5212bcf5f6eed9049&chksm=f3b44aa0c4c3c3b62a926d8734bab5d7b5f9ea31eb9599db17cdbfa828c3f8c93a447fe3977f&scene=21'>来来来，教你看HRD证书了！</a>
 					\n<a href='https://mp.weixin.qq.com/s?__biz=MzIyNzA2NjE1OQ==&mid=2653291267&idx=1&sn=90efe8edd46bac27db2956610d911c87&chksm=f3b44b43c4c3c255f53b3a2f49b85cc06b293cbd6df298cbd857553faa4d8eb428ffcfa39636&scene=21'>来来来，教你看IGI证书了！</a>";
-		if($crr_message=="异形钻")
+		else if($crr_message=="异形钻")
 			$thefeedbackcontentforwechatuser="<a href='https://mp.weixin.qq.com/s?__biz=MzIyNzA2NjE1OQ==&mid=2653289957&idx=1&sn=97ea1c6857f437bbec3db48f1e54f2a7&scene=21'>你们都买圆钻？我偏不！</a>";
-		if($crr_message=="保养")
+		else if($crr_message=="保养")
 			$thefeedbackcontentforwechatuser="<a href='https://mp.weixin.qq.com/s?__biz=MzIyNzA2NjE1OQ==&mid=2653291300&idx=1&sn=40f398d0893133c6a9d2ecd3bd01f964&chksm=f3b44b64c4c3c2729acaf2180871f459102f473afbb6e84d509d7bc0d2ff56238ca926ce8108&scene=21'>钻石首饰该怎样保养？</a>";
-		if($crr_message=="退税")
+		else if($crr_message=="退税")
 			$thefeedbackcontentforwechatuser="<a href='https://mp.weixin.qq.com/s?__biz=MzIyNzA2NjE1OQ==&mid=2653292189&idx=1&sn=8d234951513212706149cc4797117a03&chksm=f3b44eddc4c3c7cb492de6e6abaa38fc4a1aca190b8935619fa69b075e670a93844f0420c54c&scene=21'>在Lumia购买钻石如何退21%全税？</a>";
-			
 		else
 			$thefeedbackcontentforwechatuser="欢迎关注利美钻石，我们有24小时客服随时为您提供服务，欢迎添加利美客服号:limeikefu或致电 +32 (0)3 689 73 94\n<a href=\"https://mp.weixin.qq.com/s?__biz=MzIyNzA2NjE1OQ==&mid=2653294074&idx=2&sn=ccfd7b99c12a7ea7beb596877c4842b0&chksm=f3b445bac4c3ccacaa1e7f8045558d1b6ba247ab94764614c2c6103efe2268df25022bb9c1e4\">Lumia利美公众号使用指南﻿</a>";
 		//exit();
