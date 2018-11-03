@@ -190,7 +190,7 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .nav-box{text-align: center;}
 .nav-box ul{display: inline-block;}
 .nav-box ul li{cursor: pointer; float: left;}
-.nav-box ul li a{cursor: pointer; float: left; padding:0 20px; height: 30px; line-height: 30px; color: #666; border:1px solid #ddd; border-radius: 50px; margin:0 10px; font-size: 14px; background-color: #fff;}
+.nav-box ul li a{cursor: pointer; float: left; padding:0 20px; height: 30px; line-height: 30px; color: #333; border:1px solid #333; border-radius: 50px; margin:0 10px; font-size: 14px; background-color: #fff;}
 .nav-box span{width: 8px; height: 8px; display: inline-block; border-radius: 50%; background-color: #ccc; margin-right: 8px; margin-bottom: 2px;}
 .nav-box ul li i{width: 15px; height: 12px; outline: none; display: inline-block; background: url(../images/gwc.gif) no-repeat;}
 
