@@ -1,6 +1,5 @@
 <?php
 include_once ('log.php');
-include_once ('autoreply.php');
 require_once ('connection.php');
 // echo autoreply($_REQUEST['u'],$_REQUEST['m']);
 function autoreply($crr_c_o_id,$crr_message){
@@ -736,7 +735,7 @@ if(preg_match($pattern_ref, $crr_message)){
 			$thefeedbackcontentforwechatuser='抱歉，我们无法找到符合您要求的钻石，请调整挑选条件并重试。'.'\n\n'.$holidaymessage;;
 		}
 	}else{
-		$thefeedbackcontentforwechatuser='欢迎关注利美钻石，我们有24小时客服随时为您提供服务，欢迎添加（ 客服号:limeikefu ）或致电 +32 (0)3 689 73 94';
+		$thefeedbackcontentforwechatuser="欢迎关注利美钻石，我们有24小时客服随时为您提供服务，欢迎添加利美客服号:limeikefu或致电 +32 (0)3 689 73 94\n<a href=\"https://mp.weixin.qq.com/s?__biz=MzIyNzA2NjE1OQ==&mid=2653294074&idx=2&sn=ccfd7b99c12a7ea7beb596877c4842b0&chksm=f3b445bac4c3ccacaa1e7f8045558d1b6ba247ab94764614c2c6103efe2268df25022bb9c1e4\">Lumia利美公众号使用指南﻿</a>";
 		//exit();
 	}	
 }

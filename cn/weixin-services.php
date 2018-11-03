@@ -42,7 +42,8 @@ class wechatCallbackapiTest {
 					$this->subscribe($fromUsername,$postObj);
 			}
 			$textTpl = "<xml> <ToUserName><![CDATA[%s]]></ToUserName> <FromUserName><![CDATA[%s]]></FromUserName> <CreateTime>%s</CreateTime> <MsgType><![CDATA[%s]]></MsgType> <Content><![CDATA[%s]]></Content> </xml>";
-			if ($MsgType == 'event') {
+			
+            if ($MsgType == 'event') {
 				if ($theevent == 'SCAN'){
 					$contentStr = $this->scan($fromUsername,$postObj->EventKey);
 					$resultStr = sprintf ( $textTpl, $fromUsername, $toUsername, time(), "text", $contentStr );
@@ -97,7 +98,7 @@ class wechatCallbackapiTest {
 			if (isset ( $keyword )) {
 				$this->logMsg($fromUsername,$postObj);
 			}
-			
+			$keyArray = array("克拉", "切工", "净度", "颜色","证书","异形钻","保养","退税");
 			// ################# END second of all, if it's not an event, save the message to the database message table END ##################################
 			if ($keywordisTXT) {
 				//$urltopost = 'http://www.lumiagem.com/cn/autoreply.php';
@@ -106,8 +107,13 @@ class wechatCallbackapiTest {
 				// $data = array("touser" => $wechatopenidofuser, "msgtype" => "text", "text" => array("content"=>$crr_message));
 				//$data = '{ "user_open_id":"' . $fromUsername . '", "content":"' . $keyword . '" }';
 				logger("autoreply....");
-				$result = autoreply( $fromUsername, $keyword);
-				$resultStr = sprintf( $textTpl, $fromUsername, $toUsername, time(), "text", $result );
+				if (in_array($keyword, $keyArray)) {
+					$resultStr = keywordReply($fromUsername, $toUsername,$keyword);
+				}
+				else {
+					$result = autoreply( $fromUsername, $keyword);
+					$resultStr = sprintf( $textTpl, $fromUsername, $toUsername, time(), "text", $result );
+				}
 				logger ( "result:".$resultStr );
 				echo $resultStr;
 				exit ();
@@ -118,6 +124,33 @@ class wechatCallbackapiTest {
 			echo "";
 			exit ();
 		}
+	}
+	function keywordReply($fromUsername, $toUsername,$keyword) {
+		$newsTplHead = "<xml>
+                <ToUserName><![CDATA[%s]]></ToUserName>
+                <FromUserName><![CDATA[%s]]></FromUserName>
+                <CreateTime>%s</CreateTime>
+                <MsgType><![CDATA[news]]></MsgType>
+                <ArticleCount>1</ArticleCount>
+                <Articles>";
+		$newsTplBody = "<item>
+                <Title><![CDATA[%s]]></Title>
+                <Description><![CDATA[%s]]></Description>
+                <PicUrl><![CDATA[%s]]></PicUrl>
+                <Url><![CDATA[%s]]></Url>
+                </item>";
+		$newsTplFoot = "</Articles> <FuncFlag>0</FuncFlag> </xml>";
+		$header = sprintf($newsTplHead, $fromUsername, $toUserName, time());
+		if($keyword=='克拉') {
+			$title = '你所应该了解的关于4C的一切之克拉';
+			$desc = '你所应该了解的关于4C的一切之克拉';
+			$picUrl = 'http://mmbiz.qpic.cn/mmbiz_jpg/hLNfXETdjibRo3amGmC61rMGqoLmcL5M1zRpYxv5bkRXNKmByos4C0Y1M919w0iaVJPibA8cibQ6KJude1LV4XibEfA/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1';
+			$url = 'https://mp.weixin.qq.com/s?__biz=MzIyNzA2NjE1OQ==&mid=2653290756&idx=1&sn=719983acc8a03bd09b7a76f9c1edbb31&chksm=f3b44944c4c3c052e0645f1566632d95a0943584afebeb50e605bd4eee105c29863844271d2d&scene=21';
+		}
+		$body = sprintf($newsTplBody, $title, $desc, $picUrl, $url);
+		$FuncFlag = 0;
+		$footer = sprintf($newsTplFoot, $FuncFlag);
+		return $header.$body.$footer;
 	}
 	function logMsg($fromUsername,$postObj) {
 		$MsgId = $postObj->MsgId;
