@@ -51,7 +51,6 @@ if (isset($_GET['c'])) {
 										<?php if ($c == 'gia') {?><IFRAME ID="Frame1" style="background-color=transparent" title="test" frameborder="0"  width="100%" height="1500" scrolling="yes" SRC="gia.html" allowTransparency="true"></IFRAME> 
 										<?php }elseif ($c == 'hrd') {?><IFRAME ID="Frame1" style="background-color=transparent" title="test" frameborder="0"  width="100%" height="1500" scrolling="yes" SRC="hrd.html" allowTransparency="true"></IFRAME> 
 										<?php }elseif ($c == 'igi') {?><IFRAME ID="Frame1" style="background-color=transparent" title="test" frameborder="0"  width="100%" height="1500" scrolling="yes" SRC="igi.html" allowTransparency="true"></IFRAME> 
-										<?php }elseif ($c == 'orderStep') {?><IFRAME ID="Frame1" style="background-color=transparent" title="test" frameborder="0"  width="100%" height="1500" scrolling="yes" SRC="articles/ssdz.html" allowTransparency="true"></IFRAME> 
 										<?php }elseif ($c == 'article') {?><IFRAME ID="Frame1" style="background-color=transparent" title="test" frameborder="0"  width="100%" height="1500" scrolling="yes" SRC="articles/index.html" allowTransparency="true"></IFRAME> 
 										<?php }else if ($c == 'tochina') {?>
 										<img src="images/toChina.jpg" style="max-width: 590px;" alt="直邮中国"/>
@@ -90,6 +89,27 @@ if (isset($_GET['c'])) {
 <p>从这里走出的每一颗钻石都配有美国GIA或欧洲HRD鉴定证书，以确保每一个产品都能从源头查清身世同时利美钻石有着完善的售后服务，从运输安全保障，到重新打磨抛光，甚至私人定制，利美都能完美实现。</p>
 <br/>
 <p>LUMIA利美愿自己的产品能够经得起时间的考验，从而见证每一个拥有者的幸福。</p>
+										</div>
+										<?php }else if ($c == 'orderStep') {?>
+										<div>
+<p>从裸钻开始挑选</p>
+<p>1：<img src="/cn/articles/ssdz.fld/image001.gif"></p>
+<p>点击裸钻按键</p>
+<p>2：<img src="/cn/articles/ssdz.fld/image002.gif"></p>
+<p>按照自身需求进行4C筛选</p>
+<p>3：<img src="/cn/articles/ssdz.fld/image003.gif"></p>
+<p>点击详情选择定制首饰（仅购买裸钻则选择预约裸钻）</p>
+<p>4：<img src="/cn/articles/ssdz.fld/image004.gif"></p>
+<p>筛选心仪款式</p>
+<p>5：<img src="/cn/articles/ssdz.fld/image005.gif"></p>
+<p>选择心仪材质及尺寸后点击选定此款</p>
+<p>6：<img src="/cn/articles/ssdz.fld/image006.gif"></p>
+<p>挑选完款式和裸钻后会显示各项金额和总金额</p>
+<p>7：<img src="/cn/articles/ssdz.fld/image007.gif"></p>
+<p>跳转至完成定制页面：确认信息无误后点击确定预约即可加入购物车</p>
+<p>8：<img src="/cn/articles/ssdz.fld/image008.gif"></p>
+<p>填写个人信息后点击确定预约即可完成预约</p>
+
 										</div>
 										<?php }?>
 									</div>
