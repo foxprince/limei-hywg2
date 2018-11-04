@@ -410,25 +410,26 @@ img.fa{width: 1.5em;text-align: center;}
     .three .link{top: -12px;}
     .step li .active{ width: 262px; height: 113px; margin-left: -3px; background: url(../images/step-hover-113.png) no-repeat left top;position :relative;top:-10px}
 	.step li .active > div{padding-top:30px}
-	.step .link span:hover{background:#f9b5b2;color:white;}
 	.step .link.active2 span:after{display:block;content:'';} 
-	.step .one-box .link > span{background:#fff;color:#b2b2b2;}
 	.step .one-box .link > span:hover{background:#f9b5b2;color:#fff;}
 	.step .two-box .link > span:hover{background:#f9b5b2;color:#fff;}
 	.step .link{position:relative;}
+	.step .link span:hover{background:#f9b5b2;color:white;}
 	.step .link span:after{display:block;content:'';}
 	.step .link.active2 span:after{display:block;content:'';} 
-	.step .two .link span,.step .three .link span{margin-left:10px;}
+	.step .link span{margin-left:10px;}
 
-.step .link span {
+.step .link > span{background:#fff;color:#b2b2b2;}
+.step span {
  background: #f0f0f0;
  padding: 5px 12px 5px 20px;
  border-radius: 20px;
  display: inline-block;
  height: 20px;
  line-height: 20px;
+ border:1px solid #333;
 }
-.step .link span:after {
+.step span:after {
  display: block;
  content: '';
  width: 6px;
@@ -440,7 +441,7 @@ img.fa{width: 1.5em;text-align: center;}
  top: 50%;
  margin-top: -3px;
 }
-.step .link span:hover:after{background:#fff}
+.step span:hover:after{background:#fff}
 .step .one-box .link > span{left:10px}
 
 
