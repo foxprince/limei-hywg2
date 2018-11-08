@@ -367,7 +367,7 @@ if($_REQUEST['action']) {
 			if($_REQUEST['start']!=null)
 				$clause .= ' and tranc_date>='.$_REQUEST['start'];
 			if($_REQUEST['end']!=null)
-				$clause .= ' and tranc_date<'.$_REQUEST['end'];
+				$clause .= ' and tranc_date<='.$_REQUEST['end'];
 			$pagesize = 10;
 			if(isset($_REQUEST['page'])&&$_REQUEST['page']!=null){
 				$crr_page=$_REQUEST['page'];

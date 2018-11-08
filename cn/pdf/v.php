@@ -13,6 +13,10 @@ function getHTTPS($url) {
 	return $result;
 }
 $lab = $_REQUEST['lab'];
+if($lab=='GIA'){
+	header("Location: https://www.gia.edu/report-check?reportno=".$certNo);
+	exit;
+}
 $certNo = $_REQUEST['certNo'];
 $destination = '../../labpdf/'.$lab.'_'.$certNo.'.pdf';
 if(!file_exists($destination)) {
