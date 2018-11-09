@@ -63,11 +63,13 @@ function to_print(type){
         		html +='<p style="margin-top: 10px;">'+$(this).find('#form_material option:selected').val()+' '+$(this).find('#form_jew_color option:selected').val()+' Gold '+$(this).find('#form_jewerly option:selected').val()+'</p>';
         html+='</div>'+'<div class="col-xs-3 clearfix">';
         if($(this).hasClass("dia")||$(this).hasClass("diajew"))
-        	if(type=='invoice') {
-        		html+='<p>'+$(this).find('#form_gia option:selected').val()+'&nbsp;';
-        		html+= $(this).find('#ref').val();
-        		html+= '</p>';
-        	}
+	        	if(type=='invoice') {
+	        		html+='<p>'+$(this).find('#form_gia option:selected').val()+'&nbsp;';
+	        		html+= $(this).find('#ref').val();
+	        		html+= '</p>';
+	        	}
+	        	else
+	        		html+= '<p></p>';
 	        html +='<p>Cut Grade <span class="pull-right">'+$(this).find('#form_cutGrade option:selected').val()+'</span></p>'+
 	        '<p>Polish <span class="pull-right">'+$(this).find('#form_polish option:selected').val()+'</span></p>'+
 	        '<p>Symmetry<span class="pull-right">'+$(this).find('#form_symmetry option:selected').val()+'</span></p>';
