@@ -118,9 +118,9 @@
 						<div class="form-inline form-login clearfix date-form">
 							<div class="form-group col-xs-2" style="margin-top: 5px;padding: 0">
 								<span class="currency">
-									<img src="images/eur.png" class="selected" onclick="currencyRate('EUR')"/>
-					              	<img src="images/cny.png"  onclick="currencyRate('CNY')"/>
-					              	<img src="images/amr.png"  onclick="currencyRate('USD')"/>
+									<img src="images/eur.png" id="eurImg" onclick="currencyRate('EUR')"/>
+					              	<img src="images/cny.png" id="cnyImg" onclick="currencyRate('CNY')"/>
+					              	<img src="images/amr.png" id="usdImg" onclick="currencyRate('USD')"/>
 					                
 				           		</span>
 							</div>
@@ -233,11 +233,11 @@
             	var json=eval(data),to=json.trancDetail.currency,currencyHint='€';
    				var html = '';
    				if(to=='CNY'){
-   					currencyHint = '￥';
+   					currencyHint = '￥';$('#cnyImg').addClass("selected");
    				}else if(to=='EUR'){
-   					currencyHint = '€';
+   					currencyHint = '€';$('#eurImg').addClass("selected");
    				}else if(to=='USD'){
-   					currencyHint = '$';
+   					currencyHint = '$';$('#usdImg').addClass("selected");
    				}
    				var address = json.trancDetail.street+'　'+json.trancDetail.postcode+'　'+json.trancDetail.city+'　'+json.trancDetail.country;
    				$('#name').val(json.trancDetail.name);$('#street').val(json.trancDetail.street);
