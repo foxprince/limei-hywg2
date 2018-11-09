@@ -175,6 +175,9 @@
 						<span class="pull-left">Tel:  0032 3 689 73 94 </span>
 						<span class="pull-right  to_invoice"></span>
 					</div>
+					<div id="offerList" class="clearfix" style="margin-bottom: 5px">
+						<span class="pull-left">OFFER LIST </span>
+					</div>
 				</div>
 				<!--ITEMS-->
 				<header id="items" class="col-xs-12 clearfix header_items">
@@ -481,7 +484,7 @@
 				total_receipt();
 			if(type=='invoice')
 				saveOrUpdate('invoice');
-			to_print();
+			to_print(type);
             if(type=='invoice'||type=='credit-invoice')
 				$('.to_invoice').html('INVOICE：  '+ $('#invoice_no').val());
             else if(type=='credit')

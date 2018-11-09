@@ -66,7 +66,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                     <input type="text" id="reportNo" class="i_text" placeholder="证书编号">
                     <label for="" class="field">客户姓名</label>
                     <input type="text" id="custom" class="i_text" placeholder="客户姓名">
-                <button type="button" class="c_btn J_lookfor">查询</button><a class="c_btn " href="login.php?quit=quit">退出登录</a></p>
+                <button type="button" class="c_btn J_lookfor">查询</button><a class="c_btn " href="login.php?quit=quit">退出登录</a><a class="c_btn " href="http://cn.lumiagem.com/cn/invoice/export.php">全部导出</a></p>
             </form>
             <table class="t_data">
             	<thead>
@@ -112,13 +112,16 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                     <p class="rise-vat print_none">VAT：0599.972.516</p>
                     <p>PELIKAANSTRAAT 62 BUS 314</p>
                     <div class="clearfix">
-                        <span class="pull-left" id="corp">2017   ANTWERPEN</span>
+                        <span class="pull-left" id="corp">2018   ANTWERPEN</span>
                         <span class="pull-right to_time"></span>
                     </div>
                     <div class="clearfix" style="margin-bottom: 5px">
                         <span class="pull-left">Tel:  0032 3 689 73 94 </span>
                         <span class="pull-right  to_invoice"></span>
                     </div>
+                    <div id="offerList" class="clearfix" style="margin-bottom: 5px">
+						<span class="pull-left">OFFER LIST </span>
+					</div>
                 </div>
                 <!--ITEMS-->
                 <header id="items" class="col-xs-12 clearfix header_items">
@@ -198,6 +201,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
    				if(json.trancDetail.type=='receipt'){
    					$('.vat_price').hide();$('.to_invoice').hide();}
    				else {
+   					$('#offerList').remove();
    					$('.to_invoice').show();$('.to_invoice').html('INVOICE：  '+ json.trancDetail.invoice_no);
    					$('.vat_price').show();$('#vat_price').html(currencyHint+json.trancDetail.vat_price);
    				}
