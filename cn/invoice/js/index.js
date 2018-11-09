@@ -46,8 +46,9 @@ function to_print(type){
 	var html = '';
     var address = $('#street').val()+'　'+$('#postcode').val()+'　'+$('#city').val()+'　'+$('#country').val()
     $('#to_address').html(address);
-    if(type=='invoice')
-    		$('#offerList').remove();
+    if(type=='receipt') {
+    		$('#offerList').html("OFFERLIST");
+    }
     to_name($('#name').val());
     to_port($('#passport').val());
     $('.del_items').remove();

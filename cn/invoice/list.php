@@ -201,7 +201,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
    				if(json.trancDetail.type=='receipt'){
    					$('.vat_price').hide();$('.to_invoice').hide();}
    				else {
-   					$('#offerList').remove();
+   					$('#offerList').html("OFFERLIST");
    					$('.to_invoice').show();$('.to_invoice').html('INVOICE：  '+ json.trancDetail.invoice_no);
    					$('.vat_price').show();$('#vat_price').html(currencyHint+json.trancDetail.vat_price);
    				}

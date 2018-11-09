@@ -149,7 +149,7 @@
 				</div>
 				<div class="col-xs-12 text-right fotter">
 					<span class="fotterBtn lnvoice pull-right" onclick="invoice('invoice')"></span>
-					<span class="fotterBtn receipt pull-right" onclick="receipt()"></span>
+					<span class="fotterBtn receipt pull-right" onclick="receipt('receipt')"></span>
 					<!-- <span class="fotterBtn save pull-right" onclick="saves()"></span> -->
 					<button type="button" class="c_btn J_lookfor pull-left" onclick="invoice('credit')">CREDIT NOTE</button>
 					<button type="button" class="c_btn J_lookfor pull-left" onclick="invoice('credit-invoice')">CREDIT NOTE INVOICE</button>
@@ -172,11 +172,8 @@
 						<span class="pull-right to_time"></span>
 					</div>
 					<div class="clearfix" style="margin-bottom: 5px">
-						<span class="pull-left">Tel:  0032 3 689 73 94 </span>
+						<span id="offerList" class="pull-left">Tel:  0032 3 689 73 94 </span>
 						<span class="pull-right  to_invoice"></span>
-					</div>
-					<div id="offerList" class="clearfix" style="margin-bottom: 5px">
-						<span class="pull-left">OFFER LIST </span>
 					</div>
 				</div>
 				<!--ITEMS-->
@@ -496,10 +493,10 @@
 			window.print();
 		}
 		/*收据*/
-		function receipt(){
+		function receipt(type){
 			total_receipt();
             saveOrUpdate('receipt');
-			to_print();
+			to_print(type);
             $('.to_invoice').html('');
 			$('.print_none').hide();
 			window.print();
