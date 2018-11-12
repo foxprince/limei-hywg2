@@ -105,6 +105,7 @@
 	.lnvoice-row {
 		position: static !important;
 		top: 0 !important;
+		margin: auto 1.7cm auto 1.7cm;
 	}
 	.row-content {
 		display: none;
