@@ -222,7 +222,7 @@ if($_REQUEST['action']) {
 				$Mail->isHTML( TRUE );
 				//发邮件给客服
 				$Mail->AddAddress('info@lumiagem.com');//收件人地址，可以替换成任何想要接收邮件的email信箱,格式是AddAddress("收件人email","收件人姓名")
-				$Mail->addCC('lwl380451663@Outlook.com');                // 添加抄送人
+				$Mail->addCC('a657916565@outlook.com');                // 添加抄送人
 				$Mail->addCC('cxjlgzzc@163.com');
 				$Mail->Subject = '新的看钻预约来自于'.$name; //邮件标题
 				$content="新的看钻预约, 姓名：".$name." 联系电话：".$tel." 电子邮件：".$email;
