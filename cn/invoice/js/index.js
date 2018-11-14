@@ -32,8 +32,9 @@ function to_name(e){
     $('#to_name').html(e)
 }
 function to_port(e){
+    console.log("|"+e+"|")
 	if(e == "")
-		$('#to_port').html("<br/>")
+		$('#to_port').html("-")
     else
 		$('#to_port').html(e)
 }
