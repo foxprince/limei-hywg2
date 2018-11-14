@@ -32,7 +32,10 @@ function to_name(e){
     $('#to_name').html(e)
 }
 function to_port(e){
-    $('#to_port').html(e)
+	if(e == "")
+		$('#to_port').html("<br/>")
+    else
+		$('#to_port').html(e)
 }
 
 /**
@@ -43,14 +46,14 @@ function to_port(e){
  */
 function to_print(type){
 	$('.to_time').html('DATE：  '+ $('#tranc_date').val());
-	var html = '';
+	to_port($('#passport').val());
+    var html = '';
     var address = $('#street').val()+'　'+$('#postcode').val()+'　'+$('#city').val()+'　'+$('#country').val()
     $('#to_address').html(address);
     if(type=='receipt') {
     		$('#offerList').html("OFFERTE");
     }
     to_name($('#name').val());
-    to_port($('#passport').val());
     $('.del_items').remove();
     $('.addContent').each(function(){
     		html += '<div class="del_items items clearfix">'+'<div class="col-xs-3 clearfix">';
