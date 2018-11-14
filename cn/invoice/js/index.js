@@ -51,6 +51,7 @@ function to_print(type){
     }
     to_name($('#name').val());
     to_port($('#passport').val());
+    $('#to_port').remove();
     $('.del_items').remove();
     $('.addContent').each(function(){
     		html += '<div class="del_items items clearfix">'+'<div class="col-xs-3 clearfix">';
