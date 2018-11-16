@@ -96,7 +96,7 @@ if(strpos($_SERVER['PHP_SELF'], "jew")) {
         </li>
         <li class="tc four-box">
           <div id="step3">
-            <div class="four"><p id="totalPrice">总计:<?php echo $priceDesc.($jewPrice+$diaPrice) ?></p>
+            <div class="four"><p id="totalPrice" style="margin-top: -13px;">总计:<?php echo $priceDesc.($jewPrice+$diaPrice) ?></p>
             <a class="link" href="#"><span >完成定制</span></a></div>
           </div>
         </li>
