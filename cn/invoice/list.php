@@ -39,7 +39,12 @@ if(!isset($_SESSION['invoiceAdmin'])) {
 <body>
     <div class="order_look">
         <header class="c_header">
-            <a href="javascript:;" class="h_logo" title=""></a><span>票据查询</span>
+            <a href="javascript:;" class="h_logo" title=""></a><span>票据查询
+            			<?php if($_SERVER['HTTP_HOST']=='47.244.14.210'){ ?>
+					<a href="http://www.lumiagem.com/cn/invoice/list.php">INVOICE</a> | OFFERTE
+					<?php } else{?>
+					INVOICE | <a href="http://47.244.14.210/cn/invoice/list.php">OFFERTE</a>
+					<?php }?></span>
         </header>
 
         <main>
@@ -405,7 +410,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                         temp +='</td>'
                         +'<td>' + json.list[i].currency +'</td>'
                         +'<td>'+ (tprice) +'</td>'
-                        +'<td>' + (json.list[i].type=='invoice'?json.list[i].vat_price:"--") +'</td><td><div class="pl"><a trancId="'+json.list[i].id+'" href="index.html?id='+json.list[i].id+'" target="_blank"class="modify J_modify">修改</a></div></td><td><p class="o_box J_o_box"><button trancId="'+json.list[i].id+'"  class="deleteTranc t_operate" onclick="deleteTranc(this,'+json.list[i].id+')">删除</button></p></td></tr>';
+                        +'<td>' + (json.list[i].type=='invoice'?json.list[i].vat_price:"--") +'</td><td><div class="pl"><a trancId="'+json.list[i].id+'" href="index.php?id='+json.list[i].id+'" target="_blank"class="modify J_modify">修改</a></div></td><td><p class="o_box J_o_box"><button trancId="'+json.list[i].id+'"  class="deleteTranc t_operate" onclick="deleteTranc(this,'+json.list[i].id+')">删除</button></p></td></tr>';
                         totalprice += parseInt(tprice);
                         $('.J_databody').append(temp);
                         $('#totalprice').html(totalprice);
