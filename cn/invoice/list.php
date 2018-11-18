@@ -104,7 +104,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                 <div class="l-close"><a class="btn" href="javascript:;" onclick="popToggle()"><img src="../images/close.png"></a></div>
                 <!--logo-->
                 <div class="col-xs-12 text-center">
-                    <img src="images/Logo.png" class="logo" alt="">
+                    <img src="images/logo.png" class="logo" alt="">
                 </div>
                 <!--抬头-->
                 <div class="col-xs-12 rise clearfix">
