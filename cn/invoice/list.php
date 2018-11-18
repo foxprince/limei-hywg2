@@ -362,7 +362,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
             if(''!==end){
                 url += '&end=' + end.replace(/-/g, '');
             }
-            if(''!==invoice_no){
+            if(!invoice_no){
                 url += '&invoice_no=' + invoice_no;
             }if(''!==$('#reportNo').val()){
                 url += '&reportNo=' + $('#reportNo').val();

@@ -363,7 +363,7 @@ if($_REQUEST['action']) {
 				$clause .= ' and currency ="'.$_REQUEST['currency'].'"';
 			if($_REQUEST['name']!=null)
 				$clause .= ' and name like "%'.$_REQUEST['name'].'%"';
-			if($_REQUEST['invoice_no']!=null)
+			if($_REQUEST['invoice_no']!=null&&$_REQUEST['invoice_no']!='undefined')
 				$clause .= ' and type="invoice" and invoice_no like "%'.$_REQUEST['invoice_no'].'%"';
 			if($_REQUEST['start']!=null)
 				$clause .= ' and tranc_date>='.$_REQUEST['start'];
