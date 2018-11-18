@@ -17,7 +17,30 @@ create table transaction(
   	tax_rebate varchar(10) null,
   	tax_confirm int(1) default 0 null,
   	notes	varchar(255) null,
-	ctime datetime not null
+	ctime datetime not null,
+	tel varchar(21) null,
+	email varchar(50) null
+);
+create table offerte(
+	id bigint not null primary key auto_increment,
+	name varchar(30)	null,
+	passport varchar(50) null,
+	street	varchar(50) null,
+	city	 varchar(30) null,
+	postcode varchar(20) null,
+	country varchar(20) null,
+	type	 varchar(7)	default 'offerte' null,/*receipt,invoice*/
+	tranc_date varchar(8) null,
+	invoice_no varchar(10) null,
+	currency varchar(6) null,
+	vat_price float null,
+  	total_price float null,/*不含税价格*/
+  	tax_rebate varchar(10) null,
+  	tax_confirm int(1) default 0 null,
+  	notes	varchar(255) null,
+	ctime datetime not null,
+	tel varchar(21) null,
+	email varchar(50) null
 );
 alter table transaction add tel varchar(21) null;
 alter table transaction add email varchar(50) null;
@@ -40,12 +63,37 @@ create table tranc_detail(
   	jewerly	varchar(20) null,
   	material varchar(10) null,
   	jewerly_price float null,
-  	ctime datetime not null
+  	ctime datetime not null,
+  	jewerly_color varchar(10) null default 'White',
+  	raw_price varchar(6) null comment '原价折扣'
 );
 alter table tranc_detail add jewerly_color varchar(10) null default 'White';
 alter table tranc_detail add raw_price varchar(6) null comment '原价折扣';
 update tranc_detail a, diamonds b set a.raw_price= b.raw_price where a.report_no=b.certificate_number and a.report_no is not null and a.report_no<>'';
 select a.raw_price,b.raw_price,a.report_no,b.certificate_number from tranc_detail a, diamonds b where a.report_no=b.certificate_number and a.report_no is not null and a.report_no<>'';
+create table offerte_detail(
+	id bigint not null primary key auto_increment,
+	type varchar(6) default 'diajew' not null,
+	tranc_id bigint not null,
+	report_no varchar(20) null,
+	shape	varchar(20) null,
+	color	varchar(20) null,
+	fancy	varchar(20) null,
+	grading_lab varchar(3) null,
+	carat float  NULL,
+	clarity varchar(10)  NULL,
+  	cut_grade varchar(10)  NULL,
+  	polish varchar(10)  NULL,
+  	symmetry varchar(10)  NULL,
+  	price	float null,
+  	jewerly	varchar(20) null,
+  	material varchar(10) null,
+  	jewerly_price float null,
+  	ctime datetime not null,
+  	jewerly_color varchar(10) null default 'White',
+  	raw_price varchar(6) null comment '原价折扣'
+);
+insert into offerte_detail select * from tranc_detail where tranc_id in(select id from transaction where type='receipt');
 --库存表
 drop table inventory;
 create table inventory (

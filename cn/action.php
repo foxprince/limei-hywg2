@@ -20,6 +20,7 @@ if(!isset($conn)){
 	$conn->query("SET NAMES 'utf8'");
 }
 $userid = $_COOKIE["userId"];
+
 include 'ChromePhp.php';
 
 if (isset($_COOKIE["userId"]))
@@ -310,19 +311,19 @@ if($_REQUEST['action']) {
 			echo $t;
 			break;
 		case "deleteTranc":
-			$sql_delete='delete from transaction WHERE id = '.$_REQUEST['id'];
+			$sql_delete='delete from '.getTrancOrOfferte().' WHERE id = '.$_REQUEST['id'];
 			$conn->query($sql_delete);
-			$sql_delete='delete from tranc_detail WHERE tranc_id = '.$_REQUEST['id'];
+			$sql_delete='delete from '.getTrancOrOfferteDetail().' WHERE tranc_id = '.$_REQUEST['id'];
 			$conn->query($sql_delete);
 			echo "OK";
 			break;
 		case "trancDetail":
-			$stmt=$conn->prepare('select * from transaction where id=:id');
+			$stmt=$conn->prepare('select * from '.getTrancOrOfferte().' where id=:id');
 			$stmt->execute(array('id'=>$_REQUEST['id']));
 			foreach($stmt as $r){
 				$transactionDetail=$r;
 			}
-			$stmt=$conn->prepare('select * from tranc_detail where tranc_id=:tranc_id');
+			$stmt=$conn->prepare('select * from '.getTrancOrOfferte().' where tranc_id=:tranc_id');
 			$stmt->execute(array('tranc_id'=>$_REQUEST['id']));
 			$tranc_detailList=array();
 			foreach($stmt as $row){
@@ -349,11 +350,11 @@ if($_REQUEST['action']) {
 			break;
 		case "trancList":
 			//if($_SESSION['invoiceAdmin']) {
-			$totalSql = 'select count(*) as t from transaction';
-			$sql='select id,type,invoice_no,tranc_date,name,currency,vat_price,total_price as total_price,tax_rebate,tax_confirm from transaction ';
+			$totalSql = 'select count(*) as t from '.getTrancOrOfferte();
+			$sql='select id,type,invoice_no,tranc_date,name,currency,vat_price,total_price as total_price,tax_rebate,tax_confirm from '.getTrancOrOfferte();
 			$clause = ' where 1=1 ';
 			if($_REQUEST['reportNo']!=null)
-				$clause .= ' and( notes like "'.$_REQUEST['reportNo'].'%" or id in (select tranc_id from tranc_detail where report_no like "'.$_REQUEST['reportNo'].'%"))';
+				$clause .= ' and( notes like "'.$_REQUEST['reportNo'].'%" or id in (select tranc_id from '.getTrancOrOfferte().' where report_no like "'.$_REQUEST['reportNo'].'%"))';
 			if($_REQUEST['type']!=null)
 				$clause .= ' and type ="'.$_REQUEST['type'].'"';
 			if($_REQUEST['taxConfirm']!=null)
@@ -392,7 +393,7 @@ if($_REQUEST['action']) {
 				$transactionList=array();$i=0;
 				foreach($conn->query($sql) as $row){
 					$transactionList[$i]=$row;
-					$sql = 'select a.* from tranc_detail a where a.tranc_id=:tranc_id ';
+					$sql = 'select a.* from '.getTrancOrOfferte().' a where a.tranc_id=:tranc_id ';
 					$stmt=$conn->prepare($sql);
 					$stmt->execute(array('tranc_id'=>$row['id']));
 					$tranc_detailList=array();
@@ -419,7 +420,7 @@ if($_REQUEST['action']) {
 				$hint = "退税异常";
 			else if($taxConfirm=="1")
 				$hint = "已退税";
-			$sql='update transaction set tax_confirm='.$_REQUEST['tax_confirm'].' where id='.$_REQUEST['id'];
+			$sql='update '.getTrancOrOfferte().' set tax_confirm='.$_REQUEST['tax_confirm'].' where id='.$_REQUEST['id'];
 			$stmt = $conn->prepare( $sql );$stmt->execute();
 			if($stmt->rowCount()>0)
 				echo '设置成功：'.$hint;
@@ -429,7 +430,7 @@ if($_REQUEST['action']) {
 		case "updateTranc":
 			logger("updateTranc".$_REQUEST['transaction']);
 			$obj=json_decode($_REQUEST['transaction'],TRUE);
-			$sql = 'update transaction set type=?,name=?,passport=?,tel=?,email=?,street=?,city=?,postcode=?,country=?,tranc_date=?,invoice_no=?,currency=?,vat_price=?,total_price=?,tax_rebate=?,notes=? where id=?';
+			$sql = 'update '.getTrancOrOfferte().' set type=?,name=?,passport=?,tel=?,email=?,street=?,city=?,postcode=?,country=?,tranc_date=?,invoice_no=?,currency=?,vat_price=?,total_price=?,tax_rebate=?,notes=? where id=?';
 			$stmt=$conn->prepare($sql);
 			$stmt->execute(array($obj['type'],$obj['name'],
 					$obj['passport'],
@@ -440,24 +441,24 @@ if($_REQUEST['action']) {
 					$obj['tranc_date'],
 					$obj['invoice_no'],$obj['currency'],$obj['vat_price'],$obj['total_price'],$obj['tax_rebate'],$obj['notes'],$obj['id']));
 			//删除原有纪录
-			$sql_delete='delete from tranc_detail WHERE tranc_id = '.$obj['id'];
+			$sql_delete='delete from '.getTrancOrOfferte().' WHERE tranc_id = '.$obj['id'];
 			$conn->query($sql_delete);
 			$num=count($obj["list"]);
 			//--遍历数组，将对应信息添加入数据库
 			for ($i=0;$i<$num;$i++) {
 				$item = $obj["list"][$i];
 				if($item["type"]=='jew') {
-					$insert_sql="INSERT INTO tranc_detail (tranc_id,type,jewerly,material,jewerly_price,jewerly_color,ctime)
-						VALUES (?,?,?,?,?,?,now())";
+					$insert_sql='INSERT INTO '.getTrancOrOfferte().' (tranc_id,type,jewerly,material,jewerly_price,jewerly_color,ctime)
+						VALUES (?,?,?,?,?,?,now())';
 					$result = $conn -> prepare($insert_sql);
 					$result -> execute(array( $obj['id'],$item["type"],$item["jewerly"], $item["material"],
 							$item["jewerly_price"],$item["jewerly_color"]
 					));
 				}
 				else{
-					$insert_sql="INSERT INTO tranc_detail (tranc_id,type,report_no,shape,color,fancy,grading_lab,carat,
+					$insert_sql='INSERT INTO '.getTrancOrOfferte().' (tranc_id,type,report_no,shape,color,fancy,grading_lab,carat,
 						clarity,cut_grade,polish,symmetry,price,jewerly,material,jewerly_price,jewerly_color,raw_price,ctime)
-						VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())";
+						VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())';
 					$result = $conn -> prepare($insert_sql);
 					$result -> execute(array( $obj['id'],$item["type"],$item["report_no"],$item["shape"],$item["color"],
 							$item["fancy"],$item["grading_lab"],$item["carat"], $item["clarity"],$item["cut_grade"],
@@ -473,19 +474,19 @@ if($_REQUEST['action']) {
 			//强制检查invoce_no不重复
 			$obj=json_decode($_REQUEST['transaction'],TRUE);
 			$transactionNo = 1;
-			$sql_dia='select count(*) as t from transaction where type="invoice" and invoice_no="'.$obj['invoice_no'].'"';
+			$sql_dia='select count(*) as t from '.getTrancOrOfferte().' where type="invoice" and invoice_no="'.$obj['invoice_no'].'"';
 			foreach($conn->query($sql_dia) as $r_r){
 				$transactionNo=$r_r['t'];
 			}
 			if($transactionNo!=0) {
-				$sql_dia='select convert(invoice_no,UNSIGNED INTEGER) as t from transaction where type="invoice" order by ctime desc limit 1';
+				$sql_dia='select convert(invoice_no,UNSIGNED INTEGER) as t from '.getTrancOrOfferte().' where type="invoice" order by ctime desc limit 1';
 				foreach($conn->query($sql_dia) as $r_r){
 					$transactionNo=$r_r['t']+1;
 				}
 			}
 			else 
 				$transactionNo=$obj['invoice_no'];
-			$sql = 'insert into transaction(name,passport,tel,email,street,city,postcode,country,type,tranc_date,invoice_no,currency,vat_price,total_price,tax_rebate,notes,ctime) 
+			$sql = 'insert into '.getTrancOrOfferte().'(name,passport,tel,email,street,city,postcode,country,type,tranc_date,invoice_no,currency,vat_price,total_price,tax_rebate,notes,ctime) 
 					values(:name,:passport,:tel,:email,:street,:city,:postcode,:country,:type,:tranc_date,:invoice_no,:currency,:vat_price,:total_price,:tax_rebate,:notes,now())';
 			$stmt=$conn->prepare($sql);
 			$stmt->execute(array('name'=>$obj['name'],
@@ -504,8 +505,8 @@ if($_REQUEST['action']) {
 			for ($i=0;$i<$num;$i++) {
 				$item = $obj["list"][$i];
 				if($item["type"]=='jew') {
-					$insert_sql="INSERT INTO tranc_detail (tranc_id,type,jewerly,material,jewerly_price,jewerly_color,ctime)
-						VALUES (?,?,?,?,?,?,now())";
+					$insert_sql='INSERT INTO '.getTrancOrOfferte().' (tranc_id,type,jewerly,material,jewerly_price,jewerly_color,ctime)
+						VALUES (?,?,?,?,?,?,now())';
 					$result = $conn -> prepare($insert_sql);
 					$result -> execute(array( $transactionId,$item["type"],$item["jewerly"], $item["material"],
 							$item["jewerly_price"],$item["jewerly_color"]
@@ -520,9 +521,9 @@ if($_REQUEST['action']) {
 					//更改钻石为不可见，ordered_by，ordered_time
 					$off_sql = 'UPDATE diamonds SET visiable=0,status = "UNAVAILABLE",ordered_by = "'.$obj['name'].'",wholesale_ordered_by = "'.$obj['name'].'",ordered_time=now() WHERE certificate_number="'.$item["report_no"].'"';
 					$off_stmt = $conn->prepare ( $off_sql );$off_stmt->execute();
-					$insert_sql="INSERT INTO tranc_detail (tranc_id,type,report_no,shape,color,fancy,grading_lab,carat,
+					$insert_sql='INSERT INTO '.getTrancOrOfferte().' (tranc_id,type,report_no,shape,color,fancy,grading_lab,carat,
 						clarity,cut_grade,polish,symmetry,price,jewerly,material,jewerly_price,raw_price,ctime)
-						VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())";
+						VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())';
 					$result = $conn -> prepare($insert_sql);
 					$result -> execute(array( $transactionId,$item["type"],$item["report_no"],$item["shape"],$item["color"],
 							$item["fancy"],$item["grading_lab"],$item["carat"], $item["clarity"],$item["cut_grade"],
@@ -570,7 +571,7 @@ if($_REQUEST['action']) {
 		case "invoiceNo":
 			$transactionNo = 1;
 			//$sql_dia='select (convert(invoice_no,UNSIGNED INTEGER)) as t from transaction where type="invoice" order by tranc_date desc,ctime desc limit 1';
-			$sql_dia='select (convert(invoice_no,UNSIGNED INTEGER)) as t from transaction where type="invoice" order by convert(invoice_no,UNSIGNED INTEGER) desc,ctime desc limit 1';
+			$sql_dia='select (convert(invoice_no,UNSIGNED INTEGER)) as t from '.getTrancOrOfferte().' where type="invoice" order by convert(invoice_no,UNSIGNED INTEGER) desc,ctime desc limit 1';
 			foreach($conn->query($sql_dia) as $r_r){
 				$transactionNo=$r_r['t']+1;
 			}
@@ -788,6 +789,18 @@ function sendSms($phone,$contentArray) {
 			);
 
 	return $content;
+}
+function getTrancOrOfferte() {
+	if($_SERVER['HTTP_HOST']=='47.244.14.210')
+		return "offerte";
+	else 
+		return "transaction";
+}
+function getTrancOrOfferteDetail() {
+	if($_SERVER['HTTP_HOST']=='47.244.14.210')
+		return "offerte_detail";
+	else
+		return "tranc_detail";
 }
 
 function tencentSms($phoneNumber,$msg) {
