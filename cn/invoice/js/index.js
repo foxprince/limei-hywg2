@@ -51,7 +51,7 @@ function to_print(type){
     var html = '';
     var address = $('#street').val()+'　'+$('#postcode').val()+'　'+$('#city').val()+'　'+$('#country').val()
     $('#to_address').html(address);
-    if(type=='receipt') {
+    if(type=='offerte') {
     		$('#offerList').html("OFFERTE");
     }
     to_name($('#name').val());

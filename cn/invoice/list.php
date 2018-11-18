@@ -45,10 +45,10 @@ if(!isset($_SESSION['invoiceAdmin'])) {
         <main>
             <form action="" id="searchForm"class="c_form">
                 <p class="item">
-                    <label for="" class="field">类型</label>
+                    <!-- <label for="" class="field">类型</label>
                     <select id="type" name="type" class="i_text" style="width:2.6rem;">
                     	<option value="">全部</option><option value="invoice">发票</option><option value="receipt">收据</option>
-                    </select>
+                    </select> -->
                     <label for="" class="field">货币</label>
                     <select id="currency" name="currency" class="i_text" style="width:2.6rem;">
                     	<option value="">全部</option><option value="EUR">EUR</option><option value="CNY">CNY</option><option value="USD">USD</option>
@@ -58,6 +58,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                     <button class="button" onclick="filterTax(this,'0');return false;">未退税</button>
                     <button class="button"  onclick="filterTax(this,'1');return false;">已退税</button>
                     <button class="button" onclick="filterTax(this,'2');return false;">退税异常</button>
+                    <a class="c_btn " href="login.php?quit=quit">退出登录</a>
                 </p>
                 <p class="item">
                     <label for="" class="field">订单编号</label>
@@ -66,7 +67,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                     <input type="text" id="reportNo" class="i_text" placeholder="证书编号">
                     <label for="" class="field">客户姓名</label>
                     <input type="text" id="custom" class="i_text" placeholder="客户姓名">
-                <button type="button" class="c_btn J_lookfor">查询</button><a class="c_btn " href="login.php?quit=quit">退出登录</a><a class="c_btn " href="http://cn.lumiagem.com/cn/invoice/export.php">全部导出</a></p>
+                <button type="button" class="c_btn J_lookfor">查询</button><a class="c_btn " href="http://cn.lumiagem.com/cn/invoice/export.php">全部导出</a></p>
             </form>
             <table class="t_data">
             	<thead>

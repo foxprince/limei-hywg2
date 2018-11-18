@@ -355,8 +355,8 @@ if($_REQUEST['action']) {
 			$clause = ' where 1=1 ';
 			if($_REQUEST['reportNo']!=null)
 				$clause .= ' and( notes like "'.$_REQUEST['reportNo'].'%" or id in (select tranc_id from '.getTrancOrOfferteDetail().' where report_no like "'.$_REQUEST['reportNo'].'%"))';
-			if($_REQUEST['type']!=null)
-				$clause .= ' and type ="'.$_REQUEST['type'].'"';
+			//if($_REQUEST['type']!=null)
+				//$clause .= ' and type ="'.$_REQUEST['type'].'"';
 			if($_REQUEST['taxConfirm']!=null)
 				$clause .= ' and tax_confirm ="'.$_REQUEST['taxConfirm'].'"';
 			if($_REQUEST['currency']!=null)
@@ -430,9 +430,9 @@ if($_REQUEST['action']) {
 		case "updateTranc":
 			logger("updateTranc".$_REQUEST['transaction']);
 			$obj=json_decode($_REQUEST['transaction'],TRUE);
-			$sql = 'update '.getTrancOrOfferte().' set type=?,name=?,passport=?,tel=?,email=?,street=?,city=?,postcode=?,country=?,tranc_date=?,invoice_no=?,currency=?,vat_price=?,total_price=?,tax_rebate=?,notes=? where id=?';
+			$sql = 'update '.getTrancOrOfferte().' setname=?,passport=?,tel=?,email=?,street=?,city=?,postcode=?,country=?,tranc_date=?,invoice_no=?,currency=?,vat_price=?,total_price=?,tax_rebate=?,notes=? where id=?';
 			$stmt=$conn->prepare($sql);
-			$stmt->execute(array($obj['type'],$obj['name'],
+			$stmt->execute(array($obj['name'],
 					$obj['passport'],
 					$obj['tel'],$obj[email],
 					$obj['street'],$obj['city'],
@@ -795,6 +795,12 @@ function getTrancOrOfferte() {
 		return "offerte";
 	else 
 		return "transaction";
+}
+function getTrancType() {
+	if($_SERVER['HTTP_HOST']=='47.244.14.210')
+		return "offerte";
+	else
+		return "invoice";
 }
 function getTrancOrOfferteDetail() {
 	if($_SERVER['HTTP_HOST']=='47.244.14.210')

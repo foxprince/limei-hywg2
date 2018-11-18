@@ -1,5 +1,4 @@
-﻿
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
@@ -148,11 +147,14 @@
 				</div>
 				</div>
 				<div class="col-xs-12 text-right fotter">
+					<?php if($_SERVER['HTTP_HOST']=='47.244.14.210'){ ?>
+					<button type="button" class="c_btn J_lookfor pull-left" onclick="receipt('offerte')">ORRERTE</button>
+					<?php } else{?>
 					<span class="fotterBtn lnvoice pull-right" onclick="invoice('invoice')"></span>
-					<span class="fotterBtn receipt pull-right" onclick="receipt('receipt')"></span>
 					<!-- <span class="fotterBtn save pull-right" onclick="saves()"></span> -->
 					<button type="button" class="c_btn J_lookfor pull-left" onclick="invoice('credit')">CREDIT NOTE</button>
 					<button type="button" class="c_btn J_lookfor pull-left" onclick="invoice('credit-invoice')">CREDIT NOTE INVOICE</button>
+					<?php }?>
 				</div>
 			</div>
 			</div>
@@ -497,7 +499,7 @@
 		/*收据*/
 		function receipt(type){
 			total_receipt();
-            saveOrUpdate('receipt');
+            saveOrUpdate(type);
 			to_print(type);
             $('.to_invoice').html('');
 			$('.print_none').hide();
