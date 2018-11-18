@@ -30,6 +30,11 @@
 				<!--logo-->
 				<div class="logo col-lg-12 col-md-12 col-sm-12 col-xs-12 text-left">
 					<img src="images/logo.png">
+					<?php if($_SERVER['HTTP_HOST']=='47.244.14.210'){ ?>
+					<a href="http://www.lumiagem.com/cn/invoice/index.php">INVOICE</a> | OFFERTE
+					<?php } else{?>
+					INVOICE | <a href="http://47.244.14.210/cn/invoice/index.php">OFFERTE</a>
+					<?php }?></span>
 				</div>
 				<!--个人信息 -->
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
