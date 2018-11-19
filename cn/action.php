@@ -430,7 +430,7 @@ if($_REQUEST['action']) {
 		case "updateTranc":
 			logger("updateTranc".$_REQUEST['transaction']);
 			$obj=json_decode($_REQUEST['transaction'],TRUE);
-			$sql = 'update '.getTrancOrOfferte().' setname=?,passport=?,tel=?,email=?,street=?,city=?,postcode=?,country=?,tranc_date=?,invoice_no=?,currency=?,vat_price=?,total_price=?,tax_rebate=?,notes=? where id=?';
+			$sql = 'update '.getTrancOrOfferte().' set name=?,passport=?,tel=?,email=?,street=?,city=?,postcode=?,country=?,tranc_date=?,invoice_no=?,currency=?,vat_price=?,total_price=?,tax_rebate=?,notes=? where id=?';
 			$stmt=$conn->prepare($sql);
 			$stmt->execute(array($obj['name'],
 					$obj['passport'],
