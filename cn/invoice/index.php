@@ -34,7 +34,7 @@
 					<a href="http://www.lumiagem.com/cn/invoice/index.php">INVOICE</a> | OFFERTE
 					<?php } else{?>
 					INVOICE | <a href="http://47.244.14.210/cn/invoice/index.php">OFFERTE</a>
-					<?php }?></span>
+					<?php }?>
 				</div>
 				<!--个人信息 -->
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -156,6 +156,7 @@
 					<button type="button" class="c_btn J_lookfor pull-right" onclick="receipt('offerte')">OFFERTE</button>
 					<?php } else{?>
 					<span class="fotterBtn lnvoice pull-right" onclick="invoice('invoice')"></span>
+					<button type="button" class="c_btn J_lookfor pull-right" onclick="receipt('offerte')">OFFERTE</button>
 					<!-- <span class="fotterBtn save pull-right" onclick="saves()"></span> -->
 					<button type="button" class="c_btn J_lookfor pull-left" onclick="invoice('credit')">CREDIT NOTE</button>
 					<button type="button" class="c_btn J_lookfor pull-left" onclick="invoice('credit-invoice')">CREDIT NOTE INVOICE</button>
@@ -166,7 +167,7 @@
 			<!--print 打印-->
 			<div class="row lnvoice-row">
 				<!--logo-->
-				<div class="col-xs-12 text-center">
+				<div class="col-xs-12 text-center" style="min-height:100px; ">
 					<img src="images/logo.png" class="logo" alt="">
 				</div>
 				<!--抬头-->

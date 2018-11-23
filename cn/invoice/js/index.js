@@ -54,7 +54,7 @@ function to_print(type){
     if(type=='offerte') {
     		$('#offerList').html("OFFERTE");
     		$('.logo').remove();
-    		$('.rise').remove();
+    		$('.rise').html('');
     		$('.client').remove();
     		$('#items').text('OFFERTE');
     }
