@@ -53,6 +53,10 @@ function to_print(type){
     $('#to_address').html(address);
     if(type=='offerte') {
     		$('#offerList').html("OFFERTE");
+    		$('.logo').remove();
+    		$('.rise').remove();
+    		$('.client').remove();
+    		$('#items').text('OFFERTE');
     }
     to_name($('#name').val());
     $('.del_items').remove();
