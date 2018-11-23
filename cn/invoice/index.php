@@ -154,7 +154,6 @@
 				<div class="col-xs-12 text-right fotter">
 					<?php if($_SERVER['HTTP_HOST']=='47.244.14.210'){ ?>
 					<button type="button" class="c_btn J_lookfor pull-right" onclick="receipt('offerte')">OFFERTE</button>
-					<button type="button" class="c_btn J_lookfor pull-right" onclick="receipt('offerte')">OFFERTE-NOSAVE</button>
 					<?php } else{?>
 					<span class="fotterBtn lnvoice pull-right" onclick="invoice('invoice')"></span>
 					<!-- <span class="fotterBtn save pull-right" onclick="saves()"></span> -->
