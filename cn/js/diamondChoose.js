@@ -164,7 +164,10 @@ function filter_shape(theshape) {
 	update();
 }
 function filter_color(thecolor) {
-	$color = 'color in("'+colorRange.slice(colorSlider.noUiSlider.get('start')[0],colorSlider.noUiSlider.get('start')[1]).join('","')+'")';
+	if($fancy=='true')
+		$color='length(color)>1 and color like "F%"';
+	else
+		$color = 'color in("'+colorRange.slice(colorSlider.noUiSlider.get('start')[0],colorSlider.noUiSlider.get('start')[1]).join('","')+'")';
 	update();
 }
 function filter_clarity(theclarity) {

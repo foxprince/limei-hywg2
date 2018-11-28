@@ -198,6 +198,7 @@ if($_REQUEST['ref']!=null)
 	$sql='SELECT * FROM diamonds WHERE visiable=1 and status = "AVAILABLE" and (stock_ref LIKE "'.$ref.'" OR certificate_number = "'.$ref.'")';
 else	
 	$sql='SELECT * FROM diamonds WHERE visiable=1 and '.$query_shape.$query_color.$query_clarity.$query_cut.$query_polish.$query_sym.$query_fluo.$query_certi.$and.'(format(carat,2) >= '.$query_weight_from.' AND format(carat,2) <= '.$query_weight_to.') AND (price BETWEEN '.$query_price_from.' AND '.$query_price_to.') AND status = "AVAILABLE" '.$featured.' '.$query_sorting.' LIMIT '.$startfrom.', '.$pagesize;
+logger($sql);
 //exit($sql);
 
 $stmt=$conn->query($sql);
