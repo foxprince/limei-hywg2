@@ -39,12 +39,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
 <body>
     <div class="order_look">
         <header class="c_header">
-            <a href="javascript:;" class="h_logo" title=""></a><span>票据查询
-            			<?php/* if($_SERVER['HTTP_HOST']=='47.244.14.210'){ ?>
-					<a href="http://www.lumiagem.com/cn/invoice/list.php">INVOICE</a> | OFFERTE
-					<?php } else{?>
-					INVOICE | <a href="http://47.244.14.210/cn/invoice/list.php">OFFERTE</a>
-					<?php }*/?></span>
+            <a href="javascript:;" class="h_logo" title=""></a><span>票据查询 </span>
         </header>
 
         <main>
