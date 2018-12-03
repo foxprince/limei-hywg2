@@ -61,6 +61,7 @@ if(isset($_POST['category']) && isset($_POST['name_ch'])){
 		$price=NULL;
 	}
 	
+	$color_type = $_POST['color_type'];
 	$name_en = $_POST['name_en'];
 	$name_ch = $_POST['name_ch'];
 	$image1 = $_POST['image1'];
@@ -75,15 +76,8 @@ if(isset($_POST['category']) && isset($_POST['name_ch'])){
 	$text_en = $_POST['content_en'];
 	$text_ch = $_POST['content_ch'];
 	
-	
-	
-	
-	
-	
-	
-	$sql_insert='INSERT INTO jewelry (category, brand, name_en, name_ch, image1, image2, image3, image4, image5, image6, image7, image8, videolink, text_en, text_ch, online_retail, online_agency, online_wholesale, price) 
-	VALUES(:category, :brand, :name_en, :name_ch, :image1, :image2, :image3, :image4, :image5, :image6, :image7, :image8, :videolink, :text_en, :text_ch, :online_retail, :online_agency, :online_wholesale, :price)';
-	
+	$sql_insert='INSERT INTO jewelry (category, brand, name_en, name_ch, image1, image2, image3, image4, image5, image6, image7, image8, videolink, text_en, text_ch, online_retail, online_agency, online_wholesale, price,color_type) 
+	VALUES(:category, :brand, :name_en, :name_ch, :image1, :image2, :image3, :image4, :image5, :image6, :image7, :image8, :videolink, :text_en, :text_ch, :online_retail, :online_agency, :online_wholesale, :price,:color_type)';
 	
 	$stmt=$conn->prepare($sql_insert);	  
 	$stmt->bindParam(':category', $category, PDO::PARAM_STR);
@@ -105,7 +99,7 @@ if(isset($_POST['category']) && isset($_POST['name_ch'])){
 	$stmt->bindParam(':online_agency', $online_agency, PDO::PARAM_STR);
 	$stmt->bindParam(':online_wholesale', $online_wholesale, PDO::PARAM_STR);
 	$stmt->bindParam(':price', $price, PDO::PARAM_STR);
-	
+	$stmt->bindParam(':color_type', $color_type, PDO::PARAM_STR);
 	$stmt->execute();
 	$OK=$stmt->rowCount();
 	
@@ -360,6 +354,14 @@ if(isset($message_db)){
 <form action="" method="post" id="addnewjewelry">
   
   
+  
+  <p>
+	<label>颜色分类</label>
+	<select name="color_type" id="cate" style="font-size:18px;">
+	<option value="white">白钻</option>
+	<option value="fancy">彩钻</option>
+	</select>
+  </p>
   
   <p>
 <label>类别</label><span>(必填)</span>

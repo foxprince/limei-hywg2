@@ -294,7 +294,7 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .page{overflow: hidden; margin-top: 10px;}
 .page a{display: inline-block; width: 18px; height: 18px; text-align: center; line-height: 18px; background-color: #eaeaea;}
 
-.pro-t{width: 1000px; margin:0 auto; margin-bottom: 40px; margin-top: 80px;}
+.pro-t{width: 1000px; margin:0 auto; margin-bottom: 40px; margin-top: 40px;}
 .pro-t-b { display: none;padding:20px 10px 20px 0px;}
 .pro-t-b a{ padding:20px 10px;}
 .pro-t-b a.on{color:#f9b5b2;}
