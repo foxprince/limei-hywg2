@@ -791,19 +791,19 @@ function sendSms($phone,$contentArray) {
 	return $content;
 }
 function getTrancOrOfferte() {
-	if($_SERVER['HTTP_HOST']=='47.244.14.210'||$_SERVER['HTTP_HOST']=='www.lumiagem.com'||$_SERVER['HTTP_HOST']=='cn.lumiagem.com')
+	if($_SERVER['HTTP_HOST']=='47.244.14.210'||strpos($_SERVER['HTTP_HOST'], 'lumiagem.com'))
 		return "transaction";
 	else 
 		return "offerte";
 }
 function getTrancType() {
-	if($_SERVER['HTTP_HOST']=='47.244.14.210'||$_SERVER['HTTP_HOST']=='www.lumiagem.com'||$_SERVER['HTTP_HOST']=='cn.lumiagem.com')
+	if($_SERVER['HTTP_HOST']=='47.244.14.210'||strpos($_SERVER['HTTP_HOST'], 'lumiagem.com'))
 		return "invoice";
 	else
 		return "offerte";
 }
 function getTrancOrOfferteDetail() {
-	if($_SERVER['HTTP_HOST']=='47.244.14.210'||$_SERVER['HTTP_HOST']=='www.lumiagem.com'||$_SERVER['HTTP_HOST']=='cn.lumiagem.com')
+	if($_SERVER['HTTP_HOST']=='47.244.14.210'||strpos($_SERVER['HTTP_HOST'], 'lumiagem.com'))
 		return "tranc_detail";
 	else
 		return "offerte_detail";
