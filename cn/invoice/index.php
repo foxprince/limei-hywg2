@@ -505,7 +505,7 @@
 		/*收据*/
 		function receipt(type){
 			total_receipt();
-            //saveOrUpdate(type);
+            saveOrUpdate(type);
 			to_print(type);
             $('.to_invoice').html('');
 			$('.print_none').hide();
