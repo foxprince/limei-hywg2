@@ -3,7 +3,7 @@
 session_start();
 // if session variable not set, redirect to login page
 if(!isset($_SESSION['invoiceAdmin'])) {
-  header('Location: login.php');
+  header('Location: offLogin.php');
   exit;
 }
 ?>

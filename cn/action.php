@@ -154,6 +154,31 @@ if($_REQUEST['action']) {
 			setcookie("orderJewId",$_REQUEST['jewId'],time()+3600);
 			echo '定制成功，请继续';
 			break;
+		case "offerteCode":
+			$num = rand(1000,9999);   //随机产生四位数字的验证码
+			$_SESSION['offerteCode'] = $num;
+			//发短信
+			$msg = '【利美钻石】OFFERTE登录验证码为'.$num;
+			tencentSms('8613701678955',$msg);
+			break;
+		case "offerteLogin":
+			$code = $_REQUEST['code'];
+			logger('valid code:'.$code.$_SESSION['offerteCode']);
+			if($code==$_SESSION['offerteCode']) {
+				$password=$_POST['password'];
+				if(($_POST['username']=='admin'&&$password=='1qsxzse$')||($_POST['username']=='iadmin'&&$password=='1q2w#E$R')){
+					$_SESSION['invoiceAdmin']=$_POST['username'];
+					unset($_SESSION["offerteCode"]);
+					session_regenerate_id();
+					header("Location: ./invoice/offerteList.php");
+					exit('');
+				}else{
+					echo "密码错误";
+				}
+			}
+			else 
+				echo "验证码错误";
+			break;
 		case "appointmentMakeAll":
 			$name=$_POST['name'];
 			$email=$_POST['email'];
@@ -835,6 +860,7 @@ function tencentSms($phoneNumber,$msg) {
 			logger($result);
 		}
 		$rsp = json_decode($result);
+		return $rsp;
 		//echo $result;
 	} catch(\Exception $e) {
 		echo var_dump($e);

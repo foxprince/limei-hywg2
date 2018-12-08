@@ -1,4 +1,5 @@
-
+button {padding: 0.5em 0.3em;border-radius: 0.2rem;}
+.disabled{color:#ACA899;background-color:#F5F5F5;}
 .logo {
     margin: 42px 0;
     }
