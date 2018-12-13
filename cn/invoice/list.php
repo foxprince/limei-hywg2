@@ -61,10 +61,8 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                     <a class="c_btn " href="login.php?quit=quit">退出登录</a>
                 </p>
                 <p class="item">
-                    <?php if($_SERVER['HTTP_HOST']!='47.244.14.210'){ ?>
                     <label for="" class="field">订单编号</label>
                     <input type="number" id="invoice_no" class="i_text" placeholder="订单编号">
-                    <?php }?>
                     <label for="" class="field">证书编号</label>
                     <input type="text" id="reportNo" class="i_text" placeholder="证书编号">
                     <label for="" class="field">客户姓名</label>
