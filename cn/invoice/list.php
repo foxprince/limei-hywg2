@@ -62,7 +62,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                 </p>
                 <p class="item">
                     <label for="" class="field">订单编号</label>
-                    <input type="number" id="invoice_no" class="i_text" placeholder="订单编号">
+                    <input type="number" id="invoice_no" name="invoice_no" class="i_text" placeholder="订单编号">
                     <label for="" class="field">证书编号</label>
                     <input type="text" id="reportNo" class="i_text" placeholder="证书编号">
                     <label for="" class="field">客户姓名</label>
@@ -360,9 +360,10 @@ if(!isset($_SESSION['invoiceAdmin'])) {
             if(''!==end){
                 url += '&end=' + end.replace(/-/g, '');
             }
-            if(!invoice_no){
+            if(''!==invoice_no){
                 url += '&invoice_no=' + invoice_no;
-            }if(''!==$('#reportNo').val()){
+            }
+            if(''!==$('#reportNo').val()){
                 url += '&reportNo=' + $('#reportNo').val();
             }
             $.ajax({
