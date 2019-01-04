@@ -578,21 +578,12 @@ if($_REQUEST['action']) {
 			echo $rate;
 				break;
 		case "fetchDia":
-			$ref=$_REQUEST['ref'];
-			$currency=$_REQUEST['currency'];
-			if($_REQUEST['ref']!=null){
-				$sql_currency='SELECT * FROM convert_currency';
-				$sql_dia='SELECT * FROM diamonds WHERE visiable=1 and  certificate_number = "'.$ref.'"';
-				$stmt_dia=$conn->query($sql_dia);
-				foreach($stmt_dia as $r_d){
-					$item=$r_d;
-					if($currency!=null&&$currency=='CNY')
-						$item['retail_price']=round($r_d['retail_price']*$USD_CNY);
-					else 
-						$item['retail_price']=round($r_d['retail_price']*$USD_EUR);
-				}
-				echo json_encode($item);
+			if($_SERVER['HTTP_HOST']=='39.106.114.214') {
+				$url='http://www.lumiagem.com/cn/action.php?action=fetchDia&ref='.$_REQUEST["ref"].'&currency='.$_REQUEST['currency'];
+				echo file_get_contents($url);
 			}
+			else
+				echo fetchDia($_REQUEST['ref'],$_REQUEST['currency']);
 			break;
 		case "invoiceNo":
 			$transactionNo = 1;
@@ -773,7 +764,21 @@ function diamondShapeDesc($shape) {
 	}
 	return $shape_TXT;	
 }
-
+function fetchDia($ref,$currency) {
+	if($_REQUEST['ref']!=null){
+		$sql_currency='SELECT * FROM convert_currency';
+		$sql_dia='SELECT * FROM diamonds WHERE visiable=1 and  certificate_number = "'.$ref.'"';
+		$stmt_dia=$conn->query($sql_dia);
+		foreach($stmt_dia as $r_d){
+			$item=$r_d;
+			if($currency!=null&&$currency=='CNY')
+				$item['retail_price']=round($r_d['retail_price']*$USD_CNY);
+				else
+					$item['retail_price']=round($r_d['retail_price']*$USD_EUR);
+		}
+		return json_encode($item);
+	}
+}
 function updateAvaiable ($report_no,$name) {
 	$raw_price_sql = 'select raw_price from diamonds where certificate_number="'.$report_no.'"';
 	$conn=dbConnect('write','pdoption');
