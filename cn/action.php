@@ -765,8 +765,9 @@ function diamondShapeDesc($shape) {
 	return $shape_TXT;	
 }
 function fetchDia($ref,$currency) {
-	if($_REQUEST['ref']!=null){
-		$sql_currency='SELECT * FROM convert_currency';
+	$conn=dbConnect('write','pdoption');
+	$conn->query("SET NAMES 'utf8'");
+	$sql_currency='SELECT * FROM convert_currency';
 		$sql_dia='SELECT * FROM diamonds WHERE visiable=1 and  certificate_number = "'.$ref.'"';
 		$stmt_dia=$conn->query($sql_dia);
 		foreach($stmt_dia as $r_d){
@@ -777,7 +778,6 @@ function fetchDia($ref,$currency) {
 					$item['retail_price']=round($r_d['retail_price']*$USD_EUR);
 		}
 		return json_encode($item);
-	}
 }
 function updateAvaiable ($report_no,$name) {
 	$raw_price_sql = 'select raw_price from diamonds where certificate_number="'.$report_no.'"';
