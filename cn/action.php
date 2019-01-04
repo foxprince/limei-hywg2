@@ -767,7 +767,6 @@ function diamondShapeDesc($shape) {
 function fetchDia($ref,$currency) {
 	$conn=dbConnect('write','pdoption');
 	$conn->query("SET NAMES 'utf8'");
-	$sql_currency='SELECT * FROM convert_currency';
 		$sql_dia='SELECT * FROM diamonds WHERE visiable=1 and  certificate_number = "'.$ref.'"';
 		$stmt_dia=$conn->query($sql_dia);
 		foreach($stmt_dia as $r_d){
