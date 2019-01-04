@@ -538,7 +538,7 @@ if($_REQUEST['action']) {
 					));
 				}
 				else{
-					if($_SERVER['HTTP_HOST']=='39.106.114.214') {
+					if($_SERVER['HTTP_HOST']=='39.106.114.214:8071') {
 						$url='http://www.lumiagem.com/cn/action.php?action=offerteRemoteActon&report_no='.$_REQUEST["report_no"].'&name='.$obj['name'];
 						$raw_price = file_get_contents($url);
 					}
@@ -578,7 +578,7 @@ if($_REQUEST['action']) {
 			echo $rate;
 				break;
 		case "fetchDia":
-			if($_SERVER['HTTP_HOST']=='39.106.114.214') {
+			if($_SERVER['HTTP_HOST']=='39.106.114.214:8071') {
 				$url='http://www.lumiagem.com/cn/action.php?action=fetchDia&ref='.$_REQUEST["ref"].'&currency='.$_REQUEST['currency'];
 				echo file_get_contents($url);
 			}
