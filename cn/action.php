@@ -539,9 +539,9 @@ if($_REQUEST['action']) {
 				}
 				else{
 					if($_SERVER['HTTP_HOST']=='39.106.114.214:8071'||$_SERVER['HTTP_HOST']=='localhost:8000') {
-						$url='http://www.lumiagem.com/cn/action.php?action=offerteRemoteActon&report_no='.$_REQUEST["report_no"].'&name='.$obj['name'];
+						$url='http://www.lumiagem.com/cn/action.php?action=offerteRemoteActon&report_no='.$item["report_no"].'&name='.$obj['name'];
 						$raw_price = file_get_contents($url);
-						logger( 'from lumiage:'.$raw_price);
+						logger( $url.' from lumiage:'.$raw_price);
 					}
 					else
 						$raw_price = updateAvaiable($_REQUEST["report_no"],$obj['name']);
