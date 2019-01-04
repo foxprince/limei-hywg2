@@ -538,12 +538,13 @@ if($_REQUEST['action']) {
 					));
 				}
 				else{
-					if($_SERVER['HTTP_HOST']=='39.106.114.214:8071') {
+					if($_SERVER['HTTP_HOST']=='39.106.114.214:8071'||$_SERVER['HTTP_HOST']=='localhost:8000') {
 						$url='http://www.lumiagem.com/cn/action.php?action=offerteRemoteActon&report_no='.$_REQUEST["report_no"].'&name='.$obj['name'];
 						$raw_price = file_get_contents($url);
+						logger( 'from lumiage:'.$raw_price);
 					}
 					else
-						$raw_price = updateAvaiable ($_REQUEST["report_no"],$obj['name']);
+						$raw_price = updateAvaiable($_REQUEST["report_no"],$obj['name']);
 					$insert_sql='INSERT INTO '.getTrancOrOfferteDetail().' (tranc_id,type,report_no,shape,color,fancy,grading_lab,carat,
 						clarity,cut_grade,polish,symmetry,price,jewerly,material,jewerly_price,raw_price,ctime)
 						VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())';
@@ -783,13 +784,14 @@ function updateAvaiable ($report_no,$name) {
 	$conn=dbConnect('write','pdoption');
 	$conn->query("SET NAMES 'utf8'");
 	$stmt = $conn->query($raw_price_sql);
+	$raw_price = 0;
 	foreach($stmt as $rowDetail2){
 		$raw_price=$rowDetail2['raw_price'];
 	}
 	//更改钻石为不可见，ordered_by，ordered_time
 	$off_sql = 'UPDATE diamonds SET visiable=0,status = "UNAVAILABLE",ordered_by = "'.$name.'",wholesale_ordered_by = "'.$name.'",ordered_time=now() WHERE certificate_number="'.$report_no.'"';
 	$off_stmt = $conn->prepare ( $off_sql );$off_stmt->execute();
-	return $raw_price;
+	return json_encode($raw_price);
 }
 
 /**
