@@ -781,7 +781,7 @@ function fetchDia($ref,$currency) {
 }
 function updateAvaiable ($report_no,$name) {
 	$raw_price;logger('reportNo:'.$report_no);
-	if($report_no!='') {
+	if($report_no!=''&&!empty($report_no)) {
 		$raw_price_sql = 'select raw_price from diamonds where certificate_number="'.$report_no.'"';
 		$conn=dbConnect('write','pdoption');
 		$conn->query("SET NAMES 'utf8'");
