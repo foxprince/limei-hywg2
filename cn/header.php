@@ -76,7 +76,6 @@ require_once('log.php');
 	}
 	fBrowserRedirect();
 </script>
-<!-- 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -99,7 +98,7 @@ require_once('log.php');
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(bp, s);
 })();
-</script> -->
+</script>
 	<script>
 	// Generate four random hex digits.  
 	function S4() {  

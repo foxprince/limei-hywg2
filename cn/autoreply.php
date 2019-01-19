@@ -1,7 +1,10 @@
 <?php
 include_once ('log.php');
 require_once ('connection.php');
-// echo autoreply($_REQUEST['u'],$_REQUEST['m']);
+echo autoreply($_REQUEST['u'],$_REQUEST['m']);
+// $user = $_REQUEST("fromUsername");
+// $msg = $_REQUEST("keyword");
+//echo(autoreply($user,$msg));
 function autoreply($crr_c_o_id,$crr_message){
 //$holidaymessage='温馨提示：我公司于7月29日至8月16日放假。查询系统照常工作。如有任何问题，请给我们的客服微信留言：limeikefu 我们会在8月16日以后尽快联系您。 \n\n';
 $holidaymessage='';
