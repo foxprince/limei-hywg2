@@ -589,7 +589,7 @@ if($_REQUEST['action']) {
 		case "invoiceNo":
 			$transactionNo = 1;
 			//$sql_dia='select (convert(invoice_no,UNSIGNED INTEGER)) as t from transaction where type="invoice" order by tranc_date desc,ctime desc limit 1';
-			$sql_dia='select (convert(invoice_no,UNSIGNED INTEGER)) as t from '.getTrancOrOfferte().' where type="invoice" order by convert(invoice_no,UNSIGNED INTEGER) desc,ctime desc limit 1';
+			$sql_dia='select (convert(invoice_no,UNSIGNED INTEGER)) as t from '.getTrancOrOfferte().' where type="invoice" order by invoice_no desc,ctime desc limit 1';
 			foreach($conn->query($sql_dia) as $r_r){
 				$transactionNo=$r_r['t']+1;
 			}
