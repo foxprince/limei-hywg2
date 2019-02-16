@@ -70,14 +70,14 @@ if($_REQUEST['action']) {
 			break;
 		case "appointmentList":
 			//$userhistory='SELECT a.*,b.stock_ref,b.grading_lab,b.certificate_number,c.name_ch,c.image1,c.price FROM viewing_record a,diamonds b,jewelry c WHERE a.viewer = "'.$appointmentOwner.'" and a.diamond=b.id and a.jewellery_id=c.id ORDER BY a.id DESC';
-			$userhistory='select  t.*,c.name_ch,c.image1,c.price from (SELECT a.*,b.stock_ref,b.grading_lab,b.certificate_number FROM viewing_record a,diamonds b WHERE a.viewer = "'.$userid.'" and a.diamond=b.id ) as t  left join jewelry c on t.jewellery_id=c.id ORDER BY t.id DESC';
+			$userhistory='select  t.*,c.name_ch,c.image1,c.price from (SELECT a.id as viewId,a.jewellery_id,b.* FROM viewing_record a,diamonds b WHERE a.viewer = "'.$userid.'" and a.diamond=b.id ) as t  left join jewelry c on t.jewellery_id=c.id ORDER BY t.viewId DESC';
 			$stmt_history=$conn->query($userhistory);
 			$historyfound=$stmt_history->rowCount();
 			$appoinmentList=array();$i=0;
 			if($historyfound){
 				foreach($stmt_history as $row_history){
 					$appoinmentList[]=$row_history;
-					$price=$row_history['diamond_price'];
+					$price=$row_history['retail_price'];
 					$appoinmentList[$i]['euro_price']=round($price*$USD_EUR).'欧元';
 					$appoinmentList[$i]['yuan_price']=round($price*$USD_CNY).'元人民币';
 					$appoinmentList[$i]['dollar_price']=round($price).'美元';

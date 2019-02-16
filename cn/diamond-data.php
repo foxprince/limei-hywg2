@@ -215,14 +215,14 @@ foreach($stmt as $row){
 		switch (substr($row['color'],-1)) {
 			case "Y" :
 				$fancyTxt = "黄";break;
-				case "P" :
-					$fancyTxt = "粉";break;
-					case "G" :
-						$fancyTxt = "绿";break;
-						case "R" :
-							$fancyTxt = "红";break;
-							case "B" :
-								$fancyTxt = "蓝";break;
+			case "P" :
+				$fancyTxt = "粉";break;
+			case "G" :
+				$fancyTxt = "绿";break;
+			case "R" :
+				$fancyTxt = "红";break;
+			case "B" :
+				$fancyTxt = "蓝";break;
 		}
 	switch ($row['shape']){
 		case "BR":

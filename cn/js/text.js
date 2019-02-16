@@ -13,13 +13,10 @@ $(document).ready(function(){
 });
 function makeOrderStep(diaId,jewId) {
 	if (appointmentCheck(diaId) > 0) {
-		console.log(diaId);
 		alert('您已经预约过此钻石，可以在购物车里复查预约登记。');
 	} else if (appointmentCount() > 4) {
-		console.log(diaId);
 		alert('您只能预约五颗钻石。');
 	} else if (appointmentMake("jew",diaId,jewId)) {
-		console.log(diaId);
 		window.location.href="shopcart.php";
 	}
 }
@@ -52,12 +49,12 @@ function appointmentList(id) {
 					item += '<p>'+j.name_ch+'</p>';
 				else
                 	item += '<p>'+j.shapeTxt+'裸钻</p>';
-                item += '<p>'+j.diamond_carat+'克拉</p>';
-                item += '<p>颜色：'+j.diamond_color+'</p>';
-                item += '<p>净度：'+j.diamond_clarity+'</p>';
-                item += '<p>切工：'+j.diamond_cut+'</p>';
-                item += '<p>抛光：'+j.diamond_polish+'</p>';
-                item += '<p>对称性：'+j.diamond_symmetry+'</p>';
+                item += '<p>'+j.carat+'克拉</p>';
+                item += '<p>颜色：'+j.color+'</p>';
+                item += '<p>净度：'+j.clarity+'</p>';
+                item += '<p>切工：'+j.cut_grade+'</p>';
+                item += '<p>抛光：'+j.polish+'</p>';
+                item += '<p>对称性：'+j.symmetry+'</p>';
                 item += '<p>证书：'+j.grading_lab+'</p>';
                 item += '<p>编号：'+j.stock_ref+'</p>';
                 if(Cookies.get("DIA_CURRENCY")=='EUR')
