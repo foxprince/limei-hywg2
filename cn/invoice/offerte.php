@@ -146,6 +146,7 @@
 				</div>
 				</div>
 				<div class="col-xs-12 text-right fotter">
+					<input type="checkbox" name="printReportNo" value="1" checked="true"/>证书编号
 					<button type="button" class="c_btn J_lookfor pull-right" onclick="receipt('offerte')">OFFERTE</button>
 				</div>
 			</div>
@@ -492,7 +493,7 @@
 		function receipt(type){
 			total_receipt();
             saveOrUpdate(type);
-			to_print(type);
+			to_print(type,$("input[name='printReportNo']").prop("checked"));
             $('.to_invoice').html('');
 			$('.print_none').hide();
 			window.print();
