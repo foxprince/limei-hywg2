@@ -401,7 +401,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                         temp +='</td>'
                         +'<td>' + json.list[i].currency +'</td>'
                         +'<td>'+ (tprice) +'</td>'
-                        +'<td>' + (json.list[i].type=='invoice'?json.list[i].vat_price:"--") +'</td><td><div class="pl"><a trancId="'+json.list[i].id+'" href="index.php?id='+json.list[i].id+'" target="_blank"class="modify J_modify">修改</a></div></td><td><p class="o_box J_o_box"><button trancId="'+json.list[i].id+'"  class="deleteTranc t_operate" onclick="deleteTranc(this,'+json.list[i].id+')">删除</button></p></td></tr>';
+                        +'<td>' + (json.list[i].type=='invoice'?json.list[i].vat_price:"--") +'</td><td><div class="pl"><a trancId="'+json.list[i].id+'" href="offerte.php?id='+json.list[i].id+'" target="_blank"class="modify J_modify">修改</a></div></td><td><p class="o_box J_o_box"><button trancId="'+json.list[i].id+'"  class="deleteTranc t_operate" onclick="deleteTranc(this,'+json.list[i].id+')">删除</button></p></td></tr>';
                         totalprice += parseInt(tprice);
                         $('.J_databody').append(temp);
                         $('#totalprice').html(totalprice);
