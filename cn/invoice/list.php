@@ -23,12 +23,14 @@ if(!isset($_SESSION['invoiceAdmin'])) {
     <link rel="stylesheet" type="text/css" href="dist/css/style.css" />
     <link rel="stylesheet" href="../css/page.init.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/index.css">
+	<link rel="stylesheet" href="../css/jquery.datetimepicker.css">
+    <link rel="stylesheet" href="css/index.css">
 	<link rel="stylesheet" href="css/print.css">
 	<link rel="stylesheet" type="text/css" href="../css/jquery.fancybox.min.css">
     <script src="dist/js/jquery-2.1.3.min.js"></script>
     <script src="../js/pageInit.js"></script>
     <script src="../js/cookie.js"></script>
+    <script src="../js/jquery.datetimepicker.js"></script>
     <script type="text/javascript" src="../js/jquery.fancybox.min.js"></script>
     <script src="dist/js/flexible.js"></script>
     <style>
@@ -54,7 +56,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                     	<option value="">全部</option><option value="EUR">EUR</option><option value="CNY">CNY</option><option value="USD">USD</option>
                     </select>
                     <label for="" class="field">日期选择</label>
-                    <input type="date" id="start" class="i_text i_date" placeholder="起始日期"> 至 <input type="date" id="end" class="i_text i_date ml0" placeholder="结束日期">
+                    <input type="text" id="start" class="i_text i_date" placeholder="起始日期"> 至 <input type="text" id="end" class="i_text i_date ml0" placeholder="结束日期">
                     <button class="button" onclick="filterTax(this,'0');return false;">未退税</button>
                     <button class="button"  onclick="filterTax(this,'1');return false;">已退税</button>
                     <button class="button" onclick="filterTax(this,'2');return false;">退税异常</button>
@@ -177,6 +179,13 @@ if(!isset($_SESSION['invoiceAdmin'])) {
             return false;
         }
     }
+    $('.i_date').datetimepicker({
+        lang:"en",           //语言选择中文
+        format:"Ymd",      //格式化日期
+        timepicker:false,    //关闭时间选项
+        todayButton:true,    //关闭选择今天按钮
+        validateOnBlur:true
+    });
     function printTranc(trancId) {
     	$.ajax({
             async:false,
