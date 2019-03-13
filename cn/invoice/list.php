@@ -354,9 +354,9 @@ if(!isset($_SESSION['invoiceAdmin'])) {
             if(null!==taxConfirm){
                 url += '&taxConfirm=' + taxConfirm;
             }
-            if(''!==type){
-                url += '&type=' + type;
-            }
+//             if(''!==type){
+//                 url += '&type=' + type;
+//             }
             if(''!==$('#currency').val()){
                 url += '&currency=' + $('#currency').val();
             }
