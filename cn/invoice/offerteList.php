@@ -342,7 +342,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
         }
 		var taxConfirm=null;
         function query(page){
-            let query ='../action.php?action=trancList&sort='+$sorting+"&sortDirection="+$sorting_direction;
+            let query ='../action.php?action=trancList&type=offerte&sort='+$sorting+"&sortDirection="+$sorting_direction;
             let type = $('#type').val();
             let name = $('#custom').val();
             let start = $('#start').val();

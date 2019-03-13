@@ -170,7 +170,7 @@ $(document).ready(function(){
 					$("#img"+imagewhere).attr('src',('../images/contentimgs/'+imagename));
 					$("#thepic").html(imagename);			
 				}else{					
-					alert("Er is een onbekende fout opgetreden. Probeer het opnieuw.");											  
+					alert("上传失败："+feedback);											  
 				}
 			}
 		}); 

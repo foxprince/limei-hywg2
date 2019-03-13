@@ -577,12 +577,6 @@ if(preg_match($pattern_ref, $crr_message)){
 		###########################################################
 		###########################################################
 		//end define the weight range
-		
-		
-		
-		
-		
-		
 		$pattern_color='/(\s|\W)+(d|e|f|g|h|i|j|k|D|E|F|G|H|I|J|K|\-)(\s|\W)+/';
 		if(preg_match($pattern_color, $crr_message, $matches)){
 			$r_color=trim(strtoupper($matches[0]));

@@ -381,8 +381,8 @@ if($_REQUEST['action']) {
 			$clause = ' where 1=1 ';
 			if($_REQUEST['reportNo']!=null)
 				$clause .= ' and( notes like "'.$_REQUEST['reportNo'].'%" or id in (select tranc_id from '.getTrancOrOfferteDetail().' where report_no like "'.$_REQUEST['reportNo'].'%"))';
-			//if($_REQUEST['type']!=null)
-				//$clause .= ' and type ="'.$_REQUEST['type'].'"';
+			if($_REQUEST['type']!=null)
+				$clause .= ' and type ="'.$_REQUEST['type'].'"';
 			if($_REQUEST['taxConfirm']!=null)
 				$clause .= ' and tax_confirm ="'.$_REQUEST['taxConfirm'].'"';
 			if($_REQUEST['currency']!=null)

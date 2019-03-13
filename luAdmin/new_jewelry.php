@@ -274,7 +274,7 @@ $(document).ready(function(){
 					$("#value_img_"+imagewhere).val(imagename);			
 				}else{
 					console.log(feedback);					
-					alert("Er is een onbekende fout opgetreden. Probeer het opnieuw.");											  
+					alert("上传失败："+feedback);											  
 				}
 			}
 		}); 

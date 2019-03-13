@@ -261,27 +261,22 @@ $(document).ready(function(){
 				percent.html(percentVal);
 			},
 			uploadProgress: function(event, position, total, percentComplete) {
-				
 				var percentVal = percentComplete + '%';
 				bar.width(percentVal)
 				percent.html(percentVal);
 			},
 			complete: function(xhr) {
-				
 				$('div.progress').fadeOut('fast');
 				$('button').removeAttr('disabled');
 				status.html(xhr.responseText);
-
 				var feedback=status.find("p.message").html();
-				
 				if(feedback=='OK'){
-					
 					var imagename=status.find("p#imagename").html();
 					var imagewhere=status.find("p#imagewhere").html();
 					$("#img"+imagewhere).attr('src',('../images/sitepictures/'+imagename));
 					$("#value_img_"+imagewhere).val(imagename);			
 				}else{					
-					alert("Er is een onbekende fout opgetreden. Probeer het opnieuw.");											  
+					alert("上传失败："+feedback);											  
 				}
 			}
 		}); 

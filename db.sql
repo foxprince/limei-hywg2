@@ -8,7 +8,7 @@ create table transaction(
 	city	varchar(30) null,
 	postcode varchar(20) null,
 	country varchar(20) null,
-	type	varchar(7)	null,/*receipt,invoice*/
+	type	 varchar(7)	null,/*receipt,invoice,viewing*/
 	tranc_date varchar(8) null,
 	invoice_no varchar(10) null,
 	currency varchar(6) null,
