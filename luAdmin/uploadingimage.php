@@ -12,7 +12,7 @@ try{
 	$success=$upload->uploadingSuccess();
 }catch (Exception $e){
 	$error=$e->getMessage();
-	$errormessage='<p class="message">ERROR_UNKNOWN</p>';
+	$errormessage='<p class="message">ERROR_UNKNOWN:'.$error.'</p>';
 	exit($errormessage);
 }	
 
