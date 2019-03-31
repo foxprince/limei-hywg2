@@ -403,8 +403,9 @@ if($_REQUEST['action']) {
 			}
 			$startfrom=($crr_page-1)*$pagesize;
 			$totalSql .= $clause;
-			$sql .= $clause.' order by tranc_date desc,'.$_REQUEST['sort'].' '.$_REQUEST['sortDirection'];
-			
+			$sql .= $clause.' order by tranc_date desc';
+			if($_REQUEST['sort']!=null)
+				$sql .= ','.$_REQUEST['sort'].' '.$_REQUEST['sortDirection'];
 			if($_SESSION['invoiceAdmin']=='iadmin') {
 				$sql.=' limit 10';
 				$total = 10;
@@ -415,6 +416,7 @@ if($_REQUEST['action']) {
 					$total=$r_r['t'];
 				}
 			}
+			//var_dump($sql);
 			if($total>0) {
 				$transactionList=array();$i=0;
 				foreach($conn->query($sql) as $row){
@@ -474,7 +476,7 @@ if($_REQUEST['action']) {
 			for ($i=0;$i<$num;$i++) {
 				$item = $obj["list"][$i];
 				if($item["type"]=='jew') {
-					$insert_sql='INSERT INTO '.getTrancOrOfferteDetail().' (tranc_id,type,jewerly,material,jewerly_price,jewerly_color,ctime)
+					$insert_sql='INSERT INTO '.getTrancOrOfferteDetail().' (tranc_id,type,jewerly,material,jewerly_price,jewerly_color,create_time)
 						VALUES (?,?,?,?,?,?,now())';
 					$result = $conn -> prepare($insert_sql);
 					$result -> execute(array( $obj['id'],$item["type"],$item["jewerly"], $item["material"],
@@ -483,7 +485,7 @@ if($_REQUEST['action']) {
 				}
 				else{
 					$insert_sql='INSERT INTO '.getTrancOrOfferteDetail().' (tranc_id,type,report_no,shape,color,fancy,grading_lab,carat,
-						clarity,cut_grade,polish,symmetry,price,jewerly,material,jewerly_price,jewerly_color,raw_price,ctime)
+						clarity,cut_grade,polish,symmetry,price,jewerly,material,jewerly_price,jewerly_color,raw_price,create_time)
 						VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())';
 					$result = $conn -> prepare($insert_sql);
 					$result -> execute(array( $obj['id'],$item["type"],$item["report_no"],$item["shape"],$item["color"],
@@ -505,14 +507,14 @@ if($_REQUEST['action']) {
 				$transactionNo=$r_r['t'];
 			}
 			if($transactionNo!=0) {
-				$sql_dia='select convert(invoice_no,UNSIGNED INTEGER) as t from '.getTrancOrOfferte().' where type="invoice" order by ctime desc limit 1';
+				$sql_dia='select convert(invoice_no,UNSIGNED INTEGER) as t from '.getTrancOrOfferte().' where type="invoice" order by create_time desc limit 1';
 				foreach($conn->query($sql_dia) as $r_r){
 					$transactionNo=$r_r['t']+1;
 				}
 			}
 			else 
 				$transactionNo=$obj['invoice_no'];
-			$sql = 'insert into '.getTrancOrOfferte().'(name,passport,tel,email,street,city,postcode,country,type,tranc_date,invoice_no,currency,vat_price,total_price,tax_rebate,notes,ctime) 
+			$sql = 'insert into '.getTrancOrOfferte().'(name,passport,tel,email,street,city,postcode,country,type,tranc_date,invoice_no,currency,vat_price,total_price,tax_rebate,notes,create_time) 
 					values(:name,:passport,:tel,:email,:street,:city,:postcode,:country,:type,:tranc_date,:invoice_no,:currency,:vat_price,:total_price,:tax_rebate,:notes,now())';
 			$stmt=$conn->prepare($sql);
 			$stmt->execute(array('name'=>$obj['name'],
@@ -531,7 +533,7 @@ if($_REQUEST['action']) {
 			for ($i=0;$i<$num;$i++) {
 				$item = $obj["list"][$i];
 				if($item["type"]=='jew') {
-					$insert_sql='INSERT INTO '.getTrancOrOfferteDetail().' (tranc_id,type,jewerly,material,jewerly_price,jewerly_color,ctime)
+					$insert_sql='INSERT INTO '.getTrancOrOfferteDetail().' (tranc_id,type,jewerly,material,jewerly_price,jewerly_color,create_time)
 						VALUES (?,?,?,?,?,?,now())';
 					$result = $conn -> prepare($insert_sql);
 					$result -> execute(array( $transactionId,$item["type"],$item["jewerly"], $item["material"],
@@ -547,7 +549,7 @@ if($_REQUEST['action']) {
 					else
 						$raw_price = updateAvaiable($item["report_no"],$obj['name']);
 					$insert_sql='INSERT INTO '.getTrancOrOfferteDetail().' (tranc_id,type,report_no,shape,color,fancy,grading_lab,carat,
-						clarity,cut_grade,polish,symmetry,price,jewerly,material,jewerly_price,raw_price,ctime)
+						clarity,cut_grade,polish,symmetry,price,jewerly,material,jewerly_price,raw_price,create_time)
 						VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())';
 					$result = $conn -> prepare($insert_sql);
 					$result -> execute(array( $transactionId,$item["type"],$item["report_no"],$item["shape"],$item["color"],
@@ -590,7 +592,7 @@ if($_REQUEST['action']) {
 		case "invoiceNo":
 			$transactionNo = 1;
 			//$sql_dia='select (convert(invoice_no,UNSIGNED INTEGER)) as t from transaction where type="invoice" order by tranc_date desc,ctime desc limit 1';
-			$sql_dia='select (convert(invoice_no,UNSIGNED INTEGER)) as t from '.getTrancOrOfferte().' where type="invoice" order by invoice_no desc,ctime desc limit 1';
+			$sql_dia='select (convert(invoice_no,UNSIGNED INTEGER)) as t from '.getTrancOrOfferte().' where type="invoice" order by invoice_no desc,create_time desc limit 1';
 			foreach($conn->query($sql_dia) as $r_r){
 				$transactionNo=$r_r['t']+1;
 			}
@@ -840,22 +842,22 @@ function sendSms($phone,$contentArray) {
 	return $content;
 }
 function getTrancOrOfferte() {
-	if($_SERVER['HTTP_HOST']=='47.244.14.210'||strpos($_SERVER['HTTP_HOST'], 'lumiagem.com'))
+	if($_SERVER['HTTP_HOST']=='47.244.14.210'||strpos($_SERVER['HTTP_HOST'], 'lumiagem.com')||strpos($_SERVER['HTTP_HOST'], 'localhost:8000'))
 		return "transaction";
 	else 
-		return "offerte";
+		return "transaction";
 }
 function getTrancType() {
-	if($_SERVER['HTTP_HOST']=='47.244.14.210'||strpos($_SERVER['HTTP_HOST'], 'lumiagem.com'))
+	if($_SERVER['HTTP_HOST']=='47.244.14.210'||strpos($_SERVER['HTTP_HOST'], 'lumiagem.com')||strpos($_SERVER['HTTP_HOST'], 'localhost:8000'))
 		return "invoice";
 	else
 		return "offerte";
 }
 function getTrancOrOfferteDetail() {
-	if($_SERVER['HTTP_HOST']=='47.244.14.210'||strpos($_SERVER['HTTP_HOST'], 'lumiagem.com'))
+	if($_SERVER['HTTP_HOST']=='47.244.14.210'||strpos($_SERVER['HTTP_HOST'], 'lumiagem.com')||strpos($_SERVER['HTTP_HOST'], 'localhost:8000'))
 		return "tranc_detail";
 	else
-		return "offerte_detail";
+		return "tranc_detail";
 }
 
 function tencentSms($phoneNumber,$msg) {
