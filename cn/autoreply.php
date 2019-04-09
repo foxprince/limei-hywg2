@@ -231,7 +231,7 @@ if(preg_match($pattern_ref, $crr_message)){
 							$user_price_marketing=($price*2).'美元';
 						}
 					}
-					$thefeedbackcontentforwechatuser.="完美精品:\n库存编号为 ".$ref.": 该钻石为".$size."克拉，".$color."色，净度".$clarity."; 切工，抛光与对称性分别为：".$cut.", ".$polish.", ".$symmetry.$fluo_txt." 配有 ".$lab." 证书. 价格为 ".$user_price."。（市场价：".$user_price_marketing."）\n\n";
+					$thefeedbackcontentforwechatuser.="完美精品：\n库存编号：".$ref."\n重量：".$size."克拉，颜色：".$color."，净度：".$clarity."\n切工、抛光与对称性分别：".$cut."、".$polish."、".$symmetry."，荧光：".$fluo_txt."\n".$lab." 证书. 价格：".$user_price."。（市场价：".$user_price_marketing."）\n\n";
 				}
 				if($found_price_size){
 					foreach($stmt_price_size as $r){
@@ -282,7 +282,7 @@ if(preg_match($pattern_ref, $crr_message)){
 							$user_price_marketing=($price*2).'美元';
 						}
 					}
-					$thefeedbackcontentforwechatuser.="无敌大钻:\n库存编号为 ".$ref.": 该钻石为".$size."克拉，".$color."色，净度".$clarity."; 切工，抛光与对称性分别为：".$cut.", ".$polish.", ".$symmetry.$fluo_txt." 配有 ".$lab." 证书. 价格为 ".$user_price."（市场价:".$user_price_marketing."）。\n\n";
+					$thefeedbackcontentforwechatuser.="无敌大钻:\n库存编号：".$ref."\n重量：".$size."克拉，颜色：".$color."，净度".$clarity."\n切工、抛光与对称性分别为：".$cut."、".$polish."、".$symmetry."，荧光：".$fluo_txt."\n".$lab." 证书，价格：".$user_price."（市场价：".$user_price_marketing."）。\n\n";
 				}
 				if($found_price_goodprice){
 					foreach($stmt_price_goodprice as $r){
@@ -346,7 +346,7 @@ if(preg_match($pattern_ref, $crr_message)){
 						}
 						
 					}
-					$thefeedbackcontentforwechatuser.="高性价比:\n库存编号为 ".$ref.": 该钻石为".$size."克拉，".$color."色，净度".$clarity."; 切工，抛光与对称性分别为：".$cut.", ".$polish.", ".$symmetry.$fluo_txt." 配有 ".$lab." 证书. 价格为 ".$user_price."（市场价:".$user_price_marketing."）。\n\n";
+					$thefeedbackcontentforwechatuser.="高性价比:\n库存编号：".$ref."\n重量：".$size."克拉，颜色：".$color."，净度".$clarity."\n切工、抛光与对称性分别为：".$cut."、".$polish."、".$symmetry."，荧光：".$fluo_txt."\n".$lab." 证书，价格：".$user_price."（市场价：".$user_price_marketing."）。\n\n";
 				}
 //$thefeedbackcontentforwechatuser.=$searchprice1."-".$searchprice2;
 				if($found_price_lowprice){
@@ -415,7 +415,7 @@ if(preg_match($pattern_ref, $crr_message)){
 					$thefeedbackcontentforwechatuser.="实惠优选:\n库存编号为 ".$ref.": 该钻石为".$size."克拉，".$color."色，净度".$clarity."; 切工，抛光与对称性分别为：".$cut.", ".$polish.", ".$symmetry.$fluo_txt." 配有 ".$lab." 证书. 价格为 ".$user_price."（市场价:".$user_price_marketing."）。\n\n";
 				}
 				
-				$thefeedbackcontentforwechatuser.='如果您有更多问题，欢迎与我们联系。\n客服微信：limeikefu\n电话：+32 (0)3 689 73 94';
+				$thefeedbackcontentforwechatuser.='如果您有其他问题，欢迎与我们联系。\n客服微信：limeikefu\n电话：+32 (0)3 689 73 94';
 			}else{
 				$thefeedbackcontentforwechatuser='非常抱歉，我们无法确定您所选的货币，请重试。'.'\n\n'.$holidaymessage;
 			}
