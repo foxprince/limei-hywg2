@@ -24,7 +24,7 @@ $n = floor($rulesCount/4);
         </li>
         <li>
           <?php $row=$stmt->fetch();?>
-          <a class="about-bg1" href="about.php?p=article&ref=publicmedia&id=<?php echo $row['id']; ?>">
+          <a class="about-bg1" href="http://www.chinaqw.com/hqhr/2017/08-15/157524.shtml" target="_blank">
 			<div class="about-txt"><?php echo $row['title_ch']; ?></div>
 		  </a>
         </li>
