@@ -216,7 +216,7 @@
 	<script>
 	var time = new Date();
     var to_time = String(time.getFullYear())+String(PrefixInteger(time.getMonth()+1))+String(PrefixInteger(time.getDate()));
-    $('#corp').html(String(time.getFullYear())+'   ANTWERPEN');
+    //$('#corp').html(String(time.getFullYear())+'   ANTWERPEN');
     $('#tranc_date').val(to_time);
     $('#invoice_no').val(invoiceNo());
 	var no = getUrlParam('id');
