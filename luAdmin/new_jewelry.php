@@ -78,7 +78,7 @@ if(isset($_POST['category']) && isset($_POST['name_ch'])){
 	$text_ch = $_POST['content_ch'];
 	
 	$sql_insert='INSERT INTO jewelry (category, jclass,brand, name_en, name_ch, image1, image2, image3, image4, image5, image6, image7, image8, videolink, text_en, text_ch, online_retail, online_agency, online_wholesale, price,color_type) 
-	VALUES(:category, :brand, :name_en, :name_ch, :image1, :image2, :image3, :image4, :image5, :image6, :image7, :image8, :videolink, :text_en, :text_ch, :online_retail, :online_agency, :online_wholesale, :price,:color_type)';
+	VALUES(:category, :jclass,:brand, :name_en, :name_ch, :image1, :image2, :image3, :image4, :image5, :image6, :image7, :image8, :videolink, :text_en, :text_ch, :online_retail, :online_agency, :online_wholesale, :price,:color_type)';
 	
 	$stmt=$conn->prepare($sql_insert);	  
 	$stmt->bindParam(':category', $category, PDO::PARAM_STR);
