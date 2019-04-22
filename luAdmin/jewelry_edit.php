@@ -57,6 +57,7 @@ foreach($conn->query($sql_get) as $row){
 	$image6 = $row['image6'];
 	$image7 = $row['image7'];
 	$image8 = $row['image8'];
+	$price=$row['price'];
 	$videolink = $row['videolink'];
 	$text_en = $row['text_en'];
 	$text_ch = $row['text_ch'];
@@ -110,8 +111,6 @@ if(isset($_POST['category']) && isset($_POST['name_ch'])){
 	}
 	if(isset($_POST['price'])){
 		$price=$_POST['price'];
-	}else{
-		$price=NULL;
 	}
 	$sql_update='UPDATE jewelry SET category = ?, jclass=?,brand = ?, name_en = ?, name_ch = ?, image1 = ?, image2 = ?, image3 = ?, image4 = ?, image5 = ?, image6 = ?, image7 = ?, image8 = ?, videolink = ?, text_en = ?, text_ch = ?, online_retail = ?, online_agency = ?, online_wholesale = ?, price = ? WHERE id = ?';
 	$stmt=$conn->prepare($sql_update);	  
@@ -119,7 +118,6 @@ if(isset($_POST['category']) && isset($_POST['name_ch'])){
 	$OK=$stmt->rowCount();
 	if($OK){
 		$message_db="更新成功";
-		//echo "db ok";
 	}else{
 		//echo "db no ok";
 		$error=$stmt->errorInfo();
