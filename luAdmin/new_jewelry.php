@@ -38,6 +38,7 @@ if(isset($_POST['category']) && isset($_POST['name_ch'])){
 	include('nuke_magic_quotes.php');
 	//    videolink  
 	$category = $_POST['category'];
+	$jclass = $_REQUEST['jclass'];
 	$brand = $_POST['brand'];
 	
 	if(isset($_POST['online_retail']) && $_POST['online_retail']=='YES'){
@@ -76,11 +77,12 @@ if(isset($_POST['category']) && isset($_POST['name_ch'])){
 	$text_en = $_POST['content_en'];
 	$text_ch = $_POST['content_ch'];
 	
-	$sql_insert='INSERT INTO jewelry (category, brand, name_en, name_ch, image1, image2, image3, image4, image5, image6, image7, image8, videolink, text_en, text_ch, online_retail, online_agency, online_wholesale, price,color_type) 
+	$sql_insert='INSERT INTO jewelry (category, jclass,brand, name_en, name_ch, image1, image2, image3, image4, image5, image6, image7, image8, videolink, text_en, text_ch, online_retail, online_agency, online_wholesale, price,color_type) 
 	VALUES(:category, :brand, :name_en, :name_ch, :image1, :image2, :image3, :image4, :image5, :image6, :image7, :image8, :videolink, :text_en, :text_ch, :online_retail, :online_agency, :online_wholesale, :price,:color_type)';
 	
 	$stmt=$conn->prepare($sql_insert);	  
 	$stmt->bindParam(':category', $category, PDO::PARAM_STR);
+	$stmt->bindParam(':jclass', $jclass, PDO::PARAM_STR);
 	$stmt->bindParam(':brand', $brand, PDO::PARAM_STR);
 	$stmt->bindParam(':name_en', $name_en, PDO::PARAM_STR);
 	$stmt->bindParam(':name_ch', $name_ch, PDO::PARAM_STR);
@@ -375,6 +377,13 @@ foreach($conn->query($sql_cate) as $row_c){
 <?php
 }
 ?>
+</select>
+<label>子类</label>
+<select name="jclass"  style="font-size:16px;">
+<option value="undefined">请选择...</option>
+<option value="jy" <?php if(strcmp($jclass,'jy')==0) echo 'selected="selected"';?>>简约独钻</option>
+<option value="sh" <?php if(strcmp($jclass,'sh')==0) echo 'selected="selected"';?>>奢华群镶</option>
+<option value="yx" <?php if(strcmp($jclass,'yx')==0) echo 'selected="selected"';?>>异形美钻</option>
 </select>
 
 <a href="list_jewelrycates.php" style="position:relative; display:inline-block; background-color:#FC0; padding:2px 8px; text-decoration:none; margin-left:20px; color:#FFF;">编辑类别</a>
