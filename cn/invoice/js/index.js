@@ -418,7 +418,7 @@ function invoiceNo(){
  * @param ref
  */
 function ref(to,ref){
-    var url = '../action.php?action=fetchDia&currency='+currency;
+    var url = 'http://www.lumiagem.com/cn/action.php?action=fetchDia&currency='+currency;
     var html = '';
     var price = '';
     $.ajax({
