@@ -125,7 +125,8 @@ function PrefixInteger(num) {
  * 保存信息
  */
 function saveOrUpdate(type){
-    var data = {
+	console.log($("#currency").val());
+	var data = {
         'id':trancId,'name':$('#name').val(),'tax_rebate':$('#tax_rebate').val(),'notes':$('#notes').val(),
         'passport':$('#passport').val(),'tel':$('#tel').val(),
         'street':$('#street').val(),'email':$('#email').val(),
@@ -472,7 +473,6 @@ function currencyRate(to) {
 	}
 	currency=to;
 	$("#currency").val(to);
-	console.log($("#currency").val());
 	total();
 }
 /**

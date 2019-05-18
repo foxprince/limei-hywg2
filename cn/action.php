@@ -842,20 +842,20 @@ function sendSms($phone,$contentArray) {
 	return $content;
 }
 function getTrancOrOfferte() {
-	if($_SERVER['HTTP_HOST']=='47.244.14.210'||strpos($_SERVER['HTTP_HOST'], 'lumiagem.com')||strpos($_SERVER['HTTP_HOST'], 'localhost:8000'))
-		return "transaction";
+	if($_SERVER['HTTP_HOST']=='39.106.114.214:8071')
+		return "offerte";
 	else 
 		return "transaction";
 }
 function getTrancType() {
-	if($_SERVER['HTTP_HOST']=='47.244.14.210'||strpos($_SERVER['HTTP_HOST'], 'lumiagem.com')||strpos($_SERVER['HTTP_HOST'], 'localhost:8000'))
-		return "invoice";
-	else
+	if($_SERVER['HTTP_HOST']=='39.106.114.214:8071')
 		return "offerte";
+	else
+		return "invoice";
 }
 function getTrancOrOfferteDetail() {
-	if($_SERVER['HTTP_HOST']=='47.244.14.210'||strpos($_SERVER['HTTP_HOST'], 'lumiagem.com')||strpos($_SERVER['HTTP_HOST'], 'localhost:8000'))
-		return "tranc_detail";
+	if($_SERVER['HTTP_HOST']=='39.106.114.214:8071')
+		return "offerte_detail";
 	else
 		return "tranc_detail";
 }

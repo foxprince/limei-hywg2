@@ -289,7 +289,7 @@
    			     	    html += "<div class='form-group clearfix'>";
    			     	    html += "<label class='col-sm-2 col-xs-3  control-label'>Model</label>";
    			     	    html += "<div class='col-sm-10 col-xs-9'>";
-   			     	    html += "<select id='form_model' class='shape form-control'>";console.log(j.shape);
+   			     	    html += "<select id='form_model' class='shape form-control'>";
    			     	    html += "<option value='-'  "+(j.shape=='-' ? 'selected':'')+">-</option>";
    			     	    html += "<option value='BR' "+(j.shape=='BR'? 'selected':'')+">Round Brilliant</option>";
    			     	    html += "<option value='PR' "+(j.shape=='PR'? 'selected':'')+">Pear</option>";
