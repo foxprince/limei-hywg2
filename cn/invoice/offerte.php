@@ -119,7 +119,7 @@
 									<img src="images/eur.png" id="eurImg" onclick="currencyRate('EUR')"/>
 					              	<img src="images/cny.png" id="cnyImg" onclick="currencyRate('CNY')"/>
 					              	<img src="images/amr.png" id="usdImg" onclick="currencyRate('USD')"/>
-					                
+					                <input type="hidden" name="currency" id="currency" value="EUR"/>
 				           		</span>
 							</div>
 							<div class="form-group col-xs-5">
