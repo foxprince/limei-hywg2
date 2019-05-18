@@ -227,8 +227,9 @@
             type: "GET",
             dataType: 'json',
             success: function (data) {
-            	var json=eval(data),to=json.trancDetail.currency,currencyHint='€';
+            	var json=eval(data),to=json.trancDetail.currency;//,currencyHint='€';
    				var html = '';
+   				currency=to;
    				if(to=='CNY'){
    					currencyHint = '￥';$('#cnyImg').addClass("selected");
    				}else if(to=='EUR'){

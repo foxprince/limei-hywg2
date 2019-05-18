@@ -343,7 +343,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
 		var taxConfirm=null;
         function query(page){
             let query ='../action.php?action=trancList&type=offerte&sort='+$sorting+"&sortDirection="+$sorting_direction;
-            let type = $('#type').val();
+            //let type = $('#type').val();
             let name = $('#custom').val();
             let start = $('#start').val();
             let end = $('#end').val();
@@ -351,9 +351,6 @@ if(!isset($_SESSION['invoiceAdmin'])) {
             let url = query +'&page=' + page;
             if(null!==taxConfirm){
                 url += '&taxConfirm=' + taxConfirm;
-            }
-            if(''!==type){
-                url += '&type=' + type;
             }
             if(''!==$('#currency').val()){
                 url += '&currency=' + $('#currency').val();
