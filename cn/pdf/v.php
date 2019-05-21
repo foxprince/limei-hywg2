@@ -21,7 +21,7 @@ $certNo = $_REQUEST['certNo'];
 $destination = '../../labpdf/'.$lab.'_'.$certNo.'.pdf';
 if(!file_exists($destination)) {
 	if($lab=='HRD')
-		$certi_linker="http://ws2.hrdantwerp.com/HRD.CertificateService.WebAPI/certificate?certificateType=MCRT&certificateNumber=". $certNo;
+		$certi_linker="http://ws2.hrdantwerp.com/HRD.CertificateService.WebAPI/certificate?certificateType=CERT&certificateNumber=". $certNo;
 	else if($lab=='GIA') {
 		$certi_linker="https://api.checkgems.com/api/v2/certs/GIA/".$certNo.".pdf";
 		//$url="https://www.gia.edu/report-check?reportno=".$certNo;
