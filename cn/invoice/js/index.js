@@ -419,13 +419,13 @@ function invoiceNo(){
  * @param ref
  */
 function ref(to,ref){
-    var url = '../action.php?action=fetchDia&currency='+currency;
+    var url = '../action.php?action=fetchDia&currency='+currency+'&ref='+ref;
     var html = '';
     var price = '';
     $.ajax({
-        url:url,
-        type:'post',
-        data:{ref:ref},
+        url:url+"",
+        type:'get',
+        //data:{ref:ref},
         dataType:'json',
         async:false,
         success:function(data){
