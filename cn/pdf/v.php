@@ -62,7 +62,7 @@ if(!file_exists($destination)) {
                 </script>
                 <script src="js/default.js">
                 </script>
-                <script src="js/pdf.js">
+                <script src="pdf/build/pdf.js">
                 </script>
             </link>
         </meta>
