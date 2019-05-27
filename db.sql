@@ -17,7 +17,7 @@ create table transaction(
   	tax_rebate varchar(10) null,
   	tax_confirm int(1) default 0 null,
   	notes	varchar(255) null,
-	ctime datetime not null,
+	create_time datetime not null,
 	tel varchar(21) null,
 	email varchar(50) null
 );
@@ -38,10 +38,12 @@ create table offerte(
   	tax_rebate varchar(10) null,
   	tax_confirm int(1) default 0 null,
   	notes	varchar(255) null,
-	ctime datetime not null,
+	create_time datetime not null,
 	tel varchar(21) null,
 	email varchar(50) null
 );
+alter table offerte change ctime create_time datetime not null;
+alter table offerte_detail change ctime create_time datetime not null;
 alter table transaction add tel varchar(21) null;
 alter table transaction add email varchar(50) null;
 drop table receipt;
