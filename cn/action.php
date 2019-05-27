@@ -582,12 +582,12 @@ if($_REQUEST['action']) {
 			echo $rate;
 				break;
 		case "fetchDia":
-			//if($_SERVER['HTTP_HOST']=='39.106.114.214:8071') {
+			if($_SERVER['HTTP_HOST']=='39.106.114.214:8071') {
 				$url='http://www.lumiagem.com/cn/action.php?action=fetchDia&ref='.$_REQUEST["ref"].'&currency='.$_REQUEST['currency'];
 				echo file_get_contents($url);
-			//}
-			//else
-				//echo fetchDia($_REQUEST['ref'],$_REQUEST['currency']);
+			}
+			else
+				echo fetchDia($_REQUEST['ref'],$_REQUEST['currency']);
 			break;
 		case "invoiceNo":
 			$transactionNo = 1;
