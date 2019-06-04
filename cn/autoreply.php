@@ -145,16 +145,16 @@ if(preg_match($pattern_ref, $crr_message)){
 			}
 			
 			$user_unit='e';
-			if(startsWith($str_price_unit, '美')||$str_price_unit=='美金' || $str_price_unit=='美元' || $str_price_unit=='d' || $str_price_unit=='D'){
+			if(strpos($str_price_unit, '美')==0||$str_price_unit=='美金' || $str_price_unit=='美元' || $str_price_unit=='d' || $str_price_unit=='D'){
 				$searchprice=$queryprice;
 				$user_unit='d';
-			}else if(startsWith($str_price_unit, '人民币')||$str_price_unit=='人民币' || $str_price_unit=='元' || $str_price_unit=='y' || $str_price_unit=='Y'){
+			}else if(strpos($str_price_unit, '人民币')==0||$str_price_unit=='人民币' || $str_price_unit=='元' || $str_price_unit=='y' || $str_price_unit=='Y'){
 				$searchprice=$queryprice/$USD_CNY;
 				$user_unit='y';
-			}else if(startsWith($str_price_unit, '欧元')||$str_price_unit=='欧元' || $str_price_unit=='欧' || $str_price_unit=='e' || $str_price_unit=='E'){
+			}else if(strpos($str_price_unit, '欧元')==0||$str_price_unit=='欧元' || $str_price_unit=='欧' || $str_price_unit=='e' || $str_price_unit=='E'){
 				$searchprice=$queryprice/$USD_EUR;
 				$user_unit='e';
-			}else if(startsWith($str_price_unit, '英镑')||$str_price_unit=='英镑' || $str_price_unit=='镑' || $str_price_unit=='p' || $str_price_unit=='P'){
+			}else if(strpos($str_price_unit, '英镑')==0||$str_price_unit=='英镑' || $str_price_unit=='镑' || $str_price_unit=='p' || $str_price_unit=='P'){
 				$searchprice=$queryprice/$USD_GBP;
 				$user_unit='p';
 			}
