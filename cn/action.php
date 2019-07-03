@@ -159,13 +159,14 @@ if($_REQUEST['action']) {
 			$_SESSION['offerteCode'] = $num;
 			//发短信
 			$msg = '【利美钻石】OFFERTE登录验证码为'.$num;
+			logger($msg);
 			tencentSms('8613701678955',$msg);
 			tencentSms('8613905822677',$msg);
 			break;
 		case "offerteLogin":
 			$code = $_REQUEST['code'];
 			logger('valid code:'.$code.$_SESSION['offerteCode']);
-			if($code==$_SESSION['offerteCode']) {
+			if($code&&$code==$_SESSION['offerteCode']) {
 				$password=$_POST['password'];
 				if(($_POST['username']=='admin'&&$password=='1qsxzse$')||($_POST['username']=='iadmin'&&$password=='1q2w#E$R')){
 					$_SESSION['invoiceAdmin']=$_POST['username'];
