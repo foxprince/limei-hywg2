@@ -69,7 +69,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                     <input type="text" id="reportNo" class="i_text" placeholder="证书编号">
                     <label for="" class="field">客户姓名</label>
                     <input type="text" id="custom" class="i_text" placeholder="客户姓名">
-                <button type="button" class="c_btn J_lookfor">查询</button><a class="c_btn " href="http://cn.lumiagem.com/cn/invoice/export.php">全部导出</a></p>
+                <button type="button" class="c_btn J_lookfor">查询</button><a class="c_btn " href="http://cn.lumiagem.com/cn/invoice/export.php?type=invoice">全部导出</a></p>
             </form>
             <table class="t_data">
             	<thead>
@@ -91,17 +91,15 @@ if(!isset($_SESSION['invoiceAdmin'])) {
             	</tbody>
             	<tfoot>
             		<tr>
-            			<td colspan="10"></td>
+            			<td colspan="7"></td>
             			<td>合计：</td>
-            			<td>&yen;<span id='totalprice'>0.00</span></td>
+            			<td><span id='totalEurPrice'>€ 0.00</span></td><td><span id='totalUsdPrice'>$ 0.00</span></td><td><span id='totalCnyPrice'>￥ 0.00</span></td>
             			<td></td>
             		</tr>
             	</tfoot>
             </table>
         </main>
     </div>
-
-
                 <!--print 打印-->
             <div class="row lnvoice-row white_content" id="makeOrder"  style="display: none">
                 <div class="l-close"><a class="btn" href="javascript:;" onclick="popToggle()"><img src="../images/close.png"></a></div>
@@ -382,7 +380,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                 dataType: 'json',
                 timeout: 5000,
                 success: function (json) {
-                    var totalprice = 0;
+                    var totalEurPrice = 0,totalCnyPrice = 0,totalUsdPrice = 0;
                     $('.J_databody').html('');
                     total = json.total;
                     total_pages = json.total_pages;
@@ -414,10 +412,17 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                         +'<td>' + json.list[i].currency +'</td>'
                         +'<td>'+ (tprice) +'</td>'
                         +'<td>' + (json.list[i].type=='invoice'?json.list[i].vat_price:"--") +'</td><td><div class="pl"><a trancId="'+json.list[i].id+'" href="index.php?id='+json.list[i].id+'" target="_blank"class="modify J_modify">修改</a></div></td><td><p class="o_box J_o_box"><button trancId="'+json.list[i].id+'"  class="deleteTranc t_operate" onclick="deleteTranc(this,'+json.list[i].id+')">删除</button></p></td></tr>';
-                        totalprice += parseInt(tprice);
+						if(json.list[i].currency=='EUR')
+                        		totalEurPrice += parseFloat(tprice);
+						if(json.list[i].currency=='CNY')
+                    			totalCnyPrice += parseFloat(tprice);
+						if(json.list[i].currency=='USD')
+                    			totalUsdPrice += parseFloat(tprice);
                         $('.J_databody').append(temp);
-                        $('#totalprice').html(totalprice);
                     }
+                    $('#totalEurPrice').html('€ '+totalEurPrice);
+                    $('#totalCnyPrice').html('¥ '+  totalCnyPrice);
+                    $('#totalUsdPrice').html('$ '+  totalUsdPrice);
                     if(pageflag){
                        listpage(total,total_pages);
                     }

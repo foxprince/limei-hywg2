@@ -48,7 +48,7 @@ $styleArray = [
 //设置单元格样式
 $worksheet->getStyle('A1')->applyFromArray($styleArray)->getFont()->setSize(28);
 $worksheet->getStyle('A2:E2')->applyFromArray($styleArray)->getFont()->setSize(14);
-$sql='select * from transaction order by tranc_date desc';
+$sql='select * from transaction where type="'.$_REQUEST["type"].'" order by tranc_date desc';
 $stmt = $conn->query($sql);
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $len = count($rows);
