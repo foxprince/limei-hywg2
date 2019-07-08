@@ -4,8 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title></title>
-		
+		<title>INVOICE-LUMIA</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/index.css">
 		<link rel="stylesheet" href="css/print.css">
@@ -19,10 +18,27 @@
 				background: #f9f9f9;
 				border-color: #e4e4e4;
 			}
-			
 		</style>
 	</head>
-
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="currencyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myModalLabel">
+					请选择币种
+				</h4>
+			</div>
+			<div class="modal-body" style="left:33%;">
+				<span >
+					<img class="modalCurr" src="images/eur.png" id="eurImg" onclick="currencyRate('EUR',true)"/>
+					<img class="modalCurr" src="images/cny.png" id="cnyImg" onclick="currencyRate('CNY',true)"/>
+					<img class="modalCurr" src="images/amr.png" id="usdImg" onclick="currencyRate('USD',true)"/>
+				</span>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
 	<body>
 		<div class="container-fluid">
 			<!--正文-->
@@ -120,7 +136,6 @@
 									<img src="images/eur.png" id="eurImg" onclick="currencyRate('EUR')"/>
 					              	<img src="images/cny.png" id="cnyImg" onclick="currencyRate('CNY')"/>
 					              	<img src="images/amr.png" id="usdImg" onclick="currencyRate('USD')"/>
-					                
 				           		</span>
 							</div>
 							<div class="form-group col-xs-5">
@@ -214,6 +229,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/index.js"></script>
 	<script>
+	$('#currencyModal').modal('show');
 	var time = new Date();
     var to_time = String(time.getFullYear())+String(PrefixInteger(time.getMonth()+1))+String(PrefixInteger(time.getDate()));
     //$('#corp').html(String(time.getFullYear())+'   ANTWERPEN');

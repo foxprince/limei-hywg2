@@ -449,9 +449,10 @@ function ref(to,ref){
 $(".currency img").click(function () {
     $(this).addClass("selected").siblings().removeClass("selected");
 })
-function currencyRate(to) {
+function currencyRate(to,first) {
+	$(this).addClass("selected").siblings().removeClass("selected");
 	var totals = 0;
-	if(to!=currency){
+	if(to!=currency&&!first){
 		$.ajaxSetup({  
 		    async : false  
 		});
@@ -474,6 +475,7 @@ function currencyRate(to) {
 	currency=to;
 	$("#currency").val(to);
 	total();
+	$('#currencyModal').modal('hide');
 }
 /**
  * 求和
