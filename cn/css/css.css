@@ -175,7 +175,7 @@ footer{ height:221px; background:url(../images/footbj.png) repeat-x; margin-top:
 .foot{width:870px; height:106px; margin:0 auto;}
 .f-left{height:106px; float:left;}
 .fo-left{width:330px; height:70px; float:left; margin-top:15px; line-height:14px;}
-.fo-cen{width:275px; height:70px; float:left; margin-top:15px; margin-left:50px;}
+.fo-cen{ height:70px; float:left; margin-top:15px; margin-left:50px;}
 .fo-right{width:205px; height:70px; margin-top:15px; float:right;}
 .f-right{width:108px; height:106px; float:right; box-shadow:0px 0px 15px 5px #d3d3d3;}
 .foot a{color:#999;}

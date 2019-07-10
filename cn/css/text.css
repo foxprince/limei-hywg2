@@ -250,7 +250,8 @@
 	width:1200px;
 	height:676px;
 	position:relative;
-	background:url("../images/aboutus2.png") no-repeat center center;
+	background:url("../images/aboutus.png") no-repeat center center;
+	background-size:1200px;
 }
 .trans{
 	width:285px;
