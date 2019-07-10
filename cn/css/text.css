@@ -248,7 +248,7 @@
 /*aboutus*/
 .div_aboutus{
 	width:1200px;
-	height:676px;
+	height:829px;
 	position:relative;
 	background:url("../images/aboutus.png") no-repeat center center;
 	background-size:1200px;
@@ -286,8 +286,8 @@
 	width:auto;
 	height:215px;
 	position:absolute;
-	top:110px;
-	left:470px;
+	top:56px;
+	left:361px;
 	color:#4f4747;
 }
 .div_tttel p{
@@ -297,8 +297,8 @@
 	width:133px;
 	height:132px;
 	position:absolute;
-	top:145px;
-	left:645px;
+	top:123px;
+	left:635px;
 	background:url("../images/kefuqrcode-medium.jpg") no-repeat center center;
 }
 

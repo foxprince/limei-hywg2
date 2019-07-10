@@ -10,7 +10,7 @@
 		<div class="div_aboutus">
 			<div class="div_tttel">
 				<p>无论现场咨询还是提货，Lumia钻石公司都欢迎您的亲临访问。</p>
-				<div style="width: 162px;">
+				<div>
 				<p>&nbsp;</p>
 				<p>中国地址：深圳市罗湖区南湖街道建设路东方广场1112</p>
           		<p>中国电话：+86 13905822677</p>
