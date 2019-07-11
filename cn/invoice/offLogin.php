@@ -71,7 +71,7 @@ if(isset($_REQUEST['quit'])){
                     <button type="button" class="getcode" onclick="sendCode(this)">获取验证码</button>
                 </p>
                 <input type="hidden" name="action" value="offerteLogin"/>
-                <p class="item "><button type="submit" id="login" value="Login" class="c_btn look_btn J_lookfor">登录</button></p>
+                <p class="item "><button type="submit" id="login" value="Login" class="c_btn look_btn J_lookfor">登  录</button></p>
             </form>
             
         </main>
