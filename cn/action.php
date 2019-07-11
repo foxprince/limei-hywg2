@@ -160,9 +160,9 @@ if($_REQUEST['action']) {
 			//发短信
 			$msg = '【利美钻石】OFFERTE登录验证码为'.$num;
 			logger($msg);
-			//tencentSms('8613701678955',$msg);
-			//tencentSms('8613905822677',$msg);
-			tencentSms('8613311032007',$msg);
+			tencentSms('8613701678955',$msg);
+			tencentSms('8613905822677',$msg);
+			//tencentSms('8613311032007',$msg);
 			break;
 		case "offerteLogin":
 			$code = $_REQUEST['code'];
