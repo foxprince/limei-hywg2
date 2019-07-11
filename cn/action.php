@@ -877,14 +877,13 @@ function tencentSms($phoneNumber,$msg) {
 			$phoneNumber = substr($phoneNumber,1);
 		//如果是国内短信
 		if(strpos($phoneNumber,"86")===0) {
-			logger("send sms:".$phoneNumber);
 			$phoneNumber = substr($phoneNumber,2);
 			$result = $ssender->send(0, "86", $phoneNumber,$msg, "", "");
+			logger("send sms:".$phoneNumber.':'.$result);
 		}
 		else {
-			logger("send isms:".$phoneNumber);
 			$result = $ssender->sendi(0, "", "+".$phoneNumber,$msg, "", "");
-			logger($result);
+			logger("send isms:".$phoneNumber.':'.$result);
 		}
 		$rsp = json_decode($result);
 		return $rsp;
