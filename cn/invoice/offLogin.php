@@ -95,7 +95,6 @@ function timer_Elapsed() {
     self.text('等待'+timer+'秒');
     if (timer <= 0) {
         timer = 60;
-        clearInterval(utils.config.clearInterval);
         self.removeClass('disabled');
         self.text("重新发送");
     }
