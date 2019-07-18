@@ -58,52 +58,37 @@ if(preg_match($pattern_ref, $crr_message)){
 			$USD_GBP=$row_currency['USD_GBP'];
 			$USD_CNY=$row_currency['USD_CNY'];
 		}
-		
-		//$shape
 		switch ($shape){
 			case "PR":
 			$shape_title="公主方";
 			break;
-			
 			case "EM":
 			$shape_title="祖母绿";
 			break;
-			
 			case "PS":
 			$shape_title="水滴";
 			break;
-			
 			case "HS":
 			$shape_title="心";
 			break;
-			
 			case "OV":
 			$shape_title="椭圆";
 			break;
-			
 			case "MQ":
 			$shape_title="橄榄";
 			break;
-			
 			case "RAD":
 			$shape_title="雷蒂恩";
 			break;
-			
 			case "CU":
 			$shape_title="枕";
 			break;
-			
 			default:
 			$shape_title="圆";
 		}
-		
-		
-		
 		$price_y=round($USD_CNY*$retail_price);
 		$price_euro=round($USD_EUR*$retail_price);
-		
 		$price_y_marketing=$price_y*2;
-		
 		$thefeedbackcontentforwechatuser=$holidaymessage."根据您提供的库存编号，我们为您找到了下列钻石:\n库存编号为 ".$crr_message.": 该钻石为".$shape_title."形；".$size."克拉，".$color."色，净度".$clarity."; 切工，抛光与对称性分别为：".$cut.", ".$polish.", ".$symmetry.$fluo_txt." 配有 ".$lab." 证书. 价格为 ".$price_euro."欧元 (".$price_y."人民币)。市场价:".$price_y_marketing."人民币。\n如果您有更多问题，欢迎与我们联系。\n客服微信：limeikefu\n电话：+32 (0)3 689 73 94";
 	}else{
 		$thefeedbackcontentforwechatuser='非常抱歉，我们没有找到符合与您所提供的库存编号相对应的钻石。'.'\n\n'.$holidaymessage;
@@ -145,16 +130,16 @@ if(preg_match($pattern_ref, $crr_message)){
 			}
 			
 			$user_unit='e';
-			if(strpos($str_price_unit, '美')==0||$str_price_unit=='美金' || $str_price_unit=='美元' || $str_price_unit=='d' || $str_price_unit=='D'){
+			if(strpos($str_price_unit, '美')>0||$str_price_unit=='美金' || $str_price_unit=='美元' || $str_price_unit=='d' || $str_price_unit=='D'){
 				$searchprice=$queryprice;
 				$user_unit='d';
-			}else if(strpos($str_price_unit, '人民币')==0||$str_price_unit=='人民币' || $str_price_unit=='元' || $str_price_unit=='y' || $str_price_unit=='Y'){
+			}else if(strpos($str_price_unit, '人民币')>0||$str_price_unit=='人民币' || $str_price_unit=='元' || $str_price_unit=='y' || $str_price_unit=='Y'){
 				$searchprice=$queryprice/$USD_CNY;
 				$user_unit='y';
-			}else if(strpos($str_price_unit, '欧元')==0||$str_price_unit=='欧元' || $str_price_unit=='欧' || $str_price_unit=='e' || $str_price_unit=='E'){
+			}else if(strpos($str_price_unit, '欧元')>0||$str_price_unit=='欧元' || $str_price_unit=='欧' || $str_price_unit=='e' || $str_price_unit=='E'){
 				$searchprice=$queryprice/$USD_EUR;
 				$user_unit='e';
-			}else if(strpos($str_price_unit, '英镑')==0||$str_price_unit=='英镑' || $str_price_unit=='镑' || $str_price_unit=='p' || $str_price_unit=='P'){
+			}else if(strpos($str_price_unit, '英镑')>0||$str_price_unit=='英镑' || $str_price_unit=='镑' || $str_price_unit=='p' || $str_price_unit=='P'){
 				$searchprice=$queryprice/$USD_GBP;
 				$user_unit='p';
 			}
