@@ -20,8 +20,6 @@
           <p>利美钻石专注于<a href="about.php?p=knowledge">安特卫普钻石</a>和<a href="about.php?p=knowledge">比利时钻石</a></p>
         </div>
         <div class="fo-cen">
-          <p>中国地址：深圳市罗湖区南湖街道建设路东方广场1112</p>
-          <p>中国电话：+86 13905822677</p>
           <p>地址：<a href="http://map.baidu.com/?latlng=51.215356,4.420171&title=我们在这里&content=Pelikaanstraat 62,2018 Antwerp Belgium&autoOpen=true&l" ><b>Pelikaanstraat 62,2018 Antwerp Belgium</b></a></p>
           <p>电话：<a href="tel:+32(0)36897394"><b><u>+32（0）3689 7394</u></b></a></p>
           <p>邮箱：<a href="mailto:info@lumiagem.com"><b>info@lumiagem.com</b></a></p>
