@@ -166,7 +166,6 @@ if($_REQUEST['action']) {
 			break;
 		case "offerteLogin":
 			$code = $_REQUEST['code'];
-			logger('valid code:'.$code.$_SESSION['offerteCode']);
 			if($code&&$code==$_SESSION['offerteCode']) {
 				$password=$_POST['password'];
 				if(($_POST['username']=='admin'&&$password=='1qsxzse$')||($_POST['username']=='iadmin'&&$password=='1q2w#E$R')){
