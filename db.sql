@@ -156,3 +156,5 @@ create table customer_order (
 );
 
 alter table jewelry add jclass varchar(10) null;
+
+alter table diamonds modify sold_status varchar(18) not null default 'AVAILABLE';
