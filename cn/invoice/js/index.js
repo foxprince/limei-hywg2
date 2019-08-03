@@ -168,7 +168,7 @@ function saveOrUpdate(type){
     	        	  	if(data){
     	                  alert('保存成功')
     	                  strs=data.split(",")
-    	                  trancId = strs[0];
+    	                  trancId = strs[0].trim();
     	                  $('#invoice_no').val(strs[1]);
     	              }else{
     	                  alert('网络错误，请检查信息并重试')
