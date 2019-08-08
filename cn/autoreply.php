@@ -6,7 +6,7 @@ echo autoreply($_REQUEST['u'],$_REQUEST['m']);
 // $msg = $_REQUEST("keyword");
 //echo(autoreply($user,$msg));
 function autoreply($crr_c_o_id,$crr_message){
-//$holidaymessage='温馨提示：我公司于7月29日至8月16日放假。查询系统照常工作。如有任何问题，请给我们的客服微信留言：limeikefu 我们会在8月16日以后尽快联系您。 \n\n';
+//$holidaymessage='温馨提示：我公司于7月29日至8月16日放假。查询系统照常工作。如有任何问题，请给我们的客服微信留言：limeikefu02 我们会在8月16日以后尽快联系您。 \n\n';
 $holidaymessage='';
 $pattern_ref = '/^[Kk]*[0-9]+$/';
 $conn = dbConnect ( 'write', 'pdo' );
@@ -89,7 +89,7 @@ if(preg_match($pattern_ref, $crr_message)){
 		$price_y=round($USD_CNY*$retail_price);
 		$price_euro=round($USD_EUR*$retail_price);
 		$price_y_marketing=$price_y*2;
-		$thefeedbackcontentforwechatuser=$holidaymessage."根据您提供的库存编号，我们为您找到了下列钻石:\n库存编号为 ".$crr_message.": 该钻石为".$shape_title."形；".$size."克拉，".$color."色，净度".$clarity."; 切工，抛光与对称性分别为：".$cut.", ".$polish.", ".$symmetry.$fluo_txt." 配有 ".$lab." 证书. 价格为 ".$price_euro."欧元 (".$price_y."人民币)。市场价:".$price_y_marketing."人民币。\n如果您有更多问题，欢迎与我们联系。\n客服微信：limeikefu\n电话：+32 (0)3 689 73 94";
+		$thefeedbackcontentforwechatuser=$holidaymessage."根据您提供的库存编号，我们为您找到了下列钻石:\n库存编号为 ".$crr_message.": 该钻石为".$shape_title."形；".$size."克拉，".$color."色，净度".$clarity."; 切工，抛光与对称性分别为：".$cut.", ".$polish.", ".$symmetry.$fluo_txt." 配有 ".$lab." 证书. 价格为 ".$price_euro."欧元 (".$price_y."人民币)。市场价:".$price_y_marketing."人民币。\n如果您有更多问题，欢迎与我们联系。\n客服微信：limeikefu02\n电话：+32 (0)3 689 73 94";
 	}else{
 		$thefeedbackcontentforwechatuser='非常抱歉，我们没有找到符合与您所提供的库存编号相对应的钻石。'.'\n\n'.$holidaymessage;
 	}
@@ -400,7 +400,7 @@ if(preg_match($pattern_ref, $crr_message)){
 					$thefeedbackcontentforwechatuser.="实惠优选：\n库存编号：".$ref."\n重量：".$size."克拉，颜色：".$color."，净度：".$clarity."\n切工、抛光与对称性分别：".$cut."、".$polish."、".$symmetry."，荧光：".$fluo_txt."\n".$lab." 证书. 价格：".$user_price."。（市场价：".$user_price_marketing."）\n\n";
 				}
 				
-				$thefeedbackcontentforwechatuser.='如果您有其他问题，欢迎与我们联系。\n客服微信：limeikefu\n电话：+32 (0)3 689 73 94';
+				$thefeedbackcontentforwechatuser.='如果您有其他问题，欢迎与我们联系。\n客服微信：limeikefu02\n电话：+32 (0)3 689 73 94';
 			}else{
 				$thefeedbackcontentforwechatuser='非常抱歉，我们无法确定您所选的货币，请重试。'.'\n\n'.$holidaymessage;
 			}
@@ -712,7 +712,7 @@ if(preg_match($pattern_ref, $crr_message)){
 				}
 			}
 			
-			$thefeedbackcontentforwechatuser.="如果您有更多问题，欢迎与我们联系。\n客服微信：limeikefu\n电话：+32 (0)3 689 73 94";
+			$thefeedbackcontentforwechatuser.="如果您有更多问题，欢迎与我们联系。\n客服微信：limeikefu02\n电话：+32 (0)3 689 73 94";
 		}else{
 			$thefeedbackcontentforwechatuser='抱歉，我们无法找到符合您要求的钻石，请调整挑选条件并重试。'.'\n\n'.$holidaymessage;;
 		}
@@ -736,7 +736,7 @@ if(preg_match($pattern_ref, $crr_message)){
 		else if($crr_message=="退税")
 			$thefeedbackcontentforwechatuser="<a href='https://mp.weixin.qq.com/s?__biz=MzIyNzA2NjE1OQ==&mid=2653292189&idx=1&sn=8d234951513212706149cc4797117a03&chksm=f3b44eddc4c3c7cb492de6e6abaa38fc4a1aca190b8935619fa69b075e670a93844f0420c54c&scene=21'>在Lumia购买钻石如何退21%全税？</a>";
 		else
-			$thefeedbackcontentforwechatuser="欢迎关注利美钻石，我们有24小时客服随时为您提供服务，欢迎添加利美客服号:limeikefu或致电 +32 (0)3 689 73 94\n<a href=\"https://mp.weixin.qq.com/s?__biz=MzIyNzA2NjE1OQ==&mid=2653294074&idx=2&sn=ccfd7b99c12a7ea7beb596877c4842b0&chksm=f3b445bac4c3ccacaa1e7f8045558d1b6ba247ab94764614c2c6103efe2268df25022bb9c1e4\">Lumia利美公众号使用指南﻿</a>";
+			$thefeedbackcontentforwechatuser="欢迎关注利美钻石，我们有24小时客服随时为您提供服务，欢迎添加利美客服号:limeikefu02或致电 +32 (0)3 689 73 94\n<a href=\"https://mp.weixin.qq.com/s?__biz=MzIyNzA2NjE1OQ==&mid=2653294074&idx=2&sn=ccfd7b99c12a7ea7beb596877c4842b0&chksm=f3b445bac4c3ccacaa1e7f8045558d1b6ba247ab94764614c2c6103efe2268df25022bb9c1e4\">Lumia利美公众号使用指南﻿</a>";
 		//exit();
 	}	
 }
