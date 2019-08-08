@@ -22,7 +22,24 @@
 			
 		</style>
 	</head>
-
+<div class="modal fade" id="currencyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="myModalLabel">
+					请选择币种
+				</h4>
+			</div>
+			<div class="modal-body" style="left:33%;">
+				<span >
+					<img class="modalCurr" src="images/eur.png" id="eurImg" onclick="currencyRate('EUR',true)"/>
+					<img class="modalCurr" src="images/cny.png" id="cnyImg" onclick="currencyRate('CNY',true)"/>
+					<img class="modalCurr" src="images/amr.png" id="usdImg" onclick="currencyRate('USD',true)"/>
+				</span>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
 	<body>
 		<div class="container-fluid">
 			<!--正文-->
@@ -211,6 +228,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/index.js"></script>
 	<script>
+	$('#currencyModal').modal('show');
 	var time = new Date();
     var to_time = String(time.getFullYear())+String(PrefixInteger(time.getMonth()+1))+String(PrefixInteger(time.getDate()));
     //$('#corp').html(String(time.getFullYear())+'   ANTWERPEN');

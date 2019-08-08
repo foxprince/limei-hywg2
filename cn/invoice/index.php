@@ -229,7 +229,7 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/index.js"></script>
 	<script>
-	$('#currencyModal').modal('show');
+	//$('#currencyModal').modal('show');
 	var time = new Date();
     var to_time = String(time.getFullYear())+String(PrefixInteger(time.getMonth()+1))+String(PrefixInteger(time.getDate()));
     //$('#corp').html(String(time.getFullYear())+'   ANTWERPEN');
