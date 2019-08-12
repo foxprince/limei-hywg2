@@ -415,7 +415,6 @@ if(!isset($_SESSION['invoiceAdmin'])) {
 						if(json.list[i].currency=='USD')
 	                			totalUsdPrice += parseFloat(tprice);
                         $('.J_databody').append(temp);
-                        $('#totalprice').html(totalprice);
                     }
                     $('#totalEurPrice').html('€ '+totalEurPrice);
                     $('#totalCnyPrice').html('¥ '+  totalCnyPrice);
