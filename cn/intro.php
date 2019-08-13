@@ -56,7 +56,7 @@ if (isset($_GET['c'])) {
 										<img src="images/toChina.jpg" style="max-width: 590px;" alt="直邮中国"/>
 										<?php }else if ($c == 'order') {?>
 										<img src="images/makeorder.jpg" style="max-width: 590px;" alt="预约购买"/>
-										<img src="images/csqrcode.jpg" width="50%" alt="利美客服二维码"/>
+										<img src="images/kefuqrcode.jpg" width="50%" alt="利美客服二维码"/>
 										<a href="tel:+32(0)36897394"><img src="images/cstel.jpg" width="50%" alt="利美客服电话"/></a>
 										<?php } else if ($c == 'maintain') {?>
 										<div style="text-align: center;">

@@ -33,7 +33,7 @@
 				<div  style="width:100%;height:100%;text-align:center;">
 		    		<p>在您选购钻石首饰的过程中如有疑问</p>
 			<p>欢迎致电或添加我们的客服微信号咨询</p>
-			<p>微信号limeikefu或直接扫描二维码添加</p>
+			<p>微信号limeikefu01或直接扫描二维码添加</p>
 					<div style="width:20%;display:inline-block;">
 		    		<img id="kefu" src="images/kefu.gif">
 		    		</div>

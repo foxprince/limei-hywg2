@@ -319,7 +319,7 @@ if($_REQUEST['action']) {
 					logger( 'Message has been sent');
 				}
 			}else{
-				$feedbackwords='请检查您输入的数据。如果还存在问题请联系我们客服微信号limeikefu。';
+				$feedbackwords='请检查您输入的数据。如果还存在问题请联系我们客服微信号limeikefu01。';
 			}
 			echo $feedbackwords;
 			break;

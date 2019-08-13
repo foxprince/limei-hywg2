@@ -139,7 +139,7 @@ if(preg_match($pattern_ref, $crr_message)){
 		
 		$price_y_marketing=$price_y*2;
 		
-		$thefeedbackcontentforwechatuser=$holidaymessage."根据您提供的库存编号，我们为您找到了下列钻石:\n库存编号为 ".$crr_message.": 该钻石为".$shape_title."形；".$size."克拉，".$color."色，净度".$clarity."; 切工，抛光与对称性分别为：".$cut.", ".$polish.", ".$symmetry.$fluo_txt." 配有 ".$lab." 证书. 价格为 ".$price_euro."欧元 (".$price_y."人民币)。市场价:".$price_y_marketing."人民币。\n如果您有更多问题，欢迎与我们联系。\n客服微信：limeikefu\n电话：+32 (0)3 689 73 94";
+		$thefeedbackcontentforwechatuser=$holidaymessage."根据您提供的库存编号，我们为您找到了下列钻石:\n库存编号为 ".$crr_message.": 该钻石为".$shape_title."形；".$size."克拉，".$color."色，净度".$clarity."; 切工，抛光与对称性分别为：".$cut.", ".$polish.", ".$symmetry.$fluo_txt." 配有 ".$lab." 证书. 价格为 ".$price_euro."欧元 (".$price_y."人民币)。市场价:".$price_y_marketing."人民币。\n如果您有更多问题，欢迎与我们联系。\n客服微信：limeikefu01\n电话：+32 (0)3 689 73 94";
 	}else{
 		$thefeedbackcontentforwechatuser='非常抱歉，我们没有找到符合与您所提供的库存编号相对应的钻石。'.'\n\n'.$holidaymessage;
 	}
@@ -449,7 +449,7 @@ if(preg_match($pattern_ref, $crr_message)){
 					$thefeedbackcontentforwechatuser.="实惠优选:\n库存编号为 ".$ref.": 该钻石为".$size."克拉，".$color."色，净度".$clarity."; 切工，抛光与对称性分别为：".$cut.", ".$polish.", ".$symmetry.$fluo_txt." 配有 ".$lab." 证书. 价格为 ".$user_price."（市场价:".$user_price_marketing."）。\n\n";
 				}
 				
-				$thefeedbackcontentforwechatuser.='如果您有更多问题，欢迎与我们联系。\n客服微信：limeikefu\n电话：+32 (0)3 689 73 94';
+				$thefeedbackcontentforwechatuser.='如果您有更多问题，欢迎与我们联系。\n客服微信：limeikefu01\n电话：+32 (0)3 689 73 94';
 			}else{
 				$thefeedbackcontentforwechatuser='非常抱歉，我们无法确定您所选的货币，请重试。'.'\n\n'.$holidaymessage;
 			}
@@ -767,7 +767,7 @@ if(preg_match($pattern_ref, $crr_message)){
 				}
 			}
 			
-			$thefeedbackcontentforwechatuser.="如果您有更多问题，欢迎与我们联系。\n客服微信：limeikefu\n电话：+32 (0)3 689 73 94";
+			$thefeedbackcontentforwechatuser.="如果您有更多问题，欢迎与我们联系。\n客服微信：limeikefu01\n电话：+32 (0)3 689 73 94";
 		}else{
 			$thefeedbackcontentforwechatuser='抱歉，我们无法找到符合您要求的钻石，请调整挑选条件并重试。'.'\n\n'.$holidaymessage;;
 		}

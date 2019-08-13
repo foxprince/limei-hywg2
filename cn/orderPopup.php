@@ -52,7 +52,7 @@ foreach($conn->query($user_info) as $r_u){
     		<div class="custm_serv">
 		    	<p>在您选购钻石首饰的过程中如有疑问</p>
 		    	<p>欢迎致电或添加我们的客服微信号咨询</p>
-		    	<p>微信号limeikefu或直接扫描二维码添加</p>
+		    	<p>微信号limeikefu01或直接扫描二维码添加</p>
 		   	</div>
     		</div>
     	
