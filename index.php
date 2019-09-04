@@ -7,15 +7,15 @@ try{
 	$html = file_get_contents($url);
 	$arr = json_decode($html);
 	if($arr[0]=='中国') {
-		header("Location: http://cn.lumiagem.com/index.html");
+		header("Location: https://www.lumiagem.com/index.html");
 		exit;
 	}
 	else {
-		header("Location: http://www.lumiagem.com/index.html");
+		header("Location: https://www.lumiagem.com/index.html");
 		exit;
 	}
 }catch(Exception $e){
-	header("Location: http://www.lumiagem.com/index.html");
+	header("Location: https://www.lumiagem.com/index.html");
 	exit;
 }
 function get_ip(){
