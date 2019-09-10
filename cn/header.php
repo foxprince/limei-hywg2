@@ -111,7 +111,7 @@ require_once('log.php');
     // set a cookie "id" to "12345"
     // usage: ec.set(key, value)
     if(Cookies.get('everUserId')===undefined) {
-    	Cookies.set("everUserId", guid(), { expires: 365,path: '/cn' }); 
+    	Cookies.set("everUserId", guid(), { expires: 365,path: '/' }); 
 		console.log(Cookies.get('everUserId'));
     }
 	</script>
