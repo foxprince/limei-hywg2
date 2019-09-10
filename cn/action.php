@@ -265,7 +265,7 @@ if($_REQUEST['action']) {
 						if($row_history['jewellery_id']>0)
 							$content .='<div class="pic_00"><img width=122 height=122 src="/images/sitepictures/'.$row_history['image1'].'"/>';
 						else
-							$content .='<div class="pic_00"><img src="/cn/images/pic_01.png"/>';
+							$content .='<div class="pic_00"><img src="/images/pic_01.png"/>';
 						$content .='</div>';
 						$content .= '<div class="detail">';
 						if($row_history['jewellery_id']>0)
@@ -287,11 +287,11 @@ if($_REQUEST['action']) {
 							//$certi_linker="https://api.checkgems.com/api/v2/certs/GIA/".$row["certificate_number"].".pdf";
 						}
 						if($row_history['grading_lab']=="HRD"){
-							$content .= '<a class="certi_linker" target="_black" href="'.$certi_linker.'" src="/cn/images/HRD.png" width="98" height="37" /></a>';
+							$content .= '<a class="certi_linker" target="_black" href="'.$certi_linker.'" src="/images/HRD.png" width="98" height="37" /></a>';
 						}else if($row_history['grading_lab']=='GIA'){
-							$content .= '<a class="certi_linker" target="_black" href="'.$certi_linker.'"><img id="gradinglabicon" src="/cn/images/GIA.png" width="98" height="37"/></a>';
+							$content .= '<a class="certi_linker" target="_black" href="'.$certi_linker.'"><img id="gradinglabicon" src="/images/GIA.png" width="98" height="37"/></a>';
 						} else if($row_history['grading_lab']=='IGI'){
-							$content .= '<a class="certi_linker" target="_black" href="'.$certi_linker.'"><img id="gradinglabicon" src="/cn/images/IGI.png" width="98" height="37"/></a>';
+							$content .= '<a class="certi_linker" target="_black" href="'.$certi_linker.'"><img id="gradinglabicon" src="/images/IGI.png" width="98" height="37"/></a>';
 						}
 						$content .= '<a class="certi_linker" target="_black" href="'.$certi_linker.'"><p>点击查看证书</p></a>';
 						$content .= '</div></div><hr>';
@@ -363,7 +363,7 @@ if($_REQUEST['action']) {
 			if(($_POST['username']=='admin'&&$password=='1qsxzse$')||($_POST['username']=='iadmin'&&$password=='1q2w#E$R')){
 				$_SESSION['invoiceAdmin']=$_POST['username'];
 				session_regenerate_id();
-				header("Location: /cn/invoice/list.php");
+				header("Location: /invoice/list.php");
 				exit('');
 			}else{
 				echo "密码错误";
@@ -542,7 +542,7 @@ if($_REQUEST['action']) {
 				}
 				else{
 					if($_SERVER['HTTP_HOST']=='39.106.114.214:8071') {
-						$url='http://www.lumiagem.com/cn/action.php?action=offerteRemoteActon&report_no='.$item["report_no"].'&name='.$obj['name'];
+						$url='http://www.lumiagem.com/action.php?action=offerteRemoteActon&report_no='.$item["report_no"].'&name='.$obj['name'];
 						$raw_price = file_get_contents($url);
 						logger( $url.' from lumiage:'.$raw_price);
 					}
@@ -583,7 +583,7 @@ if($_REQUEST['action']) {
 				break;
 		case "fetchDia":
 			if($_SERVER['HTTP_HOST']=='39.106.114.214:8071') {
-				$url='http://www.lumiagem.com/cn/action.php?action=fetchDia&ref='.$_REQUEST["ref"].'&currency='.$_REQUEST['currency'];
+				$url='http://www.lumiagem.com/action.php?action=fetchDia&ref='.$_REQUEST["ref"].'&currency='.$_REQUEST['currency'];
 				echo file_get_contents($url);
 			}
 			else
