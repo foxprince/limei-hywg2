@@ -21,7 +21,7 @@ foreach($conn->query($user_info) as $r_u){
 	$tel=$r_u['tel'];
 }
 ?>
-    <div class="l-input" id="appointmentDiv">
+<!--  <div class="l-input" id="appointmentDiv">
         <div class="linput" style="height: 30px;">
             <div class="linputs"><label>真实姓名：</label><input id="name" type="text" name="name" value="<?php echo $name;?>"/></div>
             <div class="rinputs"><label>电子邮件：</label><input id="email" type="text" name="email" value="<?php echo $email;?>"/></div>
@@ -39,19 +39,14 @@ foreach($conn->query($user_info) as $r_u){
         <div class="l-bottom" id="appointmentBottom">
 	        <input type="hidden" name="appointmentId" id="appointmentId"/>
 	        <a id="appointmentBtn" href="javascript:void(0);" onclick="appointment();" class="btn">确定预约</a> 
-    	</div>
+    	</div>-->
     	<div class="l-bottom " style="width:100%;height:100%;text-align:center;position:relative; padding-left:0; margin-left:0; left:0;">
     		<div class="custm_serv" style="width:1.5%;">在线客服</div>
     		<div class="custm_serv">
     		<img src="images/kefuqrcode.jpg" width="81" height="79">
     		</div>
     		<div class="custm_serv">
-    			<p><a href="callto://Belgem.antwerp"><img id="skype" src="images/skype.gif"></a></p>
-		    	<p><a href="tel:+32(0)36897394"><img id="phone" src="images/phone.gif"></a></p>
-    		</div>
-    		<div class="custm_serv">
-		    	<p>在您选购钻石首饰的过程中如有疑问</p>
-		    	<p>欢迎致电或添加我们的客服微信号咨询</p>
+		    	<p>如需咨询或预约请添加我们的客服</p>
 		    	<p>微信号limeikefu01或直接扫描二维码添加</p>
 		   	</div>
     		</div>
