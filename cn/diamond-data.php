@@ -182,7 +182,7 @@ switch ($sorting){
 }
 $ref=$_REQUEST['ref'];
 if($_REQUEST['ref']!=null)
-	$sql_count='SELECT COUNT(*) AS num FROM diamonds WHERE visiable=1  and status = "AVAILABLE" and (stock_ref LIKE "'.$ref.'" OR certificate_number = "'.$ref.'")';
+	$sql_count='SELECT COUNT(*) AS num FROM diamonds WHERE visiable=1  and status = "AVAILABLE" and (stock_ref LIKE "'.$ref.'" OR certificate_number = "'.$ref.'" or stock_num_rapnet = "' . $ref . '")';
 else
 	$sql_count='SELECT COUNT(*) AS num FROM diamonds WHERE visiable=1  and '.$query_shape.$query_color.$query_clarity.$query_cut.$query_polish.$query_sym.$query_fluo.$query_certi.$and.'(format(carat,2) >= '.$query_weight_from.' AND format(carat,2) <= '.$query_weight_to.') AND (price BETWEEN '.$query_price_from.' AND '.$query_price_to.') AND status = "AVAILABLE" '.$featured;
 foreach($conn->query($sql_count) as $num){
@@ -195,7 +195,7 @@ if ($page <= 0)
 
 /**/
 if($_REQUEST['ref']!=null)
-	$sql='SELECT * FROM diamonds WHERE visiable=1 and status = "AVAILABLE" and  (stock_ref LIKE "'.$ref.'" OR certificate_number = "'.$ref.'")';
+	$sql='SELECT * FROM diamonds WHERE visiable=1 and status = "AVAILABLE" and  (stock_ref LIKE "'.$ref.'" OR certificate_number = "'.$ref.'" or stock_num_rapnet = "' . $ref . '")';
 else	
 	$sql='SELECT * FROM diamonds WHERE visiable=1  and '.$query_shape.$query_color.$query_clarity.$query_cut.$query_polish.$query_sym.$query_fluo.$query_certi.$and.'(format(carat,2) >= '.$query_weight_from.' AND format(carat,2) <= '.$query_weight_to.') AND (price BETWEEN '.$query_price_from.' AND '.$query_price_to.') AND status = "AVAILABLE" '.$featured.' '.$query_sorting.' LIMIT '.$startfrom.', '.$pagesize;
 logger($sql);
