@@ -315,9 +315,9 @@ foreach($stmt as $row){
                         <p class="details_txt">
                             <span>荧光强度:<?php echo $row["fluorescence_intensity"];?></span>
                             <span> 所在地: <?php echo $row['country']; ?></span>
-                            <span>证书编号: <?php echo $row['certificate_number']; ?> &nbsp; &nbsp;<a class="certi_linker" target="_blank" href="aboutus.php">咨询客服</a></span>
+                            <span>证书编号: <?php echo $row['certificate_number']; ?> &nbsp; &nbsp;<a class="certi_linker" target="_blank" href="<?php echo $row['source']=='EXCEL'?$certi_linker:'aboutus.php'; ?>"><?php echo $row['source']=='EXCEL'?'咨询客服':'查看证书'; ?></a></span>
                             <span id="<?php echo $row['id'];?>_stock_ref">编号: <?php echo $row['stock_ref']; ?></span>
-                            <span class="price"><?php echo $morePrice ?></span>
+                            <span class="price"><?php echo $morePrice; ?></span>
                             <span class="btnforprice" onclick="popup('<?php echo $row['id']; ?>')">预约裸钻</span>
                             <span class="btnforprice" onclick="makeOrder('<?php echo $row['id']; ?>')">定制首饰</span>
                         </p>
