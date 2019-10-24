@@ -52,7 +52,7 @@ td{
 	display:inline-block;
 }
 </style>
-<script src="/cn/js/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery-1.11.2.min.js"></script>
 <script type="text/javascript">
 function deleteNEWS($id){
 	var theid=$id;

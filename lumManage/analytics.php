@@ -104,7 +104,7 @@ h1.pagetitle{
 
 </style>
 
-<script src="/cn/js/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery-1.11.2.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
 <script src="Chart.js"></script>
 </head>

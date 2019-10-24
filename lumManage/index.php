@@ -518,7 +518,7 @@ span.view_rawprice, p.companydetail, span.rawprice, span.more-detail{
 <link rel="stylesheet" href="http://edecenter.com/lab/jquery-ui.css" />
 
 
-<script src="/cn/js/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery-1.11.2.min.js"></script>
 <script src="http://edecenter.com/lab/jquery-ui.min.js"></script>
 
 </head>

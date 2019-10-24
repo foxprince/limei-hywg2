@@ -108,7 +108,7 @@ div.forcomments{
 	margin-top:20px;
 }
 </style>
-<script src="/cn/js/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery-1.11.2.min.js"></script>
 <script type="text/javascript" src="../fancyBox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 <script type="text/javascript" src="formplugin.js"></script>
 <script type="text/javascript">

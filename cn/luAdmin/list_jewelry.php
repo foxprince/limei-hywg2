@@ -70,7 +70,7 @@ a.modifybtn:hover{
 	color:#000;
 }
 </style>
-<script src="/cn/js/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery-1.11.2.min.js"></script>
 <script type="text/javascript">
 function delete_j($id){
 	var r=confirm("Are you sure to delete this submission ?");

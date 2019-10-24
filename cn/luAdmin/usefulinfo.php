@@ -70,7 +70,7 @@ a.editbtn:hover{
 	color:#000;
 }
 </style>
-<script src="/cn/js/jquery-1.11.2.min.js"></script>
+<script src="/js/jquery-1.11.2.min.js"></script>
 <script type="text/javascript">
 function delete_u($id){
 	var r=confirm("确实要删除这篇文章?");
