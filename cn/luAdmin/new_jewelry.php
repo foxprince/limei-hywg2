@@ -465,56 +465,56 @@ foreach($conn->query($sql_brand) as $row_b){
     <form action="uploadingimage.php" method="post" enctype="multipart/form-data" id="uploadImage1" class="uploadImage"> 
     <label>添加图片:</label>
         <input type="hidden" name="picturewhere" value="jewelry1" />
-        <img id="img1" width="58" src="../images/sitepictures/noimage.jpg" />
+        <img id="img1" width="58"  />
         <input type="file" name="image" id="image_selecting1" class="image_selecting">                
     </form>
     
      <form action="uploadingimage.php" method="post" enctype="multipart/form-data" id="uploadImage2" class="uploadImage"> 
      <label>添加图片:</label>
         <input type="hidden" name="picturewhere" value="jewelry2" />
-        <img id="img2" width="58" src="../images/sitepictures/noimage.jpg" />
+        <img id="img2" width="58"  />
         <input type="file" name="image" id="image_selecting2" class="image_selecting">                
     </form>
     
      <form action="uploadingimage.php" method="post" enctype="multipart/form-data" id="uploadImage3" class="uploadImage"> 
      <label>添加图片:</label>
         <input type="hidden" name="picturewhere" value="jewelry3" />
-        <img id="img3" width="58" src="../images/sitepictures/noimage.jpg" />
+        <img id="img3" width="58"  />
         <input type="file" name="image" id="image_selecting3" class="image_selecting">                
     </form>
     
      <form action="uploadingimage.php" method="post" enctype="multipart/form-data" id="uploadImage4" class="uploadImage"> 
      <label>添加图片:</label>
         <input type="hidden" name="picturewhere" value="jewelry4" />
-        <img id="img4" width="58" src="../images/sitepictures/noimage.jpg" />
+        <img id="img4" width="58"  />
         <input type="file" name="image" id="image_selecting4" class="image_selecting">                
     </form>
     
      <form action="uploadingimage.php" method="post" enctype="multipart/form-data" id="uploadImage5" class="uploadImage"> 
      <label>添加图片:</label>
         <input type="hidden" name="picturewhere" value="jewelry5" />
-        <img id="img5" width="58" src="../images/sitepictures/noimage.jpg" />
+        <img id="img5" width="58"  />
         <input type="file" name="image" id="image_selecting5" class="image_selecting">                
     </form>
     
      <form action="uploadingimage.php" method="post" enctype="multipart/form-data" id="uploadImage6" class="uploadImage"> 
      <label>添加图片:</label>
         <input type="hidden" name="picturewhere" value="jewelry6" />
-        <img id="img6" width="58" src="../images/sitepictures/noimage.jpg" />
+        <img id="img6" width="58"  />
         <input type="file" name="image" id="image_selecting6" class="image_selecting">                
     </form>
     
      <form action="uploadingimage.php" method="post" enctype="multipart/form-data" id="uploadImage7" class="uploadImage"> 
      <label>添加图片:</label>
         <input type="hidden" name="picturewhere" value="jewelry7" />
-        <img id="img7" width="58" src="../images/sitepictures/noimage.jpg" />
+        <img id="img7" width="58"  />
         <input type="file" name="image" id="image_selecting7" class="image_selecting">                
     </form>
     
      <form action="uploadingimage.php" method="post" enctype="multipart/form-data" id="uploadImage8" class="uploadImage"> 
      <label>添加图片:</label>
         <input type="hidden" name="picturewhere" value="jewelry8" />
-        <img id="img8" width="58" src="../images/sitepictures/noimage.jpg" />
+        <img id="img8" width="58"  />
         <input type="file" name="image" id="image_selecting8" class="image_selecting">                
     </form>
     
