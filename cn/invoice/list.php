@@ -393,7 +393,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
 	                        for(var j=0;j<json.list[i].detail_list.length;j++){
 	                        		var d = json.list[i].detail_list[j];
 	                        		var tprice = json.list[i].type=='invoice'?(json.list[i].total_price-json.list[i].vat_price):json.list[i].total_price;
-	                        		if(tprice>0) tprice=Number(tprice).toFixed(2);
+	                        		if(tprice>0) tprice=tprice;
 								if(d.type=='jew')
 									temp +='<li>'+d.jewerly+' | '+d.material+'</li>';
 								else
@@ -420,9 +420,9 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                     			totalUsdPrice += parseFloat(tprice);
                         $('.J_databody').append(temp);
                     }
-                    $('#totalEurPrice').html('€ '+totalEurPrice);
-                    $('#totalCnyPrice').html('¥ '+  totalCnyPrice);
-                    $('#totalUsdPrice').html('$ '+  totalUsdPrice);
+                    $('#totalEurPrice').html('€ '+Number(totalEurPrice).toFixed(2));
+                    $('#totalCnyPrice').html('¥ '+Number(totalCnyPrice).toFixed(2));
+                    $('#totalUsdPrice').html('$ '+Number(totalUsdPrice).toFixed(2));
                     if(pageflag){
                        listpage(total,total_pages);
                     }

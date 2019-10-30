@@ -416,9 +416,9 @@ if(!isset($_SESSION['invoiceAdmin'])) {
 	                			totalUsdPrice += parseFloat(tprice);
                         $('.J_databody').append(temp);
                     }
-                    $('#totalEurPrice').html('€ '+totalEurPrice);
-                    $('#totalCnyPrice').html('¥ '+  totalCnyPrice);
-                    $('#totalUsdPrice').html('$ '+  totalUsdPrice);
+                    $('#totalEurPrice').html('€ '+Number(totalEurPrice).toFixed(2));
+                    $('#totalCnyPrice').html('¥ '+Number(totalCnyPrice).toFixed(2));
+                    $('#totalUsdPrice').html('$ '+Number(totalUsdPrice).toFixed(2));
                     if(pageflag){
                        listpage(total,total_pages);
                     }
