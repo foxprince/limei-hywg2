@@ -69,7 +69,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                     <input type="text" id="reportNo" class="i_text" placeholder="证书编号">
                     <label for="" class="field">客户姓名</label>
                     <input type="text" id="custom" class="i_text" placeholder="客户姓名">
-                <button type="button" class="c_btn J_lookfor">查询</button><a class="c_btn " href="http://cn.lumiagem.com/cn/invoice/export.php?type=invoice">全部导出</a></p>
+                <button type="button" class="c_btn J_lookfor">查询</button><a class="c_btn " href="export.php?type=invoice">全部导出</a></p>
             </form>
             <table class="t_data">
             	<thead>
