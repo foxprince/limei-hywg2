@@ -42,10 +42,6 @@ create table offerte(
 	tel varchar(21) null,
 	email varchar(50) null
 );
-alter table offerte change ctime create_time datetime not null;
-alter table offerte_detail change ctime create_time datetime not null;
-alter table transaction add tel varchar(21) null;
-alter table transaction add email varchar(50) null;
 drop table receipt;
 create table tranc_detail(
 	id bigint not null primary key auto_increment,
@@ -55,6 +51,7 @@ create table tranc_detail(
 	shape	varchar(20) null,
 	color	varchar(20) null,
 	fancy	varchar(20) null,
+	fluorescence varchar(6) null comment '荧光强度'
 	grading_lab varchar(3) null,
 	carat float  NULL,
 	clarity varchar(10)  NULL,
@@ -69,9 +66,9 @@ create table tranc_detail(
   	jewerly_color varchar(10) null default 'White',
   	raw_price varchar(6) null comment '原价折扣'
 );
-alter table tranc_detail add jewerly_color varchar(10) null default 'White';
-alter table tranc_detail add raw_price varchar(6) null comment '原价折扣';
-update tranc_detail a, diamonds b set a.raw_price= b.raw_price where a.report_no=b.certificate_number and a.report_no is not null and a.report_no<>'';
+alter table tranc_detail add fluorescence varchar(6) null comment '荧光强度';
+alter table offerte_detail add fluorescence varchar(6) null comment '荧光强度';
+update tranc_detail a, diamonds b set a.fluorescence= b.fluorescence_intensity where a.report_no=b.certificate_number and a.report_no is not null and a.report_no<>'';
 select a.raw_price,b.raw_price,a.report_no,b.certificate_number from tranc_detail a, diamonds b where a.report_no=b.certificate_number and a.report_no is not null and a.report_no<>'';
 create table offerte_detail(
 	id bigint not null primary key auto_increment,
@@ -81,6 +78,7 @@ create table offerte_detail(
 	shape	varchar(20) null,
 	color	varchar(20) null,
 	fancy	varchar(20) null,
+	fluorescence varchar(6) null comment '荧光强度'
 	grading_lab varchar(3) null,
 	carat float  NULL,
 	clarity varchar(10)  NULL,

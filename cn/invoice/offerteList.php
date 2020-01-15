@@ -74,7 +74,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
             		<tr>
             			<th>日期<img class="sortImg" onclick="clickSort(this)" sort="tranc_date" src="../images/selebom.png"/></th>
             			<th>客户姓名<img class="sortImg" onclick="clickSort(this)" sort="name" src="../images/selebom.png"/></th>
-            			<th>重量|颜色|净度|证书</th>
+            			<th>重量|颜色|净度|荧光|证书</th>
             			<th>类型</th>
             			<th>编号<img class="sortImg" onclick="clickSort(this)" sort="invoice_no" src="../images/selebom.png"/></th>
             			<th>退税<img class="sortImg" onclick="clickSort(this)" sort="tax_rebate" src="../images/selebom.png"/></th>
@@ -393,7 +393,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
 								if(d.type=='jew')
 									temp +='<li>'+d.jewerly+' | '+d.material+'</li>';
 								else
-			                     	temp +='<li>'+d.carat+' | '+d.color+' | '+d.clarity+' | '+d.report_no+' | '+(d.type!='jew'?'(原价'+d.raw_price+')':'')+'</li>';
+			                     	temp +='<li>'+d.carat+' | '+d.color+' | '+d.clarity+' | '+d.fluorescence+' | '+d.report_no+' | '+(d.type!='jew'?'(原价'+d.raw_price+')':'')+'</li>';
                         		}
 						}
                         temp += '</ul></td>'

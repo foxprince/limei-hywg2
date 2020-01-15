@@ -143,6 +143,7 @@ function saveOrUpdate(type){
             'color':$(this).find('.color').find('option:selected').val(),
             'fancy':$(this).find('.fancy').find('option:selected').val(),
             'clarity':$(this).find('.clarity').find('option:selected').val(),
+            'fluorescence':$(this).find('.fluorescence').find('option:selected').val(),
             'grading_lab':$(this).find('.grading_lab').find('option:selected').val(),
             'cut_grade':$(this).find('.cut_grade').find('option:selected').val(),
             'polish':$(this).find('.polish').find('option:selected').val(),
@@ -229,6 +230,20 @@ function diaContent() {
 	    html += "</select>";
 	    html += "</div>";
 	    html += "</div>";
+	    
+	    html += "<div class='form-group clearfix'>";
+	    html += "<label class='col-sm-2 col-xs-3  control-label'>Fluorescence</label>";
+	    html += "<div class='col-sm-10 col-xs-9'>";
+	    html += "<select id='form_color' class='fancy form-control'>";
+	    html += "<option value='NON'>无</option>";
+	    html += "<option value='FNT'>弱</option>";
+	    html += "<option value='MED'>中</option>";
+	    html += "<option value='STG'>强</option>";
+	    html += "<option value='VST'>极强</option>";
+	    html += "</select>";
+	    html += "</div>";
+	    html += "</div>";
+	    
 
 	    html += "<div class='form-group clearfix'>";
 	    html += "<label class='col-sm-2 col-xs-3  control-label'>Certification</label>";

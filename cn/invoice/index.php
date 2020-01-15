@@ -93,10 +93,13 @@
 						</div>
 				</div>
 				<div class="col-lg-6 col-md-6">
-					<div class="form-group">
+					<div class="form-group notesDiv">
 							<label class="col-sm-2 col-xs-3 control-label">Notes</label>
-							<div class="col-sm-9 col-xs-8">
+							<div class="col-sm-7 col-xs-6">
 								<textarea rows="5" class="form-control" id="notes" name="notes"></textarea>
+							</div>
+							<div class="col-sm-2 col-xs-3 ">
+								<button type="button" name="预约" value="预约">预约</button><br/><button type="button" name="预约" value="现场">现场</button>
 							</div>
 					</div>
 					<div class="form-group">
@@ -237,8 +240,8 @@
     $('#invoice_no').val(invoiceNo());
 	var no = getUrlParam('id');
     if(no){
-    	trancId = no;
-    	var obj = $(this).attr('obj');
+    		trancId = no;
+    		var obj = $(this).attr('obj');
         var content = '<div type='+obj+' class="addContent clearfix '+obj+'">'+ht(obj)+'</div>';
         $.ajax({
             async:false,
@@ -335,6 +338,19 @@
    			     	    html += "</select>";
    			     	    html += "</div>";
    			     	    html += "</div>";
+
+   			     		html += "<div class='form-group clearfix'>";
+			     	    html += "<label class='col-sm-2 col-xs-3  control-label'>Fluorescence</label>";
+			     	    html += "<div class='col-sm-10 col-xs-9'>";
+			     	    html += "<select id='form_color' class='fancy form-control'>";
+			     	    html += "<option value='-' "+(j.fluorescence=='NON' ? 'selected':'')+">无</option>";
+			     	    html += "<option value='Yellow' "+(j.fluorescence=='FNT' ? 'selected':'')+">弱</option>";
+			     	    html += "<option value='Pink' "+(j.fluorescence=='MED' ? 'selected':'')+">中</option>";
+			     	    html += "<option value='Green' "+(j.fluorescence=='STR' ? 'selected':'')+">强</option>";
+			     	    html += "<option value='Red' "+(j.fluorescence=='VST' ? 'selected':'')+">极强</option>";
+			     	    html += "</select>";
+			     	    html += "</div>";
+			     	    html += "</div>";
 
    			     	    html += "<div class='form-group clearfix'>";
    			     	    html += "<label class='col-sm-2 col-xs-3  control-label'>Certification</label>";
@@ -487,7 +503,13 @@
     	});
         
     }
-    		function saves() {
+    $(document).ready(function(){
+		$(".notesDiv button").click(function(){
+			$(this).parent().parent().find("textarea").val($(this).val());
+			return false;
+		})
+	})
+		function saves() {
     			saveOrUpdate();
     		}
 		/*发票*/
