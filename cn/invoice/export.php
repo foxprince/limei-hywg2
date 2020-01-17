@@ -25,7 +25,7 @@ $worksheet->setTitle($title);
 
 //表头
 //设置单元格内容
-$worksheet->setCellValueByColumnAndRow(1, 1, 'LUMIAGEM INVOICE & RECEIPT');
+$worksheet->setCellValueByColumnAndRow(1, 1, 'LUMIAGEM '.strtoupper($type));
 $worksheet->setCellValueByColumnAndRow(1, 2, 'id');
 $worksheet->setCellValueByColumnAndRow(2, 2, '类型');
 $worksheet->setCellValueByColumnAndRow(3, 2, '发票编号');
@@ -34,17 +34,22 @@ $worksheet->setCellValueByColumnAndRow(5, 2, '客户姓名');
 $worksheet->setCellValueByColumnAndRow(6, 2, '重量');
 $worksheet->setCellValueByColumnAndRow(7, 2, '颜色');
 $worksheet->setCellValueByColumnAndRow(8, 2, '净度');
-$worksheet->setCellValueByColumnAndRow(9, 2, '证书');
-$worksheet->setCellValueByColumnAndRow(10, 2, '货币');
+$worksheet->setCellValueByColumnAndRow(9, 2, '荧光');
+$worksheet->setCellValueByColumnAndRow(10, 2, '证书');
+$worksheet->setCellValueByColumnAndRow(11, 2, '货币');
 $worksheet->setCellValueByColumnAndRow(12, 2, 'VAT');
-$worksheet->setCellValueByColumnAndRow(11, 2, '金额');
-$worksheet->setCellValueByColumnAndRow(13, 2, '退税状态');
-$worksheet->setCellValueByColumnAndRow(14, 2, '退税方式');
-$worksheet->setCellValueByColumnAndRow(15, 2, '护照');
-$worksheet->setCellValueByColumnAndRow(16, 2, '电话');
-$worksheet->setCellValueByColumnAndRow(17, 2, 'EMAIL');
-$worksheet->setCellValueByColumnAndRow(18, 2, '地址');
-$worksheet->setCellValueByColumnAndRow(19, 2, '备注');
+$worksheet->setCellValueByColumnAndRow(13, 2, '金额');
+$worksheet->setCellValueByColumnAndRow(14, 2, '戒托');
+$worksheet->setCellValueByColumnAndRow(15, 2, '材质');
+$worksheet->setCellValueByColumnAndRow(16, 2, '戒托颜色');
+$worksheet->setCellValueByColumnAndRow(17, 2, '戒托金额');
+$worksheet->setCellValueByColumnAndRow(18, 2, '退税状态');
+$worksheet->setCellValueByColumnAndRow(19, 2, '退税方式');
+$worksheet->setCellValueByColumnAndRow(20, 2, '护照');
+$worksheet->setCellValueByColumnAndRow(21, 2, '电话');
+$worksheet->setCellValueByColumnAndRow(22, 2, 'EMAIL');
+$worksheet->setCellValueByColumnAndRow(23, 2, '地址');
+$worksheet->setCellValueByColumnAndRow(24, 2, '备注');
 //合并单元格
 $worksheet->mergeCells('A1:M1');
 $styleArray = [
@@ -69,16 +74,16 @@ for ($i=0; $i < $len; $i++) {
 	$stmt->execute(array('tranc_id'=>$rows[$i]['id']));
 	$k = 0;
 	foreach($stmt as $rowDetail){
-		if($rowDetail["type"]=='jew') {
-			$worksheet->setCellValueByColumnAndRow(6, $j+$k, $rowDetail["jewerly"]);
-			$worksheet->setCellValueByColumnAndRow(7, $j+$k, $rowDetail["material"]);
-		}
-		else {
-			$worksheet->setCellValueByColumnAndRow(6, $j+$k, $rowDetail["carat"]);
-			$worksheet->setCellValueByColumnAndRow(7, $j+$k, $rowDetail["color"]);
-			$worksheet->setCellValueByColumnAndRow(8, $j+$k, $rowDetail["clarity"]);
-			$worksheet->setCellValueByColumnAndRow(9, $j+$k, $rowDetail["report_no"]);
-		}
+// 		if($rowDetail["type"]=='jew') {
+// 			$worksheet->setCellValueByColumnAndRow(6, $j+$k, $rowDetail["jewerly"]);
+// 			$worksheet->setCellValueByColumnAndRow(7, $j+$k, $rowDetail["material"]);
+// 		}
+// 		else {
+// 			$worksheet->setCellValueByColumnAndRow(6, $j+$k, $rowDetail["carat"]);
+// 			$worksheet->setCellValueByColumnAndRow(7, $j+$k, $rowDetail["color"]);
+// 			$worksheet->setCellValueByColumnAndRow(8, $j+$k, $rowDetail["clarity"]);
+// 			$worksheet->setCellValueByColumnAndRow(9, $j+$k, $rowDetail["report_no"]);
+// 		}
 		if($k==0) {
 			$worksheet->setCellValueByColumnAndRow(1, $j+$k, $rows[$i]['id']);
 			$worksheet->setCellValueByColumnAndRow(2, $j+$k, $rows[$i]['type']);
@@ -86,16 +91,26 @@ for ($i=0; $i < $len; $i++) {
 				$worksheet->setCellValueByColumnAndRow(3, $j+$k, $rows[$i]['invoice_no']);
 			$worksheet->setCellValueByColumnAndRow(4, $j+$k, $rows[$i]['tranc_date']);
 			$worksheet->setCellValueByColumnAndRow(5, $j+$k, $rows[$i]['name'] );
-			$worksheet->setCellValueByColumnAndRow(10, $j+$k, $rows[$i]['currency'] );
-			$worksheet->setCellValueByColumnAndRow(11, $j+$k, $rows[$i]['vat_price'] );
-			$worksheet->setCellValueByColumnAndRow(12, $j+$k, $rows[$i]['total_price']-$rows[$i]['vat_price'] );
-			$worksheet->setCellValueByColumnAndRow(13, $j+$k, $rows[$i]['tax_confirm']==0?'未退税':($rows[$i]['tax_confirm']==1?'已退税':($rows[$i]['tax_confirm']==2?'退税异常':'')) );
-			$worksheet->setCellValueByColumnAndRow(14, $j+$k, $rows[$i]['tax_confirm']==1?$rows[$i]['tax_rebate']:'' );
-			$worksheet->setCellValueByColumnAndRow(15, $j+$k, $rows[$i]['passport'] );
-			$worksheet->setCellValueByColumnAndRow(16, $j+$k, $rows[$i]['tel'] );
-			$worksheet->setCellValueByColumnAndRow(17, $j+$k, $rows[$i]['email'] );
-			$worksheet->setCellValueByColumnAndRow(18, $j+$k, $rows[$i]['street'].' '.$rows[$i]['city'].$rows[$i]['postcode'].$rows[$i]['country'] );
-			$worksheet->setCellValueByColumnAndRow(19, $j+$k, $rows[$i]['notes'] );
+			$worksheet->setCellValueByColumnAndRow(6, $j+$k, $rowDetail["carat"]);
+			$worksheet->setCellValueByColumnAndRow(7, $j+$k, $rowDetail["color"]);
+			$worksheet->setCellValueByColumnAndRow(8, $j+$k, $rowDetail["clarity"]);
+			$worksheet->setCellValueByColumnAndRow(9, $j+$k, $rowDetail["fluorescence"]);
+			$worksheet->setCellValueByColumnAndRow(10, $j+$k, $rowDetail["report_no"]);
+			$worksheet->setCellValueByColumnAndRow(11, $j+$k, $rows[$i]['currency'] );
+			$worksheet->setCellValueByColumnAndRow(12, $j+$k, $rows[$i]['vat_price'] );
+			$worksheet->setCellValueByColumnAndRow(13, $j+$k, $rows[$i]['total_price']-$rows[$i]['vat_price'] );
+			$worksheet->setCellValueByColumnAndRow(14, $j+$k, $rowDetail["jewerly"]);
+			$worksheet->setCellValueByColumnAndRow(15, $j+$k, $rowDetail["material"]);
+			$worksheet->setCellValueByColumnAndRow(16, $j+$k, $rowDetail["jewerly_color"]);
+			$worksheet->setCellValueByColumnAndRow(17, $j+$k, $rowDetail["jewerly_price"]);
+			
+			$worksheet->setCellValueByColumnAndRow(18, $j+$k, $rows[$i]['tax_confirm']==0?'未退税':($rows[$i]['tax_confirm']==1?'已退税':($rows[$i]['tax_confirm']==2?'退税异常':'')) );
+			$worksheet->setCellValueByColumnAndRow(19, $j+$k, $rows[$i]['tax_confirm']==1?$rows[$i]['tax_rebate']:'' );
+			$worksheet->setCellValueByColumnAndRow(20, $j+$k, $rows[$i]['passport'] );
+			$worksheet->setCellValueByColumnAndRow(21, $j+$k, $rows[$i]['tel'] );
+			$worksheet->setCellValueByColumnAndRow(22, $j+$k, $rows[$i]['email'] );
+			$worksheet->setCellValueByColumnAndRow(23, $j+$k, $rows[$i]['street'].' '.$rows[$i]['city'].$rows[$i]['postcode'].$rows[$i]['country'] );
+			$worksheet->setCellValueByColumnAndRow(24, $j+$k, $rows[$i]['notes'] );
 		}
 		$k++;
 	}
