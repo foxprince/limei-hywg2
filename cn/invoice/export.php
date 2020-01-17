@@ -64,7 +64,7 @@ $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $len = count($rows);
 $j = 3;
 for ($i=0; $i < $len; $i++) {
-	$sql = 'select a.* from tranc_detail a where a.tranc_id=:tranc_id ';
+	$sql = 'select a.* from '.$detailTable.' a where a.tranc_id=:tranc_id ';
 	$stmt=$conn->prepare($sql);
 	$stmt->execute(array('tranc_id'=>$rows[$i]['id']));
 	$k = 0;
