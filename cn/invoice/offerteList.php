@@ -72,6 +72,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
             <table class="t_data">
             	<thead>
             		<tr>
+            			<th>ID</th>
             			<th>日期<img class="sortImg" onclick="clickSort(this)" sort="tranc_date" src="../images/selebom.png"/></th>
             			<th>客户姓名<img class="sortImg" onclick="clickSort(this)" sort="name" src="../images/selebom.png"/></th>
             			<th>重量|颜色|净度|荧光|证书</th>
@@ -89,7 +90,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
             	</tbody>
             	<tfoot>
             		<tr>
-            			<td colspan="7"></td>
+            			<td colspan="8"></td>
             			<td>合计：</td>
             			<td><span id='totalEurPrice'>€ 0.00</span></td><td><span id='totalUsdPrice'>$ 0.00</span></td><td><span id='totalCnyPrice'>￥ 0.00</span></td>
             			<td></td>
@@ -382,7 +383,11 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                     total_pages = json.total_pages;
                     if(json.list)
                     for(var i=0;i<json.list.length;i++){
-                        var temp = '<tr trancId="'+json.list[i].id+'" class="trancLine"><td>'+json.list[i].tranc_date+'</td><td>'+json.list[i].name+'</td>'
+                    	if(json.list[i].visit_type)
+							visit_type = "("+json.list[i].visit_type+")";
+						else
+							visit_type = "";
+                        var temp = '<tr trancId="'+json.list[i].id+'" class="trancLine"><td>'+json.list[i].id+'</td><td>'+json.list[i].tranc_date+'</td><td>'+json.list[i].name+visit_type+'</td>'
                         +'<td><ul>';
                         var tprice = 0;
 						if(json.list[i].detail_list) {

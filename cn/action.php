@@ -377,7 +377,7 @@ if($_REQUEST['action']) {
 		case "trancList":
 			//if($_SESSION['invoiceAdmin']) {
 			$totalSql = 'select count(*) as t from '.getTrancOrOfferte();
-			$sql='select id,type,invoice_no,tranc_date,name,currency,vat_price,total_price as total_price,tax_rebate,tax_confirm from '.getTrancOrOfferte();
+			$sql='select id,type,invoice_no,tranc_date,name,currency,vat_price,total_price as total_price,tax_rebate,tax_confirm,visit_type from '.getTrancOrOfferte();
 			$clause = ' where 1=1 ';
 			if($_REQUEST['reportNo']!=null)
 				$clause .= ' and( notes like "'.$_REQUEST['reportNo'].'%" or id in (select tranc_id from '.getTrancOrOfferteDetail().' where report_no like "'.$_REQUEST['reportNo'].'%"))';
@@ -458,7 +458,7 @@ if($_REQUEST['action']) {
 		case "updateTranc":
 			logger("updateTranc".$_REQUEST['transaction']);
 			$obj=json_decode($_REQUEST['transaction'],TRUE);
-			$sql = 'update '.getTrancOrOfferte().' set name=?,passport=?,tel=?,email=?,street=?,city=?,postcode=?,country=?,tranc_date=?,invoice_no=?,currency=?,vat_price=?,total_price=?,tax_rebate=?,notes=? where id=?';
+			$sql = 'update '.getTrancOrOfferte().' set name=?,passport=?,tel=?,email=?,street=?,city=?,postcode=?,country=?,tranc_date=?,invoice_no=?,currency=?,vat_price=?,total_price=?,tax_rebate=?,visit_type=?,notes=? where id=?';
 			$stmt=$conn->prepare($sql);
 			$stmt->execute(array($obj['name'],
 					$obj['passport'],
@@ -467,7 +467,7 @@ if($_REQUEST['action']) {
 					$obj['postcode'],
 					$obj['country'],
 					$obj['tranc_date'],
-					$obj['invoice_no'],$obj['currency'],$obj['vat_price'],$obj['total_price'],$obj['tax_rebate'],$obj['notes'],$obj['id']));
+					$obj['invoice_no'],$obj['currency'],$obj['vat_price'],$obj['total_price'],$obj['tax_rebate'],$obj['visit_type'],$obj['notes'],$obj['id']));
 			//删除原有纪录
 			$sql_delete='delete from '.getTrancOrOfferteDetail().' WHERE tranc_id = '.$obj['id'];
 			$conn->query($sql_delete);
@@ -514,8 +514,8 @@ if($_REQUEST['action']) {
 			}
 			else 
 				$transactionNo=$obj['invoice_no'];
-			$sql = 'insert into '.getTrancOrOfferte().'(name,passport,tel,email,street,city,postcode,country,type,tranc_date,invoice_no,currency,vat_price,total_price,tax_rebate,notes,create_time) 
-					values(:name,:passport,:tel,:email,:street,:city,:postcode,:country,:type,:tranc_date,:invoice_no,:currency,:vat_price,:total_price,:tax_rebate,:notes,now())';
+			$sql = 'insert into '.getTrancOrOfferte().'(name,passport,tel,email,street,city,postcode,country,type,tranc_date,invoice_no,currency,vat_price,total_price,tax_rebate,visit_type,notes,create_time) 
+					values(:name,:passport,:tel,:email,:street,:city,:postcode,:country,:type,:tranc_date,:invoice_no,:currency,:vat_price,:total_price,:tax_rebate,:visit_type,:notes,now())';
 			$stmt=$conn->prepare($sql);
 			$stmt->execute(array('name'=>$obj['name'],
 					'passport'=>$obj['passport'],
@@ -523,9 +523,10 @@ if($_REQUEST['action']) {
 					'email'=>$obj['email'],
 					'street'=>$obj['street'],'city'=>$obj['city'],
 					'postcode'=>$obj['postcode'],
-					'country'=>$obj['country'],'type'=>$obj['type'],
+					'country'=>$obj['country'],'type'=>$obj['type'],'visit_type'=>$obj['visit_type'],
 					'tranc_date'=>$obj['tranc_date'],'tax_rebate'=>$obj['tax_rebate'],
-					'invoice_no'=>$transactionNo,'currency'=>$obj['currency'],'vat_price'=>$obj['vat_price'],'total_price'=>$obj['total_price'],'notes'=>$obj['notes']));
+					'invoice_no'=>$transactionNo,'currency'=>$obj['currency'],'vat_price'=>$obj['vat_price'],
+					'total_price'=>$obj['total_price'],'notes'=>$obj['notes']));
 			$transactionId = $conn->lastInsertId();
 			//--得到Json_list数组长度
 			$num=count($obj["list"]);

@@ -17,6 +17,7 @@ create table transaction(
   	tax_rebate varchar(10) null,
   	tax_confirm int(1) default 0 null,
   	notes	varchar(255) null,
+  	visit_type varchar(10) null comment '预约、现场',
 	create_time datetime not null,
 	tel varchar(21) null,
 	email varchar(50) null
@@ -38,6 +39,7 @@ create table offerte(
   	tax_rebate varchar(10) null,
   	tax_confirm int(1) default 0 null,
   	notes	varchar(255) null,
+  	visit_type varchar(10) null comment '预约、现场',
 	create_time datetime not null,
 	tel varchar(21) null,
 	email varchar(50) null

@@ -386,7 +386,11 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                     total_pages = json.total_pages;
                     if(json.list)
                     for(var i=0;i<json.list.length;i++){
-                        var temp = '<tr trancId="'+json.list[i].id+'" class="trancLine"><td>'+json.list[i].tranc_date+'</td><td>'+json.list[i].name+'</td>'
+						if(json.list[i].visit_type)
+							visit_type = "("+json.list[i].visit_type+")";
+						else
+							visit_type = "";
+                        var temp = '<tr trancId="'+json.list[i].id+'" class="trancLine"><td>'+json.list[i].id+'</td><td>'+json.list[i].tranc_date+'</td><td>'+json.list[i].name+'('+visit_type+')</td>'
                         +'<td><ul>';
                         var tprice = 0;
 						if(json.list[i].detail_list) {

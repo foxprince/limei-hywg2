@@ -128,7 +128,7 @@ function saveOrUpdate(type){
 	console.log($("#currency").val());
 	var data = {
         'id':trancId,'name':$('#name').val(),'tax_rebate':$('#tax_rebate').val(),'notes':$('#notes').val(),
-        'passport':$('#passport').val(),'tel':$('#tel').val(),
+        'passport':$('#passport').val(),'tel':$('#tel').val(),'visit_type':$('#visit_type').val(),
         'street':$('#street').val(),'email':$('#email').val(),
         'city':$('#city').val(),'currency':$('#currency').val(),'type':type,
         'postcode':$('#postcode').val(),'vat_price':$('.vat_price').attr('data-price'),'total_price':$('.total_price').attr('data-price'),
