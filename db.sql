@@ -22,6 +22,7 @@ create table transaction(
 	tel varchar(21) null,
 	email varchar(50) null
 );
+alter table offerte add visit_type varchar(10) null comment '预约、现场';
 create table offerte(
 	id bigint not null primary key auto_increment,
 	name varchar(30)	null,

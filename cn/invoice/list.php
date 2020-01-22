@@ -74,6 +74,7 @@ if(!isset($_SESSION['invoiceAdmin'])) {
             <table class="t_data">
             	<thead>
             		<tr>
+            			<th>ID</th>
             			<th>日期<img class="sortImg" onclick="clickSort(this)" sort="tranc_date" src="../images/selebom.png"/></th>
             			<th>客户姓名<img class="sortImg" onclick="clickSort(this)" sort="name" src="../images/selebom.png"/></th>
             			<th>重量|颜色|净度|荧光|证书</th>
