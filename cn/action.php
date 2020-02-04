@@ -808,7 +808,7 @@ function sendSms($phone,$contentArray) {
 	$params = array ();
 	// *** 需用户填写部分 ***
 	// fixme 必填: 请参阅 https://ak-console.aliyun.com/ 取得您的AK信息
-	$accessKeyId = "LTAIuWe4Bh21K8TD";
+	$accessKeyId = "LTAI4FpVZQSRFBxQxEFpK3Dn";
 	$accessKeySecret = "R23yUOJRhkqmgGVPIjaRRkY6S5rLxi";
 	// fixme 必填: 短信接收号码
 	$params["PhoneNumbers"] = $phone;
