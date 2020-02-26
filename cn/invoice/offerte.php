@@ -97,8 +97,8 @@
 							<label class="col-sm-2 col-xs-3 control-label">购买方式</label>
 							<div class="col-sm-9 col-xs-8">
 								<select name="visit_type" id="visit_type">
-									<option value="现场">现场</option>
-									<option value="预约">预约</option>
+									<option value="预约" selected>预约</option>
+                                	<option value="现场">现场</option>
 								</select>
 							</div>
 					</div>
