@@ -255,13 +255,13 @@
             type: "GET",
             dataType: 'json',
             success: function (data) {
-            	var json=eval(data),to=json.trancDetail.currency,currencyHint='€';
+            	var json=eval(data),currency=json.trancDetail.currency,currencyHint='€';
    				var html = '';
-   				if(to=='CNY'){
+   				if(currency=='CNY'){
    					currencyHint = '￥';$('#cnyImg').addClass("selected");
-   				}else if(to=='EUR'){
+   				}else if(currency=='EUR'){
    					currencyHint = '€';$('#eurImg').addClass("selected");
-   				}else if(to=='USD'){
+   				}else if(currency=='USD'){
    					currencyHint = '$';$('#usdImg').addClass("selected");
    				}
    				var address = json.trancDetail.street+'　'+json.trancDetail.postcode+'　'+json.trancDetail.city+'　'+json.trancDetail.country;
