@@ -246,8 +246,8 @@
     $('#invoice_no').val(invoiceNo());
 	var no = getUrlParam('id');
     if(no){
-    		trancId = no;
-    		var obj = $(this).attr('obj');
+    	trancId = no;
+    	var obj = $(this).attr('obj');
         var content = '<div type='+obj+' class="addContent clearfix '+obj+'">'+ht(obj)+'</div>';
         $.ajax({
             async:false,
