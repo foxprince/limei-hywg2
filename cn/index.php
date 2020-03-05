@@ -15,9 +15,9 @@
     <div class="pic_k">
       <ul>
         <li><a href="javascript:;" bgurl="images/top5.jpg" target="_blank" link="https://mp.weixin.qq.com/s?__biz=MzIyNzA2NjE1OQ==&mid=2653294903&idx=1&sn=5bc44fb0f2a0d2732ce48aee9aff6e23&chksm=f3b45977c4c3d061f2a6b5c91c5ba4060d9a49a8b5c45afff5401a62a6e15d9ff6b3d42db9e0" alt="Lumia利美上台湾旅游节目啦"><img alt="《地球的庆典》马国贤采访利美钻石" src="images/top5s.jpg"></a></li>
-      	<li><a href="javascript:;" bgurl="images/top4.jpg" target="_blank" link="/cn/about.php?p=laxs2" alt="《恋爱先生》开播！跟着靳东新剧逛比利时啦"><img alt="《恋爱先生》开播！跟着靳东新剧逛比利时啦" src="images/top4s.jpg"></a></li>
-<!--       	<li><a href="javascript:;" bgurl="images/top2.jpg" target="_self" link="/cn/intro.php?c=lumia"><img src="images/top2s.jpg"></a></li> -->
-        <li><a href="javascript:;" bgurl="images/top1.jpg" target="_self" link="/cn/about.php?p=tax" alt="比利时钻交所里的“中国梦”"><img src="images/top1s.jpg" alt="在Lumia购买钻石如何退21%全税？"></a></li>
+      	<li><a href="javascript:;" bgurl="images/top4.jpg" target="_blank" link="/about.php?p=laxs2" alt="《恋爱先生》开播！跟着靳东新剧逛比利时啦"><img alt="《恋爱先生》开播！跟着靳东新剧逛比利时啦" src="images/top4s.jpg"></a></li>
+<!--       	<li><a href="javascript:;" bgurl="images/top2.jpg" target="_self" link="/intro.php?c=lumia"><img src="images/top2s.jpg"></a></li> -->
+        <li><a href="javascript:;" bgurl="images/top1.jpg" target="_self" link="/about.php?p=tax" alt="比利时钻交所里的“中国梦”"><img src="images/top1s.jpg" alt="在Lumia购买钻石如何退21%全税？"></a></li>
       </ul>
     </div>
   </div>
