@@ -198,7 +198,7 @@ if($_REQUEST['action']) {
 				if($imageWidth>2000 || $imageHeight>2000){
 					echo "<p class='message'>ERROR_DIMENSION</p>";
 				}
-				else echo '/cn/'.$image;
+				else echo '/'.$image;
 				/*
 				$ratio=$imageWidth/$imageHeight;
 				if($imageWidth>1280 || $imageHeight>1280){

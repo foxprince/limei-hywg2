@@ -39,7 +39,7 @@ $address=$address_invoice.' '.$postcode_invoice.', '.$country_invoice;
 
 
 
-require_once('../cn/connection.php');
+require_once('../connection.php');
 $conn=dbConnect('write','pdo');
 $conn->query("SET NAMES 'utf8'");
 

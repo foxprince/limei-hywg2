@@ -1094,7 +1094,7 @@ M</span>
 
 
 <td align="center" class="value_certificate" style="width:94px;">
-<span class="valuetxt"><a target="_blank" style="color:#000; font-weight:bold;" href="http://www.happyeurope.eu/cn/diamonds.php#not-available"></a></span><br>
+<span class="valuetxt"><a target="_blank" style="color:#000; font-weight:bold;" href="http://www.happyeurope.eu/diamonds.php#not-available"></a></span><br>
 <span class="lab-num" style="font-size:10px;">()</span>
 
 </td>

@@ -47,7 +47,7 @@ $seller_state='-';
 $seller_city='-';
 
 
-//require_once('../cn/connection.php');
+//require_once('../connection.php');
 
 
 function dbConnect2nd($usertype='write', $connectionType = 'pdo') {

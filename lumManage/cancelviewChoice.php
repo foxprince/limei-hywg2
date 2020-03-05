@@ -27,7 +27,7 @@ $client_ID=$_POST['ClientID'];
 //$sortby='BYCONTACT';
 
 
-require_once('../cn/connection.php');
+require_once('../connection.php');
 $conn=dbConnect('write','pdo');
 $conn->query("SET NAMES 'utf8'");
 

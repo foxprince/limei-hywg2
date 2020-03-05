@@ -62,7 +62,7 @@ require_once('log.php');
 			}
 		}
 		//else
-			//window.location.href="/cn/index.php"
+			//window.location.href="/index.php"
 	}
 	function fGetQuery(name) {//获取参数值 
 		var sUrl = window.location.search.substr(1);

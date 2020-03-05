@@ -10,7 +10,7 @@ $crr_message=trim($data['content']);
 $feedback_message=-1;//to record if the matching diamond id is found or not, 0 means found
 
 
-require_once('../cn/connection.php');
+require_once('../connection.php');
 $conn=dbConnect('write','pdo');
 $conn->query("SET NAMES 'utf8'");
 

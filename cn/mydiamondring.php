@@ -835,7 +835,7 @@ if(!isset($_SESSION['useraccount'])){
 
 <div id="wechatscanboxforlogin">
 <p class="empha">扫描关注利美公众号,<br>立即获得您的用户名和密码</p>
-<img id="qrcode-wechat" src="/cn/img-eles/qrcode_for_gh_f1bedb342697_344.jpg" />
+<img id="qrcode-wechat" src="/img-eles/qrcode_for_gh_f1bedb342697_344.jpg" />
 </div>
 
 

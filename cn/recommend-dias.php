@@ -103,7 +103,7 @@ if($found_price_perfect){
 ?>
   <div class="dia-choice-container" id="perfect-dia-box">
   <div class="title03">完美精品</div>
-    <img class="dia-choice-img" onclick="choose_dia(<?php echo $crr_dia_id; ?>)" src="/cn/img-eles/perfect.png" />
+    <img class="dia-choice-img" onclick="choose_dia(<?php echo $crr_dia_id; ?>)" src="/img-eles/perfect.png" />
     <div class="dia-descr">
     <p><?php echo $size; ?>克拉</p>
     
@@ -201,7 +201,7 @@ if($found_price_goodprice){
 ?>
   <div class="dia-choice-container" id="perfect-dia-box">
   <div class="title03">高性价比</div>
-    <img class="dia-choice-img" onclick="choose_dia(<?php echo $crr_dia_id; ?>)" src="/cn/img-eles/goodprice.png" />
+    <img class="dia-choice-img" onclick="choose_dia(<?php echo $crr_dia_id; ?>)" src="/img-eles/goodprice.png" />
     <div class="dia-descr">
     <p><?php echo $size; ?>克拉</p>
     
@@ -299,7 +299,7 @@ if($found_price_size){
 ?>
   <div class="dia-choice-container" id="perfect-dia-box">
   <div class="title03">无敌大钻</div>
-    <img class="dia-choice-img" onclick="choose_dia(<?php echo $crr_dia_id; ?>)" src="/cn/img-eles/size.png" />
+    <img class="dia-choice-img" onclick="choose_dia(<?php echo $crr_dia_id; ?>)" src="/img-eles/size.png" />
     <div class="dia-descr">
     <p><?php echo $size; ?>克拉</p>
     
@@ -396,7 +396,7 @@ if($found_price_lowprice){
 ?>
   <div class="dia-choice-container" id="perfect-dia-box">
   <div class="title03">实惠优选</div>
-    <img class="dia-choice-img" onclick="choose_dia(<?php echo $crr_dia_id; ?>)" src="/cn/img-eles/lowprice.png" />
+    <img class="dia-choice-img" onclick="choose_dia(<?php echo $crr_dia_id; ?>)" src="/img-eles/lowprice.png" />
     <div class="dia-descr">
     <p><?php echo $size; ?>克拉</p>
     

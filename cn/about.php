@@ -58,22 +58,22 @@
 						$the_page='article.php';$title='钻石知识';
 						break;
 					case 'laxs':
-						$the_page='../cn/articles/020215255208.html';
+						$the_page='../articles/020215255208.html';
 						$title='《恋爱先生》开播！跟着靳东新剧逛比利时啦！';
 						$keyword='恋爱先生，比利时，安特卫普，钻石，啤酒，巧克力，利美钻石';
 						break;
 					case 'laxs2':
-						$the_page='../cn/articles/laxs.html';
+						$the_page='../articles/laxs.html';
 						$title='《恋爱先生》开播！跟着靳东新剧逛比利时啦！';
 						$keyword='恋爱先生，比利时，安特卫普，钻石，啤酒，巧克力，利美钻石';
 						break;
 					case 'ssdz':
-						$the_page='../cn/articles/ssdz.html';
+						$the_page='../articles/ssdz.html';
 						$title='首饰定制步骤';
 						$keyword='比利时，安特卫普，钻石，利美钻石，定制，首饰';
 						break;
 					case 'tax':
-						$the_page='../cn/articles/tax.html';
+						$the_page='../articles/tax.html';
 						$title='在Lumia购买钻石如何退21%全税？ ';
 						$keyword='购买，比利时，安特卫普，退税，钻石，啤酒，巧克力，利美钻石';
 						break;

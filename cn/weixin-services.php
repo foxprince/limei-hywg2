@@ -101,7 +101,7 @@ class wechatCallbackapiTest {
 			$keyArray = array("克拉", "切工", "净度", "颜色","证书","异形钻","保养","退税");
 			// ################# END second of all, if it's not an event, save the message to the database message table END ##################################
 			if ($keywordisTXT) {
-				//$urltopost = 'http://www.lumiagem.com/cn/autoreply.php';
+				//$urltopost = 'http://www.lumiagem.com/autoreply.php';
 				// $messageToPost=iconv('UTF-16', 'UTF-8', $crr_message);
 				// $trans_sentence = iconv('UTF-8', 'ASCII//TRANSLIT', $utf8_sentence);
 				// $data = array("touser" => $wechatopenidofuser, "msgtype" => "text", "text" => array("content"=>$crr_message));
@@ -227,7 +227,7 @@ class wechatCallbackapiTest {
 						"Title" => "动态二维码",
 						"Description" => "您在利美钻石的专属动态二维码，可以发给您的朋友共享",
 						"PicUrl" => "http://www.lumiagem.com/luAdmin/qrcode/" . $r_u ['id'] . "_200x200.jpg",
-						"Url" => "http://www.lumiagem.com/cn/myQrcode.php?id=" . $r_u ['id']
+						"Url" => "http://www.lumiagem.com/myQrcode.php?id=" . $r_u ['id']
 						//"Url" => "http://www.lumiagem.com/luAdmin/qrcode/" . $r_u ['qrcode']
 				);
 				$result = $this->transmitNews ( $postObj, $content );

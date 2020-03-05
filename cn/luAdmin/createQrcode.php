@@ -1,8 +1,8 @@
 <?php
-require_once ('../cn/log.php');
+require_once ('../log.php');
 if (isset ( $_POST ['id'] )) {
 	require_once ('./getaccesstoken2015.php');
-	require_once ('../cn/connection.php');
+	require_once ('../connection.php');
 	require_once ('./imgTools.php');
 	$conn = dbConnect ( 'write', 'pdo' );
 	$conn->query ( "SET NAMES 'utf8'" );

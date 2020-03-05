@@ -6,7 +6,7 @@ if(!isset($_POST['cliend_id'])){
 $client_id=$_POST['cliend_id'];
        
 	   
-require_once('../cn/connection.php');
+require_once('../connection.php');
 $conn=dbConnect('write','pdo');
 $conn->query("SET NAMES 'utf8'");                                                                
 

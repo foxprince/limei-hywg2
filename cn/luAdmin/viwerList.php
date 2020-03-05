@@ -33,10 +33,10 @@ if($_SESSION['authenticated']!='SiHui'){
 require_once('../connection.php');
 $conn=dbConnect('write','pdo');
 $conn->query("SET NAMES 'utf8'");
-include_once('../cn/connection.php');
+include_once('../connection.php');
 $conn_dia=dbConnect('write','pdo');
 $conn_dia->query("SET NAMES 'utf8'");
-require_once('../cn/log.php');
+require_once('../log.php');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">

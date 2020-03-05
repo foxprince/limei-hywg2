@@ -93,21 +93,21 @@ if (isset($_GET['c'])) {
 										<?php }else if ($c == 'orderStep') {?>
 										<div>
 <p>从裸钻开始挑选</p>
-<p>1：<img src="/cn/articles/ssdz.fld/image001.gif"></p>
+<p>1：<img src="/articles/ssdz.fld/image001.gif"></p>
 <p>点击裸钻按键</p>
-<p>2：<img src="/cn/articles/ssdz.fld/image002.gif"></p>
+<p>2：<img src="/articles/ssdz.fld/image002.gif"></p>
 <p>按照自身需求进行4C筛选</p>
-<p>3：<img src="/cn/articles/ssdz.fld/image003.gif"></p>
+<p>3：<img src="/articles/ssdz.fld/image003.gif"></p>
 <p>点击详情选择定制首饰（仅购买裸钻则选择预约裸钻）</p>
-<p>4：<img src="/cn/articles/ssdz.fld/image004.gif"></p>
+<p>4：<img src="/articles/ssdz.fld/image004.gif"></p>
 <p>筛选心仪款式</p>
-<p>5：<img src="/cn/articles/ssdz.fld/image005.gif"></p>
+<p>5：<img src="/articles/ssdz.fld/image005.gif"></p>
 <p>选择心仪材质及尺寸后点击选定此款</p>
-<p>6：<img src="/cn/articles/ssdz.fld/image006.gif"></p>
+<p>6：<img src="/articles/ssdz.fld/image006.gif"></p>
 <p>挑选完款式和裸钻后会显示各项金额和总金额</p>
-<p>7：<img src="/cn/articles/ssdz.fld/image007.gif"></p>
+<p>7：<img src="/articles/ssdz.fld/image007.gif"></p>
 <p>跳转至完成定制页面：确认信息无误后点击确定预约即可加入购物车</p>
-<p>8：<img src="/cn/articles/ssdz.fld/image008.gif"></p>
+<p>8：<img src="/articles/ssdz.fld/image008.gif"></p>
 <p>填写个人信息后点击确定预约即可完成预约</p>
 
 										</div>
