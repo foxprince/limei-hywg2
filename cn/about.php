@@ -67,6 +67,12 @@
 						$title='《恋爱先生》开播！跟着靳东新剧逛比利时啦！';
 						$keyword='恋爱先生，比利时，安特卫普，钻石，啤酒，巧克力，利美钻石';
 						break;
+					case 'yxz':
+                    	$the_page='../articles/yxz.html';
+                    	$title='足不出户云选钻，在家享受私人订制';
+                    	$keyword='云选钻，比利时，安特卫普，钻石，私人订制';
+                    	break;
+
 					case 'ssdz':
 						$the_page='../articles/ssdz.html';
 						$title='首饰定制步骤';
