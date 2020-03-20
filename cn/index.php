@@ -9,8 +9,9 @@
   ?>
   <div class="datu" id="datu" onmouseover="this.style.cursor='pointer'" >
   </div>
-  
-  
+  <script>
+  $(".datu").css("background-image","url(images/top6.jpeg)");
+  </script>
   <div class="pic">
     <div class="pic_k">
       <ul>
@@ -313,7 +314,7 @@ $.each(obj,function(index,value){
 	  arr.push($(this).attr("bgurl"));
 	  linkArr.push($(this).attr("link"));
 });
-setInterval(changeImg,timeInterval);
+//setInterval(changeImg,timeInterval);
 function changeImg()
 {
     if (curIndex==arr.length-1) 
