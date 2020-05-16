@@ -168,18 +168,18 @@ foreach($ooh as $row){
 <?php
 if($row['image1']!=NULL && $row['image1']!='' && $row['image1']!="NO"){
 ?>
-<img src="../images/sitepictures/<?php echo $row['image1']; ?>" height="58" />	
+<img src="../images/sitepictures/<?php echo $row['image1']; ?>" height="116" />
 <?php
 }
 if($row['image2']!=NULL && $row['image2']!='' && $row['image2']!="NO"){
 ?>
-<img src="../images/sitepictures/<?php echo $row['image2']; ?>" height="58" />	
+<img src="../images/sitepictures/<?php echo $row['image2']; ?>" height="116" />
 <?php
 }
 
 if($row['image3']!=NULL && $row['image3']!='' && $row['image3']!="NO"){
 ?>
-<img src="../images/sitepictures/<?php echo $row['image3']; ?>" height="58" />	
+<img src="../images/sitepictures/<?php echo $row['image3']; ?>" height="116" />
 <?php
 }
 ?>
