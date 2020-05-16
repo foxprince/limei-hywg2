@@ -71,7 +71,22 @@ a.modifybtn:hover{
 }
 </style>
 <script src="/js/jquery-1.11.2.min.js"></script>
+<script src="/js/utils.js"></script>
 <script type="text/javascript">
+    function editPrice(editType,item) {
+        var id = $(item).data("id");
+        $(item).html('<input type="text" data-id="'+id+'" name="remark" value="'+$(item).text()+'" onchange="changePrice(\''+editType+'\',this)"/>');
+        $(item).removeAttr("onclick");
+    }
+    function changePrice(editType,item) {
+	    var id = $(item).data("id");
+	    var price = $(item).val();
+	    var p = $(item).parent();
+        utils.ajaxPost('../action.php?id='+id+'&action=editJewelryPrice&editType=' + editType+'&price='+price, { type: 'POST'}, function (data) {
+            $(p).html(price);
+            $(p).attr("onclick","editPrice('"+editType+"',this)'");
+        })
+    }
 function delete_j($id){
 	var r=confirm("Are you sure to delete this submission ?");
 	if(r){
@@ -126,8 +141,10 @@ $ooh=$conn->query($sql);
 <td width="80" align="center" style="font-size:14px; background-color:#CC6699; color:#FFF;">颜色</td>
 <td width="80" align="center" style="font-size:14px; background-color:#CC6699; color:#FFF;">类别</td>
 <td width="80" align="center" style="font-size:14px; background-color:#CC6699; color:#FFF;">子类</td>
-<td width="160" align="center" style="font-size:14px; background-color:#CC6699; color:#FFF;">名称</td>
+<td width="80" align="center" style="font-size:14px; background-color:#CC6699; color:#FFF;">名称</td>
 <td width="320" align="center" style="font-size:14px; background-color:#CC6699; color:#FFF;">图片</td>
+<td width="320" align="center" style="font-size:14px; background-color:#CC6699; color:#FFF;">18K白金价格</td>
+<td width="320" align="center" style="font-size:14px; background-color:#CC6699; color:#FFF;">Pt950铂金价格</td>
 <td width="160" colspan="2" align="center" style="font-size:14px; background-color:#CC6699; color:#FFF;">操作</td>
 </tr>
 <?php
@@ -168,7 +185,8 @@ if($row['image3']!=NULL && $row['image3']!='' && $row['image3']!="NO"){
 ?>
 
 </td>
-
+<td align="center" data-id="<?php echo $row['id']; ?>" onclick="editPrice('18k',this);"><?php echo $jclassName; ?></td>
+<td align="center" data-id="<?php echo $row['id']; ?>" onclick="editPrice('Pt950',this);"><?php echo $jclassName; ?></td>
 <td align="center"><a class="modifybtn" href="<?php echo 'jewelry_edit.php?id='.$row['id']; ?>">修改</a></td>
 <td align="center">
 <!--

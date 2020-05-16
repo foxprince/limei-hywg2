@@ -159,3 +159,47 @@ create table customer_order (
 alter table jewelry add jclass varchar(10) null;
 
 alter table diamonds modify sold_status varchar(18) not null default 'AVAILABLE';
+
+CREATE TABLE `jewelry` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `category` varchar(255) NOT NULL,
+  `brand` varchar(255) DEFAULT NULL,
+  `name_en` varchar(255) NOT NULL,
+  `name_ch` varchar(255) NOT NULL,
+  `image1` varchar(255) NOT NULL,
+  `image2` varchar(255) NOT NULL,
+  `image3` varchar(255) NOT NULL,
+  `image4` varchar(255) NOT NULL,
+  `image5` varchar(255) NOT NULL,
+  `image6` varchar(255) NOT NULL,
+  `image7` varchar(255) NOT NULL,
+  `image8` varchar(255) NOT NULL,
+  `videolink` mediumtext NOT NULL,
+  `text_en` mediumtext NOT NULL,
+  `text_ch` text NOT NULL,
+  `online_retail` varchar(8) NOT NULL DEFAULT 'YES',
+  `online_agency` varchar(8) NOT NULL DEFAULT 'YES',
+  `online_wholesale` varchar(8) NOT NULL DEFAULT 'YES',
+  `price` varchar(16) DEFAULT NULL,
+  `recommend_index` tinyint(1) DEFAULT '0',
+  `jclass` varchar(10) DEFAULT NULL,
+  `color_type` varchar(5) DEFAULT NULL COMMENT 'white,fancy',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=248 DEFAULT CHARSET=utf8;
+
+alter table jewelry add 18k03 DECIMAL default 0 null;
+alter table jewelry add 18k05 DECIMAL default 0 null;
+alter table jewelry add 18k07 DECIMAL default 0 null;
+alter table jewelry add 18k09 DECIMAL default 0 null;
+alter table jewelry add 18k15 DECIMAL default 0 null;
+alter table jewelry add 18k20 DECIMAL default 0 null;
+alter table jewelry add pt03  DECIMAL default 0 null;
+alter table jewelry add pt05  DECIMAL default 0 null;
+alter table jewelry add pt07  DECIMAL default 0 null;
+alter table jewelry add pt09  DECIMAL default 0 null;
+alter table jewelry add pt15  DECIMAL default 0 null;
+alter table jewelry add pt20  DECIMAL default 0 null;
+
+
+
+

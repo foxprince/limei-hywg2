@@ -37,6 +37,21 @@ else
 if($_REQUEST['action']) {
 	$action = $_REQUEST['action'];
 	switch($action) {
+		case "editJewelryPrice":
+		    $editType=$_REQUEST['editType'];
+		    $price=$_REQUEST['price'];
+		    $arr = explode(",",$price);
+		    if($editType=='18k')
+		        $sql='UPDATE jewelry SET 18k03='.$arr[0].',18k05='.$arr[1].',18k07='.$arr[2].',18k09='.$arr[3].',18k15='.$arr[4].',18k20='.$arr[5].'  WHERE id = '.$_REQUEST['id'];
+            else if($editType=='Pt950')
+            	$sql='UPDATE jewelry SET pt03='.$arr[0].',pt05='.$arr[1].',pt07='.$arr[2].',pt09='.$arr[3].',pt15='.$arr[4].',pt20='.$arr[5].'  WHERE id = '.$_REQUEST['id'];
+            $stmt=$conn->query($sql);
+            $updated=$stmt->rowCount();
+            if($updated){
+                $message='修改成功。';
+            }
+		    echo json_encode($message);
+		    break;
 		case "recommendDia":
 			$userhistory='SELECT * from diamonds  where visiable=1 limit 0,2';
 			$stmt_history=$conn->query($userhistory);
