@@ -187,18 +187,18 @@ CREATE TABLE `jewelry` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=248 DEFAULT CHARSET=utf8;
 
-alter table jewelry add 18k03 DECIMAL default 0 null;
-alter table jewelry add 18k05 DECIMAL default 0 null;
-alter table jewelry add 18k07 DECIMAL default 0 null;
-alter table jewelry add 18k09 DECIMAL default 0 null;
-alter table jewelry add 18k15 DECIMAL default 0 null;
-alter table jewelry add 18k20 DECIMAL default 0 null;
-alter table jewelry add pt03  DECIMAL default 0 null;
-alter table jewelry add pt05  DECIMAL default 0 null;
-alter table jewelry add pt07  DECIMAL default 0 null;
-alter table jewelry add pt09  DECIMAL default 0 null;
-alter table jewelry add pt15  DECIMAL default 0 null;
-alter table jewelry add pt20  DECIMAL default 0 null;
+alter table jewelry add 18k03 DECIMAL  null;
+alter table jewelry add 18k05 DECIMAL  null;
+alter table jewelry add 18k07 DECIMAL  null;
+alter table jewelry add 18k09 DECIMAL  null;
+alter table jewelry add 18k15 DECIMAL  null;
+alter table jewelry add 18k20 DECIMAL  null;
+alter table jewelry add pt03  DECIMAL  null;
+alter table jewelry add pt05  DECIMAL  null;
+alter table jewelry add pt07  DECIMAL  null;
+alter table jewelry add pt09  DECIMAL  null;
+alter table jewelry add pt15  DECIMAL  null;
+alter table jewelry add pt20  DECIMAL  null;
 
 
 

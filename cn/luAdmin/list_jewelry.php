@@ -185,8 +185,8 @@ if($row['image3']!=NULL && $row['image3']!='' && $row['image3']!="NO"){
 ?>
 
 </td>
-<td align="center" data-id="<?php echo $row['id']; ?>" onclick="editPrice('18k',this);"><?php echo $jclassName; ?></td>
-<td align="center" data-id="<?php echo $row['id']; ?>" onclick="editPrice('Pt950',this);"><?php echo $jclassName; ?></td>
+<td align="center" data-id="<?php echo $row['id']; ?>" onclick="editPrice('18k',this);"><?php echo $row['18k03'].','.$row['18k05'].','.$row['18k07'].','.$row['18k09'].','.$row['18k15'].','.$row['18k20']; ?></td>
+<td align="center" data-id="<?php echo $row['id']; ?>" onclick="editPrice('Pt950',this);"><?php echo $row['pt03'].','.$row['pt05'].','.$row['pt07'].','.$row['pt09'].','.$row['pt15'].','.$row['pt20']; ?></td>
 <td align="center"><a class="modifybtn" href="<?php echo 'jewelry_edit.php?id='.$row['id']; ?>">修改</a></td>
 <td align="center">
 <!--
