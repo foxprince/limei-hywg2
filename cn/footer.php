@@ -7,7 +7,7 @@
       <dl><a href="intro.php?c=igi"><dt><img width="57" src="images/footer-03.png"></dt><dd>权威认证</dd></a></dl>
       <dl><a href="intro.php?c=maintain"><dt><img width="57" src="images/footer-04.png"></dt><dd>终生保养</dd></a></dl>
       <dl><a href="intro.php?c=route"><dt><img width="57" src="images/footer-05.png"></dt><dd>交通指示</dd></a></dl>
-      <dl><a href="intro.php?c=tochina"><dt><img width="57" src="images/footer-06.png"></dt><dd>直邮中国</dd></a></dl>
+      <!--<dl><a href="intro.php?c=tochina"><dt><img width="57" src="images/footer-06.png"></dt><dd>直邮中国</dd></a></dl>-->
       <dl><a href="intro.php?c=order"><dt><img width="57" src="images/footer-07.png"></dt><dd>预约购买</dd></a></dl>
     </div>
   </div>
