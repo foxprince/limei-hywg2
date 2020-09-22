@@ -122,15 +122,15 @@ for ($i=0; $i < $len; $i++) {
 		$worksheet->mergeCellsByColumnAndRow(4, $j, 4, $j+$k-1);
 		$worksheet->mergeCellsByColumnAndRow(5, $j, 5, $j+$k-1);
 		$worksheet->mergeCellsByColumnAndRow(10, $j, 10, $j+$k-1);
-		$worksheet->mergeCellsByColumnAndRow(20, $j, 11, $j+$k-1);
-		$worksheet->mergeCellsByColumnAndRow(21, $j, 12, $j+$k-1);
-		$worksheet->mergeCellsByColumnAndRow(22, $j, 13, $j+$k-1);
-		$worksheet->mergeCellsByColumnAndRow(23, $j, 14, $j+$k-1);
-		$worksheet->mergeCellsByColumnAndRow(24, $j, 15, $j+$k-1);
-		$worksheet->mergeCellsByColumnAndRow(25, $j, 16, $j+$k-1);
-		$worksheet->mergeCellsByColumnAndRow(26, $j, 17, $j+$k-1);
-		$worksheet->mergeCellsByColumnAndRow(27, $j, 18, $j+$k-1);
-		$worksheet->mergeCellsByColumnAndRow(28, $j, 19, $j+$k-1);
+		$worksheet->mergeCellsByColumnAndRow(20, $j, 20, $j+$k-1);
+		$worksheet->mergeCellsByColumnAndRow(21, $j, 21, $j+$k-1);
+		$worksheet->mergeCellsByColumnAndRow(22, $j, 22, $j+$k-1);
+		$worksheet->mergeCellsByColumnAndRow(23, $j, 23, $j+$k-1);
+		$worksheet->mergeCellsByColumnAndRow(24, $j, 24, $j+$k-1);
+		$worksheet->mergeCellsByColumnAndRow(25, $j, 25, $j+$k-1);
+		$worksheet->mergeCellsByColumnAndRow(26, $j, 26, $j+$k-1);
+		$worksheet->mergeCellsByColumnAndRow(27, $j, 27, $j+$k-1);
+		$worksheet->mergeCellsByColumnAndRow(28, $j, 28, $j+$k-1);
 	}
 	$j += $k;
 }
