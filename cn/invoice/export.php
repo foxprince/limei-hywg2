@@ -63,7 +63,7 @@ $styleArray = [
 ];
 //设置单元格样式
 $worksheet->getStyle('A1')->applyFromArray($styleArray)->getFont()->setSize(28);
-$worksheet->getStyle('A2:W2')->applyFromArray($styleArray)->getFont()->setSize(14);
+$worksheet->getStyle('A2:Y2')->applyFromArray($styleArray)->getFont()->setSize(14);
 $sql='select * from '.$tableName.' where type="'.$type.'" order by tranc_date desc';
 $stmt = $conn->query($sql);
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -121,16 +121,17 @@ for ($i=0; $i < $len; $i++) {
 		$worksheet->mergeCellsByColumnAndRow(3, $j, 3, $j+$k-1);
 		$worksheet->mergeCellsByColumnAndRow(4, $j, 4, $j+$k-1);
 		$worksheet->mergeCellsByColumnAndRow(5, $j, 5, $j+$k-1);
-		$worksheet->mergeCellsByColumnAndRow(10, $j, 10, $j+$k-1);
+        $worksheet->mergeCellsByColumnAndRow(6, $j, 6, $j+$k-1);
+        $worksheet->mergeCellsByColumnAndRow(12, $j, 12, $j+$k-1);
+        $worksheet->mergeCellsByColumnAndRow(13, $j, 13, $j+$k-1);
+        $worksheet->mergeCellsByColumnAndRow(14, $j, 14, $j+$k-1);
+        $worksheet->mergeCellsByColumnAndRow(19, $j, 19, $j+$k-1);
 		$worksheet->mergeCellsByColumnAndRow(20, $j, 20, $j+$k-1);
 		$worksheet->mergeCellsByColumnAndRow(21, $j, 21, $j+$k-1);
 		$worksheet->mergeCellsByColumnAndRow(22, $j, 22, $j+$k-1);
 		$worksheet->mergeCellsByColumnAndRow(23, $j, 23, $j+$k-1);
 		$worksheet->mergeCellsByColumnAndRow(24, $j, 24, $j+$k-1);
 		$worksheet->mergeCellsByColumnAndRow(25, $j, 25, $j+$k-1);
-		$worksheet->mergeCellsByColumnAndRow(26, $j, 26, $j+$k-1);
-		$worksheet->mergeCellsByColumnAndRow(27, $j, 27, $j+$k-1);
-		$worksheet->mergeCellsByColumnAndRow(28, $j, 28, $j+$k-1);
 	}
 	$j += $k;
 }
