@@ -85,7 +85,7 @@ for ($i=0; $i < $len; $i++) {
 // 			$worksheet->setCellValueByColumnAndRow(8, $j+$k, $rowDetail["clarity"]);
 // 			$worksheet->setCellValueByColumnAndRow(9, $j+$k, $rowDetail["report_no"]);
 // 		}
-		if($k==0) {
+		//if($k==0) {
 			$worksheet->setCellValueByColumnAndRow(1, $j+$k, $rows[$i]['id']);
 			$worksheet->setCellValueByColumnAndRow(2, $j+$k, $rows[$i]['type']);
 			if($rows[$i]['type']=='invoice')
@@ -112,7 +112,7 @@ for ($i=0; $i < $len; $i++) {
 			$worksheet->setCellValueByColumnAndRow(23, $j+$k, $rows[$i]['email'] );
 			$worksheet->setCellValueByColumnAndRow(24, $j+$k, $rows[$i]['street'].' '.$rows[$i]['city'].$rows[$i]['postcode'].$rows[$i]['country'] );
 			$worksheet->setCellValueByColumnAndRow(25, $j+$k, $rows[$i]['notes'] );
-		}
+		//}
 		$k++;
 	}
 	if($k>0) {
