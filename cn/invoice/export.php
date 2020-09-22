@@ -55,15 +55,15 @@ $worksheet->setCellValueByColumnAndRow(25, 2, '备注');
 $worksheet->mergeCells('A1:M1');
 $styleArray = [
 		'font' => [
-				'bold' => true
+			'bold' => true
 		],
 		'alignment' => [
-				'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+			'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
 		],
 ];
 //设置单元格样式
 $worksheet->getStyle('A1')->applyFromArray($styleArray)->getFont()->setSize(28);
-$worksheet->getStyle('A2:E2')->applyFromArray($styleArray)->getFont()->setSize(14);
+$worksheet->getStyle('A2:W2')->applyFromArray($styleArray)->getFont()->setSize(14);
 $sql='select * from '.$tableName.' where type="'.$type.'" order by tranc_date desc';
 $stmt = $conn->query($sql);
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -122,15 +122,15 @@ for ($i=0; $i < $len; $i++) {
 		$worksheet->mergeCellsByColumnAndRow(4, $j, 4, $j+$k-1);
 		$worksheet->mergeCellsByColumnAndRow(5, $j, 5, $j+$k-1);
 		$worksheet->mergeCellsByColumnAndRow(10, $j, 10, $j+$k-1);
-		$worksheet->mergeCellsByColumnAndRow(11, $j, 11, $j+$k-1);
-		$worksheet->mergeCellsByColumnAndRow(12, $j, 12, $j+$k-1);
-		$worksheet->mergeCellsByColumnAndRow(13, $j, 13, $j+$k-1);
-		$worksheet->mergeCellsByColumnAndRow(14, $j, 14, $j+$k-1);
-		$worksheet->mergeCellsByColumnAndRow(15, $j, 15, $j+$k-1);
-		$worksheet->mergeCellsByColumnAndRow(16, $j, 16, $j+$k-1);
-		$worksheet->mergeCellsByColumnAndRow(17, $j, 17, $j+$k-1);
-		$worksheet->mergeCellsByColumnAndRow(18, $j, 18, $j+$k-1);
-		$worksheet->mergeCellsByColumnAndRow(19, $j, 19, $j+$k-1);
+		$worksheet->mergeCellsByColumnAndRow(20, $j, 11, $j+$k-1);
+		$worksheet->mergeCellsByColumnAndRow(21, $j, 12, $j+$k-1);
+		$worksheet->mergeCellsByColumnAndRow(22, $j, 13, $j+$k-1);
+		$worksheet->mergeCellsByColumnAndRow(23, $j, 14, $j+$k-1);
+		$worksheet->mergeCellsByColumnAndRow(24, $j, 15, $j+$k-1);
+		$worksheet->mergeCellsByColumnAndRow(25, $j, 16, $j+$k-1);
+		$worksheet->mergeCellsByColumnAndRow(26, $j, 17, $j+$k-1);
+		$worksheet->mergeCellsByColumnAndRow(27, $j, 18, $j+$k-1);
+		$worksheet->mergeCellsByColumnAndRow(28, $j, 19, $j+$k-1);
 	}
 	$j += $k;
 }
