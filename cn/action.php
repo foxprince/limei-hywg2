@@ -810,6 +810,7 @@ function updateAvaiable ($report_no,$name) {
 		}
 		//更改钻石为不可见，ordered_by，ordered_time
 		$off_sql = 'UPDATE diamonds SET visiable=0,status = "UNAVAILABLE",ordered_by = "'.$name.'",wholesale_ordered_by = "'.$name.'",ordered_time=now() WHERE certificate_number="'.$report_no.'"';
+		logger($off_sql);
 		$off_stmt = $conn->prepare ( $off_sql );$off_stmt->execute();
 		return json_encode($raw_price);
 	}

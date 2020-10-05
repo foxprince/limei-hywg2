@@ -319,8 +319,8 @@
    			     	    html += "<select id='form_model' class='shape form-control'>";
    			     	    html += "<option value='-'  "+(j.shape=='-' ? 'selected':'')+">-</option>";
    			     	    html += "<option value='BR' "+(j.shape=='BR'? 'selected':'')+">Round Brilliant</option>";
-   			     	    html += "<option value='PR' "+(j.shape=='PR'? 'selected':'')+">Pear</option>";
-   			     	    html += "<option value='PS' "+(j.shape=='PS'? 'selected':'')+">Princess</option>";
+   			     	    html += "<option value='PR' "+(j.shape=='PR'? 'selected':'')+">Princess</option>";
+   			     	    html += "<option value='PS' "+(j.shape=='PS'? 'selected':'')+">Pear Shape</option>";
    			     	    html += "<option value='HS' "+(j.shape=='HS'? 'selected':'')+">Heart</option>";
    			     	    html += "<option value='MQ' "+(j.shape=='MQ'? 'selected':'')+">Marquise</option>";
    			     	    html += "<option value='OV' "+(j.shape=='OV'? 'selected':'')+">Oval</option>";
