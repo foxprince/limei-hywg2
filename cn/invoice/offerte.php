@@ -207,11 +207,9 @@
 					<div class="col-xs-3 clearfix"></div>
 					<div class="col-xs-6 clearfix"></div>
 					<div class="col-xs-1 clearfix">
-						<p class="print_none">21%VAT:</p>
 						<p class="">Total:</p>
 					</div>
 					<div class="col-xs-2  clearfix">
-						<p class="vat_price print_none">€0</p>
 						<p id="print_price"class="total_price">€0</p>
 					</div>
 				</div>

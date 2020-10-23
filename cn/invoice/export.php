@@ -99,8 +99,14 @@ for ($i=0; $i < $len; $i++) {
 			$worksheet->setCellValueByColumnAndRow(10, $j+$k, $rowDetail["fluorescence"]);
 			$worksheet->setCellValueByColumnAndRow(11, $j+$k, $rowDetail["report_no"]);
 			$worksheet->setCellValueByColumnAndRow(12, $j+$k, $rows[$i]['currency'] );
-			$worksheet->setCellValueByColumnAndRow(13, $j+$k, $rows[$i]['vat_price'] );
-			$worksheet->setCellValueByColumnAndRow(14, $j+$k, $rows[$i]['total_price']-$rows[$i]['vat_price'] );
+			if($rows[$i]['type']=='invoice') {
+			    $worksheet->setCellValueByColumnAndRow(13, $j+$k, $rows[$i]['vat_price'] );
+                $worksheet->setCellValueByColumnAndRow(14, $j+$k, $rows[$i]['total_price']-$rows[$i]['vat_price'] );
+			}
+			else {
+			    $worksheet->setCellValueByColumnAndRow(14, $j+$k, $rows[$i]['total_price']);
+			}
+
 			$worksheet->setCellValueByColumnAndRow(15, $j+$k, $rowDetail["jewerly"]);
 			$worksheet->setCellValueByColumnAndRow(16, $j+$k, $rowDetail["material"]);
 			$worksheet->setCellValueByColumnAndRow(17, $j+$k, $rowDetail["jewerly_color"]);
