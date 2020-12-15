@@ -431,6 +431,8 @@ if($_REQUEST['action']) {
 					$total=$r_r['t'];
 				}
 			}
+			logger($totalSql);
+			logger($sql);
 			//var_dump($sql);
 			if($total>0) {
 				$transactionList=array();$i=0;
