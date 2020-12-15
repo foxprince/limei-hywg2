@@ -157,7 +157,7 @@ $total_rows = $len + 2;
 $worksheet->getStyle('A1:E'.$total_rows)->applyFromArray($styleArrayBody);
 $filename = 'lumiagem_'.$type.'.xlsx';
 header('Content-type: application/vnd.ms-excel');
-header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+//header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
 header('Content-Disposition: attachment;filename="'.$filename.'"');
 
 header('Cache-Control: max-age=0');
