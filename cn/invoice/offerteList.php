@@ -294,7 +294,6 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                 });
             }
             //fnDataToggle();//点击展开事件
-			
             $(".J_lookfor").click(function(){
                pageflag = true;
                $('.page').empty();
