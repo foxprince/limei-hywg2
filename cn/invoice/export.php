@@ -161,6 +161,6 @@ header('Content-type: application/vnd.ms-excel');
 header('Content-Disposition: attachment;filename="'.$filename.'"');
 
 header('Cache-Control: max-age=0');
-$writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
+$writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'xlsx');
 $writer->save('php://output');
 ?>
