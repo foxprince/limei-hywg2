@@ -867,13 +867,13 @@ function getTrancOrOfferte() {
 		return "transaction";
 }
 function getTrancType() {
-	if($_SERVER['HTTP_HOST']=='54.251.78.204')
+	if($_SERVER['HTTP_HOST']=='a.lumiagem.com')
 		return "offerte";
 	else
 		return "invoice";
 }
 function getTrancOrOfferteDetail() {
-	if($_SERVER['HTTP_HOST']=='54.251.78.204')
+	if($_SERVER['HTTP_HOST']=='a.lumiagem.com')
 		return "offerte_detail";
 	else
 		return "tranc_detail";
