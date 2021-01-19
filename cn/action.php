@@ -559,7 +559,7 @@ if($_REQUEST['action']) {
 					));
 				}
 				else{
-					if($_SERVER['HTTP_HOST']=='54.251.78.204') {
+					if($_SERVER['HTTP_HOST']=='a.lumiagem.com') {
 						$url='http://www.lumiagem.com/action.php?action=offerteRemoteActon&report_no='.$item["report_no"].'&name='.$obj['name'];
 						$raw_price = file_get_contents($url);
 						logger( $url.' from lumiage:'.$raw_price);
@@ -600,7 +600,7 @@ if($_REQUEST['action']) {
 			echo $rate;
 				break;
 		case "fetchDia":
-			if($_SERVER['HTTP_HOST']=='54.251.78.204') {
+			if($_SERVER['HTTP_HOST']=='a.lumiagem.com') {
 				$url='http://www.lumiagem.com/action.php?action=fetchDia&ref='.$_REQUEST["ref"].'&currency='.$_REQUEST['currency'];
 				echo file_get_contents($url);
 			}
@@ -861,7 +861,7 @@ function sendSms($phone,$contentArray) {
 	return $content;
 }
 function getTrancOrOfferte() {
-	if($_SERVER['HTTP_HOST']=='54.251.78.204')
+	if($_SERVER['HTTP_HOST']=='a.lumiagem.com')
 		return "offerte";
 	else 
 		return "transaction";
