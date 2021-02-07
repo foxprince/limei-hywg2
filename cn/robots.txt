@@ -1,3 +1,5 @@
 User-agent: *
-Disallow: 
 Disallow: /bin/
+Allow: /
+Allow: /sitemap.htm
+Sitemap: http://www.lumiagem.com/sitemap.xml
