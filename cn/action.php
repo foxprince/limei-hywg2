@@ -510,7 +510,6 @@ if($_REQUEST['action']) {
 							$item["polish"], $item["symmetry"],$item["price"],$item["jewerly"], $item["material"],
 							$item["jewerly_price"],$item["jewerly_color"],$item["raw_price"]
 					));
-					logger($result);
 				}
 			}
 			echo $obj['id'].','.$obj['invoice_no'];
@@ -576,7 +575,6 @@ if($_REQUEST['action']) {
 							$item["polish"], $item["symmetry"],$item["price"],$item["jewerly"], $item["material"],
 							$item["jewerly_price"],$raw_price
 					));
-					logger($result);
 				}
 			}
 			echo $transactionId.','.$transactionNo;
