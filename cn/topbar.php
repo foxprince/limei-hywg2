@@ -55,8 +55,8 @@
     	<li><a id="gwc" href="shopcart.php"><img id="gwcLogo" src="images/gwc.gif" >(<b id="gwcTotal"><?php echo $myordernum; ?></b>) </a></li>
     	<?php }?>
     	<li id="lang2" >
-    	<select id="langLink" onchange="langChg()">
-    	    <option value="http://www.umiagem.com">中文</option>
+    	<select id="langLink" onchange="langChg()" style="border: 1px solid #333;border-radius: 50px;">
+    	    <option selected="true" value="http://www.lumiagem.com">中文</option>
     	    <option value="http://en.lumiagem.com">English</option>
     	</select>
     	</li>
