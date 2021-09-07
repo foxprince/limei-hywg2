@@ -180,8 +180,6 @@ if($_REQUEST['action']) {
 			//tencentSms('8613311032007',$msg);
 			break;
 		case "offerteLogin":
-			$code = $_REQUEST['code'];
-			if($code&&$code==$_SESSION['offerteCode']) {
 				$password=$_POST['password'];
 				if(($_POST['username']=='admin'&&$password=='1qsxzse$')||($_POST['username']=='iadmin'&&$password=='1q2w#E$R')){
 					$_SESSION['invoiceAdmin']=$_POST['username'];
@@ -192,9 +190,6 @@ if($_REQUEST['action']) {
 				}else{
 					echo "密码错误";
 				}
-			}
-			else 
-				echo "验证码错误";
 			break;
 		case "appointmentMakeAll":
 			$name=$_POST['name'];

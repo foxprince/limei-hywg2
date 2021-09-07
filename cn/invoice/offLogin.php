@@ -65,11 +65,11 @@ if(isset($_REQUEST['quit'])){
                     <label for="" class="field">密码</label>
                     <input type="password" id="custom" class="i_text" name="password" placeholder="请输入密码">
                 </p>
-                <p class="item">
-                    <label for="" class="field">验证码</label>
-                    <input type="text"  class="i_text" name="code" placeholder="短信验证码">
-                    <button type="button" class="getcode" onclick="sendCode(this)">获取验证码</button>
-                </p>
+//                 <p class="item">
+//                     <label for="" class="field">验证码</label>
+//                     <input type="text"  class="i_text" name="code" placeholder="短信验证码">
+//                     <button type="button" class="getcode" onclick="sendCode(this)">获取验证码</button>
+//                 </p>
                 <input type="hidden" name="action" value="offerteLogin"/>
                 <p class="item "><button type="submit" id="login" value="Login" class="c_btn look_btn J_lookfor">登  录</button></p>
             </form>
