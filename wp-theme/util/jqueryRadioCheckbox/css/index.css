@@ -1,0 +1,44 @@
+/*************checkbox************/
+
+.sf-checked-item {
+	float: left;
+	margin-right: 12px;
+	cursor: pointer;
+}
+
+.sf-checkbox-icon {
+	vertical-align: middle;
+	display: inline-block;
+	height: 12px;
+	width: 12px;
+	border: 1px solid #957732;
+}
+
+.sf-checkbox-selected {
+	background: url(../../../image/common/checked.png)  center no-repeat;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../../../image/common/checked.png", sizingMethod='scale');
+	background-size: 80%;
+}
+
+.sf-checked-item label {
+	/* margin-left: 8px; */
+	font-size: 12px;
+	/* line-height: 22px; */
+	/* height: 22px; */
+	cursor: pointer;
+}
+
+.sf-radio-icon {
+	vertical-align: middle;
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border: 1px solid #957732;
+	/* border-radius: 100%; */
+}
+
+.sf-radio-selected {
+	background: url(../../../image/common/checked.png)  center no-repeat;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="../../../image/common/checked.png", sizingMethod='scale');
+	background-size: 80%;
+}

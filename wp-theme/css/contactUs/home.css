@@ -1,0 +1,252 @@
+.content {
+	width: 987px;
+	padding-top: 87px;
+	margin: 0 auto;
+}
+
+.content .title {
+	width: 970px;
+	height: 105px;
+	font-family: Operetta 12;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 38px;
+	line-height: 159.85%;
+	text-align: center;
+	color: #957732;
+}
+
+/*  */
+/*  */
+.content .menu {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 54px;
+}
+
+.content .menu>div {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+	/* padding: 0 70px; */
+	height: 72px;
+	position: relative;
+}
+
+.content .menu>div:before {
+	content: " ";
+	position: absolute;
+	right: 0;
+	top: 6px;
+	width: 1px;
+	height: 62%;
+	background: #8B8B8B;
+	transform: scaleX(0.25);
+}
+
+.content .menu>div:last-child:before {
+	height: 0;
+}
+
+.content .menu>div {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+	/* padding: 0 70px; */
+	height: 68px;
+	width: 25%;
+}
+
+.content .menu .active {
+	/* background: #C5C4E0; */
+	/* border: none; */
+}
+
+.content .menu>div img {
+	width: 38px;
+	height: 27px;
+	object-fit: contain;
+}
+
+.content .menu>div p {
+	text-align: center;
+	font-size: 12px;
+	line-height: 164.5%;
+	color: #494949;
+
+}
+
+/*  */
+.content .sologn {
+	margin: 100px auto 60px;
+	font-size: 38px;
+	line-height: 159.85%;
+	text-align: center;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: #957732
+}
+
+/*  */
+.content .input_content {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.content .input_content input {
+	font-weight: bold;
+	font-size: 9px;
+	line-height: 11px;
+	letter-spacing: 0.15em;
+	width: 475px;
+	color: #494949;
+}
+
+.content .input_content textarea {
+	padding: 29px 33px;
+	width: 100%;
+	box-sizing: border-box;
+	margin-top: 50px;
+	font-size: 12px;
+	line-height: 164.5%;
+	color: #9A9797;
+	height: 207px;
+
+}
+
+/*  */
+.content .send {
+	width: 123px;
+	height: 47px;
+	text-align: center;
+	background: #957732;
+	border-radius: 10px;
+	font-size: 11px;
+	line-height: 47px;
+	color: #FDFAF5;
+	margin: 38px auto 107px;
+}
+
+/*  */
+.map_content {
+	display: flex;
+	width: 1320px;
+	margin: 0 auto;
+	justify-content: space-between;
+}
+
+.map_content .map {
+	width: 50%;
+	padding: 64px;
+	box-sizing: border-box;
+	background-color: #C5C4E0;
+}
+
+.map_content .map img {
+	width: 529px;
+	height: 533px;
+	object-fit: contain;
+}
+
+.map_content .map_desc {
+	width: 50%;
+	font-size: 12px;
+	line-height: 164.5%;
+	color: #494949;
+	padding: 76px 93px 65px;
+	background: rgba(149, 119, 50, 0.1)
+}
+
+.map_content .map_desc p:first-child {
+	font-size: 28px;
+	line-height: 159.85%;
+	/* or 48px */
+	font-family: Operetta 12;
+	letter-spacing: 0.03em;
+	color: #957732;
+}
+
+.map_content .map_desc p:nth-child(2) span {
+
+	color: #957732;
+}
+
+.map_content .map_desc p:nth-child(2) {
+	margin-top: 60px;
+}
+
+.map_content .map_desc p:nth-child(3),
+.map_content .map_desc p:nth-child(4),
+.map_content .map_desc p:nth-child(5) {
+	padding-left: 62px;
+	position: relative;
+}
+
+.map_content .map_desc p:nth-child(3){
+	margin-top: 37px;
+}
+.map_content .map_desc p:nth-child(4){
+	margin-top: 45px;
+}
+.map_content .map_desc p:nth-child(5){
+	margin-top: 56px;
+}
+.map_content .map_desc p:nth-child(3):before {
+	display: inline-block;
+	content: '1';
+	width: 27px;
+	height: 27px;
+	background: #957732;
+	border-radius: 100%;
+	font-weight: bold;
+	font-size: 9px;
+	line-height: 27px;
+	text-align: center;
+	color: #FFFFFF;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.map_content .map_desc p:nth-child(4):before {
+	display: inline-block;
+	content: '2';
+	width: 27px;
+	height: 27px;
+	background: #957732;
+	border-radius: 100%;
+	font-weight: bold;
+	font-size: 9px;
+	line-height: 27px;
+	text-align: center;
+	color: #FFFFFF;
+	top: 0;
+	left: 0;
+	position: absolute;
+}
+
+.map_content .map_desc p:nth-child(5):before {
+	display: inline-block;
+	content: 'p';
+	width: 27px;
+	height: 27px;
+	background: #C5C4E0;
+	border-radius: 100%;
+	font-weight: bold;
+	font-size: 9px;
+	line-height: 27px;
+	text-align: center;
+	color: #FFFFFF;
+	top: 0;
+	left: 0;
+	position: absolute;
+}
+.map_content .map_desc img{
+	margin-top: 75px;
+}

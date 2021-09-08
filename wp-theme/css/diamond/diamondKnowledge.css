@@ -1,0 +1,131 @@
+/*  */
+.content .banner{
+	background-image: url("../../image/diamond/banner.png");
+	width: 1320px;
+	height: 305px;
+	background-size: contain;
+	text-align: center;
+	margin-top: 56px;
+}
+.content .banner p{
+	padding-top: 94px;
+	font-size: 38px;
+	line-height: 159.85%;
+	text-align: center;
+	color: #FDFAF5;
+}
+.content .banner span{
+	margin-top: 25px;
+	display: inline-block;
+	width: 135px;
+	height: 47px;
+	line-height: 47px;
+	background: #FFFFFF;
+	border: 1px solid #957732;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+/*  */
+.content .menu{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+.content .menu>div>a{
+	width: 424px;
+	height: 132px;
+	border: 0.75px solid #957732;
+	box-sizing: border-box;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	cursor: pointer;
+}
+.content .menu .active{
+	background: #C5C4E0;
+	border: none;
+}
+.content .menu>div>a img{
+	margin-top: 32px;
+	width: 34px;
+	height: 37px;
+	object-fit: contain;
+}
+.content .menu>div>a p{
+	margin-top: 9px;
+	font-size: 16px;
+	line-height: 159.85%;
+	text-align: center;
+	letter-spacing: 0.03em;
+	color: #957732;
+}
+/*  */
+.content .select{
+	padding-bottom: 40px;
+	width: 778px;
+	border-bottom: 0.25px solid #8B8B8B;
+	margin: 0 auto;
+	margin-top: 74px;
+}
+.content .select label{
+	font-size: 9px;
+	line-height: 11px;
+	letter-spacing: 0.15em;
+	color: #957732;
+}
+.content .select select{
+	background-color: inherit;
+	border: none;
+	font-size: 27px;
+	line-height: 159.85%;
+	letter-spacing: 0.03em;
+	color: #494949;
+}
+/*  */
+.content .sologn{
+	width: 778px;
+	margin: 32px auto 45px;
+	font-size: 38px;
+	line-height: 159.85%;
+	text-align: left;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: #957732;
+}
+/*  */
+.content .pic{
+	margin: 0 auto;
+	display: flex;
+	width: 780px;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.content .pic li{
+	width: 242px;
+	height: 277px;
+	margin-bottom: 24px;
+	font-size: 14px;
+	line-height: 196.5%;
+	text-align: center;
+	letter-spacing: 0.15em;
+	display: flex;
+	flex-direction: column;
+}
+.content .pic li img{
+	width: 246px;
+	height: 246px;
+}
+.content .pic li span{
+	display: inline-block;
+	margin-top: 9px;
+	font-weight: bold;
+	font-size: 9px;
+	line-height: 11px;
+	text-align: center;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	color: #494949;
+	line-height: 150%;
+}

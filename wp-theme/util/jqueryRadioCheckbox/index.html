@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="js/cr.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<title>radio/checkbox</title>
+	</head>
+
+	<body style="background:#FDFAF5">
+
+		<br />
+		<div style="padding-left: 100px;">
+			<!--radio-->
+			<h4>radio</h4>
+			<div id="radio" class="sf-checked" type="radio">
+				<div class="sf-checked-item" value='1' checked="checked">启动</div>
+				<div class="sf-checked-item" value='2'>禁用</div>
+			</div>
+			<br />
+			<br />
+			<br />
+			<!--checkbox-->
+			<h4>checkbox</h4>
+			<div id="checked1" class="sf-checked" name="state" type="checkbox">
+				<div class="sf-checked-item" value='1' checked="checked">第一个</div>
+				<div class="sf-checked-item" value='2'>第二个</div>
+				<div class="sf-checked-item" value='3' checked="checked">第三个</div>
+				<div class="sf-checked-item" value='4'>第四个</div>
+			</div>
+			<!--checkbox-->
+			<div id="checked2" class="sf-checked" name="state" type="checkbox">
+			</div>
+
+			<br />
+			<br />
+			<br />
+			
+			<p>将radio状态置反checkbox多选中第二个</p>
+			<div id='changebtn' style=";cursor:pointer;width: 60px;height: 40px;text-align: center;line-height: 40px;background-color: cornflowerblue;">改变</div>
+			<br />
+			
+
+			<div id='getbtn' style=";cursor:pointer;width: 60px;height: 40px;text-align: center;line-height: 40px;background-color: cornflowerblue;">取值</div>
+			<br />
+			<div class="lable"></div>
+
+		</div>
+
+	</body>
+
+	<script type="text/javascript">
+		$(function() {
+
+			$('#radio').sfcheckbox();
+			$('#checked1').sfcheckbox();
+			$('#checked2').sfcheckbox();
+
+		})
+		//改变
+		$('#changebtn').click(function() {
+			$('#radio').sfcheckbox('setVal','2');
+			$('#checked1').sfcheckbox('setVal','2');
+		})
+		//取值
+		$('#getbtn').click(function() {
+			var r = 'radio值：'+ $('#radio').sfcheckbox('getVal')+'<br/>'
+			
+			var c = $('#checked1').sfcheckbox('getVal');
+			var h = 'checkedbox：'+JSON.stringify(c)
+			
+			$('.lable').html(r+h)
+
+		})
+	</script>
+
+</html>

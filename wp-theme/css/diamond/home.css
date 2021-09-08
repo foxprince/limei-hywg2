@@ -1,0 +1,111 @@
+/*  */
+.content .banner{
+	background-image: url("../../image/diamond/banner.png");
+	width: 1320px;
+	height: 305px;
+	background-size: contain;
+	text-align: center;
+	margin-top: 56px;
+}
+.content .banner p{
+	padding-top: 94px;
+	font-size: 38px;
+	line-height: 159.85%;
+	text-align: center;
+	color: #FDFAF5;
+}
+.content .banner span{
+	margin-top: 25px;
+	display: inline-block;
+	width: 135px;
+	height: 47px;
+	line-height: 47px;
+	background: #FFFFFF;
+	border: 1px solid #957732;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+/*  */
+.content .menu{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+.content .menu>div>a{
+	width: 424px;
+	height: 132px;
+	border: 0.75px solid #957732;
+	box-sizing: border-box;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	cursor: pointer;
+}
+.content .menu .active{
+	background: #C5C4E0;
+	border: none;
+}
+.content .menu>div>a img{
+	margin-top: 32px;
+	width: 34px;
+	height: 37px;
+	object-fit: contain;
+}
+.content .menu>div>a p{
+	margin-top: 9px;
+	font-size: 16px;
+	line-height: 159.85%;
+	text-align: center;
+	letter-spacing: 0.03em;
+	color: #957732;
+}
+/*  */
+.content .sologn{
+	margin: 51px auto 45px;
+	font-size: 38px;
+	line-height: 159.85%;
+	text-align: center;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: #957732;
+}
+/*  */
+.content .pic{
+	margin: 0 auto;
+	display: flex;
+	width: 780px;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.content .pic li{
+	width: 242px;
+	height: 242px;
+	margin-bottom: 24px;
+	font-size: 14px;
+	line-height: 196.5%;
+	text-align: center;
+	letter-spacing: 0.15em;
+	display: flex;
+}
+.content .pic li a{
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	/* line-height: 242px; */
+	padding-top: 90px;
+}
+.content .pic li:nth-child(odd){
+	background-color:  #C5C4E0;
+}
+.content .pic li:nth-child(even){
+	background-color:  rgba(149, 119, 50, 0.1);
+	
+}
+.content .pic li:nth-child(odd) a{
+	color: #FFFFFF;
+}
+.content .pic li:nth-child(even) a{
+	color: #957732;
+}

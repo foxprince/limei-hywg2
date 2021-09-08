@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+	<link rel="stylesheet" href="https://use.typekit.net/jtn0ulo.css">
+  <link rel="stylesheet" href="../../css/pubilc.css">
+  <link rel="stylesheet" href="../../util/swiper/css/swiper.css">
+  <link rel="stylesheet" href="../../css/myAccount/create.css">
+</head>
+
+<body>
+  <div class="wrapper">
+   <header class="header">
+   	<div>
+   		<a href="../diamond/home.html">Diamond</a>
+   		<a href="">ENGAGEMENT RINGS</a>
+   		<a href="../jewellery/home.html">JEWELLERY</a>
+   	</div>
+   	<div class="logo">
+   		<a href="../homePage/home.html"><img src="../../image/header/logo.png" alt=""></a>
+   	</div>
+   	<div>
+   		<a href="../ourStory/home.html">OUR STORY</a>
+   		<a href="../contactUs/home.html">CONTACT US</a>
+   		<a href="../myAccount/home.html" class="active">MY ACCOUNT</a>
+   		<a href="../shoppingCar/home.html">
+   			<img src="../../image/header/shoppingCar.png" alt="">
+   		</a>
+   		<a href="../favorite/home.html">
+   			<img src="../../image/header/heart.png" alt="">
+   		</a>
+   	</div>
+   </header>
+    <div class="content">
+			<!--  -->
+			<p class="top_title tk-operetta-12">CREATE AN ACCOUNT</p>
+			<ul>
+				<li>
+					<p class="tk-operetta-12">Contact information</p>
+					<input type="" placeholder="LAST NAME" name="" id="lastName" value="" />
+					<input type="" placeholder="FIRST NAME" name="" id="firstName" value="" />
+					<input type="" placeholder="E-MAIL ADDRESS" name="" id="email" value="" />
+					<input type="" placeholder="TELEPHONE NUMBER" name="" id="tel" value="" />
+				</li>
+				<li>
+					<p class="tk-operetta-12">Delivery address</p>
+					<input type="" placeholder="ADRESS" name="" id="address" value="" />
+					<input type="" placeholder="POSTAL CODE" name="" id="postcode" value="" />
+					<input type="" placeholder="CITY" name="" id="city" value="" />
+				</li>
+				<!--<li>-->
+					<!--<p class="tk-operetta-12">Billing information</p>-->
+					<!--<input type="" placeholder="ADRESS" name="" id="" value="" />-->
+					<!--<input type="" placeholder="CITY" name="" id="" value="" />-->
+				<!--</li>-->
+				<!--<li>-->
+					<!--<p></p>-->
+					<!--<input type="" placeholder="POSTAL CODE" name="" id="" value="" />-->
+					<!--<input type="" placeholder="VAT NUMBER (OPTIONAL)" name="" id="" value="" />-->
+				<!--</li>-->
+			</ul>
+			<div class="create">CREATE MY ACCOUNT</div>
+			<div class="tips">By clicking ‘create my account’, you agree to our<a href="">terms & conditions policy.</a></div>
+		</div>
+    <footer class="footer">
+      <img src="../../image/header/logo.png" alt="">
+      <p>Hoveniersstraat 35, office 313-315, 2019 Antwerpen — e. info@lumiagem.com — t. +32 689 73 94</p>
+      <div>
+        <div>
+          <img src="../../image/footer/pic1.png" alt="">
+          <b>Information</b>
+          <a href="../contactUs/home.html">About us</a>
+          <a href="../contactUs/home.html">Contact us</a>
+          <a href="../contactUs/home.html">Terms & conditions</a>
+          <a href="../contactUs/home.html">Returns & exchanges</a>
+          <a href="../contactUs/home.html">Shipping & delivery</a>
+          <a href="../contactUs/home.html">Privacy policy</a>
+        </div>
+        <div>
+          <img src="../../image/footer/pic2.png" alt="">
+          <b>Information</b>
+          <a href="">Store location</a>
+          <a href="">My account</a>
+          <a href="">Orders tracking</a>
+          <a href="">Size guide</a>
+          <a href="">FAQs</a>
+        </div>
+        <div>
+          <img src="../../image/footer/pic3.png" alt="">
+          <b>Information</b>
+          <a href="">Account</a>
+          <a href="">Free shipping</a>
+          <a href="">Support 24/7</a>
+          <a href="">30 days product returns</a>
+          <a href="">100% payment secure</a>
+          <a href="">Supported all cards</a>
+        </div>
+      </div>
+      <div>
+        <img src="../../image/footer/ins.png" alt="">
+        <img src="../../image/footer/facebook.png" alt="">
+      </div>
+    </footer>
+  </div>
+</body>
+<script src="../../util/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src="../../util/swiper/js/swiper.min.js"></script>
+<script src="../../util/layer/layer.js"></script>
+<script src="../../util/utils.js"></script>
+
+<script>
+    $('.create').click(function () {
+  	    window.location.href = 'success.html'
+    })
+
+    //获取cookie的值
+    var viewer = JSON.parse(utils.getCookie('viewer'));
+    console.log('viewer', viewer)
+    $('#lastName').val(viewer.lastName)
+    $('#firstName').val(viewer.firstName)
+    $('#email').val(viewer.email)
+    $('#tel').val(viewer.tel)
+    $('#address').val(viewer.address)
+    $('#postcode').val(viewer.postcode)
+    $('#city').val(viewer.city)
+</script>
+
+</html>

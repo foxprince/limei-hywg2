@@ -1,0 +1,73 @@
+
+.content{
+	width: 1183px;
+	padding-top:52px ;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+}
+/*  */
+.content .signin {
+	width: 300px;
+	position: relative;
+}
+.content .signin .title{
+	font-size: 38px;
+	line-height: 159.85%;
+	color: #957732;
+	margin-bottom: 50px;
+}
+.content .signin .title img{
+	width: 26px;
+	height: 26px;
+	display: inline-block;
+	margin: 15px;
+}
+.content .signin input{
+	width: 100%;
+	margin-bottom: 10px;
+	font-weight: bold;
+	font-size: 9px;
+	line-height: 11px;
+	letter-spacing: 0.15em;
+	color: #494949;
+}
+.content .signin>p a{
+	display: inline-block;
+	margin-top: 20px;
+	font-size: 11px;
+	line-height: 164.5%;
+	/* or 18px */
+	text-decoration-line: underline;
+	color: #957732;
+}
+.content .signin>div span{
+	cursor: pointer;
+}
+.content .signin>div span:first-child{
+	margin-top: 64px;
+	display: inline-block;
+	width: 123px;
+	height: 47px;
+	background: #957732;
+	border-radius: 10px;
+	font-size: 11px;
+	line-height: 47px;
+	text-align: center;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	color: #FDFAF5;
+	margin-right: 20px;
+}
+.content .signin>div span:last-child{
+	font-size: 11px;
+	line-height: 164.5%;
+	text-decoration-line: underline;
+
+	color: #B5B5B5;
+}
+/*  */
+.content .banner img{
+	width: 658px;
+	height: 656px;
+}

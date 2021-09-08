@@ -1,0 +1,130 @@
+.clearfix {
+	clear: both;
+}
+.clearfix:after {
+	clear: both;
+	content: "";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+.fl {
+	float: left;
+}
+
+.fr {
+	float: right;
+}
+
+.pager {
+	max-width: 800px;
+	text-align: center;
+	margin: 60px auto 0;
+	display: block;
+}
+
+.pager a {
+	cursor: pointer;
+}
+
+.pager a,
+.pager span {
+	/* 按钮内数字 */
+	font-size: 11px;
+	line-height: 13px;
+	text-align: center;
+	letter-spacing: 0.15em;
+	
+	text-transform: uppercase;
+	color: #494949;
+	margin-right: 23px;
+}
+.pager a:hover,
+.pager span:hover {
+	text-decoration-line: underline;
+}
+
+.pager span.current {
+	text-decoration-line: underline;
+}
+
+.pager .pg-first,
+.pager .pg-prev,
+.pager .pg-next,
+.pager .pg-last {
+	height: 17px;
+	width: 49px;
+	display: inline-block;
+}
+
+.pager .pg-first:hover,
+.pager .pg-prev:hover,
+.pager .pg-next:hover,
+.pager .pg-last:hover {
+	
+}
+
+.pager .pg-prev,
+.pager .pg-prev:hover {
+	background-image: url(../../../image/diamond/prev.png);
+	margin-right: 55px;
+	
+}
+
+.pager .pg-next,
+.pager .pg-next:hover {
+	background-image: url(../../../image/diamond/next.png);
+	margin-left: 32px;
+}
+
+.pager .pg-last,
+.pager .pg-last:hover {
+	/* background-position: -21px 7px; */
+}
+
+.pager .pg-prev[disabled='true'],
+.pager .pg-prev[disabled='true']:hover {
+	cursor: default;
+	background-image: url(../../../image/diamond/prev.png);
+}
+
+.pager .pg-next[disabled='true'],
+.pager .pg-next[disabled='true']:hover {
+	cursor: default;
+	background-image: url(../../../image/diamond/next.png);
+}
+
+.pager .pg-prev[disabled='true'],
+.pager .pg-next[disabled='true'] {
+	border-color: #eeeeee;
+}
+
+.pager span.els {
+	border-color: transparent;
+}
+
+.pagerHtmlWrap {
+	width: 800px;
+	margin: 30px auto;
+}
+
+.pagerHtmlWrap .cc_cells {
+	width: 100%;
+	height: 35px;
+	padding: 5px 0;
+	border-bottom: 1px #cccccc solid;
+}
+
+.pagerHtmlWrap .cc_cells a {
+	color: #454545;
+	font-size: 14px;
+	line-height: 35px;
+	text-decoration: none;
+}
+
+.pagerHtmlWrap .cc_cells a span {
+	display: inline-block;
+	width: 25%;
+	text-align: left;
+	margin: 0;
+}

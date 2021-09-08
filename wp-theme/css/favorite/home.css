@@ -1,0 +1,51 @@
+.content{
+	width: 1072px;
+	margin: 0 auto;
+}
+
+.content .title{
+	margin-top: 25px;
+	margin-bottom: 77px;
+	font-family: Operetta 12;
+	font-size: 38px;
+	line-height: 159.85%;
+	text-align: center;
+	color: #957732;
+	padding-top: 87px;
+	position: relative;
+	padding-bottom: 58px;
+}
+
+.content .title:after {
+	content: " ";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 1px;
+	width: 100%;
+	background: #8B8B8B;
+	transform: scaleY(0.25);
+}
+/*  */
+.content ul{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.content ul li{
+	width: 252px;
+	height: 252px;
+	position: relative;
+	display: flex;
+}
+.content ul li img:first-child{
+	position: absolute;
+	top: 14px;
+	left: 14px;
+	cursor: pointer;
+}
+.content ul li img:last-child{
+	width: 252px;
+	height: 252px;
+	object-fit: contain;
+}

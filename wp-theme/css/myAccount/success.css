@@ -1,0 +1,27 @@
+.content{
+	width: 783px;
+	margin: 0 auto;
+}
+.content .banner{
+	text-align: center;
+	margin-top: 125px;
+}
+.content .banner img{
+	width: 31px;
+	height: 34px;
+}
+.content p:nth-of-type(1){
+	margin-top: 25px;
+	margin-bottom: 30px;
+	font-family: Operetta 12;
+	font-size: 38px;
+	line-height: 159.85%;
+	text-align: center;
+	color: #957732;
+}
+.content p:nth-of-type(2){
+	font-size: 18px;
+	line-height: 164.5%;
+	color: #494949;
+	text-align: center;
+}

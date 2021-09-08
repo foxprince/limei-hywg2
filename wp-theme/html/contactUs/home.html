@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title></title>
+		<link rel="stylesheet" href="https://use.typekit.net/jtn0ulo.css">
+		<link rel="stylesheet" href="../../util/swiper/css/swiper.css">
+		<link rel="stylesheet" href="../../css/contactUs/home.css">
+		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="../../util/datepicker/bootstrap-datepicker3.min.css">
+        <link rel="stylesheet" href="../../css/pubilc.css">
+    </head>
+
+	<body>
+		<div class="wrapper">
+			<header class="header">
+				<div>
+					<a href="../diamond/home.html">Diamond</a>
+					<a href="">ENGAGEMENT RINGS</a>
+					<a href="../jewellery/home.html">JEWELLERY</a>
+				</div>
+				<div class="logo">
+					<a href="../homePage/home.html"><img src="../../image/header/logo.png" alt=""></a>
+				</div>
+				<div>
+					<a href="../ourStory/home.html">OUR STORY</a>
+					<a href="../contactUs/home.html" class="active">CONTACT US</a>
+					<a href="../myAccount/home.html">MY ACCOUNT</a>
+					<a href="../shoppingCar/home.html">
+						<img src="../../image/header/shoppingCar.png" alt="">
+					</a>
+					<a href="../favorite/home.html">
+						<img src="../../image/header/heart.png" alt="">
+					</a>
+				</div>
+			</header>
+			<div class="content">
+				<!-- banner图 -->
+				<div class="title  tk-operetta-12">WHETHER ON SITE CONSULTATION OR DELIVERY,</br> LUMIA DIAMONDS WELCOMES YOUR
+					VISIT.</div>
+				<!--  -->
+				<div class="menu">
+					<div class="active">
+						<img src="../../image/contactUs/menu_1.png">
+						<p>+32 3 689 73 94</p>
+					</div>
+					<div>
+						<img src="../../image/contactUs/menu_2.png">
+						<p>info@lumiagem.be</p>
+					</div>
+					<div>
+						<img src="../../image/contactUs/menu_3.png">
+						<p>Please scan the QR code</p>
+					</div>
+					<div>
+						<img src="../../image/contactUs/menu_4.png">
+						<p>Please scan the QR code</p>
+					</div>
+				</div>
+				<!-- 标语 -->
+				<div class="sologn  tk-operetta-12">
+					MAKE AN ONLINE/</br>PHYSICAL APPOINTMENT
+				</div>
+				<div class="input_content">
+					<input type="text" placeholder="LAST NAME" name="" id="lastName" value="" />
+					<input type="text" placeholder="FIRST NAME" name="" id="firstName" value="" />
+					<input type="text" placeholder="EMAIL" name="" id="email" value="" />
+                    <input type="text" placeholder="TELEPHONE NUMBER" name="" id="tel" value="" />
+                    <input type="text" placeholder="APPOINTMENT TIME" name="" id="apptime" readonly="readonly"/>
+					<textarea id="extraInfo" rows="" placeholder="Please fill in your requests and available dates." cols=""></textarea>
+				</div>
+				<div class="send">SEND</div>
+			</div>
+			<div class="map_content">
+				<div class="map"><img src="../../image/contactUs/map.png"></div>
+				<div class="map_desc">
+					<p>Traffic guidelines & precautions</p>
+					<p><span>COMPANY ADDRESS:</span> DIAMANTCLUB VAN ANTWERPEN</p>
+					<p>You can choose to enter from the gate Pelikaanstraat 62, 2018</br> Antwerp (Open monday to friday)</p>
+					<p>or enter Hovenierstraat 35, 2018 Antwerp</br>(open monday to sunday)</p>
+					<p>Diamond Street car park address: </br>Vestingstraat 38, 2018 Antwerp Belgium</p>
+					<img src="../../image/contactUs/qrcode.png">
+				</div>
+			</div>
+			<footer class="footer">
+				<img src="../../image/header/logo.png" alt="">
+				<p>Hoveniersstraat 35, office 313-315, 2019 Antwerpen — e. info@lumiagem.com — t. +32 689 73 94</p>
+				<div>
+					<div>
+						<img src="../../image/footer/pic1.png" alt="">
+						<b>Information</b>
+						<a href="../contactUs/home.html">About us</a>
+						<a href="../contactUs/home.html">Contact us</a>
+						<a href="../contactUs/home.html">Terms & conditions</a>
+						<a href="../contactUs/home.html">Returns & exchanges</a>
+						<a href="../contactUs/home.html">Shipping & delivery</a>
+						<a href="../contactUs/home.html">Privacy policy</a>
+					</div>
+					<div>
+						<img src="../../image/footer/pic2.png" alt="">
+						<b>Information</b>
+						<a href="">Store location</a>
+						<a href="">My account</a>
+						<a href="">Orders tracking</a>
+						<a href="">Size guide</a>
+						<a href="">FAQs</a>
+					</div>
+					<div>
+						<img src="../../image/footer/pic3.png" alt="">
+						<b>Information</b>
+						<a href="">Account</a>
+						<a href="">Free shipping</a>
+						<a href="">Support 24/7</a>
+						<a href="">30 days product returns</a>
+						<a href="">100% payment secure</a>
+						<a href="">Supported all cards</a>
+					</div>
+				</div>
+				<div>
+					<img src="../../image/footer/ins.png" alt="">
+					<img src="../../image/footer/facebook.png" alt="">
+				</div>
+			</footer>
+		</div>
+	</body>
+	<script src="../../util/swiper/js/swiper.min.js"></script>
+	<script src="../../util/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../util/layer/layer.js"></script>
+	<script src="../../util/utils.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="../../util/datepicker/bootstrap-datepicker.js"></script>
+	<script src="../../util/datepicker/bootstrap-datepicker.zh-CN.min.js"></script>
+	<script>
+		$(function() {
+			$('#apptime').datepicker({
+                format: 'yyyy-mm-dd'
+            });
+		})
+		var swiper = new Swiper('.swiper-container1', {
+			slidesPerView: 3,
+			spaceBetween: 0,
+			loop: true, // 循环模式选项
+			// 如果需要前进后退按钮
+			navigation: {
+				nextEl: '.swiper-button-next1',
+				prevEl: '.swiper-button-prev1',
+			},
+		});
+		var swiper1 = new Swiper('.swiper-container2', {
+			slidesPerView: 3,
+			spaceBetween: 0,
+			// 如果需要前进后退按钮
+			navigation: {
+				nextEl: '.swiper-button-next2',
+				prevEl: '.swiper-button-prev2',
+			},
+		});
+
+
+		$('.send').click(function() {
+			var viewer = utils.getCookie('viewer');
+			var diamond = utils.getCookie('send_diamond');
+			var jewelry = utils.getCookie('send_jewelry');
+			console.log('viewer', viewer)
+			console.log('diamond', diamond)
+			console.log('jewelry', jewelry)
+
+			var lastName = $('#lastName').val();
+			var firstName = $('#firstName').val();
+			var email = $('#email').val();
+			var tel = $('#tel').val();
+            var time = $('#apptime').val();
+            var extraInfo = $('#extraInfo').val();
+            console.log('time', time)
+			if (!lastName) {
+				layer.msg('Please Input LAST NAME!');
+				return false
+			} else if (!firstName) {
+				layer.msg('Please Input FIRST NAME!');
+				return false
+			} else if (!email) {
+				layer.msg('Please Input EMAIL!');
+				return false
+			} else if (!tel) {
+				layer.msg('Please Input TELEPHONE NUMBER!');
+				return false
+			} else if (!time) {
+                layer.msg('Please Input APPOINTMENT TIME!');
+                return false
+            }
+
+			utils.ajaxPost("api/addViewerList", {
+				isAsyn: true,
+				isLoading: true,
+				type: 'post',
+                data: {
+                    // "id":2208,
+                    "diamond": diamond.id,
+                    "jewelry": jewelry.id,
+                    "viewer": viewer.id,
+                    "chosenby": "USER",
+                    "email": email,
+                    "tel": tel,
+                    "lastName": lastName,
+                    "firstName": firstName,
+                    "jewelryMaterial": jewelry.material,
+                    "jewelrySize": jewelry.size,
+                    "viewTime": time,
+                    extraInfo: extraInfo
+                }
+            }, function(data) {
+				console.log('data', data)
+				// 登录成功
+				// if (data._embedded.clients.length > 0) {
+				// } else  {
+				//     layer.msg('登录失败!');
+				// }
+			})
+		})
+
+        function checkMobile(str) {
+            var re = /^1\d{10}$/
+            if (re.test(str)){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        // checkMobile('13800138000'); //调用
+
+        function checkEmail(str){
+            var re = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/
+            if(re.test(str)){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        // checkEmail("contact@cnblogs.com");//调用
+	</script>
+
+</html>

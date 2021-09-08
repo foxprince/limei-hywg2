@@ -1,0 +1,275 @@
+@import url(font-awesome.min.css);
+/* 清除默认样式 */
+body,
+ol,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+th,
+td,
+dl,
+dd,
+form,
+fieldset,
+legend,
+input,
+textarea,
+select {
+	margin: 0;
+	padding: 0
+}
+*:focus {
+    outline: none;
+}
+input,
+textarea {
+	outline: none;
+}
+
+input {
+	border: none;
+	border-bottom: 0.75px solid #494949;
+	background-color: #FDFAF5;
+	padding: 15px 0;
+}
+
+body {
+	font: 12px "Benton Sans", "微软雅黑";
+	background: #FDFAF5;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+	text-decoration: none;
+}
+
+em {
+	font-style: normal
+}
+
+li {
+	list-style: none
+}
+
+img {
+	border: 0;
+	vertical-align: middle
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+p {
+	word-wrap: break-word
+}
+
+/* 公共样式 */
+.wrapper {
+	width: 1440px;
+	margin: 0 auto;
+	/* background: #E5E5E5; */
+	padding: 50px 56px;
+	box-sizing: border-box;
+}
+/* 弹窗提示 */
+.tool_tip {
+	/* width: 210px; */
+	/* height: 103px; */
+	padding: 32px 28px;
+	background: #A68946;
+	border: 2px solid #957732;
+	position: absolute;
+	z-index: 999999;
+	box-sizing: border-box;
+	border-radius: 10px;
+	background-image: url(../image/common/tips.png);
+	background-position: 32px 40px;
+	background-repeat: no-repeat;
+	transform: translateY(-100%);
+}
+.tool_tip .tool_tip_p{
+	display: block;
+	width: 226px;
+	/* height: 23px; */
+	font-family: Benton Sans;
+	font-size: 9px;
+	line-height: 148%;
+	text-align: left;
+	color: #FFFFFF;
+	padding-left: 55px;
+}
+.tool_tip .tool_tip_b{
+	cursor: pointer;
+	display: block;
+	width: 226px;
+	padding-left: 58px;
+	text-align: left;
+	text-decoration-line: underline;
+	/* height: 12px; */
+	font-family: Benton Sans;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 8px;
+	letter-spacing: 0.15em;
+	color: #FFFFFF;
+}
+.tool_tip_opacity{
+	background-color: #A68946;
+}
+.tool_tip_top{
+	position: absolute;
+	top: -25px;
+	left: 50%;
+}
+.tool_tip_top:before {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 2px;
+	height: 21px;
+	background-color: #957732;
+}
+
+.tool_tip_top:after {
+	content: "";
+	display: inline-block;
+	position: absolute;
+	bottom: -21px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 10px;
+	height: 10px;
+	border-radius: 10px;
+	background: #957732;
+}
+/* 头部样式 */
+.header {
+	height: 76px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.header a {
+	color: #000000;
+}
+
+.header .active {
+	color: #957732;
+	position: relative;
+}
+
+.header .active::after {
+	content: " ";
+	position: absolute;
+	left: 0;
+	top: 20px;
+	width: 100%;
+	height: 1px;
+	background: #957732;
+	transform: scaleY(0.5);
+}
+
+.header>div {
+	width: 455px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.header>div:first-child {
+	box-sizing: border-box;
+	padding-right: 94px;
+}
+
+.header>.logo {
+	width: 194px;
+}
+
+.header>.logo>img {
+	width: 194px;
+	height: auto;
+}
+
+/* 底部样式 */
+.footer {
+	padding-top: 100px;
+	width: 523px;
+	margin: 0 auto;
+	align-items: center;
+	text-align: center;
+	flex-direction: column;
+}
+
+.footer>img {
+	width: 180px;
+	height: 70px;
+	margin-bottom: 50px;
+}
+
+.footer>p {
+	-webkit-text-size-adjust: none;
+	padding-bottom: 20px;
+	font-size: 11px;
+	line-height: 150%;
+	text-align: center;
+	color: #494949;
+	border-bottom: 0.5px solid #494949;
+	margin-bottom: 50px;
+}
+
+.footer>div {
+	display: flex;
+}
+
+.footer>div>div {
+	width: 33.33%;
+	text-align: left;
+	display: flex;
+	flex-direction: column;
+}
+
+.footer>div>div>img {
+	width: 60px;
+	height: 60px;
+	object-fit: contain;
+	margin-bottom: 16px;
+}
+
+.footer>div>div>b {
+	font-family: Operetta 12;
+	font-weight: bold;
+	font-size: 12px;
+	line-height: 164.5%;
+	color: #494949;
+	margin-bottom: 30px;
+}
+
+.footer>div>div>a {
+	font-size: 11px;
+	line-height: 141.5%;
+	color: #494949;
+	margin-bottom: 18px;
+}
+
+.footer>div:nth-of-type(2) {
+	margin: 0 auto;
+	margin-top: 104px;
+}
+
+.footer>div:nth-of-type(2) {
+	width: 60px;
+	display: flex;
+	justify-content: space-between;
+}

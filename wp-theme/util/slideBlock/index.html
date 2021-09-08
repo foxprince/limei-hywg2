@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>双向滑块</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="index.css" />
+	</head>
+	<body>
+		<br>
+		<br>
+		<br>
+		<div id="box1" style="width: 200px;margin: 0 auto;"></div>
+		<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="index.js"></script>
+		<script>
+			var slider = document.getElementById('box1');
+			noUiSlider.create(slider, {
+				start: [0, 100],
+				connect: true,
+				// serialization:0,//小数点位数
+				step: 1,
+				range: {
+					'min': 0,
+					'max': 100
+				},
+				slide: function () {
+					alert(123)
+					var values = $(this).val();
+					console.log(values)
+				}
+			});
+			slider.noUiSlider.on('update', function(values, handle, unencoded, tap, positions) {
+				console.log(values)
+			});
+		</script>
+	</body>
+
+</html>
