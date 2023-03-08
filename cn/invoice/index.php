@@ -290,7 +290,7 @@
    			     	    <input id="type" type="text" list="typelist" placeholder="请选择">\
    			     	    <datalist id="typelist">\
                         　　<option>Dimond</option>\
-                        　　<option>vertical</option>\
+                        　　<option>ffff</option>\
                         </datalist>\
    			     	    <div class='col-sm-10 col-xs-9'>\
    			     	    <select id='form_jewerly' class='jewerly form-control'>\
