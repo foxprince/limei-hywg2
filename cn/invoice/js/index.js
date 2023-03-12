@@ -366,8 +366,8 @@ function diaContent() {
 	    <div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Jewelry</label>\
 	    <div class='col-sm-10 col-xs-9'>\
-	    <input id="type" type="text" list="typelist" placeholder="请选择">\
-           			     	    <datalist id="typelist">\
+	    <input id='type' type='text' list='typelist' placeholder='请选择'>\
+           			     	    <datalist id='typelist'>\
                                 　　<option>Dimond</option>\
                                 　　<option>ffff</option>\
                                 </datalist>\
