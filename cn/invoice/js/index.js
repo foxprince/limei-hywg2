@@ -401,6 +401,11 @@ function jewelryContent() {
 	    <div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Jewelry</label>\
 	    <div class='col-sm-10 col-xs-9'>\
+	    <input id='type' type='text' list='typelist' placeholder='请选择'>\
+                   			     	    <datalist id='typelist'>\
+                                        　　<option>Dimond</option>\
+                                        　　<option>ffff</option>\
+                                        </datalist>\
 	    <select id='form_jewerly' class='jewerly form-control'>\
 	    <option value='Ring'>Ring</option><option value='Necklace'>Necklace</option><option value='Earring'>Earring</option><option value='Bracelet'>Bracelet</option><option value='Diamond Ring'>Diamond Ring</option><option value='Diamond Necklace'>Diamond Necklace</option><option value='Diamond Earring'>Diamond Earring</option><option value='Diamond Bracelet'>Diamond Bracelet</option>\
 	    </select>\
