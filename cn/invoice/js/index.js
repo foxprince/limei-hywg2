@@ -501,4 +501,33 @@ function  total(){
     $('input[name="total_price"]').val(totals)
     $('.total_price').attr('data-price',totals)
 }
-
+function  total_invoice(){
+    var totals = 0;
+    $('.price').each(function(){
+        totals += Number($(this).val())
+    })
+    $('.jewerly_price').each(function(){
+        totals += Number($(this).val())
+    })
+    $('.currencyHint').html(currencyHint);
+    var vat = (totals*0.21).toFixed(2);
+    $('input[name="vat_price"]').val(vat)
+    $('.vat_price').attr('data-price',vat)
+    $('input[name="total_price"]').val(((Number(totals)+Number(vat))).toFixed(2))
+    $('.total_price').attr('data-price',((Number(totals)+Number(vat))).toFixed(2))
+}
+function  total_receipt(){
+    var totals = 0;
+    $('.price').each(function(){
+        totals += Number($(this).val())
+    })
+    $('.jewerly_price').each(function(){
+        totals += Number($(this).val())
+    })
+    var vat = (totals*0.21).toFixed(2);
+    $('.currencyHint').html(currencyHint);
+    $('input[name="vat_price"]').val(vat)
+    $('.vat_price').attr('data-price',vat)
+    $('input[name="total_price"]').val((Number(totals)))
+    $('.total_price').attr('data-price',Number(totals))
+}
