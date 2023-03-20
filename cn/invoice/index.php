@@ -299,11 +299,11 @@
    			     	    </div></div></div><div class='col-lg-4  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
 	   			 	    <div class='form-group clearfix'>\
 	   				    <label class='col-sm-2 col-xs-3  control-label'>Material</label><div class='col-sm-10 col-xs-9'>\
-	   				    <select id='form_material' class='material form-control'><option value='18K' "+(j.material=='18K'?'selected':'')+">18K</option><option value='Pt' "+(j.material=='Pt'?'selected':'')+">Pt</option></select>\
+	   				    <select id='form_material' class='material form-control'><option value='-' "+(j.material=='-'?'selected':'')+">18K</option><option value='18K' "+(j.material=='18K'?'selected':'')+">18K</option><option value='Pt' "+(j.material=='Pt'?'selected':'')+">Pt</option></select>\
 	   				    </div></div></div><div class='col-lg-4  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
 	   				    <div class='form-group clearfix'>\
 	   			 	    <label class='col-sm-2 col-xs-3  control-label'>Color</label><div class='col-sm-10 col-xs-9'>\
-	   			 	    <select id='form_jew_color' class='jewerly_color form-control'><option value='White' "+(j.jewerly_color=='White'?'selected':'')+">White</option><option value='Yellow' "+(j.jewerly_color=='Yellow'?'selected':'')+">Yellow</option><option value='Rose' "+(j.jewerly_color=='Rose'?'selected':'')+">Rose</option></select>\
+	   			 	    <select id='form_jew_color' class='jewerly_color form-control'><option value='-' "+(j.jewerly_color=='White'?'selected':'')+">-</option><option value='White' "+(j.jewerly_color=='White'?'selected':'')+">White</option><option value='Yellow' "+(j.jewerly_color=='Yellow'?'selected':'')+">Yellow</option><option value='Rose' "+(j.jewerly_color=='Rose'?'selected':'')+">Rose</option></select>\
 	   			 	    </div></div></div></div>";
    			        }
    			        if(j.type=='dia'||j.type=='diajew') {
@@ -492,11 +492,11 @@
    			     	    </div></div></div><div class='col-lg-4  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
    			     	    <div class='form-group clearfix'>\
    			     	<label class='col-sm-2 col-xs-3  control-label'>Material</label><div class='col-sm-10 col-xs-9'>\
-   				    <select id='form_material' class='material form-control'><option value='18K' "+(j.material=='18K'?'selected':'')+">18K</option><option value='Pt' "+(j.material=='Pt'?'selected':'')+">Pt</option></select>\
+   				    <select id='form_material' class='material form-control'><option value='-' "+(j.material=='-'?'selected':'')+">-</option><option value='18K' "+(j.material=='18K'?'selected':'')+">18K</option><option value='Pt' "+(j.material=='Pt'?'selected':'')+">Pt</option></select>\
    				    </div></div></div><div class='col-lg-4  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
    				    <div class='form-group clearfix'>\
    			 	    <label class='col-sm-2 col-xs-3  control-label'>Color</label><div class='col-sm-10 col-xs-9'>\
-   			 	    <select id='form_jew_color' class='jewerly_color form-control'><option value='White' "+(j.jewerly_color=='White'?'selected':'')+">White</option><option value='Yellow' "+(j.jewerly_color=='Yellow'?'selected':'')+">Yellow</option><option value='Rose' "+(j.jewerly_color=='Rose'?'selected':'')+">Rose</option></select>\
+   			 	    <select id='form_jew_color' class='jewerly_color form-control'><option value='-' "+(j.jewerly_color=='-'?'selected':'')+">-</option><option value='White' "+(j.jewerly_color=='White'?'selected':'')+">White</option><option value='Yellow' "+(j.jewerly_color=='Yellow'?'selected':'')+">Yellow</option><option value='Rose' "+(j.jewerly_color=='Rose'?'selected':'')+">Rose</option></select>\
    			     	    </div></div></div></div>";
    			     	    }
    			     	    content += html;

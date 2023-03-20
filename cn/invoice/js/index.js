@@ -370,9 +370,6 @@ function diaContent() {
            			     	    <datalist id='typelist'>\
                                 　　<option value='Ring'>Ring</option><option value='Necklace'>Necklace</option><option value='Earring'>Earring</option><option value='Diamond Ring'>Diamond Ring</option><option value='Diamond Necklace'>Diamond Necklace</option><option value='Diamond Earring'>Diamond Earring</option>\
                                 </datalist>\
-	    <select id='form_jewerly' class='jewerly form-control'>\
-	    <option value='Ring'>Ring</option><option value='Necklace'>Necklace</option><option value='Earring'>Earring</option><option value='Diamond Ring'>Diamond Ring</option><option value='Diamond Necklace'>Diamond Necklace</option><option value='Diamond Earring'>Diamond Earring</option>\
-	    </select>\
 	    </div></div><div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Price</label>\
 	    <div class='col-sm-10 col-xs-9'> \
@@ -404,9 +401,6 @@ function jewelryContent() {
                    			     	    <datalist id='typelist'>\
                                         　　<option value='Ring'>Ring</option><option value='Necklace'>Necklace</option><option value='Earring'>Earring</option><option value='Bracelet'>Bracelet</option><option value='Diamond Ring'>Diamond Ring</option><option value='Diamond Necklace'>Diamond Necklace</option><option value='Diamond Earring'>Diamond Earring</option><option value='Diamond Bracelet'>Diamond Bracelet</option>\
                                         </datalist>\
-	    <select id='form_jewerly' class='jewerly form-control'>\
-	    <option value='Ring'>Ring</option><option value='Necklace'>Necklace</option><option value='Earring'>Earring</option><option value='Bracelet'>Bracelet</option><option value='Diamond Ring'>Diamond Ring</option><option value='Diamond Necklace'>Diamond Necklace</option><option value='Diamond Earring'>Diamond Earring</option><option value='Diamond Bracelet'>Diamond Bracelet</option>\
-	    </select>\
 	    </div></div><div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Price</label>\
 	    <div class='col-sm-10 col-xs-9'> \
@@ -414,11 +408,11 @@ function jewelryContent() {
 	    </div></div></div><div class='col-lg-4  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
 	    <div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Material</label><div class='col-sm-10 col-xs-9'>\
-	    <select id='form_material' class='material form-control'><option value='18K'>18K</option><option value='Pt'>Pt</option></select>\
+	    <select id='form_material' class='material form-control'><option value='-'>-</option><option value='18K'>18K</option><option value='Pt'>Pt</option></select>\
 	    </div></div></div><div class='col-lg-4  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
 	    <div class='form-group clearfix'>\
  	    <label class='col-sm-2 col-xs-3  control-label'>Color</label><div class='col-sm-10 col-xs-9'>\
- 	    <select id='form_jew_color' class='jewerly_color form-control'><option value='White'>White</option><option value='Yellow'>Yellow</option><option value='Rose'>Rose</option></select>\
+ 	    <select id='form_jew_color' class='jewerly_color form-control'><option value='-'>-</option><option value='White'>White</option><option value='Yellow'>Yellow</option><option value='Rose'>Rose</option></select>\
  	    </div></div></div></div>";
     return html;
 }
