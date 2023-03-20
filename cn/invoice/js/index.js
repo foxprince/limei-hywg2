@@ -65,7 +65,7 @@ function to_print(type,printWithReportNo){
         if($(this).hasClass("dia")||$(this).hasClass("diajew"))
 	        	html += '<p id="model">'+$(this).find("#form_model").find("option:selected").val()+'</p>'+
 	        	 '<p>Carat Weight <span class="pull-right"><span class="pull-left">'+$(this).find("#form_weight").val()+'</span></span></p>'+
-	         '<p>Colour Grade <span class="pull-right"><span  class="pull-left">'+$(this).find('#colourGrade').val()+'</span></span></p>'+
+	         '<p>Colour Grade <span class="pull-right"><span  class="pull-left">'+$(this).find('input[name="colourGrade"]').val()+'</span></span></p>'+
 	         '<p>Clarity Grade <span class="pull-right"><span class="pull-left">'+$(this).find('#form_clarity option:selected').val()+'</span></span></p>';
         if($(this).hasClass("jew")||$(this).hasClass("diajew"))
         		html +='<p style="margin-top: 10px;">'+$(this).find('#form_material option:selected').val()+' '+$(this).find('#form_jew_color option:selected').val()+' Gold '+$(this).find('input[name="jewerlyType"]').val()+'</p>';
@@ -140,11 +140,11 @@ function saveOrUpdate(type){
             'report_no':$(this).find('.report_no').val(),
             'shape':$(this).find('.shape').find('option:selected').val(),
             'carat':$(this).find('.carat').val(),
-            'color':$(this).find('.color').find('option:selected').val(),
-            'fancy':$(this).find('.fancy').find('option:selected').val(),
-            'clarity':$(this).find('.clarity').find('option:selected').val(),
+            'color':$(this).find('input[name="colourGrade"]').val(),
+            'fancy':$(this).find('input[name="fancy"]').val(),
+            'clarity':$(this).find('input[name="clarityGrade"]').val(),
             'fluorescence':$(this).find('.fluorescence').find('option:selected').val(),
-            'grading_lab':$(this).find('.grading_lab').find('option:selected').val(),
+            'grading_lab':$(this).find('input[name="gradingLab"]').val(),
             'cut_grade':$(this).find('.cut_grade').find('option:selected').val(),
             'polish':$(this).find('.polish').find('option:selected').val(),
             'symmetry':$(this).find('.symmetry').find('option:selected').val(),
@@ -220,14 +220,14 @@ function diaContent() {
 	    html += "<div class='form-group clearfix'>";
 	    html += "<label class='col-sm-2 col-xs-3  control-label'>Colour</label>";
 	    html += "<div class='col-sm-10 col-xs-9'>";
-	    html += "<select id='form_color' class='fancy form-control'>";
-	    html += "<option value='-'>-</option>";
-	    html += "<option value='Yellow'>Yellow</option>";
-	    html += "<option value='Pink'>Pink</option>";
-	    html += "<option value='Green'>Green</option>";
-	    html += "<option value='Red'>Red</option>";
-	    html += "<option value='Blue'>Blue</option>";
-	    html += "</select>";
+	    html += "<input id='color' type='text' name='fancy' list='colorList' placeholder='请选择'>\
+                                                           			     	    <datalist id='colorList'>\
+                                                                                  <option value='Yellow'>Yellow</option>\
+                                                                                  <option value='Pink'>Pink</option>\
+                                                                                  <option value='Green'>Green</option>\
+                                                                                  <option value='Red'>Red</option>\
+                                                                                  <option value='Blue'>Blue</option>\
+                                                                                </datalist>";
 	    html += "</div>";
 	    html += "</div>";
 	    
@@ -248,12 +248,12 @@ function diaContent() {
 	    html += "<div class='form-group clearfix'>";
 	    html += "<label class='col-sm-2 col-xs-3  control-label'>Certification</label>";
 	    html += "<div class='col-sm-10 col-xs-9'>";
-	    html += "<select id='form_gia' class='grading_lab form-control'>";
-	    html += "<option value='-'>-</option>";
-	    html += "<option value='GIA'>GIA</option>";
-	    html += "<option value='HRD'>HRD</option>";
-	    html += "<option value='IGI'>IGI</option>";
-	    html += "</select>";
+	    html += "<input id='gradingLabList' type='text' name='gradingLab' list='gradingLabList' placeholder='请选择'>\
+                                                   			     	    <datalist id='gradingLabList'>\
+                                                                          <option value='GIA'>GIA</option>\
+                                                                          <option value='HRD'>HRD</option>\
+                                                                          <option value='IGI'>IGI</option>\
+                                                                        </datalist>";
 	    html += "</div>";
 	    html += "</div>";
 
@@ -297,17 +297,11 @@ function diaContent() {
 	    html += "<div class='form-group clearfix'>";
 	    html += "<label class='col-sm-2 col-xs-3  control-label'>Clarity Grade</label>";
 	    html += "<div class='col-sm-10 col-xs-9'>";
-	    html += "<select id='form_clarity' class='clarity form-control'>";
-	    html += "<option value='-'>-</option>";
-	    html += "<option value='FL'>FL</option>";
-	    html += "<option value='IF'>IF</option>";
-	    html += "<option value='VVS1'>VVS1</option>";
-	    html += "<option value='VVS2'>VVS2</option>";
-	    html += "<option value='VS1'>VS1</option>";
-	    html += "<option value='VS2'>VS2</option>";
-	    html += "<option value='SI1'>SI1</option>";
-	    html += "<option value='SI2'>SI2</option>";
-	    html += "</select>";
+	    html += "<input id='clarityGrade' type='text' name='clarityGrade' list='clarityGradeList' placeholder='请选择'>\
+                                                   			     	    <datalist id='clarityGradeList'>\
+                                                                          <option value='FL'>FL</option><option value='IF'>IF</option><option value='VVS1'>VVS1</option><option value='VVS2'>VVS2</option>\
+                                                                          <option value='VS1'>VS1</option><option value='VS2'>VS2</option><option value='SI1'>SI1</option><option value='SI2'>SI2</option>\
+                                                                        </datalist>";
 	    html += "</div>";
 	    html += "</div>";
 
