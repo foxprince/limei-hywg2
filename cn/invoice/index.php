@@ -508,10 +508,6 @@
     		}
 		/*发票*/
 		function invoice(type) {
-			if(type=='invoice'||type=='credit')
-				total_invoice();
-			else if(type=='credit-invoice') 
-				total_receipt();
 			if(type=='invoice')
 				saveOrUpdate('invoice');
 			to_print(type);
@@ -527,7 +523,6 @@
 		}
 		/*收据*/
 		function receipt(type){
-			total_receipt();
             saveOrUpdate(type);
 			to_print(type);
             $('.to_invoice').html('');
