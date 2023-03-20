@@ -399,6 +399,12 @@
    			     	    html += "<div class='form-group clearfix'>";
    			     	    html += "<label class='col-sm-2 col-xs-3  control-label'>Colour Grade</label>";
    			     	    html += "<div class='col-sm-10 col-xs-9'>";
+   			     	    html += "<input id='colourGrade' type='text' name='colourGrade' list='colourGradeList' value='"+j.color+"' placeholder='请选择'>\
+                                   			     	    <datalist id='colourGradeList'>\
+                                                          <option value='D'>D</option><option value='E'>E</option><option value='F'>F</option><option value='G'>G</option>\
+                                                          <option value='H'>H</option><option value='I'>I</option><option value='J'>J</option><option value='K'>K</option>\
+                                                          <option value='L'>L</option><option value='M'>M</option>\
+                                                        </datalist>";
    			     	    html += "<select id='form_colourGrade' class='color form-control'>";
    			     	    html += "<option value='-' "+(j.color=='-' ? 'selected':'')+">-</option>";
    			     	    html += "<option value='D' "+(j.color=='D' ? 'selected':'')+">D</option>";

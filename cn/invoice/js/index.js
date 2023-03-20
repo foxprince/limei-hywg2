@@ -65,7 +65,7 @@ function to_print(type,printWithReportNo){
         if($(this).hasClass("dia")||$(this).hasClass("diajew"))
 	        	html += '<p id="model">'+$(this).find("#form_model").find("option:selected").val()+'</p>'+
 	        	 '<p>Carat Weight <span class="pull-right"><span class="pull-left">'+$(this).find("#form_weight").val()+'</span></span></p>'+
-	         '<p>Colour Grade <span class="pull-right"><span  class="pull-left">'+$(this).find('#form_colourGrade option:selected').val()+'</span></span></p>'+
+	         '<p>Colour Grade <span class="pull-right"><span  class="pull-left">'+$(this).find('#colourGrade').val()+'</span></span></p>'+
 	         '<p>Clarity Grade <span class="pull-right"><span class="pull-left">'+$(this).find('#form_clarity option:selected').val()+'</span></span></p>';
         if($(this).hasClass("jew")||$(this).hasClass("diajew"))
         		html +='<p style="margin-top: 10px;">'+$(this).find('#form_material option:selected').val()+' '+$(this).find('#form_jew_color option:selected').val()+' Gold '+$(this).find('input[name="jewerlyType"]').val()+'</p>';
