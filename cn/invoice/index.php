@@ -166,8 +166,8 @@
 
 				<div>
 				<div class="Total">
-					<h1 class="clearfix">21%VAT：<span data-price="0" class="vat_price">€0.00</span></h1>
-					<h1 class="clearfix">Total：<span data-price="0" class="total_price">€0.00</span></h1>
+					<h1 class="clearfix">21%VAT：<span data-price="0" class="vat_price"><input name="vat_price" value="€0.00"/></span></h1>
+					<h1 class="clearfix">Total：<span data-price="0" class="total_price"><input name="total_price" value="€0.00"/></span></h1>
 				</div>
 				</div>
 				<div class="col-xs-12 text-right fotter">
@@ -272,8 +272,8 @@
    				$('#city').val(json.trancDetail.city);$('#country').val(json.trancDetail.country);
    				$('#tranc_date').val(json.trancDetail.tranc_date);$('#invoice_no').val(json.trancDetail.invoice_no);
    				$('#tax_rebate').val(json.trancDetail.tax_rebate);
-   				$('.total_price').html(currencyHint+json.trancDetail.total_price);
-   				$('.vat_price').html(currencyHint+json.trancDetail.vat_price);
+   				$('input[name="total_price"]').val(currencyHint+json.trancDetail.total_price);
+   				$('input[name="vat_price"]').val(currencyHint+json.trancDetail.vat_price);
    				$.each(json.list, function (n, j) {
    			        var content = '<div type='+j.type+' class="addContent clearfix '+j.type+'">';
    			        if(j.type=='jew') {

@@ -131,7 +131,7 @@ function saveOrUpdate(type){
         'passport':$('#passport').val(),'tel':$('#tel').val(),'visit_type':$('#visit_type').val(),
         'street':$('#street').val(),'email':$('#email').val(),
         'city':$('#city').val(),'currency':currency,'type':type,
-        'postcode':$('#postcode').val(),'vat_price':$('.vat_price').attr('data-price'),'total_price':$('.total_price').attr('data-price'),
+        'postcode':$('#postcode').val(),'vat_price':$('input[name="vat_price"]').val(),'total_price':$('input[name="total_price"]').val(),
         'country':$('#country').val(),'tranc_date':$('#tranc_date').val(),'invoice_no':$('#invoice_no').val(),
         'list':[]
         };
@@ -248,13 +248,13 @@ function diaContent() {
 	    html += "<div class='form-group clearfix'>";
 	    html += "<label class='col-sm-2 col-xs-3  control-label'>Certification</label>";
 	    html += "<div class='col-sm-10 col-xs-9'>";
-	    html += "<input id='gradingLabList' type='text' name='gradingLab' list='gradingLabList' placeholder='请选择'>\
+	    html += "<input id='gradingLab' type='text' name='gradingLab' list='gradingLabList' placeholder='请选择'>\
                                                    			     	    <datalist id='gradingLabList'>\
                                                                           <option value='GIA'>GIA</option>\
                                                                           <option value='HRD'>HRD</option>\
                                                                           <option value='IGI'>IGI</option>\
                                                                         </datalist>";
-	    html += "</div>";
+	    html += "</div>";21%VAT
 	    html += "</div>";
 
 	    html += "<div class='form-group clearfix'>";
@@ -493,9 +493,9 @@ function  total(){
         totals += Number($(this).val())
     })
     var vat = (totals*0.21).toFixed(2);
-    $('.vat_price').html(currencyHint+vat)
+    $('input[name="vat_price"]').val(currencyHint+vat)
     $('.vat_price').attr('data-price',vat)
-    $('.total_price').html(currencyHint+totals)
+    $('input[name="total_price"]').val(currencyHint+totals)
     $('.total_price').attr('data-price',totals)
 }
 function  total_invoice(){
@@ -507,9 +507,9 @@ function  total_invoice(){
         totals += Number($(this).val())
     })
     var vat = (totals*0.21).toFixed(2);
-    $('.vat_price').html(currencyHint+vat)
+    $('input[name="vat_price"]').val(currencyHint+vat)
     $('.vat_price').attr('data-price',vat)
-    $('.total_price').html(currencyHint+((Number(totals)+Number(vat))).toFixed(2))
+    $('input[name="total_price"]').val(currencyHint+((Number(totals)+Number(vat))).toFixed(2))
     $('.total_price').attr('data-price',((Number(totals)+Number(vat))).toFixed(2))
 }
 function  total_receipt(){
@@ -521,8 +521,8 @@ function  total_receipt(){
         totals += Number($(this).val())
     })
     var vat = (totals*0.21).toFixed(2);
-    $('.vat_price').html(currencyHint+vat)
+    $('input[name="vat_price"]').val(currencyHint+vat)
     $('.vat_price').attr('data-price',vat)
-    $('.total_price').html(currencyHint+(Number(totals)))
+    $('input[name="total_price"]').val(currencyHint+(Number(totals)))
     $('.total_price').attr('data-price',Number(totals))
 }
