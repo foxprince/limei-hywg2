@@ -68,7 +68,7 @@ function to_print(type,printWithReportNo){
 	         '<p>Colour Grade <span class="pull-right"><span  class="pull-left">'+$(this).find('#form_colourGrade option:selected').val()+'</span></span></p>'+
 	         '<p>Clarity Grade <span class="pull-right"><span class="pull-left">'+$(this).find('#form_clarity option:selected').val()+'</span></span></p>';
         if($(this).hasClass("jew")||$(this).hasClass("diajew"))
-        		html +='<p style="margin-top: 10px;">'+$(this).find('#form_material option:selected').val()+' '+$(this).find('#form_jew_color option:selected').val()+' Gold '+$(this).find('input[name!="jewerlyType"]').val()+'</p>';
+        		html +='<p style="margin-top: 10px;">'+$(this).find('#form_material option:selected').val()+' '+$(this).find('#form_jew_color option:selected').val()+' Gold '+$(this).find('input[name="jewerlyType"]').val()+'</p>';
         html+='</div>'+'<div class="col-xs-3 clearfix">';
         if($(this).hasClass("dia")||$(this).hasClass("diajew")) {
 	        	if(type=='invoice'||printWithReportNo) {
@@ -149,7 +149,7 @@ function saveOrUpdate(type){
             'polish':$(this).find('.polish').find('option:selected').val(),
             'symmetry':$(this).find('.symmetry').find('option:selected').val(),
             'price':$(this).find('.price').val(),
-            'jewerly':$(this).find('.jewerly').find('option:selected').val(),
+            'jewerly':$(this).find('input[name="jewerlyType"]').val(),
             'material':$(this).find('.material').find('option:selected').val(),
             'jewerly_price':$(this).find('.jewerly_price').val(),
             'jewerly_color':$(this).find('.jewerly_color').val(),
