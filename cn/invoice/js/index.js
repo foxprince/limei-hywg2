@@ -254,7 +254,7 @@ function diaContent() {
                                                                           <option value='HRD'>HRD</option>\
                                                                           <option value='IGI'>IGI</option>\
                                                                         </datalist>";
-	    html += "</div>";21%VAT
+	    html += "</div>";
 	    html += "</div>";
 
 	    html += "<div class='form-group clearfix'>";
