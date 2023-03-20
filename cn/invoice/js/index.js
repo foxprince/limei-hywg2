@@ -66,13 +66,13 @@ function to_print(type,printWithReportNo){
 	        	html += '<p id="model">'+$(this).find("#form_model").find("option:selected").val()+'</p>'+
 	        	 '<p>Carat Weight <span class="pull-right"><span class="pull-left">'+$(this).find("#form_weight").val()+'</span></span></p>'+
 	         '<p>Colour Grade <span class="pull-right"><span  class="pull-left">'+$(this).find('input[name="colourGrade"]').val()+'</span></span></p>'+
-	         '<p>Clarity Grade <span class="pull-right"><span class="pull-left">'+$(this).find('#form_clarity option:selected').val()+'</span></span></p>';
+	         '<p>Clarity Grade <span class="pull-right"><span class="pull-left">'+$(this).find('input[name="clarityGrade"]').val()+'</span></span></p>';
         if($(this).hasClass("jew")||$(this).hasClass("diajew"))
         		html +='<p style="margin-top: 10px;">'+$(this).find('#form_material option:selected').val()+' '+$(this).find('#form_jew_color option:selected').val()+' Gold '+$(this).find('input[name="jewerlyType"]').val()+'</p>';
         html+='</div>'+'<div class="col-xs-3 clearfix">';
         if($(this).hasClass("dia")||$(this).hasClass("diajew")) {
 	        	if(type=='invoice'||printWithReportNo) {
-	        		html+='<p>'+$(this).find('#form_gia option:selected').val()+'&nbsp;';
+	        		html+='<p>'+$(this).find('input[name="gradingLab"]').val()+'&nbsp;';
 	        		html+= $(this).find('#ref').val();
 	        		html+= '</p>';
 	        	}
@@ -85,7 +85,7 @@ function to_print(type,printWithReportNo){
         }
         html+='</div>'+'<div class="col-xs-4 clearfix">';
         if($(this).hasClass("dia")||$(this).hasClass("diajew"))
-        		html+='<p>'+$(this).find('#form_color option:selected').val()+'</p>';
+        		html+='<p>'+$(this).find('input[name="fancy"]').val()+'</p>';
         html+='</div>'+'<div class="col-xs-2 clearfix">';
         if($(this).hasClass("dia")||$(this).hasClass("diajew"))
         		html+='<p>'+currencyHint+$(this).find("#form_price").val()+'</p>';
