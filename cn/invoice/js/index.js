@@ -68,7 +68,7 @@ function to_print(type,printWithReportNo){
 	         '<p>Colour Grade <span class="pull-right"><span  class="pull-left">'+$(this).find('#form_colourGrade option:selected').val()+'</span></span></p>'+
 	         '<p>Clarity Grade <span class="pull-right"><span class="pull-left">'+$(this).find('#form_clarity option:selected').val()+'</span></span></p>';
         if($(this).hasClass("jew")||$(this).hasClass("diajew"))
-        		html +='<p style="margin-top: 10px;">'+$(this).find('#form_material option:selected').val()+' '+$(this).find('#form_jew_color option:selected').val()+' Gold '+$(this).find('#form_jewerly option:selected').val()+'</p>';
+        		html +='<p style="margin-top: 10px;">'+$(this).find('#form_material option:selected').val()+' '+$(this).find('#form_jew_color option:selected').val()+' Gold '+$(this).find('input[name!="jewerlyType"]').val()+'</p>';
         html+='</div>'+'<div class="col-xs-3 clearfix">';
         if($(this).hasClass("dia")||$(this).hasClass("diajew")) {
 	        	if(type=='invoice'||printWithReportNo) {
@@ -366,10 +366,9 @@ function diaContent() {
 	    <div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Jewelry</label>\
 	    <div class='col-sm-10 col-xs-9'>\
-	    <input id='type' type='text' list='typelist' placeholder='请选择'>\
+	    <input id='type' type='text' name="jewerlyType" list='typelist' placeholder='请选择'>\
            			     	    <datalist id='typelist'>\
-                                　　<option>Dimond</option>\
-                                　　<option>ffff</option>\
+                                　　<option value='Ring'>Ring</option><option value='Necklace'>Necklace</option><option value='Earring'>Earring</option><option value='Diamond Ring'>Diamond Ring</option><option value='Diamond Necklace'>Diamond Necklace</option><option value='Diamond Earring'>Diamond Earring</option>\
                                 </datalist>\
 	    <select id='form_jewerly' class='jewerly form-control'>\
 	    <option value='Ring'>Ring</option><option value='Necklace'>Necklace</option><option value='Earring'>Earring</option><option value='Diamond Ring'>Diamond Ring</option><option value='Diamond Necklace'>Diamond Necklace</option><option value='Diamond Earring'>Diamond Earring</option>\
@@ -401,10 +400,9 @@ function jewelryContent() {
 	    <div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Jewelry</label>\
 	    <div class='col-sm-10 col-xs-9'>\
-	    <input id='type' type='text' list='typelist' placeholder='请选择'>\
+	    <input id='type' type='text' name="jewerlyType" list='typelist' placeholder='请选择'>\
                    			     	    <datalist id='typelist'>\
-                                        　　<option>Dimond</option>\
-                                        　　<option>ffff</option>\
+                                        　　<option value='Ring'>Ring</option><option value='Necklace'>Necklace</option><option value='Earring'>Earring</option><option value='Bracelet'>Bracelet</option><option value='Diamond Ring'>Diamond Ring</option><option value='Diamond Necklace'>Diamond Necklace</option><option value='Diamond Earring'>Diamond Earring</option><option value='Diamond Bracelet'>Diamond Bracelet</option>\
                                         </datalist>\
 	    <select id='form_jewerly' class='jewerly form-control'>\
 	    <option value='Ring'>Ring</option><option value='Necklace'>Necklace</option><option value='Earring'>Earring</option><option value='Bracelet'>Bracelet</option><option value='Diamond Ring'>Diamond Ring</option><option value='Diamond Necklace'>Diamond Necklace</option><option value='Diamond Earring'>Diamond Earring</option><option value='Diamond Bracelet'>Diamond Bracelet</option>\
