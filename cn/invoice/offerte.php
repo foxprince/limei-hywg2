@@ -537,7 +537,7 @@
 		}
 		/*收据*/
 		function receipt(type){
-			//total_receipt();
+			total_receipt();
             saveOrUpdate(type);
 			$('.to_invoice').html('');
 			$('.print_none').hide();
