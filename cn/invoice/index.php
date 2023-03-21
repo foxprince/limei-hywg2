@@ -524,10 +524,10 @@
 		/*收据*/
 		function receipt(type){
             saveOrUpdate(type);
-			to_print(type);
-            $('.to_invoice').html('');
-			$('.print_none').hide();
-			window.print();
+			$('.to_invoice').html('');
+            $('.print_none').hide();
+            to_print(type);
+            window.print();
 		}
     </script>
 </html>

@@ -537,12 +537,12 @@
 		}
 		/*收据*/
 		function receipt(type){
-			total_receipt();
+			//total_receipt();
             saveOrUpdate(type);
-			to_print(type,$("input[name='printReportNo']").prop("checked"));
-            $('.to_invoice').html('');
+			$('.to_invoice').html('');
 			$('.print_none').hide();
-			window.print();
+			to_print(type,$("input[name='printReportNo']").prop("checked"));
+            window.print();
 		}
     </script>
 </html>
