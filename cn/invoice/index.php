@@ -166,8 +166,8 @@
 
 				<div>
 				<div class="Total">
-					<h1 class="clearfix">21%VAT：<span data-price="0" class="vat_price"><lable class="currencyHint"></lable><input name="vat_price" value="0.00"/></span></h1>
-					<h1 class="clearfix">Total：<span data-price="0" class="total_price"><lable class="currencyHint"></lable><input name="total_price" value="0.00"/></span></h1>
+					<h1 class="clearfix">21%VAT：<lable class="currencyHint"></lable><span data-price="0" class="vat_price"><input name="vat_price" value="0.00"/></span></h1>
+					<h1 class="clearfix">Total：<lable class="currencyHint"></lable><span data-price="0" class="total_price"><input name="total_price" value="0.00"/></span></h1>
 				</div>
 				</div>
 				<div class="col-xs-12 text-right fotter">
@@ -212,8 +212,8 @@
 						<p class="">Total:</p>
 					</div>
 					<div class="col-xs-2  clearfix">
-						<p class="vat_price print_none">€0</p>
-						<p id="print_price"class="total_price">€0</p>
+						<lable class="currencyHint"></lable><p class="vat_price print_none"></p>
+						<lable class="currencyHint"></lable><p id="print_price"class="total_price"></p>
 					</div>
 				</div>
 				<!--客户信息-->

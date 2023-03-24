@@ -210,7 +210,7 @@
 						<p class="">Total:</p>
 					</div>
 					<div class="col-xs-2  clearfix">
-						<p id="print_price"class="total_price">€0</p>
+						<lable class="currencyHint"></lable><p id="print_price"class="total_price">€0</p>
 					</div>
 				</div>
 				<!--客户信息-->
