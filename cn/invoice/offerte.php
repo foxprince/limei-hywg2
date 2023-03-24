@@ -270,8 +270,9 @@
    				$('#city').val(json.trancDetail.city);$('#country').val(json.trancDetail.country);
    				$('#tranc_date').val(json.trancDetail.tranc_date);$('#invoice_no').val(json.trancDetail.invoice_no);
    				$('#tax_rebate').val(json.trancDetail.tax_rebate);
-   				$('.total_price').html(currencyHint+json.trancDetail.total_price);
-   				$('.vat_price').html(currencyHint+json.trancDetail.vat_price);
+   				$('.currencyHint').html(currencyHint);
+                $('input[name="total_price"]').val(json.trancDetail.total_price);
+                $('input[name="vat_price"]').val(json.trancDetail.vat_price);
    				$.each(json.list, function (n, j) {
    			        var content = '<div type='+j.type+' class="addContent clearfix '+j.type+'">';
    			        if(j.type=='jew') {
