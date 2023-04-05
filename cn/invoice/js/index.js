@@ -71,7 +71,7 @@ function to_print(type,printWithReportNo){
         		html +='<p style="margin-top: 10px;">'+$(this).find('#form_material option:selected').val()+' '+$(this).find('#form_jew_color option:selected').val()+' Gold '+$(this).find('input[name="jewerlyType"]').val()+'</p>';
         html+='</div>'+'<div class="col-xs-3 clearfix">';
         if($(this).hasClass("dia")||$(this).hasClass("diajew")) {
-	        	if(type=='invoice'||printWithReportNo) {
+	        	if((type=='invoice'||printWithReportNo)&&$(this).find('input[name="gradingLab"]')) {
 	        		html+='<p>'+$(this).find('input[name="gradingLab"]').val()+'&nbsp;';
 	        		html+= $(this).find('#ref').val();
 	        		html+= '</p>';
