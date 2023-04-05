@@ -98,6 +98,7 @@ function to_print(type,printWithReportNo){
     $('#items').after(html);
     $('.vat_price').html($('input[name="vat_price"]').val());
     $('.total_price').html($('input[name="total_price"]').val());
+    console.log(html);
 }
 
 /*zhangheng  463106544*/
