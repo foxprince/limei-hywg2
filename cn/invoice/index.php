@@ -362,7 +362,7 @@
    			     	    html += "<div class='form-group clearfix'>";
    			     	    html += "<label class='col-sm-2 col-xs-3  control-label'>Certification</label>";
    			     	    html += "<div class='col-sm-10 col-xs-9'>";
-   			     	    html += "<input id='gradingLabList' type='text' name='gradingLab' list='gradingLabList' value='"+j.grading_lab+"' placeholder='请选择'>\
+   			     	    html += "<input id='gradingLab' type='text' name='gradingLab' list='gradingLabList' value='"+j.grading_lab+"' placeholder='请选择'>\
                                                                            			     	    <datalist id='gradingLabList'>\
                                                                                                   <option value='GIA'>GIA</option>\
                                                                                                   <option value='HRD'>HRD</option>\
