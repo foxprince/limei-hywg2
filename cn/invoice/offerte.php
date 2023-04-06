@@ -333,14 +333,14 @@
    			     	    html += "<div class='form-group clearfix'>";
    			     	    html += "<label class='col-sm-2 col-xs-3  control-label'>Colour</label>";
    			     	    html += "<div class='col-sm-10 col-xs-9'>";
-   			     	    html += "<select id='form_color' class='fancy form-control'>";
-   			     	    html += "<option value='-' "+(j.fancy=='-' ? 'selected':'')+">-</option>";
-   			     	    html += "<option value='Yellow' "+(j.fancy=='Yellow' ? 'selected':'')+">Yellow</option>";
-   			     	    html += "<option value='Pink' "+(j.fancy=='Pink' ? 'selected':'')+">Pink</option>";
-   			     	    html += "<option value='Green' "+(j.fancy=='Green' ? 'selected':'')+">Green</option>";
-   			     	    html += "<option value='Red' "+(j.fancy=='Red' ? 'selected':'')+">Red</option>";
-   			     	    html += "<option value='Blue' "+(j.fancy=='Blue' ? 'selected':'')+">Blue</option>";
-   			     	    html += "</select>";
+   			     	     html += "<input id='color' type='text' name='fancy' list='colorList' placeholder='请选择' value='"+j.fancy+"'>\
+                                                                                                           			     	    <datalist id='colorList'>\
+                                                                                                                                  <option value='Yellow'>Yellow</option>\
+                                                                                                                                  <option value='Pink'>Pink</option>\
+                                                                                                                                  <option value='Green'>Green</option>\
+                                                                                                                                  <option value='Red'>Red</option>\
+                                                                                                                                  <option value='Blue'>Blue</option>\
+                                                                                                                                </datalist>";
    			     	    html += "</div>";
    			     	    html += "</div>";
 
@@ -360,12 +360,12 @@
    			     	    html += "<div class='form-group clearfix'>";
    			     	    html += "<label class='col-sm-2 col-xs-3  control-label'>Certification</label>";
    			     	    html += "<div class='col-sm-10 col-xs-9'>";
-   			     	    html += "<select id='form_gia' class='grading_lab form-control'>";
-   			     	    html += "<option value='-' "+(j.grading_lab=='-' ? 'selected':'')+">-</option>";
-   			     	    html += "<option value='GIA' "+(j.grading_lab=='GIA' ? 'selected':'')+">GIA</option>";
-   			     	    html += "<option value='HRD' "+(j.grading_lab=='HRD' ? 'selected':'')+">HRD</option>";
-   			     	    html += "<option value='IGI' "+(j.grading_lab=='IGI' ? 'selected':'')+">IGI</option>";
-   			     	    html += "</select>";
+   			     	    html += "<input id='gradingLab' type='text' name='gradingLab' list='gradingLabList' value='"+j.grading_lab+"' placeholder='请选择'>\
+                                                                                                   			     	    <datalist id='gradingLabList'>\
+                                                                                                                          <option value='GIA'>GIA</option>\
+                                                                                                                          <option value='HRD'>HRD</option>\
+                                                                                                                          <option value='IGI'>IGI</option>\
+                                                                                                                        </datalist>";
    			     	    html += "</div>";
    			     	    html += "</div>";
 
@@ -398,36 +398,23 @@
    			     	    html += "<div class='form-group clearfix'>";
    			     	    html += "<label class='col-sm-2 col-xs-3  control-label'>Colour Grade</label>";
    			     	    html += "<div class='col-sm-10 col-xs-9'>";
-   			     	    html += "<select id='form_colourGrade' class='color form-control'>";
-   			     	    html += "<option value='-' "+(j.color=='-' ? 'selected':'')+">-</option>";
-   			     	    html += "<option value='D' "+(j.color=='D' ? 'selected':'')+">D</option>";
-   			     	    html += "<option value='E' "+(j.color=='E' ? 'selected':'')+">E</option>";
-   			     	    html += "<option value='F' "+(j.color=='F' ? 'selected':'')+">F</option>";
-   			     	    html += "<option value='G' "+(j.color=='G' ? 'selected':'')+">G</option>";
-   			     	    html += "<option value='H' "+(j.color=='H' ? 'selected':'')+">H</option>";
-   			     	    html += "<option value='I' "+(j.color=='I' ? 'selected':'')+">I</option>";
-   			     	    html += "<option value='J' "+(j.color=='J' ? 'selected':'')+">J</option>";
-   			     	    html += "<option value='K' "+(j.color=='K' ? 'selected':'')+">K</option>";
-   			     	    html += "<option value='L' "+(j.color=='L' ? 'selected':'')+">L</option>";
-   			     	    html += "<option value='M' "+(j.color=='M' ? 'selected':'')+">M</option>";
-   			     	    html += "</select>";
+   			     	    html += "<input id='colourGrade' type='text' name='colourGrade' list='colourGradeList' value='"+j.color+"' placeholder='请选择'>\
+                                                           			     	    <datalist id='colourGradeList'>\
+                                                                                  <option value='D'>D</option><option value='E'>E</option><option value='F'>F</option><option value='G'>G</option>\
+                                                                                  <option value='H'>H</option><option value='I'>I</option><option value='J'>J</option><option value='K'>K</option>\
+                                                                                  <option value='L'>L</option><option value='M'>M</option>\
+                                                                                </datalist>";
    			     	    html += "</div>";
    			     	    html += "</div>";
 
    			     	    html += "<div class='form-group clearfix'>";
    			     	    html += "<label class='col-sm-2 col-xs-3  control-label'>Clarity Grade</label>";
    			     	    html += "<div class='col-sm-10 col-xs-9'>";
-   			     	    html += "<select id='form_clarity' class='clarity form-control'>";
-   			     	    html += "<option value='-' "+(j.clarity=='-' ? 'selected':'')+">-</option>";
-   			     	    html += "<option value='FL' "+(j.clarity=='FL' ? 'selected':'')+">FL</option>";
-   			     	    html += "<option value='IF' "+(j.clarity=='IF' ? 'selected':'')+">IF</option>";
-   			     	    html += "<option value='VVS1' "+(j.clarity=='VVS1' ? 'selected':'')+">VVS1</option>";
-   			     	    html += "<option value='VVS2' "+(j.clarity=='VVS2' ? 'selected':'')+">VVS2</option>";
-   			     	    html += "<option value='VS1' "+(j.clarity=='VS1' ? 'selected':'')+">VS1</option>";
-   			     	    html += "<option value='VS2' "+(j.clarity=='VS2' ? 'selected':'')+">VS2</option>";
-   			     	    html += "<option value='SI1' "+(j.clarity=='SI1' ? 'selected':'')+">SI1</option>";
-   			     	    html += "<option value='SI2' "+(j.clarity=='SI2' ? 'selected':'')+">SI2</option>";
-   			     	    html += "</select>";
+   			     	    html += "<input id='clarityGrade' type='text' name='clarityGrade' list='clarityGradeList' value='"+j.clarity+"' placeholder='请选择'>\
+                                                                                                   			     	    <datalist id='clarityGradeList'>\
+                                                                                                                          <option value='FL'>FL</option><option value='IF'>IF</option><option value='VVS1'>VVS1</option><option value='VVS2'>VVS2</option>\
+                                                                                                                          <option value='VS1'>VS1</option><option value='VS2'>VS2</option><option value='SI1'>SI1</option><option value='SI2'>SI2</option>\
+                                                                                                                        </datalist>";
    			     	    html += "</div>";
    			     	    html += "</div>";
 
