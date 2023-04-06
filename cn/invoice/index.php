@@ -212,7 +212,7 @@
 						<p class="">Total:</p>
 					</div>
 					<div class="col-xs-2  clearfix">
-						<lable class="currencyHint"></lable><span class="vat_price print_none"></span>
+						<lable class="currencyHint"></lable><span class="vat_price print_none"></span><br/>
 						<lable class="currencyHint"></lable><span id="print_price"class="total_price"></span>
 					</div>
 				</div>
