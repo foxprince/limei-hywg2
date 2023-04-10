@@ -78,7 +78,6 @@ function to_print(type,printWithReportNo){
 	        	}
 	        	else
 	        		html+= '<p></p>';
-        
 	        html +='<p>Cut Grade <span class="pull-right">'+$(this).find('#form_cutGrade option:selected').val()+'</span></p>'+
 	        '<p>Polish <span class="pull-right">'+$(this).find('#form_polish option:selected').val()+'</span></p>'+
 	        '<p>Symmetry<span class="pull-right">'+$(this).find('#form_symmetry option:selected').val()+'</span></p>';
