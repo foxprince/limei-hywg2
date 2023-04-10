@@ -287,9 +287,10 @@
    			     	    <div class='form-group clearfix'>\
    			     	    <label class='col-sm-2 col-xs-3  control-label'>Jewelry</label>\
    			     	    <div class='col-sm-10 col-xs-9'>\
-   			     	    <select id='form_jewerly' class='jewerly form-control'>\
-   			     	<option value='Ring' "+(j.jewerly=='Ring'?'selected':'')+">Ring</option><option value='Necklace' "+(j.jewerly=='Necklace'?'selected':'')+">Necklace</option><option value='Earring' "+(j.jewerly=='Earring'?'selected':'')+">Earring</option><option value='Bracelet' "+(j.jewerly=='Bracelet'?'selected':'')+">Earring</option><option value='Diamond Ring' "+(j.jewerly=='Diamond Ring'?'selected':'')+">Diamond Ring</option><option value='Diamond Necklace' "+(j.jewerly=='Diamond Necklace'?'selected':'')+">Diamond Necklace</option><option value='Diamond Earring' "+(j.jewerly=='Diamond Earring'?'selected':'')+">Diamond Earring</option><option value='Diamond Bracelet' "+(j.jewerly=='Diamond Bracelet'?'selected':'')+">Diamond Bracelet</option>\
-   			     	    </select>\
+   			     	    <input id='type' type='text' name='jewerlyType' list='typelist' value='"+j.jewerly+"'>\
+                                                                                   			     	    <datalist id='typelist'>\
+                                                                                                        　　<option value='Ring'>Ring</option><option value='Necklace'>Necklace</option><option value='Earring'>Earring</option><option value='Diamond Ring'>Diamond Ring</option><option value='Diamond Necklace'>Diamond Necklace</option><option value='Diamond Earring'>Diamond Earring</option>\
+                                                                                                        </datalist>\
    			     	    </div></div><div class='form-group clearfix'>\
    			     	    <label class='col-sm-2 col-xs-3  control-label'>Price</label>\
    			     	    <div class='col-sm-10 col-xs-9'> \
