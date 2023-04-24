@@ -167,7 +167,7 @@
 
 				<div>
 				<div class="Total">
-                	<h1 class="clearfix">Total：<span data-price="0" class="total_price"><lable class="currencyHint"></lable><input name="total_price" value="0.00"/></span></h1>
+                	<h1 class="clearfix">Total：<lable class="currencyHint"></lable><span data-price="0" class="total_price"><input name="total_price" value="0.00"/></span></h1>
                 </div>
 				</div>
 				<div class="col-xs-12 text-right fotter">

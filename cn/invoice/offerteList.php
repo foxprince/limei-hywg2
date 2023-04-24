@@ -111,7 +111,6 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                 <!--抬头-->
                 <div class="col-xs-12 rise clearfix">
                     <p>LUMIA JEWELRY</p>
-                    <p class="rise-vat print_none">VAT：0599.972.516</p>
                     <p>PELIKAANSTRAAT 62 BUS 314</p>
                     <div class="clearfix">
                         <span class="pull-left" id="corp">2018   ANTWERPEN</span>
@@ -136,7 +135,6 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                     <div class="col-xs-3 clearfix"></div>
                     <div class="col-xs-6 clearfix"></div>
                     <div class="col-xs-1 clearfix">
-                        <p class="vat_price">21%VAT:</p>
                         <p class="">Total:</p>
                     </div>
                     <div class="col-xs-2  clearfix">
