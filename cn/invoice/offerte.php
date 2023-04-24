@@ -167,7 +167,6 @@
 
 				<div>
 				<div class="Total">
-                    <h1 class="clearfix">21%VAT：<span data-price="0" class="vat_price"><lable class="currencyHint"></lable><input name="vat_price" value="0.00"/></span></h1>
                 	<h1 class="clearfix">Total：<span data-price="0" class="total_price"><lable class="currencyHint"></lable><input name="total_price" value="0.00"/></span></h1>
                 </div>
 				</div>
@@ -186,7 +185,6 @@
 				<!--抬头-->
 				<div class="col-xs-12 rise clearfix">
 					<p>LUMIA JEWELRY</p>
-					<p class="rise-vat print_none">VAT：0599.972.516</p>
 					<p>PELIKAANSTRAAT 62 BUS 314</p>
 					<div class="clearfix">
 						<span class="pull-left" id="corp">2018   ANTWERPEN</span>
