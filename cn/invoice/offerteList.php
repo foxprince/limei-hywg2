@@ -138,7 +138,6 @@ if(!isset($_SESSION['invoiceAdmin'])) {
                         <p class="">Total:</p>
                     </div>
                     <div class="col-xs-2  clearfix">
-                        <p id="vat_price" class="vat_price">€0</p>
                         <p id="print_price"class="total_price">€0</p>
                     </div>
                 </div>
