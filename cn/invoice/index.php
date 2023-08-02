@@ -509,6 +509,7 @@
 		function invoice(type) {
 			if(type=='invoice')
 				saveOrUpdate('invoice');
+			total_invoice();
 			to_print(type);
             if(type=='invoice'||type=='credit-invoice')
 				$('.to_invoice').html('INVOICE：  '+ $('#invoice_no').val());
