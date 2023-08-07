@@ -489,7 +489,7 @@ function currencyRate(to,first) {
 function  total(invoiceOrReceipt){
     if(invoiceOrReceipt=='invoice')
         total_invoice();
-    else
+    else if(invoiceOrReceipt=='receipt')
         total_receipt();
 }
 function  total_invoice(){
