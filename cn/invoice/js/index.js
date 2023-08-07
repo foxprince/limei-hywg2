@@ -115,7 +115,7 @@ function returnData(data) {
  */
 function removeData(data) {
     $(data).parents('.addContent').remove();
-    total(invoiceOrReceipt);
+    total();
 }
 
 //补零
@@ -270,7 +270,7 @@ function diaContent() {
 	    html += "<div class='form-group clearfix'>";
 	    html += "<label class='col-sm-2 col-xs-3  control-label'>Price</label>";
 	    html += "<div class='col-sm-10 col-xs-9'>";
-	    html += " <input onblur='total("+invoiceOrReceipt+")' value='0.00' id='form_price' class='price form-control' type='text' placeholder='0.00'>";
+	    html += " <input onblur='total()' value='0.00' id='form_price' class='price form-control' type='text' placeholder='0.00'>";
 	    html += "</div>";
 	    html += "</div>";
 
@@ -362,7 +362,7 @@ function diaContent() {
 	    </div></div><div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Price</label>\
 	    <div class='col-sm-10 col-xs-9'> \
-	    <input onblur='total("+invoiceOrReceipt+")' class='jewerly_price form-control' id='form_price2' value='0.00' type='text' placeholder='0.00'>\
+	    <input onblur='total()' class='jewerly_price form-control' id='form_price2' value='0.00' type='text' placeholder='0.00'>\
 	    </div></div></div><div class='col-lg-4  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
 	    <div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Material</label><div class='col-sm-10 col-xs-9'>\
@@ -393,7 +393,7 @@ function jewelryContent() {
 	    </div></div><div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Price</label>\
 	    <div class='col-sm-10 col-xs-9'> \
-	    <input onblur='total("+invoiceOrReceipt+")' class='jewerly_price form-control' id='form_price2' value='0.00' type='text' placeholder='0.00'>\
+	    <input onblur='total()' class='jewerly_price form-control' id='form_price2' value='0.00' type='text' placeholder='0.00'>\
 	    </div></div></div><div class='col-lg-4  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
 	    <div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Material</label><div class='col-sm-10 col-xs-9'>\
@@ -449,7 +449,7 @@ function ref(to,ref){
         	p.find(".symmetry option[value='"+data.symmetry+"']").prop("selected","selected");
         }
     }})
-    total(invoiceOrReceipt);
+    total();
 }
 /*汇率转换*/
 $(".currency img").click(function () {
@@ -480,13 +480,13 @@ function currencyRate(to,first) {
 	}
 	currency=to;
 	$("#currency").val(to);
-	total(invoiceOrReceipt);
+	total();
 	$('#currencyModal').modal('hide');
 }
 /**
  * 求和
  */
-function  total(invoiceOrReceipt){
+function  total(){
     if(invoiceOrReceipt=='invoice')
         total_invoice();
     else if(invoiceOrReceipt=='receipt')
