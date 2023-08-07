@@ -234,6 +234,7 @@
 	<script src="js/index.js"></script>
 	<script>
 	$('#currencyModal').modal('show');
+	var invoiceOrReceipt = 'receipt';
 	var time = new Date();
     var to_time = String(time.getFullYear())+String(PrefixInteger(time.getMonth()+1))+String(PrefixInteger(time.getDate()));
     //$('#corp').html(String(time.getFullYear())+'   ANTWERPEN');
@@ -498,9 +499,9 @@
 			return false;
 		})
 	})
-	function saves() {
-    			saveOrUpdate();
-    		}
+	    function saves() {
+    		saveOrUpdate();
+    	}
 		/*发票*/
 		function invoice(type) {
 			if(type=='invoice'||type=='credit')
@@ -522,7 +523,6 @@
 		}
 		/*收据*/
 		function receipt(type){
-			//total_receipt();
             saveOrUpdate(type);
 			$('.to_invoice').html('');
 			$('.print_none').hide();

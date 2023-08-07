@@ -240,6 +240,7 @@
 	<script>
 	//$('#currencyModal').modal('show');
 	var time = new Date();
+	var invoiceOrReceipt = 'invoice';
     var to_time = String(time.getFullYear())+String(PrefixInteger(time.getMonth()+1))+String(PrefixInteger(time.getDate()));
     //$('#corp').html(String(time.getFullYear())+'   ANTWERPEN');
     $('#tranc_date').val(to_time);
