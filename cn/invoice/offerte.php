@@ -292,7 +292,7 @@
    			     	    </div></div><div class='form-group clearfix'>\
    			     	    <label class='col-sm-2 col-xs-3  control-label'>Price</label>\
    			     	    <div class='col-sm-10 col-xs-9'> \
-   			     	    <input onblur='total()' class='jewerly_price form-control' id='form_price2' value=";
+   			     	    <input onblur='total_receipt' class='jewerly_price form-control' id='form_price2' value=";
    			     	    content += j.jewerly_price+" type='text' placeholder='0.00'>\
    			     	    </div></div></div><div class='col-lg-4  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
 	   			 	    <div class='form-group clearfix'>\
@@ -379,7 +379,7 @@
    			     	    html += "<div class='form-group clearfix'>";
    			     	    html += "<label class='col-sm-2 col-xs-3  control-label'>Price</label>";
    			     	    html += "<div class='col-sm-10 col-xs-9'>";
-   			     	    html += " <input onblur='total()' value='"+j.price+"' id='form_price' class='price form-control' type='text' placeholder='0.00'>";
+   			     	    html += " <input onblur='total_receipt' value='"+j.price+"' id='form_price' class='price form-control' type='text' placeholder='0.00'>";
    			     	    html += "</div>";
    			     	    html += "</div>";
    			     	    html += "<input type='hidden' name='raw_price' class='raw_price' value='"+j.raw_price+"'>";
@@ -471,7 +471,7 @@
    			     	    </div></div><div class='form-group clearfix'>\
    			     	    <label class='col-sm-2 col-xs-3  control-label'>Price</label>\
    			     	    <div class='col-sm-10 col-xs-9'> \
-   			     	    <input onblur='total()' class='jewerly_price form-control' id='form_price2' value='"+j.jewerly_price+"' type='text' placeholder='0.00'>\
+   			     	    <input onblur='total_receipt' class='jewerly_price form-control' id='form_price2' value='"+j.jewerly_price+"' type='text' placeholder='0.00'>\
    			     	    </div></div></div><div class='col-lg-4  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
    			     	    <div class='form-group clearfix'>\
    			     	<label class='col-sm-2 col-xs-3  control-label'>Material</label><div class='col-sm-10 col-xs-9'>\
