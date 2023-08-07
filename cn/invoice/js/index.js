@@ -487,7 +487,6 @@ function currencyRate(to,first) {
  * 求和
  */
 function  total(){
-    console.log("inv or rec:"+type);
     var totals = 0;
     $('.price').each(function(){
     	totals += Number($(this).val())
