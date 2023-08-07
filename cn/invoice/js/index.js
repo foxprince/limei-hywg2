@@ -362,7 +362,7 @@ function diaContent() {
 	    </div></div><div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Price</label>\
 	    <div class='col-sm-10 col-xs-9'> \
-	    <input onblur='total('+invoiceOrReceipt+')' class='jewerly_price form-control' id='form_price2' value='0.00' type='text' placeholder='0.00'>\
+	    <input onblur='total("+invoiceOrReceipt+")' class='jewerly_price form-control' id='form_price2' value='0.00' type='text' placeholder='0.00'>\
 	    </div></div></div><div class='col-lg-4  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
 	    <div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Material</label><div class='col-sm-10 col-xs-9'>\
@@ -393,7 +393,7 @@ function jewelryContent() {
 	    </div></div><div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Price</label>\
 	    <div class='col-sm-10 col-xs-9'> \
-	    <input onblur='total('+invoiceOrReceipt+')' class='jewerly_price form-control' id='form_price2' value='0.00' type='text' placeholder='0.00'>\
+	    <input onblur='total("+invoiceOrReceipt+")' class='jewerly_price form-control' id='form_price2' value='0.00' type='text' placeholder='0.00'>\
 	    </div></div></div><div class='col-lg-4  col-md-offset-1 pdNone col-md-4   col-sm-12 col-xs-12'>\
 	    <div class='form-group clearfix'>\
 	    <label class='col-sm-2 col-xs-3  control-label'>Material</label><div class='col-sm-10 col-xs-9'>\
